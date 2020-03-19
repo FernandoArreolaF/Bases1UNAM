@@ -1,1 +1,48 @@
-hola
+\documentclass[letterpaper,12pt]{article}
+\usepackage{chicago}
+\usepackage[utf8]{inputenc}
+\usepackage[top = 2 cm, bottom = 2 cm, left = 2.5 cm, right = 2.5 cm]{geometry}
+\setlength{\parindent}{0 pt}
+\pagestyle{empty}
+\title{\textbf{Normalización }}
+\author{Gaytan Medina Gabriela }
+\usepackage[spanish]{babel}
+\date{17 de marzo 2020}
+
+\begin{document}
+
+\maketitle 
+\thispagestyle{empty}
+La normalización, o sea la razón y uso de las formas normales, es evitar la repetición innecesaria de datos (redundancia).ahorra espacio de almacenamiento, optimiza el rendimiento y, al eliminar la redundancia, impide modificaciones parciales o incompletas que podrían dar lugar a inconsistencias. Existen hasta 6 formas normales pero, en la práctica, se adopta generalmente la tercera forma normal.
+\cite{quiroz2003modelo}  \\\\
+
+La normalizacion tiene los siguientes procesos:
+\begin{flushleft}
+-FORMA NORMAL 0 o Estado Inicial (FN0)
+\end{flushleft}
+Se refiere al estado inicial en que se encuentran organizados los datos.\\
+\begin{flushleft}
+-FORMA NORMAL 1 (1FN)
+\end{flushleft}
+Se dice que el esquema de una relación R está en la primera forma normal (1FN) si los dominios de todos los atributos de R son atómicos.\cite{silberschatz2002fundamentos}. En otras palabras podemos decir que una relación está en 1FN si y sólo si toda tupla contiene exactamente un valor para cada atributo. 
+
+\begin{flushleft}
+-FORMA NORMAL 2 (2FN)
+\end{flushleft}
+ Un esquema de relación R está en la segunda forma normal (2FN) si cada atributo A de R cumple uno de los criterios siguientes: \\\\
+ • Aparece en una clave candidata.\\
+ • No es parcialmente dependiente de una clave candidata.\cite{silberschatz2002fundamentos} \\\\
+Es decir una tabla se encuentra en 2FN cuando está en 1FN y no contiene dependencias parciales. Por consiguiente, una tabla 1FN automáticamente está en 2FN si su clave primaria está basada solamente en un atributo simple. Una tabla en 2FN aún puede contener dependencias transitivas.\\\\\\\
+\begin{flushleft}
+-FORMA NORMAL 3
+\end{flushleft}
+Un esquema de relación R está en tercera forma normal (3FN) respecto a un conjunto F de dependencias funcionales si, para todas las dependencias funcionales de F+ de la forma a--b , donde cada elemento de a y b es tambien elemento de R, se cumple al menos una de las siguientes condiciones:\\
+•a--b es una dependencia funcional trivial.\\
+•a es una superclave de R. \\
+• Cada atributo A de b – a está contenido en alguna clave candidata de R.\cite{silberschatz2002fundamentos}\\\\
+Es decir una tabla se encuentra en 3FN si está en 2FN y no contiene dependencias transitivas, lo cual significa que las columnas que no forman parte de la clave primaria deben depender sólo de la clave, nunca de otra columna no clave.
+
+\bibliographystyle{chicago}
+\bibliography{referencias}
+\end{document}
+
