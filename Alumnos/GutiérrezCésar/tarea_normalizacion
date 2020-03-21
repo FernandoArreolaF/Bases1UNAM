@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\title {Normalizacion}
+\author {Gutiérrez Aguilar César Eduardo}
+\maketitle
+¿Para qué se utiliza la normalización?\\
+\hfill \break
+La normalización se utiliza para organizar los contenidos de las tablas de las bases de datos. La normalizacion no debe de ser una consideracion, debe de ser un paso obligatorio para diseñar una buena base de datos\\
+\hfill \break
+La normalizacion sirve para:\\
+Minimizar la redundancia de los datos\\
+Disminuir problemas de los datos en las tablas\\
+Proteger la integridad de datos\\
+\hfill \break
+Forma normal\\
+\hfill \break
+Las formas normales determinan el grado de vulnerabilidad de una tabla a inconsistencias y anomalias, entre mas alta sea la forma normal, menos vulnerable sera la relacion\\
+\hfill \break
+La primera forma normal solo se asegura de una tabla es una buena representacion de una relacion\\
+\hfill \break
+La segunda forma normal solo se puede utilizar en una tabla que ya cumple con la primera forma normal, una tabla cumplira con la segunda forma normal si y solo si sus atributos dependen de toda la clave primaria en vez de solo una parte de ella\\
+\hfill \break
+Al igual que con la segunda forma normal, para que una tabla cumpla con la tercera forma nor mal, esta ya debera de cumplir con la segnda forma normal, ademas debera cumplir con que ningún atributo no-primario de la tabla es dependiente transitivamente de una clave primaria
+y ademas la relacion no debe incluir ningun atributo clave\\
+\hfill \break
+Referencias\\
+\hfill \break
+https://blog.powerdata.es/el-valor-de-la-gestion-de-datos/por-que-se-necesita-la-normalizacion-de-base-de-datos\\
+\hfill \break
+E.F.Codd (junio de 1970). "A Relational Model of Data for Large Shared Databanks". Communications of the ACM.\\
+\hfill \break
+https://es.wikipedia.org/wiki/Forma\_normal\_(base\_de\_datos)\\
+
+\end{document}
