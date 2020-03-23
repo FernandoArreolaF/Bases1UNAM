@@ -1,0 +1,88 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{titling}
+
+\title{Aguilera Ortiz Alfredo\\
+       Teoria Bases de datos\\
+	   Tarea Normalizacion
+	   }
+\date{18/03/20}
+\author{Aguilera Ortiz Alfredo} 					
+
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{titlingpage}
+		\begin{center}
+			\centering
+			\includegraphics[scale=2]{logo2.jpg}  
+			\begin{LARGE}
+				\\Universidad Nacional Autónoma de México\\
+				Facultad de Ingeniería\\
+			\end{LARGE}
+			\vspace{2.5cm}
+			\begin{Large}
+				\textbf{\thetitle}\\
+			\end{Large}
+			\vspace{2cm}
+			\theauthor\\
+			\vspace{2cm}
+			\thedate
+		\end{center}
+	\end{titlingpage}
+	\newpage
+	\pagenumbering{arabic}
+	
+	\section{¿Para que se utiliza la normalización? }
+	\begin{itemize}
+	\item  La normalización es una técnica utilizada para diseñar tablas en las que las redundancias de 		datos se reducen al mínimo. Las primeras tres formas normales (1FN, 2FN y 3FN) son las más 					utilizadas. Desde un punto de vista estructural, las formas de mayor nivel son mejores que las de 			menor nivel, porque aquellas producen relativamente pocas redundancias de datos en la base de datos. 		En otras palabras, 3FN es mejor que 2FN y ésta, a su vez, es mejor que 1FN. Casi todos los diseños de 	negocios utilizan la 3FN como forma ideal.
+	
+	\end{itemize}
+	
+	\section{Primera forma normal (1FN)}
+	\begin{itemize}
+	\item  La primera regla de normalización se expresa generalmente en forma de dos indicaciones 				separadas.
+
+    -Todos los atributos, valores almacenados en las columnas, deben ser indivisibles.
+    
+    -No deben existir grupos de valores repetidos.
+    
+    Supongamos que tienes en una tabla una columna Dirección para almacenar la dirección completa, dato 		que se compondría del nombre de la calle, el número exterior, el número interior (puerta), el código 		postal, el estado y la capital.
+    
+    \includegraphics[scale=0.5]{tabla1.png}
+    
+    Una tabla con esta estructura plantea problemas a la hora de recuperar información. Imagina que 			necesitas conocer todas las entradas correspondientes a una determinada población, o que quieres 			buscar a partir del código postal. Al ser la dirección completa una secuencia de caracteres de 				estructura libre no resultaría nada fácil.
+
+	Existirán más columnas, pero cada una de ellas contendrá un valor simple e indivisible que facilitará 	la realización de las operaciones antes mencionadas.
+
+	En cuanto a la segunda indicación, se debe evitar la repetición de los datos de la población y 				provincia en cada una de las filas. Siempre que al muestrear la información de una tabla aparezcan 			datos repetidos, existe la posibilidad de crear una tabla independiente con ellos.
+
+	Si el diseño de nuestra base de datos cumple estas premisas, está preparada para pasar de la primera 		a la segunda forma normal.
+	
+	\includegraphics[scale=0.4]{tabla2.png}
+
+	\end{itemize}
+	
+	\section{Segunda forma normal (2FN)}
+	\begin{itemize}
+	\item  Además de cumplir con las dos reglas del punto previo, la segunda forma normal añade la 				necesidad de que no existan dependencias funcionales parciales. Esto significa que todos los valores 		de las columnas de una fila deben depender de la clave primaria de dicha fila, entendiendo por clave 		primaria los valores de todas las columnas que la formen, en caso de ser más de una.
+
+	Las tablas que están ajustadas a la primera forma normal, y además disponen de una clave primaria 			formada por una única columna con un valor indivisible, cumplen ya con la segunda forma normal. Ésta 		afecta exclusivamente a las tablas en las que la clave primaria está formada por los valores de dos o 	más columnas, debiendo asegurarse, en este caso, que todas las demás columnas son accesibles a través 	de la clave completa y nunca mediante una parte de esa clave. 
+	
+	\end{itemize}
+	
+	\section{Tercera forma normal (3FN)}
+	\begin{itemize}
+	\item  En cuanto a la tercera forma normal, ésta indica que no deben existir dependencias transitivas 	entre las columnas de una tabla, lo cual significa que las columnas que no forman parte de la clave 		primaria deben depender sólo de la clave, nunca de otra columna no clave. 
+	
+	\end{itemize}
+	
+	\cite{coronel2011}
+	
+	\bibliographystyle{apalike} 
+	\bibliography{Aguilera Ortiz Alfredo}
+	
+	
+	
+	
+	
+\end{document}
