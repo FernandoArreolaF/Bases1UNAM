@@ -1,0 +1,155 @@
+\documentclass[spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%\usepackage[spanish,activeacute,mexico]{babel}
+\usepackage[margin=2.5cm]{geometry} %tamaño de la hoja
+\usepackage{graphicx} % Paquete para imágenes
+\usepackage{amsmath} % Paquete para usar más funciones de matemáticas
+\usepackage{amssymb} %Para el therefore
+\usepackage{enumitem}
+
+\begin{document}
+%Datos del equipo
+\title{
+\centering{\includegraphics[width=1\linewidth]{escudos.png}\\[1cm]}\\
+UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO\\
+\vfill
+Facultad de Ingenieria\\
+\vfill
+{\bfseries TAREA}
+\vfill
+{\bfseries Normalización de Bases de Datos }
+\vfill
+\\Grupo 5\
+\vfill
+Semestre 2020-2\\
+\vfill
+BASES DE DATOS
+\vfill
+Profesor: Ing. Fernando Arreola Franco}
+\vfill
+% Agreguen sus nombres :v
+\author{\textbf{Integrantes}:\\
+Otero Garcia, Christian\\
+Vivanco Quintanar, Diego Armando\\}
+\date{17 de marzo de 2020}
+\maketitle
+\newpage
+
+
+\section{¿Para qué se utiliza la normalización?}
+
+\subsection{¿Qué es la normalización de bases de datos?}\\
+
+La normalización de base de datos es una técnica que se emplea habitualmente para organizar los contenidos de las tablas de las bases de datos transaccionales y los almacenes de datos. La aplicación de esta medida no debe ser considerada como opcional, sino como un paso necesario para garantizar un diseño de base de datos de éxito. Debemos tener en cuenta la creación de tablas y las reglas que se usan para definir las relaciones, estas reglas son diseñadas para proteger los datos, y para que la base de datos sea flexible con el fin de eliminar redundancias y dependencias incoherentes.
+    Las bases de datos relacionales se normalizan para:
+    \begin{itemize}
+        \item Evitar la redundancia de los datos.
+        \item Disminuir problemas de actualización de los datos en las tablas.
+        \item Proteger la integridad de los datos.
+        \item Facilitar el acceso e interpretación de los datos.
+        \item Reducir el tiempo y complejidad de revisión de las bases de datos.
+        \item Optimizar el espacio de almacenamiento.
+        \item Prevenir borrados indeseados de datos.
+        \item Organizar los datos en grupos lógicos, de tal manera que cada grupo describa una pequeña parte del todo.
+    \end{itemize}
+    Las consecuencias de la falta de normalización de base de datos son:
+    \begin{itemize}
+        \item Inexactitud de los sistemas de bases de datos.
+        \item Ralentización de los procesos.
+        \item Ineficiencia en las operaciones.
+    \end{itemize}
+    
+\subsection{Requisitos de la normalización}\\
+
+Para que las tablas de nuestra BD estén normalizadas deben cumplir las siguientes reglas:
+    \begin{itemize}
+        \item[$*$] Cada tabla debe tener su nombre único.
+         \item[$*$]	No puede haber dos filas iguales.
+         \item[$*$]	No se permiten los duplicados.
+         \item[$*$]	Todos los datos en una columna deben ser del mismo tipo.
+         
+    \end{itemize} 
+
+\section{Reglas o niveles de normalización}\\
+Para normalizar una base de datos existen principalmente 3 reglas, las cuales se deberían cumplir para evitar redundancias e incoherencias en las dependencias. A estas reglas se les conoce como "Forma normal" qué va de la 1 a la 3 y si la base de datos cumple con cada regla se dice que está en la "primera o segunda o tercera forma normal"\\
+    Aunque son posibles otros niveles de normalización, la tercera forma normal se considera el máximo nivel necesario para la mayoría de las aplicaciones.\CITE
+
+
+
+ 
+
+
+\newpage
+
+    \subsection{1FN}\\
+     El término primera forma normal (1FN) describe el formato tabular en el que:
+        \begin{itemize}
+            \item Todos los atributos llave están definidos.
+            \item 	No hay grupos repetidos en la tabla. En otras palabras, cada intersección de renglón/columna contiene un solo valor, no un conjunto de ellos.
+            \item Todos los atributos son dependientes de la llave primaria.
+        \end{itemize}
+        Una tabla está en 1FN cuando todos los atributos de clave están definidos y cuando todos los restantes dependen de la clave primaria. Sin embargo, una tabla en 1FN aún puede contener tanto dependencias parciales como transitivas (una dependencia parcial es aquella en la que un atributo es funcionalmente dependiente de una parte de una clave primaria de atributos múltiples. Una dependencia transitiva es aquella en la que un atributo es funcionalmente dependiente de otro atributo no de clave). Naturalmente una tabla con una clave primaria de un solo atributo no puede exhibir dependencias parciales.
+        
+    \begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{Tabla1.jpg}
+    \caption{Ejemplo de FN1.}
+    \label{fig:comu}
+    \end{figure}
+
+        \subsection{2FN}\\
+        Una tabla está en segunda forma normal (2FN) cuando:
+        \begin{itemize}
+            \item Está en 1FN.
+            \item Y también cuando no incluye dependencias parciales, esto es, ningún atributo es dependiente de sólo una parte de la llave primaria. Debe considerarse que todavía es posible que una tabla en 2FN exhiba dependencia transitiva; esto es, la llave primaria puede apoyarse en uno o más atributos no primos para determinar funcionalmente otros atributos no primos, como está indicado por una dependencia funcional entre los atributos no primos.
+        \end{itemize}
+        
+        Una tabla se encuentra en 2FN cuando está en 1FN y no contiene dependencias parciales. Por consiguiente, una tabla 1FN automáticamente está en 2FN si su clave primaria está basada solamente en un atributo simple. Una tabla en 2FN aún puede contener dependencias transitivas.
+        
+
+\newpage
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=8cm]{Tabla2.jpg}
+        \caption{Ejemplo de FN2.}
+        \label{fig:comu}
+    \end{figure}
+    
+ \subsection{3FN}\\
+Una tabla está en tercera forma normal (3FN) cuando:
+
+\begin{itemize}
+    \item Está en 2FN.
+    \item Y también cuando no contiene dependencias transitivas.
+\end{itemize}
+
+Una tabla se encuentra en 3FN si está en 2FN y no contiene dependencias transitivas, lo cual significa que las columnas que no forman parte de la clave primaria deben depender sólo de la clave, nunca de otra columna no clave. 
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=8cm]{Tabla3.jpg}
+        \caption{Ejemplo de FN3.}
+        \label{fig:comu}
+    \end{figure}
+
+\subsection{Forma normal de Boyce-Codd}\\
+La Forma Normal de Boyce-Codd (o FNBC) es una forma normal utilizada en la normalización de bases de datos. Es una versión ligeramente más fuerte de la Tercera forma normal (3FN). La forma normal de Boyce-Codd requiere que no existan dependencias funcionales no triviales de los atributos que no sean un conjunto de la clave candidata. En una tabla en 3FN, todos los atributos dependen de una clave, de la clave completa y de ninguna otra cosa excepto de la clave. Se dice que una tabla está en FNBC si y solo si está en 3FN y cada dependencia funcional no trivial tiene una clave candidata como determinante. En términos menos formales, una tabla está en FNBC si está en 3FN y los únicos determinantes son claves.
+\begin{figure}[h]
+        \centering
+        \includegraphics[width=8cm]{Tabla4.jpg}
+        \caption{Ejemplo de Forma normal de Boyce-Codd.}
+        \label{fig:comu}
+    \end{figure}
+
+\newpage
+
+\begin{thebibliography}{XXX0000}
+  \bibitem{Mauricio2016} Milagros Castañeda. Normalización de Bases de Datos, 2020. Programas.cuaed.unam.mx. [online]. URL: https://programas.cuaed.unam.mx/repositorio/moodle/pluginfile.php/872/mod_resource/content/1/contenido/index.html\\
+  
+  \bibitem{Luckie2010} Microsoft. Database normalization description - Office. Docs.microsoft.com.[online] URL:	https://docs.microsoft.com/es-es/office/troubleshoot/access/database-normalization-description
+\end{thebibliography}
+
+\end{document}
