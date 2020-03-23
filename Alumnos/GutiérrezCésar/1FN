@@ -1,0 +1,72 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{collcell}
+\newcommand{\fwcell}[1]{\makebox[\arraystretch\normalbaselineskip]{$#1$}}
+
+\begin{document}
+\title {Primera forma normal}
+\author {Gutiérrez Aguilar César Eduardo}
+\maketitle
+\begingroup
+\setlength{\tabcolsep}{22pt}
+\renewcommand{\arraystretch}{2}%
+\begin{tabular}{ | *{3}{>{\collectcell\fwcell}c<{\endcollectcell} |} }
+  \hline
+  id & project & time \\
+  \hline
+  EN1-26 & 30-452-T3 & 0.25 \\
+  \hline
+  EN1-26 & 30-457-T3 & 0.40 \\
+  \hline
+  EN1-26 & 32-244-T3 & 0.30 \\
+  \hline
+  EN1-33 & 30-452-T3 & 0.05 \\
+  \hline
+  EN1-33 & 30-382-TC & 0.35 \\
+  \hline
+  EN1-33 & 32-244-T3 & 0.60 \\
+  \hline
+  EN1-35 & 30-452-T3 & 0.15 \\
+  \hline
+  EN1-35 & 31-238-TC & 0.80 \\
+  \hline
+  EN1-36 & 35-152-TC & 0.90 \\
+  \hline
+  EN1-38 & 36-272-TC & 0.75 \\
+  \hline
+  EN1-40 & 31-238-TC & 0.20 \\
+  \hline
+  EN1-40 & 31-241-TC & 0.70 \\
+  \hline
+\end{tabular}
+\endgroup
+
+\hfill \break
+
+\begingroup
+\setlength{\tabcolsep}{27pt}
+\renewcommand{\arraystretch}{2}%
+\begin{tabular}{ | *{3}{>{\collectcell\fwcell}c<{\endcollectcell} |} }
+  \hline
+  id & name \\
+  \hline
+  EN1-26 & Sean  O'brien \\
+  \hline
+  EN1-33 & Amy  Guya \\
+  \hline
+  EN1-35 & Steven  Baranco \\
+  \hline
+  EN1-36 & Elizabeth  Roslyn \\
+  \hline
+  EN1-38 & Carol  Schaaf \\
+  \hline
+  EN1-40 & Alexandra  Wing \\
+  \hline
+\end{tabular}
+\endgroup
+
+\hfill \break
+\end{document}
