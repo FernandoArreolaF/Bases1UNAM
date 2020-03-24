@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[backend=biber]{biblatex}
+\bibliography{biblio}
+\nocite{*} 
+
+\title{NORMALIZACIÓN}
+\author{Luis Alfonso Bravo Flores} % Replace Me with your name!
+\date{17/Marzo/2020}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{¿Qué es Normalización en Base de Datos?}
+
+La normalización es el proceso de organizar los datos de una base de datos. Se incluye la creación de tablas y el establecimiento de relaciones entre ellas según reglas diseñadas tanto para proteger los datos como para hacer que la base de datos sea más flexible al eliminar la redundancia y las dependencias incoherentes.
+
+
+Los datos redundantes desperdician el espacio de disco y crean problemas de mantenimiento. Si hay que cambiar datos que existen en más de un lugar, se deben cambiar de la misma forma exactamente en todas sus ubicaciones. Un cambio en la dirección de un cliente es mucho más fácil de implementar si los datos sólo se almacenan en la tabla Clientes y no en algún otro lugar de la base de datos. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reglas de Normalización}
+Hay algunas reglas en la normalización de una base de datos. Cada regla se denomina una "forma normal". Si se cumple la primera regla, se dice que la base de datos está en la "primera forma normal". Si se cumplen las tres primeras reglas, la base de datos se considera que está en la "tercera forma normal". Aunque son posibles otros niveles de normalización, la tercera forma normal se considera el máximo nivel necesario para la mayor parte de las aplicaciones.
+
+Al igual que con otras muchas reglas y especificaciones formales, en los escenarios reales no siempre se cumplen los estándares de forma perfecta. En general, la normalización requiere tablas adicionales y algunos clientes consideran éste un trabajo considerable. Si se decide infringir una de las tres primeras reglas de la normalización, asegurarse de que su aplicación se anticipa a los problemas que puedan aparecer, como la existencia de datos redundantes y de dependencias incoherentes.
+
+         
+
+\subsection{Forma Normal "0"}
+Diremos que una tabla esta en nivel de Normalización cero porque ninguna de las reglas de normalización han sido aplicadas. No se han organizado los datos de nuestra base de datos. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Forma Normal "1"}
+
+Se tienen que seguir una serie de pasos para poder decir que una tabla está en primera forma normal, estos son:
+
+
+\begin{enumerate}
+    \item Eliminar los grupos repetitivos de la tablas individuales.
+    \item Crear una tabla separada por cada grupo de datos relacionados.
+    \item Identificar cada grupo de datos relacionados con una clave primaria.
+
+\end{enumerate}
+
+\noindent {Para identificar si lo hemos hecho de manera correcta debemos considerar los siguientes aspectos:}
+
+\begin{itemize}
+    \item Todos los atributos son atómicos. Un atributo es atómico si los elementos del dominio son indivisibles, mínimos.
+    \item La tabla contiene una clave primaria única.
+    \item La clave primaria no contiene atributos nulos.
+    \item No debe existir variación en el número de columnas.
+    \item Los campos no clave deben identificarse por la clave (Dependencia Funcional).
+    \item  Debe existir una independencia del orden tanto de las filas como de las columnas, es decir, si los datos cambian de orden no deben cambiar sus significados.
+    \item Una tabla no puede tener múltiples valores en cada columna.
+    \item Los datos son atómicos (a cada valor de X le pertenece un valor de Y y viceversa).
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Forma Normal "2"}
+
+Debemos seguir los siguientes pasos:
+
+\begin{enumerate}
+   \item Crear tablas separadas para aquellos grupos de datos que se aplican a varios registros.
+    \item Relacionar estas tablas mediante una clave externa.
+\end{enumerate}
+
+\noindent {Sabremos si nuestra base de datos tiene en la segunda forma normal si ésta previamente cumple con las normas de la Primera forma Normal y si sus atributos no principales dependen de forma completa de la clave principal. Es decir que no existen dependencias parciales.}
+
+\subsection{Forma Normal "3"}
+Se deben considerar los siguientes puntos:
+    \begin{enumerate}
+    \item Eliminar aquellos campos que no dependan de la clave.
+    \item Ninguna columna puede depender de una columna que no tenga una clave.
+    \item No puede haber datos derivados.
+    \end{enumerate}
+
+\noindent {Podemos decir que nuestra tabla se encuentra en tercera normal si previamente estaba en segunda forma normal y si no existe ninguna dependencia funcional transitiva entre los atributos que no son clave. Es decir todo atributo no primo es implicado por la clave primaria en una secuencia no transitiva.}
+
+
+\printbibliography
+
+\end{document}
+
