@@ -1,0 +1,119 @@
+\documentclass[spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[spanish]{babel}
+\usepackage[spanish,activeacute,mexico]{babel}
+\usepackage[margin=2.5cm]{geometry} %tamaño de la hoja
+\usepackage{graphicx} % Paquete para imágenes
+\usepackage{amsmath} % Paquete para usar más funciones de matemáticas
+\usepackage{amssymb} %Para el therefore
+\usepackage{enumitem}
+ \usepackage[x11names, table]{xcolor}
+\begin{document}
+%Datos del equipo
+\title{
+\centering{\includegraphics[width=1\linewidth]{escudos.png}\\[1cm]}\\
+UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO\\
+\vfill
+Facultad de Ingenieria\\
+\vfill
+{\bfseries TAREA 3}
+\vfill
+{\bfseries Normalización de Bases de Datos }
+\vfill
+\\Grupo 5\
+\vfill
+Semestre 2020-2\\
+\vfill
+BASES DE DATOS
+\vfill
+Profesor: Ing. Fernando Arreola Franco}
+\vfill
+% Agreguen sus nombres :v
+\author{\textbf{Integrantes}:\\
+Vivanco Quintanar, Diego Armando\\}
+\date{23 de marzo de 2020}
+\maketitle
+\newpage
+\section{EJERCICIO}
+
+    A partir de la siguiente tabla normalizar a la primera forma.
+    
+     \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|c|c|c|l|}
+	\hline
+	\rowcolor{LightBlue2}
+	\textbf{DNI} & \textbf{Nombre} & \textbf{Codigo$_$Tienda} &  \textbf{Direccion$_$Tienda} & \textbf{Fecha} & \textbf{Turno}\\ \hline
+	 33445566 & Paola Martin & 100A & Transmisiones Miliares 70 & M & 02/01/2020\\ \hline
+	 44552345 & Laura Sanz & 100A & Transmisiones Miliares 70 & M & 02/01/2020\\ \hline
+	 86923456 & Daniel Diaz & 100A & Transmisiones Miliares 70 & T & 02/01/2020\\ \hline
+	 33445566 &  Paola Martin & 200B & Periferico Norte 80 & T & 03/01/2020\\ \hline
+	 12234456 & Emiliano Lopez & 300C & Av. Universidad 3000 & M & 03/01/2020\\ \hline
+	 45678367 & Francisco Monte & 200B & Periferico Norte 80 & M & 03/01/2020 \\ \hline
+	 12234456 & Emiliano Lopez & 300C & Av. Universidad 3000 & M & 04/01/2020\\ \hline
+	 45678367 & Francisco Monte & 100A & Transmisiones Miliares 70  & M & 04/01/2020 \\ \hline
+	 44552345 & Laura Sanz & 100A & Transmisiones Miliares 70 & T & 04/01/2020\\ \hline
+	 33445566 & Paola Martin & 200B & Periferico Norte 80 & M & 05/01/2020\\ \hline
+	\end{tabular}
+	\caption{Tabla original, con el DNI del empleado, nombre del empleado, codigo y direccion de la tienda en el que trabaja el empleado asi como la fecha y el turno del empleado..} \label{semi}
+	\end{table}
+	
+	
+	La 1FN prohibe los grupos repetidos, si observamos hay grupos repetidos en base al nombre del empleado, para evitar esto se opta por crear dos tablas, una va a tener como clave primaria el DNI del empleado y como atributos el nombre y apellido del empleado. Por ogtra parte la segunda tabla tendra una clave primaria compuesta, es decir la clave estara formada por el DNI del empleado y el codigo de la tienda; los atributos seran la direccion de la tiensa, la fecha y el turno del empleado.\\
+	
+	Asi pues las tablas quedan normalizadas a la 1FN de la siguiente manera:\\
+    
+    
+    
+    
+    
+     \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|l|}
+	\hline
+	\rowcolor{LightBlue2}
+	\textbf{DNI} & \textbf{Nombre} & \textbf{Apellido}\\ \hline
+	 33445566 & Paola & Martin\\ \hline
+	 44552345 & Laura & Saenz\\ \hline
+	 86923456 & Daniel & Diaz\\ \hline
+	 33445566 & Paola & Martin\\ \hline
+	 12234456 & Emiliano & Lopez \\ \hline
+	 45678367 & Francisco & Monte \\ \hline
+	\end{tabular}
+	\caption{Tabla 1, con el DNI del empleado, el nombre y apellido del empleado como atributos.} \label{tabla2}
+	\end{table}
+	
+	
+	
+	 \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|c|c|l|}
+	\hline
+	\rowcolor{LightBlue2}
+	\textbf{DNI} & \textbf{Codigo$_$Tienda} & \textbf{Direccion$_$Tienda} & \textbf{Fecha} & \textbf{Turno} \\ \hline
+	 33445566 & 100A & Transmisiones Miliares 70 & M & 02/01/2020\\ \hline
+	 44552345 & 100A & Transmisiones Miliares 70 & M & 02/01/2020\\ \hline
+	 86923456 & 100A & Transmisiones Miliares 70 & T & 02/01/2020\\ \hline
+	 33445566 & 200B & Periferico Norte 80 & T & 03/01/2020\\ \hline
+	 12234456 & 300C & Av. Universidad 3000 & M & 03/01/2020 \\\hline
+	 45678367 & 200B & Periferico Norte 80 & M & 03/01/2020 \\ \hline
+	 12234456 & 300C & Av. Universidad 3000 & M & 04/01/2020 \\\hline
+	 45678367 & 100A & Transmisiones Miliares 70 & M & 04/01/2020 \\ \hline
+	 44552345 & 100A & Transmisiones Miliares 70 & T & 04/01/2020\\ \hline
+	 33445566 & 100A & Periferico Norte 80 & M & 05/01/2020\\ \hline
+	\end{tabular}
+	\caption{Tabla 2, con el DNI del empleado y el codigo de la Tienda como clave principal, los atributos son  la direccion de la tienda, la fecha y el turno del empleado..} \label{tabla3}
+	\end{table}
+	
+	
+	
+    
+    
+       
+    
+    
+
+
+\end{document}
+
