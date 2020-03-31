@@ -1,0 +1,43 @@
+\documentclass{article} 
+\usepackage[english]{babel} 
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage{mathdots}
+\usepackage[classicReIm]{kpfonts}
+\usepackage[dvips]{graphicx} 
+
+
+\begin{document}
+
+\noindent VENTA$\mathrm{\{}$num\_Auto, fecha\_Venta, vendedor, comision, descuento$\mathrm{\}}$
+
+\noindent num\_Auto fecha\_Venta
+
+\noindent num\_Auto descuento
+
+\noindent fecha\_Venta descuento
+
+\noindent vendedor  comisi\'{o}n
+
+\noindent un auto puede ser vendido por muchos vendedores
+
+\noindent  [num\_Auto,vendedor](PK)
+
+\noindent Num\_Auto, fecha\_Venta, descuento, vendedor, comisi\'{o}n (tabla 1FN)
+
+\noindent [num\_Auto, vendedor], [vendedor,comision], [num\_Auto,fecha\_Venta,descuento] (tablas 2FN)
+
+\noindent [num\_Auto, vendedor, fecha\_Venta,], [vendedor,comision], [num\_auto,fecha\_Venta,descuento] (tablas 3FN)
+
+\noindent 
+
+\noindent est\'{a} en primera forma normal 
+
+\noindent la segunda forma normal consiste en no tener columnas dependientes de una llave primaria , as\'{i} que separ\'{e} vendedor y num\_Auto y cada una de esas tablas con las columnas con las que se puede conocer con el id de cada una.
+
+\noindent 
+
+\noindent La tercera forma normal tengo dudas, ya que en mis tablas desde la segunda forma ya no encontr\'{e} transitividad hacia otros y para cumplir con lo de un auto puede ser vendido por muchos vendedores, a la hora de realizar la venta y que no se haga repetido un campo agregu\'{e} la fecha , lo que har\'{i}a \'{u}nica a esa llave de venta.
+
+\end{document}
