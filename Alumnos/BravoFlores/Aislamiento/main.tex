@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[backend=biber]{biblatex}
+\bibliography{biblio}
+\nocite{*} 
+
+\title{NIVELES DE AISLAMIENTO EN BASE DE DATOS}
+\author{Luis Alfonso Bravo Flores} % Replace Me with your name!
+\date{31/Marzo/2020}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introducción}
+
+El aislamiento es la propiedad a nivel de base de datos que controla cómo y cuándo se realizan los cambios y si son visibles para los demás, los usuarios y los sistemas. Uno de los objetivos del aislamiento es permitir que múltiples transacciones ocurran al mismo tiempo sin afectar la ejecución de cada una.
+
+El aislamiento es una parte integral de las propiedades transaccionales de la base de datos. Es la tercera propiedad de ACID (Atomicidad, Consistencia, Aislamiento, Durabilidad) y estas propiedades aseguran que los datos sean consistentes y precisos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{¿Comó funciona?}
+
+Aquí hay un ejemplo: Si Joe emite una transacción contra una base de datos al mismo tiempo que Mary emite una transacción diferente, ambas transacciones deben operar en la base de datos de manera aislada. La base de datos debe realizar toda la transacción de Joe antes de ejecutar la de Mary o viceversa. Esto evita que la transacción de Joe lea los datos intermedios producidos como efecto secundario de parte de la transacción de Mary que finalmente no se comprometerá con la base de datos.Es importante señalar que la propiedad aislada no garantiza que una transacción específica se ejecute primero, sino que no interfiera entre sí.
+         
+
+\section{Niveles de Aislamiento}
+
+Hay cuatro niveles de aislamiento. Un mayor aislamiento limita la capacidad de los usuarios para acceder simultáneamente a los mismos datos. Cuanto mayor sea el nivel de aislamiento, mayores serán los recursos del sistema necesarios y más probable será que las transacciones de la base de datos se bloqueen entre sí.
+
+A medida que se reduce el nivel de aislamiento, hay más posibilidades de que los usuarios se encuentren con fenómenos de lectura tales como dependencias no comprometidas, también conocidas como lecturas sucias, que hacen que los datos sean leídos desde una fila que ha sido modificada por otro usuario pero que aún no ha sido confirmada en la base de datos.
+
+    \begin{enumerate}
+    \item \textbf{Serializable} es el nivel más alto, lo que significa que las transacciones se completarán antes de que otra transacción pueda comenzar.
+    \item \textbf{Las lecturas repetibles} permiten acceder a las transacciones una vez que la transacción ha comenzado, aunque no haya terminado.
+    \item \textbf{Read committed} permite acceder a los datos después de que los datos se hayan confirmado en la base de datos, pero no antes.
+    
+    \item \textbf{Read unmitted} es el nivel más bajo de aislamiento y permite acceder a los datos antes de que se hayan realizado los cambios.
+    
+    \end{enumerate}
+
+
+
+
+\printbibliography
+
+\end{document}

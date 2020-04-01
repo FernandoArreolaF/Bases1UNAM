@@ -1,0 +1,65 @@
+\documentclass{article}
+\begin{document}
+\title{Homework 5: Third Normal Form (3NF)}
+\author{Daniel Alberto Zarco Manzanares}
+\date{\today}
+\maketitle
+\paragraph{Employee's exercise\\\\}
+Third normal form from exercise about employee with his store's information that contain worker's view.
+\paragraph{First table\\\\}
+\begin{tabular}{|c|c|c|c|c|}
+Staff's number & Name & Position & Salary & Branch's number\\
+\hline
+S1550 & Tom Daniels & Manager & 46000 & B001\\
+S0003 & Sally Adams & Assistant & 30000 & B001\\
+S0010 & Mary Martinez & Manager & 50000 & B002\\
+S3250 & Robert Chin & Supervisor & 32000 & B002\\
+S2250 & Sally Stern & Manager & 48000 & B004\\
+S0415 & Art Peter & Manager & 41000 & B003 \\
+\end{tabular}
+\paragraph{Second table\\\\}
+\begin{tabular}{|c|c|c|}
+Branch's number & Branch's Address & Telephone's number\\
+\hline
+B001 & 8 Jefferson Way, Portland, OR 97201 & 503-555-3618\\
+B001 & 8 Jefferson Way, Portland, OR 97201 & 503-555-3618\\
+B002 & City Center Plaza, Seattle, WA 98122 & 206-555-6756\\
+B002 & City Center Plaza, Seattle, WA 98122 & 206-555-6756\\
+B004 & 16-14 th Avenue, Seattle, WA 98128 & 206-555-3131\\
+B003 & 14-8 th Avenue, New York, NY 10012 & 212-371-3000\\
+\end{tabular}
+\paragraph{Conclusion\\\\}
+These tables are in third normal form from normalization's rules:
+\begin{itemize}
+\item 1NF) All elements are atomic and don't have multi-value's attributes, and we don't have repeated row in the tables.
+\item 2NF) We don't have partial relations of form x -> y, y -> z.
+\item 3NF) Tables don't have transition relations, and tables are in second normal form.
+\end{itemize}
+\newpage
+\paragraph{Car sale's exercise\\\\}
+Third normal form from exercise about car sale with his store's information that contain sales men view.
+\paragraph{Firs table\\\\}
+\begin{tabular}{|c|c|c|}
+Car's number & Sale date & Discount\\
+\hline
+\end{tabular}
+\paragraph{Second table\\\\}
+\begin{tabular}{|c|c|}
+Seller & Commission\\
+\hline
+\end{tabular}
+\paragraph{Third table\\\\}
+\begin{tabular}{|c|c|}
+Car's number & Seller\\
+\hline
+\end{tabular}
+\paragraph{Conclusion\\\\}
+These tables are in third normal form from normalization's rules:
+\begin{itemize}
+\item 1NF) All elements are atomic and don't have multi-value's attributes, and we don't have repeated row in the tables.
+\item 2NF) We don't have partial relations of form x -> y, y -> z.
+\item 3NF) Tables don't have transition relations, and tables are in second normal form. We follow the implications of tables.
+\end{itemize}
+
+\end{document}
+
