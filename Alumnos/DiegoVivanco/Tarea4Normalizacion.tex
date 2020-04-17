@@ -1,0 +1,126 @@
+\documentclass[spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[spanish]{babel}
+\usepackage[spanish,activeacute,mexico]{babel}
+\usepackage[margin=2.5cm]{geometry} %tamaño de la hoja
+\usepackage{graphicx} % Paquete para imágenes
+\usepackage{amsmath} % Paquete para usar más funciones de matemáticas
+\usepackage{amssymb} %Para el therefore
+\usepackage{enumitem}
+ \usepackage[x11names, table]{xcolor}
+\begin{document}
+%Datos del equipo
+\title{
+\centering{\includegraphics[width=1\linewidth]{escudos.png}\\[1cm]}\\
+UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO\\
+\vfill
+Facultad de Ingenieria\\
+\vfill
+{\bfseries TAREA 4}
+\vfill
+{\bfseries Normalización de Bases de Datos }
+\vfill
+\\Grupo 5\
+\vfill
+Semestre 2020-2\\
+\vfill
+BASES DE DATOS
+\vfill
+Profesor: Ing. Fernando Arreola Franco}
+\vfill
+% Agreguen sus nombres :v
+\author{\textbf{Integrantes}:\\
+Vivanco Quintanar, Diego Armando\\}
+\date{26 de marzo de 2020}
+\maketitle
+\newpage
+\section{EJERCICIO}
+
+    A partir de la siguiente tabla normalizar hasta la segunda forma.
+    
+    \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|c|c|c|l|}
+	\hline
+	\rowcolor{LightBlue2}
+	\textbf{staffNo} & \textbf{branchNo} & \textbf{branchAddress} &  \textbf{name} & \textbf{position} & \textbf{hoursPerWeek}\\ \hline
+	 S4555 & B002 & City Center Plaza, Seattle, WA 98122 & Ellen Layman & Assistant & 16\\ \hline
+	 S4555 & B004 & 16-14th Avenue, Seattle, WA 98128 & Ellen Layman & Assistant & 9\\ \hline
+	 S4612 & B002 & City Center Plaza, Seattle, WA 98122 & Dave Sinclair & Assistant & 14\\ \hline
+	 S4612 & B004 & 16-14th Avenue, Seattle, WA 98128 & Dave Sinclair & Assistant & 10\\ \hline
+	\end{tabular}
+	\caption{Tabla con los datos del personal de una empresa.} \label{semi}
+	\end{table}
+	
+	
+	Como podemos observar en la tabla \ref{semi} grupos repetidos tanto para staffNo, branchNo, name y position, la forma de evitar estos grupos repetidos es normalizando dicha tabla a primera forma normal.
+	Sin embargo en la clase hemos podido ver que al obtener las dependencias funcionales de la tabla se nos facilita llegar a la segunda formal y por consiguiente a la primer forma normal.
+	Partiendo de lo anterior vamos a definir lo siguiente:
+	\begin{itemize}
+	    \item A $=$ staffNo
+	    \item B $=$ branchNo
+	    \item C $=$ branchAddress
+	    \item D $=$ name
+	    \item E $=$ position
+	    \item F $=$ hoursPerWeek
+	\end{itemize}
+	Entonces las dependencias las podemos ver de la siguiente manera:\\
+	\begin{itemize}
+	    \item [$*$] A $->$ \{D, E\}
+	    \item [$*$] A,B $->$ \{F\}
+	    \item [$*$] B $->$ \{ C\}
+	\end{itemize}
+	
+	Como sabemos la segunda forma normal evita las dependencias parciales, a través de A podemos obtener la infomracion contenida en D y E, a su vez a partir de B podemos visualizar la información de C. Ahora observemos lo siguiente, a partir de la clave primaria compuesta: A y B podemos llegar a F pero tambien partiendo de A o de B podemos llegar a los demas atributos de nuestra tabla por lo que no hay dependencias parciales.
+	
+	Asi pues las tablas normalizadas en 2FN quedan de la siguiente manera:\\
+	
+	\begin{table}[ht]
+	    \centering
+	    \begin{tabular}{|c|c|c|l|}
+	    \hline
+	    \rowcolor{LightBlue2}
+	    \textbf{StaffNo} & \textbf{name} & \textbf{position}\\ \hline
+	        S4555 &  Ellen Layman & Assistant\\ \hline
+	        S4612 &  Dave Sinclair & Assistan\\ \hline
+	    \end{tabular} 
+	    \caption{Tabla con los atributos StaffNo, name y position del personal}
+	    \label{tab:Personal}
+	\end{table}
+	
+    \newpage
+		\begin{table}[ht]
+	    \centering
+	    \begin{tabular}{|c|c|c|l|}
+	    \hline
+	    \rowcolor{LightBlue2}
+	    \textbf{StaffNo} & \textbf{branchNo} & \textbf{hoursPerWeek}\\ \hline
+	        S4555 &  B002 & 16\\ \hline
+	        S4555 &  B004 & 9\\ \hline
+	        S4612 &  B002 & 14\\ \hline
+	        S4612 &  B004 & 10\\ \hline
+	    \end{tabular} 
+	    \caption{Tabla con la clave primaria compuesta (StaffNo y branchNo) y las horas que labora el personal.}
+	    \label{tab:Horas}
+	\end{table}
+	
+	
+			\begin{table}[ht]
+	    \centering
+	    \begin{tabular}{|c|c|c|l|}
+	    \hline
+	    \rowcolor{LightBlue2}
+	    \textbf{branchNo} & \textbf{branchAddress}\\ \hline
+	       B002 & City Center Plaza, Seattle, WA 98122\\ \hline
+	       B004 & 16-14th Avenue, Seattle, WA 98128\\ \hline
+	    \end{tabular} 
+	    \caption{Tabla con los atributos branchNo y las horas que labora el personal.}
+	    \label{tab:Horas}
+	\end{table}
+    
+\section{Conclusiones}
+En este ejercicio se pudo observar que el identificar las dependencias funcionales de la tabla nos permite llegar a la 2FN sin la necesidad de primero pasar por la 1FN y de esa manera hacer una buena normalización de nuestros datos.
+
+\end{document}
+
