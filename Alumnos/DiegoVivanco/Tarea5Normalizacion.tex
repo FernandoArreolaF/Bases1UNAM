@@ -1,0 +1,258 @@
+\documentclass[spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[spanish]{babel}
+\usepackage[spanish,activeacute,mexico]{babel}
+\usepackage[margin=2.5cm]{geometry} %tamaño de la hoja
+\usepackage{graphicx} % Paquete para imágenes
+\usepackage{amsmath} % Paquete para usar más funciones de matemáticas
+\usepackage{amssymb} %Para el therefore
+\usepackage{enumitem}
+ \usepackage[x11names, table]{xcolor}
+\begin{document}
+%Datos del equipo
+\title{
+\centering{\includegraphics[width=1\linewidth]{escudos.png}\\[1cm]}\\
+UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO\\
+\vfill
+Facultad de Ingenieria\\
+\vfill
+{\bfseries TAREA 5}
+\vfill
+{\bfseries Normalización de Bases de Datos }
+\vfill
+\\Grupo 5\
+\vfill
+Semestre 2020-2\\
+\vfill
+BASES DE DATOS
+\vfill
+Profesor: Ing. Fernando Arreola Franco}
+\vfill
+% Agreguen sus nombres :v
+\author{\textbf{Integrantes}:\\
+Vivanco Quintanar, Diego Armando\\}
+\date{23 de marzo de 2020}
+\maketitle
+\newpage
+\section{EJERCICIO 1}
+
+    A partir de la siguiente tabla normalizar a la primera forma.
+    
+     \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|c|c|c|l|}
+	\hline
+	\rowcolor{LightBlue2}
+	\textbf{DNI} & \textbf{Nombre} & \textbf{Código$_$Tienda} &  \textbf{Dirección$_$Tienda} & \textbf{Fecha} & \textbf{Turno}\\ \hline
+	 33445566 & Paola Martin & 100A & Transmisiones Miliares 70 & M & 02/01/2020\\ \hline
+	 44552345 & Laura Sanz & 100A & Transmisiones Miliares 70 & M & 02/01/2020\\ \hline
+	 86923456 & Daniel Diaz & 100A & Transmisiones Miliares 70 & T & 02/01/2020\\ \hline
+	 33445566 &  Paola Martin & 200B & Periferico Norte 80 & T & 03/01/2020\\ \hline
+	 12234456 & Emiliano Lopez & 300C & Av. Universidad 3000 & M & 03/01/2020\\ \hline
+	 45678367 & Francisco Monte & 200B & Periferico Norte 80 & M & 03/01/2020 \\ \hline
+	 12234456 & Emiliano Lopez & 300C & Av. Universidad 3000 & M & 04/01/2020\\ \hline
+	 45678367 & Francisco Monte & 100A & Transmisiones Miliares 70  & M & 04/01/2020 \\ \hline
+	 44552345 & Laura Sanz & 100A & Transmisiones Miliares 70 & T & 04/01/2020\\ \hline
+	 33445566 & Paola Martin & 200B & Periferico Norte 80 & M & 05/01/2020\\ \hline
+	\end{tabular}
+	\caption{Tabla original, con el DNI del empleado, nombre del empleado, codigo y direccion de la tienda en el que trabaja el empleado asi como la fecha y el turno del empleado..} 
+	\label{original}
+	\end{table}
+	
+
+    Partiendo de la tarea 3 en donde Normalizamos la tabla \ref{original} a 1FN, obtuvimos las tablas \ref{tabla2} y \ref{tabla3}.
+    
+    
+    
+    \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|l|}
+	\hline
+	\rowcolor{LightBlue2}
+	\textbf{DNI} & \textbf{Nombre} & \textbf{Apellido}\\ \hline
+	 33445566 & Paola & Martin\\ \hline
+	 44552345 & Laura & Saenz\\ \hline
+	 86923456 & Daniel & Diaz\\ \hline
+	 33445566 & Paola & Martin\\ \hline
+	 12234456 & Emiliano & Lopez \\ \hline
+	 45678367 & Francisco & Monte \\ \hline
+	\end{tabular}
+	\caption{Tabla con el DNI del empleado, el nombre y apellido del empleado como atributos.} 
+	\label{tabla2}
+	\end{table}
+	
+	
+	
+	 \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|c|c|l|}
+	\hline
+	\rowcolor{LightBlue2}
+	\textbf{DNI} & \textbf{Codigo$_$Tienda} & \textbf{Dirección$_$Tienda} & \textbf{Fecha} & \textbf{Turno} \\ \hline
+	 33445566 & 100A & Transmisiones Miliares 70 & M & 02/01/2020\\ \hline
+	 44552345 & 100A & Transmisiones Miliares 70 & M & 02/01/2020\\ \hline
+	 86923456 & 100A & Transmisiones Miliares 70 & T & 02/01/2020\\ \hline
+	 33445566 & 200B & Periferico Norte 80 & T & 03/01/2020\\ \hline
+	 12234456 & 300C & Av. Universidad 3000 & M & 03/01/2020 \\\hline
+	 45678367 & 200B & Periferico Norte 80 & M & 03/01/2020 \\ \hline
+	 12234456 & 300C & Av. Universidad 3000 & M & 04/01/2020 \\\hline
+	 45678367 & 100A & Transmisiones Miliares 70 & M & 04/01/2020 \\ \hline
+	 44552345 & 100A & Transmisiones Miliares 70 & T & 04/01/2020\\ \hline
+	 33445566 & 100A & Periferico Norte 80 & M & 05/01/2020\\ \hline
+	\end{tabular}
+	\caption{Tabla con el DNI del empleado y el código de la Tienda como clave principal, los atributos son  la dirección de la tienda, la fecha y el turno del empleado.}
+	\label{tabla3}
+	\end{table}
+	
+	
+Ahora vamos a definir lo siguiente:\\
+\begin{itemize}
+    \item A $=$ DNI
+    \item B $=$ Nombre
+    \item C $=$ Código\_Tienda
+    \newpage
+    \item D $=$ Dirección$_$Tienda
+    \item E $=$ Fecha
+    \item F $=$ Turno
+\end{itemize}
+	
+	En la tabla \ref{tabla3} podemos observar que tenemos una dependencia parcial, ya que solo con el código de la tienda podemos acceder a la dirección de la tienda. Para evitar esta dependencia parcial vamos a crear otra tabla con el código de la tienda y la dirección de la tienda, con esto obtenemos la 2FN y las dependencias quedan de la siguiente manera: \\
+	\begin{itemize}
+	    \item A $->$ \{B\}
+	    \item A,C $->$ \{E,F\}
+	    \item C $->$ \{D\}
+	\end{itemize}
+	Las dependencias antes mencionadas se ilustran en las siguientes tablas:\\
+	
+	\begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|l|}
+	\hline
+	\rowcolor{green}
+	\textbf{DNI} & \textbf{Nombre} & \textbf{Apellido}\\ \hline
+	 33445566 & Paola & Martin\\ \hline
+	 44552345 & Laura & Saenz\\ \hline
+	 86923456 & Daniel & Diaz\\ \hline
+	 33445566 & Paola & Martin\\ \hline
+	 12234456 & Emiliano & Lopez \\ \hline
+	 45678367 & Francisco & Monte \\ \hline
+	\end{tabular}
+	\caption{Tabla con el DNI del empleado, el nombre y apellido del empleado como atributos.} 
+	\label{tabla12FN}
+	\end{table}
+	
+    \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|c|c|l|}
+	\hline
+	\rowcolor{green}
+	\textbf{DNI} & \textbf{Código$_$Tienda} & \textbf{Fecha} & \textbf{Turno} \\ \hline
+	 33445566 & 100A & M & 02/01/2020\\ \hline
+	 44552345 & 100A & M & 02/01/2020\\ \hline
+	 86923456 & 100A & T & 02/01/2020\\ \hline
+	 33445566 & 200B & T & 03/01/2020\\ \hline
+	 12234456 & 300C & M & 03/01/2020 \\\hline
+	 45678367 & 200B & M & 03/01/2020 \\ \hline
+	 12234456 & 300C & M & 04/01/2020 \\\hline
+	 45678367 & 100A & M & 04/01/2020 \\ \hline
+	 44552345 & 100A & T & 04/01/2020\\ \hline
+	 33445566 & 100A & M & 05/01/2020\\ \hline
+	\end{tabular}
+	\caption{Tabla con el DNI del empleado y el código de la Tienda como clave principal, los atributos son la fecha y el turno del empleado.}
+	\label{tabla2FN}
+	\end{table}
+    
+    
+     \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|l|}
+	\hline
+	\rowcolor{green}
+	\textbf{Código$_$Tienda} & \textbf{Dirección$_$Tienda}\\ \hline
+	 100A & Transmisiones Miliares 70 \\ \hline
+	 200B & Periferico Norte 80  \\ \hline
+	 300C & Av. Universidad 3000  \\\hline
+	\end{tabular}
+	\caption{Tabla con el DNI del empleado y el código de la Tienda como clave principal, los atributos son la fecha y el turno del empleado.}
+	\label{tabla32FN}
+	\end{table}
+       
+    \newpage
+   La tercera forma normal nos dice que tenemos que eliminar cualquier columna no llave que sea dependiente de otra columna no llave. Los pasos a seguir son:
+   \begin{itemize}
+       \item Determinar las columnas que son dependientes de otra columna no llave.
+       \item Eliminar esas columnas de la tabla base.
+       \item Crear una segunda tabla con esas columnas y con la columna no llave de la cual son dependientes.
+   \end{itemize}
+  
+    En este ejercicio al normalizar a 2FN tambien eliminamos las dependencias transitivas o como se explico anteriormente no hay columnas no llave que dependa de otra columna no llave. Si observamos, en la tabla \ref{tabla12FN} para obtener el nombre de un empleado basta con ver el DNI, en la tabla \ref{tabla2FN} para llegar a las horas que labora tenemos que ver la llave primaria compuesta por el DNI y el código de la Tienda, inalmente en la tabla \ref{tabla32FN} con el código de la Tienda podemos ver la dirección de la tienda. Es decir cada una de las 3 tablas contiene columnas que se pueden acceder unicamente con la clave llame de su respectiva tabla.
+
+\section{EJERCICIO 2}
+ A partir de la siguiente tabla normalizar hasta la 3FN.
+    
+    \begin{table}[ht]
+    \centering
+	\begin{tabular}{|c|c|c|c|c|c|l|}
+	\hline
+	\rowcolor{LightBlue2}
+	\textbf{staffNo} & \textbf{branchNo} & \textbf{branchAddress} &  \textbf{name} & \textbf{position} & \textbf{hoursPerWeek}\\ \hline
+	 S4555 & B002 & City Center Plaza, Seattle, WA 98122 & Ellen Layman & Assistant & 16\\ \hline
+	 S4555 & B004 & 16-14th Avenue, Seattle, WA 98128 & Ellen Layman & Assistant & 9\\ \hline
+	 S4612 & B002 & City Center Plaza, Seattle, WA 98122 & Dave Sinclair & Assistant & 14\\ \hline
+	 S4612 & B004 & 16-14th Avenue, Seattle, WA 98128 & Dave Sinclair & Assistant & 10\\ \hline
+	\end{tabular}
+	\caption{Tabla con los datos del personal de una empresa.} \label{semi}
+	\end{table}
+	
+	En la tarea 4 normalizamos el ejercicio a 2FN en donde las tablas quedaron de la siguiente manera:\\
+	
+	\begin{table}[ht]
+	    \centering
+	    \begin{tabular}{|c|c|c|l|}
+	    \hline
+	    \rowcolor{green}
+	    \textbf{StaffNo} & \textbf{name} & \textbf{position}\\ \hline
+	        S4555 &  Ellen Layman & Assistant\\ \hline
+	        S4612 &  Dave Sinclair & Assistan\\ \hline
+	    \end{tabular} 
+	    \caption{Tabla con los atributos StaffNo, name y position del personal}
+	    \label{tab:Personal}
+	\end{table}
+	
+		\begin{table}[ht]
+	    \centering
+	    \begin{tabular}{|c|c|c|l|}
+	    \hline
+	    \rowcolor{green}
+	    \textbf{StaffNo} & \textbf{branchNo} & \textbf{hoursPerWeek}\\ \hline
+	        S4555 &  B002 & 16\\ \hline
+	        S4555 &  B004 & 9\\ \hline
+	        S4612 &  B002 & 14\\ \hline
+	        S4612 &  B004 & 10\\ \hline
+	    \end{tabular} 
+	    \caption{Tabla con la clave primaria compuesta (StaffNo y branchNo) y las horas que labora el personal.}
+	    \label{tab:Horas}
+	\end{table}
+	
+	\newpage
+			\begin{table}[ht]
+	    \centering
+	    \begin{tabular}{|c|c|c|l|}
+	    \hline
+	    \rowcolor{green}
+	    \textbf{branchNo} & \textbf{branchAddress}\\ \hline
+	       B002 & City Center Plaza, Seattle, WA 98122\\ \hline
+	       B004 & 16-14th Avenue, Seattle, WA 98128\\ \hline
+	    \end{tabular} 
+	    \caption{Tabla con los atributos branchNo y las horas que labora el personal.}
+	    \label{tab:Horas}
+	\end{table}
+	
+	Este segundo ejercicio es parecido al ejercicio anterior ya que al tenerlo normalizado en 2FN tanto las dependencias parciales como las transitivas se han eliminado, dando lugar a que en cada una de las tablas las columnas con atributos no llave no pedendan o deriven de otras columnas no llave, es decir para cada tabla las columnas solo dependen de columnas llave.
+	
+	\section{Conclusiones}\\
+	En los ejercicios mostrados observamos que al obtener las dependencias funcionales y obtener la 2FN indirectamente estamos eliminando las dependencias transitivas, lo que significa que obtenemos la tercera forma normal ahorrandonos trabajo de más.
+	
+\end{document}
+
