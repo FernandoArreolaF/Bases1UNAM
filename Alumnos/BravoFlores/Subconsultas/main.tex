@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[backend=biber]{biblatex}
+\bibliography{biblio}
+\nocite{*} 
+\setlength{\parindent}{0pt}
+
+\title{SUBCONSULTAS \\(Casos de uso, Restricciones, Ejemplos)}
+\author{Luis Alfonso Bravo Flores} % Replace Me with your name!
+\date{01/Mayo/2020}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introducción}
+
+Una subconsulta es una sentencia SELECT que aparece dentro de otra sentencia SELECT que llamaremos consulta principal. Se puede encontrar en la lista de selección, en la cláusula WHERE o en la cláusula HAVING de la consulta principal.
+
+Una subconsulta tiene la misma sintaxis que una sentencia SELECT normal exceptuando que aparece encerrada entre paréntesis, no puede contener la cláusula ORDER BY, ni puede ser la UNION de varias sentencias SELECT, además tiene algunas restricciones en cuanto a número de columnas según el lugar donde aparece en la consulta principal. Estas restricciones se irán describiendo en cada caso.
+
+Cuando se ejecuta una consulta que contiene una subconsulta, la subconsulta se ejecuta por cada fila de la consulta principal.Se aconseja no utilizar campos calculados en las subconsultas, ralentizan la consulta. Las consultas que utilizan subconsultas suelen ser más fáciles de interpretar por el usuario.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Subconsulta en la lista de selección}
+
+Cuando la subconsulta aparece en la lista de selección de la consulta principal, en este caso la subconsulta, no puede devolver varias filas ni varias columnas, de lo contrario se da un mensaje de error. Esta consulta es la que reporta un valor.
+
+Muchos SQLs no permiten que una subconsulta aparezca en la lista de selección de la consulta principal pero eso no es ningún problema ya que normalmente se puede obtener lo mismo utilizando como origen de datos las dos tablas. El ejemplo anterior se puede obtener de la siguiente forma:\\
+
+
+\textit{\textbf{Select ListaCampos, (Select …. subconsulta) from Tabla}}
+
+\section{En la cláusula FROM}
+
+Una subconsulta en una cláusula FROM actúa de manera similar a una tabla temporal que se genera durante la ejecución de una consulta y se pierde después. 
+
+
+\begin{flushleft}
+\textit{\textbf{SELECT Managers.Id, Employees.Salary\\
+  FROM (\\
+  SELECT Id\\
+  FROM Employees\\
+  WHERE ManagerId IS NULL\\
+) AS Managers\\
+JOIN Employees ON Managers.Id = Employees.Id}}
+\end{flushleft}
+
+\section{Subconsulta en las cláusulas WHERE y HAVING}
+Se suele utilizar subconsultas en las cláusulas WHERE o HAVING cuando los datos que queremos visualizar están en una tabla pero para seleccionar las filas de esa tabla necesitamos un dato que está en otra tabla. \\ \\ Ejemplo:\\
+
+\textit{\textbf{SELECT numemp, nombre\\
+FROM empleados\\
+WHERE contrato = (SELECT MIN(fechapedido) FROM pedidos)}}\\
+
+En este ejemplo se enlista el número y nombre de los empleados cuya fecha de contrato sea igual a la primera fecha de todos los pedidos de la empresa.
+
+En una cláusula WHERE / HAVING se tiene siempre una condición y la subconsulta actúa de operando dentro de esa condición.
+En el ejemplo anterior se compara contrato con el resultado de la subconsulta. 
+
+\section{Subconsultas Correlacionadas}
+Las subconsultas correlacionadas son aquellas que ejecutan fila a fila en una consulta principal con el resultado de una consulta interna. Para cada fila de la consulta principal se evalua la consulta interna, si el resultado es verdadero la fila de la consulta principal es incluida en el conjunto de resultados. \\ \\Sintaxis:\\
+
+\textit{\textbf{Select Campo1, Campo2, Campo3, … from Tabla1 Alias\\
+Where Expresión Operador\\
+(select ExpresiónN1 from Tabla2 where Expresión = Alias.Expresión)}}\\
+
+
+\printbibliography
+
+\end{document}
