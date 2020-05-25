@@ -1,0 +1,83 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[backend=biber]{biblatex}
+\bibliography{biblio}
+\nocite{*} 
+\setlength{\parindent}{0pt}
+
+\title{Diferencia entre Procedimiento Almacenado y Función en SQL SERVER y PostgreSQL}
+\author{Luis Alfonso Bravo Flores} % Replace Me with your name!
+\date{19/Mayo/2020}
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Los procedimientos almacenados y las funciones son componentes de código que se utilizan en SQL SERVER y PostgreSQL para crear rutinas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{¿Cual es la diferencia entre ellos?}
+
+La primera y más obvia diferencia, es que las funciones siempre retornan un valor, mientras que un procedimiento almacenado puede que retorne un valor o puede que no lo haga. Es decir que puede comportarse como un método o como una función, haciendo una analogía con el desarrollo de software.
+
+Otra diferencia muy importante para los desarrolladores es que los procedimientos almacenados pueden ser invocados desde el entorno de desarrollo, es decir desde .NET, pero las funciones no.  Así que al momento de desarrollar, siempre nos comunicaremos con procedimientos almacenados.
+
+Las funciones de hecho no pueden ser invocadas por sí solas, mientras que los procedimientos almacenados sí. Para invocar una función, esta debe estar dentro de una instrucción. Por ejemplo: \\
+
+\begin{verbatim}
+DECLARE 
+@modelo as int
+Select @modelo = dbo.FN_GetModeloNow()
+\end{verbatim}
+
+Sin embargo aunque pareciera que las funciones tienen ciertas desventajas sobre los procedimientos almacenados, en realidad no es así, simplemente sirven para diferentes cosas.
+
+Uno de las grandes ventajas es que las funciones retornan valores procesables. Aunque los stored procedures también retornan valores solamente podemos procesar los valores de tipo escalar. Por ejemplo:
+
+
+\begin{verbatim}
+EXEC dbo.Calculador 1,@monto=@suma OUTPUT
+\end{verbatim}
+
+ Aquí se asigna a la variable @suma el valor de salida @monto del stored procedure. Pero si el stored procedure retorna una tabla o conjunto de tablas, no es posible recuperar esos valores y usarlos para procesarlos dentro de otro código. En cambio todo valor que retorna de una función puede ser procesado.  Por ejemplo una función puede retornar un tabla completa y puedo operar con ella. En este ejemplo solo se desplega con un Select:
+ 
+\begin{verbatim}
+select * from  dbo.FN_Vista( )
+\end{verbatim}
+
+Esta función está definida de la siguiente forma:
+
+\begin{verbatim}
+CREATE FUNCTION dbo.FN_Vista
+(  
+
+)  
+RETURNS @TempVista TABLE   
+(  
+ idUsuario INT NULL,
+idModulo INT NULL,
+idVista INT NULL,
+idDepartamento INT NULL
+)  
+AS
+\end{verbatim}
+
+En el cuerpo de la función definir que datos se desea poner en la tabla @TempVista. Una vez que se recupera esta tabla de la función se puede usar para insertar en otra tabla, usar sus valores para hacer comparaciones, hacer JOIN con otras tablas, etc. Por ejemplo:
+
+\begin{verbatim}
+SELECT * FROM Usuarios U 
+INNER JOIN Departamento dep ON U.idDepartamento = dep.idDepartamento
+INNER JOIN FN_Vista( ) UR on UR.idUsuario = U.idUsuario
+\end{verbatim}
+
+Por definición,las funciones son ideales para retornar valores con los que se desea operar, mientras que los procedimientos almacenados suelen ser la parte de salida final del código. Es decir que el procedimiento almacenado es el que se comunica directamente con el usuario y le presenta el resultado final.
+
+Por eso, una función no puede invocar un procedimiento almacenado,  solamente puede invocar otra función. En cambio el procedimiento almacenado, como es código final, puede invocar funciones y procedimientos almacenados.
+
+Así que a correcta integración de un sistema que use ambos, sería utilizar procedimientos almacenados para comunicarse y enviar datos a la aplicación; mientras que las funciones se usan para procesar datos internamente dentro del stored procedure.
+
+\printbibliography
+
+\end{document}
