@@ -1,0 +1,7 @@
+Instrucciones para restaurar la base con el archivo "officesales.tar"
+1) Tener una base de datos vacía con el nombre "officesales" en su entorno de postgres.
+Query: create database officesales; (Deben de estar logeados en postgres, en la shell que le instala, o tener a postgres en sus variables de entorno de su sistema operativo) 
+O navegar con la terminal hasta el directorio de postgres, en la carpeta bin (Comando cd C:\Program Files\PostgreSQL\11\bin)
+2)Abrir una terminal en el directorio donde esta alojado el .tar, en mi caso es escritorio
+Comando en cmd (windows): pg_restore --dbname=officesales --verbose C:\Users\danie\Desktop\officesales.tar
+www.programasvirtualespc.net

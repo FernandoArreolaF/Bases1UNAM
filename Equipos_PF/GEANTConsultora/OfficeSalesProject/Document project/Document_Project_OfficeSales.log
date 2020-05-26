@@ -1,0 +1,236 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  26 MAY 2020 00:27
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**Document_Project_OfficeSales.tex
+(./Document_Project_OfficeSales.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-03-06>
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count175
+\l__pdf_internal_box=\box45
+)
+(./Document_Project_OfficeSales.aux)
+\openout1 = `Document_Project_OfficeSales.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+
+(/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count176
+\scratchdimen=\dimen137
+\scratchbox=\box46
+\nofMPsegments=\count177
+\nofMParguments=\count178
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count179
+\MPscratchDim=\dimen138
+\MPnumerator=\count180
+\makeMPintoPDFobject=\count181
+\everyMPtoPDFconversion=\toks17
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 8.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 8.
+<images/EmpresaAdminProyectos.jpg, id=1, 2007.5pt x 2007.5pt>
+File: images/EmpresaAdminProyectos.jpg Graphic file (type jpg)
+<use images/EmpresaAdminProyectos.jpg>
+Package pdftex.def Info: images/EmpresaAdminProyectos.jpg  used on input line 8
+.
+(pdftex.def)             Requested size: 184.9429pt x 184.92505pt.
+
+[1
+
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image
+s/EmpresaAdminProyectos.jpg>] [2] [3]
+<images/structured.png, id=17, 386.19281pt x 382.42876pt>
+File: images/structured.png Graphic file (type png)
+<use images/structured.png>
+Package pdftex.def Info: images/structured.png  used on input line 36.
+(pdftex.def)             Requested size: 256.0748pt x 253.57666pt.
+ [4 <./images/structured.png>]
+<images/cronograma.png, id=23, 404.26031pt x 580.41844pt>
+File: images/cronograma.png Graphic file (type png)
+<use images/cronograma.png>
+Package pdftex.def Info: images/cronograma.png  used on input line 42.
+(pdftex.def)             Requested size: 312.9803pt x 449.36797pt.
+<images/crono2.png, id=24, 806.01125pt x 538.01pt>
+File: images/crono2.png Graphic file (type png)
+<use images/crono2.png>
+Package pdftex.def Info: images/crono2.png  used on input line 46.
+(pdftex.def)             Requested size: 256.0748pt x 170.9271pt.
+ [5 <./images/cronograma.png>]
+<images/crono3.png, id=29, 851.18pt x 484.81125pt>
+File: images/crono3.png Graphic file (type png)
+<use images/crono3.png>
+Package pdftex.def Info: images/crono3.png  used on input line 50.
+(pdftex.def)             Requested size: 256.0748pt x 145.85136pt.
+ [6 <./images/crono2.png> <./images/crono3.png>]
+<images/OfficeSaleSystemDB_MER.png, id=35, 1172.38pt x 924.45375pt>
+File: images/OfficeSaleSystemDB_MER.png Graphic file (type png)
+<use images/OfficeSaleSystemDB_MER.png>
+Package pdftex.def Info: images/OfficeSaleSystemDB_MER.png  used on input line 
+65.
+(pdftex.def)             Requested size: 256.0748pt x 201.91342pt.
+<images/mr.png, id=36, 1113.40968pt x 388.45125pt>
+File: images/mr.png Graphic file (type png)
+<use images/mr.png>
+Package pdftex.def Info: images/mr.png  used on input line 71.
+(pdftex.def)             Requested size: 256.0748pt x 89.33597pt.
+ [7 <./images/OfficeSaleSystemDB_MER.png> <./images/mr.png>]
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 112--112
+[]    \OT1/cmtt/m/n/10 SELECT priceprovider INTO price_prov FROM product WHERE 
+barcode=barcode_chose;[] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 112--112
+[]    \OT1/cmtt/m/n/10 SELECT pricevendor INTO price_ven FROM product WHERE bar
+code=barcode_chose;[] 
+ []
+
+[8]
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 147--147
+[]    \OT1/cmtt/m/n/10 select stock INTO stock2 FROM product WHERE barcode=new.
+idproduct;[] 
+ []
+
+
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 147--147
+[]            \OT1/cmtt/m/n/10 RAISE EXCEPTION USING MESSAGE = 'No hay producto
+s en stock.';[] 
+ []
+
+
+Overfull \hbox (137.99579pt too wide) in paragraph at lines 147--147
+[]            \OT1/cmtt/m/n/10 RAISE WARNING 'Quedan 3 o menos piezas en Stock,
+ stock % pz. - %',stock2, NOW();[] 
+ []
+
+
+Overfull \hbox (305.99432pt too wide) in paragraph at lines 147--147
+[]            \OT1/cmtt/m/n/10 RAISE NOTICE 'Se realizo correctamente la actual
+izaci^^Son del stock %. stock2 %, stock1 %', now(), stock2, stock1;[] 
+ []
+
+[9] [10]
+Overfull \hbox (232.49496pt too wide) in paragraph at lines 244--244
+[]    \OT1/cmtt/m/n/10 RAISE NOTICE 'Address: %, %, %, %, %',street_bill, house
+_bill, colonia_bill, postal_code_bill, state_bill;[] 
+ []
+
+
+Overfull \hbox (232.49496pt too wide) in paragraph at lines 244--244
+[]    \OT1/cmtt/m/n/10 SELECT pricevendor INTO price_prod FROM product INNER JO
+IN sale ON barcode=idproduct WHERE idsale=id_sale;[] 
+ []
+
+
+Overfull \hbox (227.24501pt too wide) in paragraph at lines 244--244
+[]    \OT1/cmtt/m/n/10 SELECT quantityproduct INTO quant FROM product INNER JOI
+N sale ON barcode=idproduct WHERE idsale=id_sale;[] 
+ []
+
+[11]
+<images/xampp1.png, id=55, 264.99pt x 171.64125pt>
+File: images/xampp1.png Graphic file (type png)
+<use images/xampp1.png>
+Package pdftex.def Info: images/xampp1.png  used on input line 254.
+(pdftex.def)             Requested size: 256.0748pt x 165.87894pt.
+<images/xampp2.png, id=56, 201.75375pt x 141.52875pt>
+File: images/xampp2.png Graphic file (type png)
+<use images/xampp2.png>
+Package pdftex.def Info: images/xampp2.png  used on input line 258.
+(pdftex.def)             Requested size: 256.0748pt x 179.63585pt.
+ [12 <./images/xampp1.png>] [13 <./images/xampp2.png>] [14]
+(./Document_Project_OfficeSales.aux) ) 
+Here is how much of TeX's memory you used:
+ 1227 strings out of 480608
+ 18654 string characters out of 5903631
+ 256370 words of memory out of 5000000
+ 17153 multiletter control sequences out of 15000+600000
+ 536788 words of font info for 39 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 30i,10n,25p,753b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts
+/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm1000.pfb>
+Output written on Document_Project_OfficeSales.pdf (14 pages, 738163 bytes).
+PDF statistics:
+ 92 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+
