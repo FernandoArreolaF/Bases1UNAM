@@ -1,0 +1,192 @@
+body{
+    background: rgb(68, 97, 151);
+}
+
+.form_add{
+    background: white;
+    width: 480px;
+    height: auto;
+    margin: 50px auto;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    
+}
+
+
+form.form_data{
+    width: 84%;
+    padding: 30px 40px;
+}
+
+form.form_data h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 30px;
+}
+
+form.form_data2{
+    width: 50%;
+    padding: 110px 40px;
+}
+
+.Btn-Options{
+    margin-top: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.Btn-OptionsP{
+    margin-top: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.Btn-OptionsADD{
+    margin-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form.form_data label{
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form.form_data2 label{
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+form.form_data input{
+    width: 100%;
+    padding: 8px 0px 5px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #D1D1D1;
+    color: #5A5A5A;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+form.form_data2 input{
+    width: 100%;
+    padding: 8px 0px 5px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #D1D1D1;
+    color: #5A5A5A;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+form.form_data input[type="submit"]{
+    width: 180px;
+    background: rgba(6, 62, 126, 0.993);;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+
+    align-self: flex-end;
+
+    color: #fff;
+    font-family: 'Open sans';
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+form.form_data input[type="submit"]:hover{
+    background: rgb(176, 179, 11);
+}
+
+form.form_data2 input[type="submit"]{
+    width: 180px;
+    background: rgba(6, 62, 126, 0.993);;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+
+    align-self: flex-end;
+
+    color: #fff;
+    font-family: 'Open sans';
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+form.form_data2 input[type="submit"]:hover{
+    background: rgb(176, 179, 11);
+}
+
+.Client-info3{
+    margin: 0px 0px;
+}
+
+.Client-info4{
+    margin: 0px 0px;
+}
+
+.Client-infoPT{
+    margin-bottom: 10px;
+    color: black;
+}
+
+.Client-infoF{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.form_nC{
+    width: 180px;
+    height: 40px;
+    border-radius: 25px;
+    border:0;
+    padding:0;
+    margin:0;
+    background:rgba(6, 62, 126, 0.993);;
+    color:white;
+    font-family: 'Open sans';
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.form-control{
+    width: 100%;
+    font-family: 'Open sans';
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 10px 0px 20px 0px;
+    color: #5A5A5A;
+    border-color: #5A5A5A;
+}
+
+.form_nC:hover{
+    background: teal;
+}
+
+.foot{
+    color: rgb(3, 3, 3);
+}
+
+table {
+    border-collapse: collapse;
+    width: 98%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#dadedc;}
+
+.rs{
+    margin-top: 895px;
+    margin-left: -456px;
+    width: 90%;
+}
