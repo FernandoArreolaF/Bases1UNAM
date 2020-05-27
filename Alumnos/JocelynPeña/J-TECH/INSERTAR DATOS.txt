@@ -1,0 +1,99 @@
+INSERT INTO Cliente VALUES ('1','Natalia','Gonzales','Flores','grupo Gonzales S.A.','gonzali445@gmail.com','CDMX','Doctores','046958','Vertiz','8');
+INSERT INTO Cliente VALUES ('2','Arturo','Saavedra','Montes','Arturo C.A.','arturo880@gmail.com','Veracruz','Colosio','11768','Benito Juerez','45');
+INSERT INTO Cliente VALUES ('3','Oscar','Fonseca','Venega','Chacol S.A.','fonseve.o.98@yahoo.com','Tamaulipas','Palmas','14400','Moderna','16');
+INSERT INTO Cliente VALUES ('4','Dalia','Hurtado','Sanchez','Arcos dorados C. A','dal45@gmail.com','Colima','Roma','547896','Jardines','258');
+INSERT INTO Cliente VALUES ('5','Fatima','Avellaneda','Prado','Telefonos Car S.A.','fatipra301@gmail.com','Morelos','Mitras','870018','Duara','4');
+INSERT INTO Cliente VALUES ('6','Gabriel','Medina','Varela','Cid SA de CV','varelam.234@hotmail.com','Yucatan','Providencias','046958','1 de Mayo','20');
+INSERT INTO Cliente VALUES ('7','Saul','Galindo','Montiel','Importaciones PFV.','galindop1@yaho.com','Puebla','Imperial','12847','Sauce','2');
+INSERT INTO Cliente VALUES ('8','Sonia','Garcia','Rodriguez','Alfaro S.A.','arths.r.74@hotmail.com','Tlaxcala','Anahuac','069878','Califa','99');
+INSERT INTO Cliente VALUES ('9','Leonardo','Cortes','Blass','Tassis S.A. de C.V.','leon95@yahoo.com','Sinaloa','Centro','987456','Fundadores','3');
+INSERT INTO Cliente VALUES ('10','Frida','Ordoñez','Romero','Grupo Fernández S.A.','romez201@gmail.com','Zacatecas','Alameda','589658','Cipres','197');
+
+
+
+
+INSERT INTO ClienteCorreo VALUES ('1','gonzali445@gmail.com');
+
+INSERT INTO ClienteCorreo VALUES ('2','arturo880@gmail.com');
+
+INSERT INTO ClienteCorreo VALUES ('3','fonseve.o.98@yahoo.com');
+
+INSERT INTO ClienteCorreo VALUES ('4','dal45@gmail.com');
+
+INSERT INTO ClienteCorreo VALUES ('5','fatipra301@gmail.com');
+
+INSERT INTO ClienteCorreo VALUES ('6'','varelam.234@hotmail.com');
+
+INSERT INTO ClienteCorreo VALUES ('7','galindop1@yaho.com');
+
+INSERT INTO ClienteCorreo VALUES ('8','arths.r.74@hotmail.com');
+
+INSERT INTO ClienteCorreo VALUES ('9','leon95@yahoo.com');
+
+INSERT INTO ClienteCorreo VALUES ('10','romez201@gmail.com');
+
+
+
+
+
+INSERT INTO Proveedor VALUES ('0456','Julio','Parra','Diaz','Medical S.A.','Sonora','Rosales','14789','Moras','88');
+INSERT INTO Proveedor VALUES ('0123','Karen','Nava','Quiroz','GyG C.A.','Estado de Mexico','Hacienda','45632','Rioja','569');
+INSERT INTO Proveedor VALUES ('0789','Brenda','Olmos','Veloz','MIxtla S.A.','Baja California','Laureles','88967','Helechos','64');
+INSERT INTO Proveedor VALUES ('0412','Hector','Bolaños','Garcia','Grupo Garcia C. A','Guanajuato','Olivos','14733','Mallorca','118');
+INSERT INTO Proveedor VALUES ('0046','Erick','Alvarez','Benitez',' tecnologias S.A.','Guerrero','Sauces','01478','Pinos','5');
+INSERT INTO Proveedor VALUES ('0289','Gariela','Santos','Palacios','Home SA de CV','Monterrey','Industrial','87845','Lomas','29');
+INSERT INTO Proveedor VALUES ('0367','Alejandro','Estrada','Molina','Importaciones Fif.','Tabasco','Portales','96314','America','77');
+INSERT INTO Proveedor VALUES ('0880','Prisila','Gomez','Olmedo','Olmedo S.A.','Nayarit','Residencial','25748','Jaramillo','142');
+INSERT INTO Proveedor VALUES ('0551','Santiago','Perez','Contreras','Ibiza S.A. de C.V.','CDMX','Ayness','68732','Bolivar','303');
+INSERT INTO Proveedor VALUES ('0932','Raul','Torres','Martinez','Grupo Ralss S.A.','CDMX','Valle','14720','Quinta','17');
+
+
+
+
+INSERT INTO ProveedorTel VALUES ('0456','4578-412');
+INSERT INTO ProveedorTel VALUES ('0123','2401-369');
+INSERT INTO ProveedorTel VALUES ('0789','7880-478');
+INSERT INTO ProveedorTel VALUES ('0412','2012-691');
+INSERT INTO ProveedorTel VALUES ('0046','3698-410');
+INSERT INTO ProveedorTel VALUES ('0289','7204-897');
+INSERT INTO ProveedorTel VALUES ('0367','4782-025');
+INSERT INTO ProveedorTel VALUES ('0880','5213-930');
+INSERT INTO ProveedorTel VALUES ('0551','3621-195');
+INSERT INTO ProveedorTel VALUES ('0932','1036-698');
+
+
+INSERT INTO Detalle(CodigoProducto,num_Venta,CantidadTpagar,Cantidaddecadaproducto)values('100','VENT-001','5000','5')
+INSERT INTO Detalle(CodigoProducto,num_Venta,CantidadTpagar,Cantidaddecadaproducto)values('104','VENT-002','1200','2')
+INSERT INTO Detalle(CodigoProducto,num_Venta,CantidadTpagar,Cantidaddecadaproducto)values('103','VENT-001','160','2')
+
+
+
+
+
+INSERT INTO Categoria VALUES ('3000','Impresiones','TPT');
+INSERT INTO Categoria VALUES ('3001','Recargas','ATT');
+INSERT INTO Categoria VALUES ('3002','Regalos','Varela');
+INSERT INTO Categoria VALUES ('3003','Escolar','Lucy');
+INSERT INTO Categoria VALUES ('3004','Recargas','Movi');
+INSERT INTO Categoria VALUES ('3005','Oficina','GrupoM');
+INSERT INTO Categoria VALUES ('3006','Regalos','America');
+INSERT INTO Categoria VALUES ('3007','Recargas','Une');
+INSERT INTO Categoria VALUES ('3008','Varios','WSL');
+INSERT INTO Categoria VALUES ('3009','Impresiones','BN');
+
+
+iNSERT INTO Venta(num_Venta,fechaVenta,ClienteID)values('VENT-001','04/12/2019','1')
+iNSERT INTO Venta(num_Venta,fechaVenta,ClienteID)values('VENT-002','10/05/2020','2')
+
+
+
+INSERT INTO Producto VALUES ('100','750 3007 9 9935 1','150','0456','12/08/2018','1','3000','1000','1000');
+ INSERT INTO Producto VALUES ('101','750 3007 9 6091 1','50','0123','12/08/1948','100','3001','150','100');
+ INSERT INTO Producto VALUES ('102','750 3007 9 4430 1','200','0789','04/10/2020','80','3002','146','10');
+ INSERT INTO Producto VALUES ('103','750 3007 9 0975 1','40','0412','11/03/2018','20','3003','40','80');
+ INSERT INTO Producto VALUES ('104','750 3007 9 8213 1','10','0046','02/10/2018','40','3004','200','600');
+ INSERT INTO Producto VALUES ('105','750 3007 9 2694 1','100','0289','10/11/2018','250','3005','105','1000');
+ INSERT INTO Producto VALUES ('106','750 3007 9 7012 1','169','0367','07/05/2019','456','3006','98','690');
+ INSERT INTO Producto VALUES ('107','750 3007 9 5419 1','70','0880','04/05/2019','100','3007','41','1024');
+ INSERT INTO Producto VALUES ('108','750 3007 9 1847 1','65','0551','01/06/2018','33','3008','20','1580');
+ INSERT INTO Producto VALUES ('109','750 3007 9 3478 1','12','0932','03/12/2020','5','3009','500','1250');

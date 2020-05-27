@@ -1,0 +1,64 @@
+Using System;
+    Using System.Collection.Generic;
+    Using System.Linq;
+    Using SystemWeb;
+    Using System.Data;
+    Using System.Data.SqlClient;
+    Using System.Configuration;
+
+Public Class ClaseConexionBD
+    {
+    Public SqlConnection conexion;
+        Public SqlCommand comando;
+        Public SqlDataAdapter da;
+        Public DataSet dset;
+
+    Public ClaseConexionBD()
+    {
+    conexion = New SqlConnection(ConfigurationManager.ConnectionString["finConnectionString1"].ConnecionString);
+    }
+    Public void insertar(String ClienteID,String Nombre,String razonsocialC,String correoElectronico,String edoC,String codigopostalC,String coloniaC,String calleC,String numdomC )
+        {
+        String guardar = " insert into Cliente(ClienteID,Nombre,razonsocialC,correoElectronico,edoC,codigopostalC,coloniaC,calleC,numdomC) values ('" + ClienteID + "','" + Nombre + "','" + razonsocialC + "','" + correoElectronico + "','" + edoC + "','" + codigopostalC + "','" + coloniaC + "','" + calleC + "','" + numdomC + "')";
+        ejecutar (guardar);
+        }
+
+    Public void modificar()
+        {
+        String update = " update Cliente set  ClienteID='" + ClienteID + "',Nombre='" + Nombre + "', razonsocialC='" + razonsocialC +"',correoElectronico='"correoElectronico"',edoC='" + edoC + "', codigopostalC='" + codigopostalC + "', coloniaC='" + coloniaC +"', calleC ='"+calleC+"',numdomC='"+numdomC+"')";
+        ejecutar (update);
+        }
+
+
+    Public void eliminar(String ClienteID)
+        {
+        String borrar = "delete from usuario where ClienteID='" + ClienteIDt"'";
+        ejecutar (borrar);
+        }
+
+
+    Public DataSet buscarID(String ClienteID)
+        {
+        dset = New DataSet();
+        ClaseConexionBD con = New ClaseConexionBD();
+        con.conexion.Open();
+        String select = "select * from usuario where ClienteID='" + ClienteID"'";
+        da = New SqlDataAdapter(select,con.conexion);
+        da.Fill(dset);
+        con.conexion.Close();
+        Return dset;
+        }
+
+    Private VOID ejecutar(String cadena)
+        {
+        ClaseConexionBD Con = New ClaseConexionBD();
+        con.conexion.Open();
+        Con.comando.ExecuteNonQuery();
+        con.conexion.close();
+    
+        }
+    }
+End Class
+
+
+

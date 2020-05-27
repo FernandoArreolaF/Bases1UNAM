@@ -1,0 +1,145 @@
+*{
+	font-family:helvetica;
+}
+
+body{
+	background:#79CF13;
+	color: #FFFFFF;
+}
+
+#atras{
+	background-color: #FFF;
+	margin: 2%;
+	padding: 2%;
+	border-radius: 20px;
+	min-width: 900px;
+}
+#adelante{
+	background-color:#EBA925;
+	margin: 4%;
+	padding: 3.5%;
+	border-radius:20px;
+	position: relative;
+
+
+}
+
+
+#adelantedireccion{
+	background-color: #EBA925;
+	padding: 5%;
+	border-radius: 25px;
+	position: relative;
+	margin: 5%;
+	padding-bottom: 35%;
+
+
+
+}
+#contacto{
+	color: #000;
+	position: relative; /*para que sea responsiva*/
+	background-color: #fff;
+	border-radius: 25px;
+	text-align: center;
+	min-width: 900px;
+
+}
+
+#formulario{
+	width: 40%
+	float:right;
+	background-color: #EBA925;
+	margin: 2%;
+	padding: 3%;
+	border-radius: 25px;
+	position: relative;
+	display: inline-block;
+}
+
+#mapa{
+	width: 40%;
+	float: left;
+	margin: 0 0 0 2%;
+	border: solid 1px #0000ff;
+	border-radius: 2px;
+	position: relative;
+	display: inline-block;
+
+}
+.circulo {
+
+	 color: #000;
+     width: 8%;
+     height: 100px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #5cb85c;
+     position: relative;
+     display: inline-block;
+
+}
+
+.circuloactivo {
+
+	 color: #000;
+     width: 8%;
+     height: 100px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #EB295C;
+     position: relative;
+     display: inline-block;
+}
+
+h1{
+	font-size: 3.5em;
+	color: #0B6138;
+	text-transform: uppercase;
+	margin: 12px 0 0;
+	text-shadow: 0px 5px 5px rgba(0,0,0,0.8);
+
+}
+a:hover{
+	color: #FF0080;
+}
+
+.imagen{
+	width: 32%;
+	display: inline-block;
+	position: relative;
+	border: solid 5px #cccccc;
+	margin: 10px 0 0 0;	
+
+}
+.header{
+	border: solid 2px #0101DF;
+	font-size:40px;
+	text-align:center;
+	background: linear-gradient(0deg, #ffffff, transparent 70%),url("./../img/background.jpg")  40%;
+	
+}
+
+.menu ul li a{
+	text-decoration: none;
+	color: #bbcc09;
+
+
+}
+  .table td,
+  .table th {
+    background-color: #79CF13 !important;
+  }
+  .table-bordered th,
+  .table-bordered td {
+    border: 2px solid #EBA925 !important;
+  }
+  h2{
+	font-size: 3em;
+	color: #0B6138;
+	margin: 12px 0 0;
+	text-shadow: 0px 5px 5px rgba(0,0,0,0.8);
+	display: inline-block;
+ }
