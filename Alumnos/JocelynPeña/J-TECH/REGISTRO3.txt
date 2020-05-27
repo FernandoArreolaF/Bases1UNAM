@@ -1,0 +1,106 @@
+Using System;
+    Using System.Collection.Generic;
+    Using System.Linq;
+    Using System.Web;
+    Using System.Web.UI;
+    Using System.Web.UI.WebControls;
+    Using System.Data;
+
+
+Partial Public Class _Defaul :  System.Web.UI.Page
+{
+ClaseConexionBD en = New ClaseConexionBD();
+Protected void Page_Load(Object sender, EventArgs e)
+        {
+            
+    }
+
+        Private void limpiar()
+        {
+        txt_ClienteID.Text ="";
+        txt_Nombre.Text ="";
+        txt_razonsocialC.Text ="";
+        txt_ClienteID.Enable =true;
+        txt_Nombre.Enable =true;
+        txt_correoElectronico.Text ="";
+        txt_edoC.Text ="";
+        txt_codigopostalC.Text ="";
+        txt_coloniaC.Text ="";
+        txt_calleC.Text ="";
+        txt_numdomC.Text ="";
+        
+
+        }
+        Protected void btn_insertar_Click(Object sender, EventArgs e)
+        {
+        If (txt_ClienteID.Enable){
+
+        en.insertar (txt_ClienteID.Text,txt_Nombre.Text,txt_razonsocialC.Text,txt_correoElectronico.Text,txt_edoC.Text,txt_codigopostalC.Text,txt_coloniaC.Text,txt_calleC.Text,txt_numdomC.Text);
+    GridView1.DataBind();    
+    Mensaje.Text="Registro exitoso";
+    limpiar();
+    }
+    Else
+    {
+    en.modificar (txt_ClienteID.Text,txt_Nombre.Text,txt_razonsocialC.Text,txt_correoElectronico.Text,txt_edoC.Text,txt_codigopostalC.Text,txt_coloniaC.Text,txt_calleC.Text,txt_numdomC.Text);
+    GridView1.DataBind();    
+    Mensaje.Text="Registro actualizado";
+    limpiar();
+    }
+        }
+
+
+     Protected void btn_actualizar_Click(Object sender, EventArgs e)
+        {
+        en.modificar (txt_ClienteID.Text,txt_Nombre.Text,txt_razonsocialC.Text,txt_correoElectronico.Text,txt_edoC.Text,txt_codigopostalC.Text,txt_coloniaC.Text,txt_calleC.Text,txt_numdomC.Text);
+    GridView1.DataBind();    
+    Mensaje.Text="Registro actualizado";
+    limpiar();
+    }
+
+
+
+     Protected void btn_eliminar_Click(Object sender, EventArgs e)
+        {
+        en.eliminar (txt_ClienteID.Text);
+     Mensaje.Text="Registro eliminado";
+    GridView1.DataBind();    
+   
+    limpiar();
+    }
+
+
+
+     Protected void btn_buscar_Click(Object sender, EventArgs e)
+        {
+    DataSet dset;
+        dset=en.BuscarID(txt_ClienteID.Tex);
+        If (dset.Tables.Count > 0){
+          If (dset.Tables[0].Rows.Count > 0){
+            txt_ClienteID.Text=dset.Tables[0].Rows[0][0].ToString();
+            txt_Nombre.Text=dset.Tables[0].Rows[0][1].ToString();
+            txt_razonsocialC.Text=dset.Tables[0].Rows[0][2].ToString();
+             txt_correoElectronico.Text=dset.Tables[0].Rows[0][3].ToString();
+              txt_edoC.Text=dset.Tables[0].Rows[0][4].ToString();
+               txt_codigopostalC.Text=dset.Tables[0].Rows[0][5].ToString();
+                txt_coloniaC.Text=dset.Tables[0].Rows[0][6].ToString();
+                 txt_calleC.Text=dset.Tables[0].Rows[0][7].ToString();
+                  txt_numdomC.Text=dset.Tables[0].Rows[0][8].ToString();
+                  
+
+              txt_ClienteID.Enable=false;
+               txt_Nombre.Enable=false;
+               Mensaje.Text = "Registros encontrados";
+               }
+               Else
+  {
+    Mensaje.Text="Registros no encontrados";
+    }
+    }
+}
+
+
+    }
+
+
+

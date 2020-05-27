@@ -1,0 +1,104 @@
+CREATE DATABASE PROYECTO;
+
+
+
+CREATE TABLE Cliente (
+	ClienteID int NOT NULL ,
+	nombreC varchar (20) NOT NULL ,
+	patC varchar (20) NOT NULL ,
+	matC varchar (20)  NULL ,
+        razonsocialC varchar (20) NOT NULL ,
+	edoC varchar (20)NOT NULL ,
+	coloniaC varchar (20)NOT NULL ,
+	codigopostalC int NOT NULL ,
+	calleC varchar (20) NOT NULL ,
+	numdomC int NOT NULL ,
+	CONSTRAINT Cliente_PK PRIMARY KEY  (ClienteID)
+);
+
+
+
+CREATE TABLE ClienteCorreo (
+	ClienteID  int NOT NULL ,
+        correoElectronico varchar (50) NOT NULL ,
+	CONSTRAINT ClienteCorreo\_PK PRIMARY KEY ( correoElectronico),
+	CONSTRAINT ClienteID_FK FOREIGN KEY (ClienteID ) REFERENCES  Proveedor (ClienteID )
+);
+
+
+CREATE TABLE Proveedor (
+	ProveedorID int NOT NULL ,
+	nombreP varchar (20) NOT NULL ,
+	patP varchar (20) NOT NULL ,
+	matP varchar (20)  NULL ,
+    razonsocialP varchar (20) NOT NULL ,
+	edoP varchar (20)NOT NULL ,
+	coloniaP varchar (20)NOT NULL ,
+	codigopostalP int NOT NULL ,
+	calleP varchar (20) NOT NULL ,
+	numdomP int NOT NULL ,
+	CONSTRAINT Proveedor_PK PRIMARY KEY (ProveedorID)
+);
+
+
+
+
+CREATE TABLE ProveedorTel (
+	ProveedorID int NOT NULL ,
+	telefono varchar (20) NOT NULL ,
+	CONSTRAINT ProveedorTelefono1_PK PRIMARY KEY (telefono),
+	CONSTRAINT ProveedorID_FK FOREIGN KEY (ProveedorID) REFERENCES  Proveedor (ProveedorID)
+	
+);
+
+
+
+
+
+CREATE TABLE Venta (
+	num_Venta varchar (15) NOT NULL ,
+	fechaVenta date NOT NULL ,
+	ClienteID int NOT NULL ,
+	CONSTRAINT Venta_PK PRIMARY KEY  (num_Venta),
+	CONSTRAINT Cliente_FK FOREIGN KEY (ClienteID) REFERENCES  Cliente (ClienteID)
+	
+);
+
+
+
+CREATE TABLE Categoria (
+	CategoriaID int NOT NULL ,
+	descripcion varchar (20) NOT NULL ,
+	marca varchar (20) NOT NULL ,
+	
+	
+	CONSTRAINT Categoria_PK PRIMARY KEY  (CategoriaID)
+);
+
+
+
+CREATE TABLE Producto (
+	ProductoID int NOT NULL ,
+	codigoBarras varchar (50) NOT NULL ,
+	utilidad varchar (15) NOT NULL ,
+	ProveedorID int NOT NULL ,
+	fechaCompra date NOT NULL ,
+    precioalquefuecomprado int NOT NULL ,
+	CategoriaID int NOT NULL ,
+	stock varchar (10) NOT NULL ,
+	preciototalapagarporproducto int NOT NULL ,
+	CONSTRAINT Producto_PK PRIMARY KEY  (ProductoID),
+	CONSTRAINT Proveedor_FK FOREIGN KEY (ProveedorID) REFERENCES  Proveedor (ProveedorID),
+	CONSTRAINT Categoria_FK FOREIGN KEY (CategoriaID) REFERENCES  Categoria (CategoriaID)
+);
+
+
+
+CREATE TABLE Detalle (
+    CodigoProducto int  NOT NULL ,
+	num_Venta varchar (15)  NOT NULL ,
+	CantidadTpagar int  NOT NULL ,
+	Cantidaddecadaproducto int not null,
+	CONSTRAINT Detalle_PK PRIMARY KEY (CodigoProducto,num_Venta)
+);
+

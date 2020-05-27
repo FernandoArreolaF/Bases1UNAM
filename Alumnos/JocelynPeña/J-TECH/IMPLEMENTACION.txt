@@ -1,0 +1,126 @@
+
+create trigger VerificaStock
+  on detalle
+  for insert
+  as
+   declare @stock int
+   SET @stock= (select stock from Producto
+		 join inserted
+		 on inserted.CodigoProducto=ProductoID
+		 where ProductoID=inserted.CodigoProducto)
+  if (@stock>=(select Cantidaddecadaproducto from inserted))
+    update Producto set stock=stock-inserted.Cantidaddecadaproducto
+     from Producto
+     join inserted
+     on inserted.CodigoProducto=ProductoID
+     where ProductoID=inserted.CodigoProducto
+  else
+  begin
+    raiserror ('HAY MENOS ARTICULOS EN STOCK DE LOS SOLICITADOS', 16, 1)
+    rollback transaction
+  end
+
+
+
+INSERT INTO Detalle(CodigoProducto,num_Venta,CantidadTpagar,Cantidaddecadaproducto)values('100','VENT-001','5000','5')
+
+  INSERT INTO Detalle(CodigoProducto,num_Venta,CantidadTpagar,Cantidaddecadaproducto)values('104','VENT-002','1200','2')
+
+    INSERT INTO Detalle(CodigoProducto,num_Venta,CantidadTpagar,Cantidaddecadaproducto)values('103','VENT-001','160','2')
+
+  SELECT * FROM Detalle
+  SELECT * FROM Producto
+
+-
+
+
+
+
+
+select ProductoID, NombreProducto
+  from Producto
+  where stock  < 3
+
+
+
+-
+
+
+
+
+
+  iNSERT INTO Venta(num_Venta,fechaVenta,ClienteID)values('VENT-001','04/12/2019','1')
+
+   iNSERT INTO Venta(num_Venta,fechaVenta,ClienteID)values('VENT-002','10/05/2020','2')
+
+
+
+-
+
+
+
+
+--Dada una fecha.
+
+SELECT SUM(CantidadTpagar) AS 'TOTAL'
+FROM Detalle D JOIN VENTA v ON D.num_Venta = v.num_Venta WHERE YEAR(fechaVenta)=2020
+
+
+select * from Venta
+select * from Detalle
+SELECT * FROM Producto
+
+
+-
+
+
+
+
+--Dado un periodo.
+
+
+CREATE VIEW TA AS
+select  
+SUM(CantidadTpagar)
+AS total
+
+FROM Detalle D JOIN VENTA v ON D.num_Venta = v.num_Venta
+WHERE fechaVenta= '20190412 00:00' 
+group by  year(fechaVenta)
+
+UNION
+
+select  
+SUM(CantidadTpagar) 
+AS total
+
+FROM Detalle D JOIN VENTA v ON D.num_Venta = v.num_Venta
+WHERE fechaVenta = '20201005 '
+group by  year(fechaVenta)
+
+
+
+SELECT SUM(total) from TA
+
+
+
+
+ Factura de una compra.
+
+
+
+CREATE VIEW FacturaCompra AS
+
+
+select concat (c.ClienteID,' - ',nombreC,' ',patC,' - ',razonsocialC,' - ',edoC,' - ',coloniaC,' - ',calleC,' - ',numdomC) as DATOS_CLIENTE, concat (ProveedorID,' - ',nombreP,' ',patP,' - ',razonsocialP,' - ',edoP,' - ',coloniaP,' - ',calleP,' -',numdomP) AS DATOS_PROVEEDOR,  v.num_Venta, fechaVenta AS FECHA, SUM(DISTINCT Cantidaddecadaproducto) AS CANTIDAD_TOTAL_PRODUCTOS ,concat (' Total a pagar','  ','$',SUM(DISTINCT CantidadTpagar)) AS MONTO_TOTAL
+
+from Cliente c, Proveedor, Venta v, Detalle
+where C.ClienteID=1 AND v.num_Venta= 'VENT-001' AND ProveedorID= 367
+GROUP BY C.ClienteID,nombreC,patC,razonsocialC,edoC,coloniaC,calleC,numdomC,ProveedorID,
+nombreP,patP,razonsocialP,edoP,coloniaP,calleP,numdomP,v.num_Venta, fechaVenta
+
+
+
+
+
+

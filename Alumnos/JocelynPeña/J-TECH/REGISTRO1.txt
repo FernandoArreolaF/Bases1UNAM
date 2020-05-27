@@ -1,0 +1,160 @@
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="WebForm1.aspx.vb" Inherits="proy.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>formulario</title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 23px;
+        }
+        #Text1 {
+            height: 0px;
+        }
+        #Text5 {
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+            <table bgcolor="#9bc6d1">
+    <tr>
+        <th>REGISTRO DE CLIENTES</th>
+    </tr>
+    <tr>
+        <th>ClienteID</th>
+        <td>
+            <input id="Text1" type="text" /><input id="Buscar" title="Buscar" type="button" value="button" /></td>
+      </tr>
+    <tr>  
+
+        <th>Nombre</th>
+        <td>
+            <input id="Text2" type="text" /></td>
+    </tr>
+    <tr>
+
+
+          <th>Razon Social</th>
+         <td>
+        <input id="Text3" type="text" /></td>
+    </tr>
+    <tr> 
+
+
+         <th>Correo </th>
+         <td>
+        <input id="Text4" type="text" /></td>
+    </tr>
+    <tr>
+
+        <th>Estado</th>
+        <td>
+            <input id="Text5" type="text" /></td>
+    </tr>
+    <tr>
+
+
+         <th>Codigo Postal</th>
+         <td>
+        <input id="Text6" type="text" /></td>
+    </tr>
+    <tr>
+
+
+         <th>Colonia</th>
+         <td>
+             <input id="Text7" type="text" /></td>
+    </tr>
+    <tr>
+
+
+        
+         <th>Calle</th>
+         <td>
+             <input id="Text8" type="text" /></td>
+    </tr>
+    <tr>
+
+
+        
+   
+ 
+        <th class="auto-style1">Numero</th>
+        <td class="auto-style1">
+            <input id="Text4" type="text" /></td>
+    </tr>
+    
+       
+<tr>
+        <td>
+            <input id="bt_insertar" title="insertar" type="button" value="button" /><input id="actualizar" title="actualizar" type="button" value="button" /><input id="btn_eliminar" title="eliminar" type="button" value="button" /></td>
+    </tr>
+    
+
+
+
+        
+
+</table>
+        </div>
+            <asp:Label ID="Label1" runat="server" BackColor="#CCFF99" BorderColor="#CC3300" Text="Label"></asp:Label>
+    
+    <h4>GRIDVIEW</h4>
+    
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ClienteID" DataSourceID="SqlDataSource1" EmptyDataText="No hay registros de datos para mostrar.">
+                <Columns>
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                    <asp:BoundField DataField="ClienteID" HeaderText="ClienteID" ReadOnly="True" SortExpression="ClienteID" />
+                    <asp:BoundField DataField="nombreC" HeaderText="nombreC" SortExpression="nombreC" />
+                    <asp:BoundField DataField="patC" HeaderText="patC" SortExpression="patC" />
+                    <asp:BoundField DataField="matC" HeaderText="matC" SortExpression="matC" />
+                    <asp:BoundField DataField="razonsocialC" HeaderText="razonsocialC" SortExpression="razonsocialC" />
+                    <asp:BoundField DataField="correoElectronico" HeaderText="correoElectronico" SortExpression="correoElectronico" />
+                    <asp:BoundField DataField="edoC" HeaderText="edoC" SortExpression="edoC" />
+                    <asp:BoundField DataField="coloniaC" HeaderText="coloniaC" SortExpression="coloniaC" />
+                    <asp:BoundField DataField="codigopostalC" HeaderText="codigopostalC" SortExpression="codigopostalC" />
+                    <asp:BoundField DataField="calleC" HeaderText="calleC" SortExpression="calleC" />
+                    <asp:BoundField DataField="numdomC" HeaderText="numdomC" SortExpression="numdomC" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:finConnectionString1 %>" DeleteCommand="DELETE FROM [Cliente] WHERE [ClienteID] = @ClienteID" InsertCommand="INSERT INTO [Cliente] ([ClienteID], [nombreC], [patC], [matC], [razonsocialC], [correoElectronico], [edoC], [coloniaC], [codigopostalC], [calleC], [numdomC]) VALUES (@ClienteID, @nombreC, @patC, @matC, @razonsocialC, @correoElectronico, @edoC, @coloniaC, @codigopostalC, @calleC, @numdomC)" SelectCommand="SELECT ClienteID, nombreC, patC, matC, razonsocialC, correoElectronico, edoC, coloniaC, calleC, numdomC, codigopostalC FROM Cliente" UpdateCommand="UPDATE [Cliente] SET [nombreC] = @nombreC, [patC] = @patC, [matC] = @matC, [razonsocialC] = @razonsocialC, [correoElectronico] = @correoElectronico, [edoC] = @edoC, [coloniaC] = @coloniaC, [codigopostalC] = @codigopostalC, [calleC] = @calleC, [numdomC] = @numdomC WHERE [ClienteID] = @ClienteID">
+                <DeleteParameters>
+                    <asp:Parameter Name="ClienteID" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="ClienteID" Type="Int32" />
+                    <asp:Parameter Name="nombreC" Type="String" />
+                    <asp:Parameter Name="patC" Type="String" />
+                    <asp:Parameter Name="matC" Type="String" />
+                    <asp:Parameter Name="razonsocialC" Type="String" />
+                    <asp:Parameter Name="correoElectronico" Type="String" />
+                    <asp:Parameter Name="edoC" Type="String" />
+                    <asp:Parameter Name="coloniaC" Type="String" />
+                    <asp:Parameter Name="codigopostalC" Type="Int32" />
+                    <asp:Parameter Name="calleC" Type="String" />
+                    <asp:Parameter Name="numdomC" Type="Int32" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="nombreC" Type="String" />
+                    <asp:Parameter Name="patC" Type="String" />
+                    <asp:Parameter Name="matC" Type="String" />
+                    <asp:Parameter Name="razonsocialC" Type="String" />
+                    <asp:Parameter Name="correoElectronico" Type="String" />
+                    <asp:Parameter Name="edoC" Type="String" />
+                    <asp:Parameter Name="coloniaC" Type="String" />
+                    <asp:Parameter Name="codigopostalC" Type="Int32" />
+                    <asp:Parameter Name="calleC" Type="String" />
+                    <asp:Parameter Name="numdomC" Type="Int32" />
+                    <asp:Parameter Name="ClienteID" Type="Int32" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
+    </form>
+    
+    </body>
+</html>
+
