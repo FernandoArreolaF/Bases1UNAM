@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,UAAU,EAAE,aAAa;EACzB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CAAG;;AAEnB,AAAA,YAAY,CAAC;EACP,gBAAgB,EAAE,OAAc;EAChC,KAAK,EAAE,KAAK;CAAG;;AAErB,AAEQ,YAFI,CACR,KAAK,CACD,EAAE,AAAA,MAAM,CAAC;EACL,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,KAAK;CAAG",
+    "sources": [
+        "../sass/tablas.sass"
+    ],
+    "names": [],
+    "file": "tablas.css"
+}
