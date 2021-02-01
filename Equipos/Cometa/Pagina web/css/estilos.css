@@ -1,0 +1,205 @@
+html{font-size: 16px;
+font-family: 'Lato', sans-serif;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'open sans'; 
+}
+
+.contenedor {
+	padding: 60px 0;
+	width: 90%;
+	max-width: 1000px;
+	margin:auto;
+	overflow: hidden;
+
+}
+
+.titulo{
+	color: #642a73;
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: 60px;
+
+}
+
+/*header*/
+header{
+	width: 100%;
+	height: 500px;
+	background: #e1eec3; /* fallback for old browsers */
+ 	background: linear-gradient(to right, #e1eec3, #f0505375), url(../img/portada.jpg); /* Chrome 10-25, Safari 5.1-6 */
+  	background: linear-gradient(to right, #e1eec3, #f0505375), url(../img/portada.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+}
+
+nav{
+	text-align: right;
+	padding: 30px 50px 0 0;
+
+}
+
+
+nav > a{
+	color: #fff;
+	font-weight: 300;
+	text-decoration: none;
+	margin-right: 10px;
+
+}
+
+nav > a:hover{
+	text-decoration: underline;
+
+}
+
+header .textos-header{
+	display: flex;
+	height: 420px;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	
+}
+
+.textos-header h1{
+	font-size: 30px;
+	color: #fff;
+
+}
+
+.textos-header h2{
+	font-size: 30px;
+	font-weight: 300;
+	color: #fff;
+}
+
+.wave{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+}
+
+.clientes .contenido-textos{
+	width: 48%;
+}
+
+.contenido-textos h3{
+	margin-bottom: 15px;
+}
+
+.imagen-clients{
+	width: 45%;
+}
+
+.imagen-productos{
+	width: 50%;
+	overflow: hidden;
+}
+
+/*Galeria*/
+.venta{
+	background: #f2f2f2;
+}
+
+/*Formulario*/
+
+.container{
+	display: flex;
+	justify-content:space-evenly;
+		/*max-width: 450px;
+	height: auto;
+	background-color: #EFEFEF;
+	margin: 5% auto;
+	padding-bottom: 1rem;*/
+}
+.form_top{
+	width: 100%;
+	text-align:center;
+	padding: 2rem 0 1rem;
+	border-top: solid .4rem #F39B53;
+	margin-bottom: 1rem;
+}
+
+.form_top h2{
+	font-weight: bold;
+	color: #CAC8C8;
+	font-size: 18px;
+}
+
+h2 span { 
+	color: #F39B53;
+ }
+
+.form_reg{
+	padding: 0.2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.btn_form{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1rem;
+}
+
+
+
+.input, .btn_submit, .btn_reset, .btn_back{
+	background-color: #EFEFEF;
+	padding: .5rem;
+	margin: .5rem 0;
+	border: none;
+	border-bottom: solid #C8C8C8 .2rem;
+	transition: all .5%;
+}
+
+.input:focus{
+	border-bottom: solid #F39B53 .2rem;
+}
+
+.btn_submit, .btn_reset, .btn_back{
+	width: 40%;
+	border-bottom: none;
+	background-color: #32b1e5;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+}
+
+.btn_reset{
+	background-color: #FA9535;
+}
+
+.btn_back{
+	border:2px solid #0016b0;
+	background-color: #1883ba;
+	transform: translateX(0%);
+}
+
+.btn_submit:hover{
+	background-color: #4C9ED9;
+}
+
+.btn_reset:hover{
+	background-color: #E1862E;
+}
+
+.btn_back:hover{
+	color: #1883ba;
+	background-color: #ffffff;
+
+}
+
