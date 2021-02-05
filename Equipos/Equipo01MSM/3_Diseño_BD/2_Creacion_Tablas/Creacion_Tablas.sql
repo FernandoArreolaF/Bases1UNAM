@@ -1,0 +1,114 @@
+---------------------------------------------------
+	--AUTOR: 01MSM
+	--BD: PROYECTO_FINAL_PAPELERIA
+	--DESCRIPCIÓN: CREACION DE TABLAS 
+	--FECHA DE CREACIÓN: 17 de enero de 2021
+---------------------------------------------------
+--TABLA 1
+CREATE TABLE PROVEEDOR(
+	id_proveedor INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	razon_social VARCHAR(50) NOT NULL,
+	calle VARCHAR(25) NOT NULL,
+	numero INT NOT NULL,
+	colonia VARCHAR(25) NOT NULL,
+	estado VARCHAR(20) NOT NULL,
+	codigo_postal INT NOT NULL,
+	CONSTRAINT PROVEEDOR_PK PRIMARY KEY(id_proveedor)
+);
+
+--TABLA 2
+CREATE TABLE TELEFONO_PROVEEDOR(
+	telefono VARCHAR(15) NOT NULL,
+	id_proveedor INT NOT NULL,
+	CONSTRAINT TELEFONO_PROVEEDOR_PK PRIMARY KEY(telefono),
+	CONSTRAINT PROVEEDORT_FK FOREIGN KEY(id_proveedor) REFERENCES PROVEEDOR(id_proveedor)
+);
+
+--TABLA 3
+CREATE TABLE CATEGORIA(
+	id_categoria INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+	nombre_categoria VARCHAR (50) NOT NULL,
+	descripcion_categoria VARCHAR(50) NOT NULL,
+	CONSTRAINT CATEGORIA_PK PRIMARY KEY (id_categoria)
+) ;
+
+--TABLA 4
+CREATE TABLE PRODUCTO(
+	id_producto INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+	precio_unitario DECIMAL NOT NULL,
+	codigo_barras VARCHAR(20) NOT NULL,
+	descripcion_producto VARCHAR(50) NOT NULL,
+	marca_producto VARCHAR(25) NOT NULL,
+	id_categoria INT NOT NULL,
+	id_proveedor INT NOT NULL,
+	CONSTRAINT PRODUCTO_PK PRIMARY KEY(id_producto, precio_unitario),
+	CONSTRAINT PROVEEDORP_FK FOREIGN KEY(id_proveedor) REFERENCES PROVEEDOR(id_proveedor),
+	CONSTRAINT CATEGORIAP_FK FOREIGN KEY(id_categoria) REFERENCES CATEGORIA(id_categoria)
+);
+
+--TABLA 5
+CREATE TABLE INVENTARIO(
+	id_inventario INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+	id_producto INT NOT NULL,
+	precio_unitario DECIMAL NOT NULL,
+	stock INT NOT NULL,
+	precio_compra DECIMAL NOT NULL,
+	fecha_compra DATE NOT NULL,
+	CONSTRAINT INVENTARIO_PK PRIMARY KEY(id_inventario),
+	CONSTRAINT PRODUCTOI_FK FOREIGN KEY(id_producto,precio_unitario) REFERENCES PRODUCTO(id_producto,precio_unitario)
+);
+
+--TABLA 6
+CREATE TABLE CLIENTE(
+	id_cliente INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	razon_social VARCHAR(50) NOT NULL,
+	calle VARCHAR(25) NOT NULL,
+	numero INT NOT NULL,
+	colonia VARCHAR(25) NOT NULL,
+	estado VARCHAR(20) NOT NULL,
+	codigo_postal INT NOT NULL,
+	CONSTRAINT CLIENTE_PK PRIMARY KEY (id_cliente)
+);
+
+--TABLA 7
+CREATE TABLE EMAIL_CLIENTE(
+	email VARCHAR (80) NOT NULL,
+	id_cliente INT NOT NULL,
+	CONSTRAINT EMAIL_CLIENTE_PK PRIMARY KEY(email),
+	CONSTRAINT CLIENTEEM_FK FOREIGN KEY(id_cliente) REFERENCES CLIENTE(id_cliente)
+);
+
+--TABLA 8
+CREATE TABLE VENTA(
+	numero_venta VARCHAR(10) NOT NULL,
+	id_cliente INT NOT NULL,
+	fecha_venta DATE NOT NULL,
+	CONSTRAINT VENTA_PK PRIMARY KEY(numero_venta),
+	CONSTRAINT CLIENTEV_FK FOREIGN KEY(id_cliente) REFERENCES CLIENTE (id_cliente)
+);
+
+--TABLA 9 
+CREATE TABLE VENTA_DETALLES(
+	numero_venta VARCHAR(10) NOT NULL,
+	id_producto INT NOT NULL,
+	precio_unitario DECIMAL NOT NULL,
+	cantidad INT NOT NULL,
+	CONSTRAINT VENTAD_FK FOREIGN KEY (numero_venta) REFERENCES VENTA (numero_venta),
+	CONSTRAINT PRODUCTOD_FK FOREIGN KEY (id_producto,precio_unitario) REFERENCES PRODUCTO (id_producto, precio_unitario)
+);
+
+--TABLA 10
+CREATE TABLE FACTURA(
+	id_factura INT GENERATED ALWAYS AS IDENTITY NOT NULL,
+	numero_venta VARCHAR(10) NOT NULL,
+	fecha DATE NOT NULL,
+	razon_social VARCHAR(50) NOT NULL,
+	concepto VARCHAR(50) NOT NULL,
+	cantidad INT NOT NULL,
+	monto_total NUMERIC NOT NULL,
+	CONSTRAINT FACTURA_PK PRIMARY KEY(id_factura),
+	CONSTRAINT FACTURAV_FK FOREIGN KEY (numero_venta) REFERENCES VENTA (numero_venta)
+);
+

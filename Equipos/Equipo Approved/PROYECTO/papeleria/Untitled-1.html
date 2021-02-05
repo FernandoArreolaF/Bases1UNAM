@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no,
+        initial-scale=1.0, maximim-scale=1.0, minimun-scale=1.0">
+        <title>Inicio</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600i,700" rel="stylesheet">
+        <link rel="stylesheet" href="css/prueba.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <div class="row contenedor_logo-menu">
+                    <div class="logo col-xs-12 col-md-6">
+                       <center> <a href="#"><img src="img/logo.png" alt=""></a></center>
+                    </div>
+                    <div class="menu col-xs-12 col-md-6">
+                        <a href="#">Boton1</a>
+                        <a href="#">Boton2</a>
+                        <a href="#">Boton3</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <h1 >Inicio de sesion</h1>
+        <form action="../php/validar.php" method="post" class="form-reg">     
+           <h2 class="form-tit">Log in</h2>
+           <div class="contenedor-inputs">
+                <input type="text" name="nombre" placeholder="Nombre"  class="input100" required>
+                <input type="password" name="rfc" placeholder="RFC" class="input100" required="">
+                <input type="submit" value="enviar" class="btnenviar">
+                <p class="formlink"> No tienes una cuenta? <a href="../registrar.php"> Registrate aqui</a> </p>
+           </div>
+        
+        <section>
+
+        </section>
+        <footer>
+
+        </footer>
+
+    </body>
+
+   
+
+</html>
