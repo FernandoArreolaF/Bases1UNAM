@@ -1,1 +1,0 @@
-Guadarrama Ortega Cesar Alejandro
