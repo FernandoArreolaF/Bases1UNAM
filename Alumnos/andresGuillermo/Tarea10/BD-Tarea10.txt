@@ -1,0 +1,50 @@
+
+EDIFICIO (
+nombreEdif varchar(20) (P),
+numeroPisos smallint ,
+ubicacion varchar (20))
+
+MATERIAL (
+nombreMat varchar(20) (P),
+fabricante varchar(10),
+precio int)
+
+EDIF_MAT(
+[nombreEdif varchar(20),
+nombreMat varchar(20)](FK)(PK))
+
+CUADRILLA (
+numCuad int (PK),
+descripcion varchar(30)
+numCuad int (FK))
+
+EDIF_CUAD (
+[nombreEdif varchar(20),
+numCuad int](FK)(PK),
+fechaAds date)
+
+FUNCION (
+claveFun int (P),
+especialidad varchar(20))
+
+
+TRABAJADOR (
+RFC varchar(10)(PK),
+numCuad int (FK),
+capataz varchar(15) (N),
+oficio varchar(20),
+nomPila varchar(15),
+patTrab varchar (15),
+matTrab varchar(15))
+
+
+
+
+
+
+
+
+
+
+
+
