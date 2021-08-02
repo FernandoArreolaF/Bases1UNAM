@@ -1,7 +1,7 @@
 Somos el equipo de "Software Solutions Cheems".
 
 Con los integrantes:
-Mar ́ın M ́arquez Jonathan
+Marín Márquez Jonathan
 Ramírez Flores Eslavica Monserrat
 Rea Aparicio Angel David
 Soriano Bonilla Carlos Ivan
