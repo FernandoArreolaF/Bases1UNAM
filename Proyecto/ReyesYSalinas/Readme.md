@@ -1,3 +1,5 @@
-# Carpeta para proyectos finales
+# Carpeta del proyecto final
 
-En esta sección se agregarán las carpetas de cada equipo
+Integrantes:
+-Reyes Avila David.
+-Salinas Romero Daniel
