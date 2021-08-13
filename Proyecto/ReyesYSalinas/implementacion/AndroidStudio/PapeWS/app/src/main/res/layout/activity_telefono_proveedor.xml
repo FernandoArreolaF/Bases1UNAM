@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Telefonos de Proveedores"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/edtTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Telefono" />
+
+    <EditText
+        android:id="@+id/edtRazonSP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Razon Social" />
+
+    <Button
+        android:id="@+id/btnInsertarTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insertar Telefono" />
+
+    <EditText
+        android:id="@+id/edtNuevoTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Actualizar Telefono" />
+
+    <Button
+        android:id="@+id/btnActualizarTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar Telefono" />
+
+    <Button
+        android:id="@+id/btnBorrarTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Borrar Telefono" />
+
+    <Button
+        android:id="@+id/btnConsultaTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consulta" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Consulta de Telefonos"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/lvTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
