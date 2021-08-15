@@ -1,0 +1,60 @@
+CLIENTE
+{
+	RFC varchar(13) (PK),
+	NombreCliente varchar(70),
+	DomicilioCliente varchar(70)
+}
+EMAIL
+{
+	Email varchar(50) (PK),
+	RFC varchar(13) (FK)
+}
+PROVEEDOR
+{
+	RazonSocial varchar(30) (PK),
+	DomicilioProv varchar(70),
+	NombreProv varchar(70),
+}
+TELEFONO
+{
+	Telefono int (PK)
+	RazonSocial varchar(30) (FK)
+}
+INVENTARIO
+{
+	CodigoBarras int (PK),
+	PrecioCompra int,
+	FechaCompra date,
+	stock int
+}
+PRODUCTO
+{
+	CodigoBarras int (PK)(FK),
+	PrecioProd int,
+	Marca varchar(15),
+	DescripcionProd varchar(30),
+	TipoProd varchar(15)
+}
+RECARGAS
+{
+	[Compañia varchar(30),
+	PrecioServcio int] (PK),
+	DescripcionServ varchar(30)
+}
+IMPRESIONES
+{
+	[TamañoHoja varchar(15),
+	TipoImpresion varchar(15)] (PK),
+	PrecioServcio int,
+	DescripcionServ varchar(30)
+}
+CONSUMO
+{
+	No.Venta int (PK),
+	FechaVenta date,
+	CantidadArticulo int,
+	PrecioArticulo int,
+	Total (C)
+}
+
+
