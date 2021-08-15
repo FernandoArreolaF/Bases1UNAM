@@ -2,4 +2,6 @@
 
 Integrantes:
 -Reyes Avila David.
--Salinas Romero Daniel
+-Salinas Romero Daniel.
+
+Ya se encuentran todos los entregables en la carpeta :)

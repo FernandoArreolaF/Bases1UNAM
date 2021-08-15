@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menuproduc"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="376dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32sp"
+        android:background="@color/cardview_light_background"
+        android:gravity="center"
+        android:text="Operaciones Producto"
+        android:textColor="#BF0404"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnInsertarProducto"
+        android:layout_width="247dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF0000"
+        android:text="Insertar Producto" />
+
+    <Button
+        android:id="@+id/btnActualizarProducto"
+        android:layout_width="247dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF0000"
+        android:text="Actualizar Producto" />
+
+    <Button
+        android:id="@+id/btnBorrarProducto"
+        android:layout_width="247dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF0000"
+        android:text="Borrar Producto" />
+
+    <Button
+        android:id="@+id/btnListarProducto"
+        android:layout_width="247dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF0000"
+        android:text="Lista Productos" />
+</LinearLayout>

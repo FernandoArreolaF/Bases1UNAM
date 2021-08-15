@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtProducto2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/edtNoventaOp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Núm. de venta"
+        android:inputType="textPersonName"
+        android:text="VENT-" />
+
+    <EditText
+        android:id="@+id/edtCodigoOp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Codigo de barras"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edtCantidadOp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Cantidad"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnAgregarProd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agregar a la venta" />
+
+    <Button
+        android:id="@+id/btnBorrarVenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Borrar producto de la venta" />
+</LinearLayout>
