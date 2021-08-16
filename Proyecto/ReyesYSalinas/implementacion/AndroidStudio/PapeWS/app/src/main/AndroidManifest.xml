@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.papews">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PapeWS">
+        <activity android:name=".MenuPrincipalActivity"
+            android:exported="true" > //puede ser true o false android:exported="true"
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MenuProducto"/>
+        <activity android:name=".MenuClienteActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".ActualizarProductoActivity"/>
+        <activity android:name=".EliminarProductoActivity"/>
+        <activity android:name=".ListarProductosActivity"/>
+        <activity android:name=".GuardarActualizarClienteActivity"/>
+        <activity android:name=".EliminarClienteActivity"/>
+        <activity android:name=".ListarClientesActivity"/>
+        <activity android:name=".OperacionesCorreoActivity"/>
+        <activity android:name=".MenuProveedorActivity"/>
+        <activity android:name=".GuardarActualizarProveedorActivity"/>
+        <activity android:name=".EliminarProveedorActivity"/>
+        <activity android:name=".ListarProveedoresActivity"/>
+        <activity android:name=".OperacionesTelefonoActivity"/>
+        <activity android:name=".MenuVentaActivity"/>
+        <activity android:name=".ListarEliminarVentaActivity"/>
+        <activity android:name=".GananciasActivity"/>
+        <activity android:name=".PopupCreditosActivity"
+            android:theme="@style/Theme.PapeWS.TemaPopup"/>
+        <activity android:name=".PopupOperacionesVentaActivity"
+            android:theme="@style/Theme.PapeWS.TemaPopup"/>
+        <activity android:name=".PopupCantidadActivity"
+            android:theme="@style/Theme.PapeWS.TemaPopup"/>
+    </application>
+
+</manifest>

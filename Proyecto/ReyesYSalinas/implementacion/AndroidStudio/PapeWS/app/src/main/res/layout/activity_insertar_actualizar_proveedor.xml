@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28sp"
+                android:gravity="center"
+                android:text="Guardar / Actualizar Proveedor"
+                android:textColor="#000"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtRazonSocial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Razon Social"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtPnombrep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtApellidopp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Apellido Paterno"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtApellidomp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Apellido Materno"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtCallep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Calle"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtColoniap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Colonia"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/edtCpp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="C.P."
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/edtNumerocallep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="# Calle"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/edtEstadop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Estado"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/btnGuardarProv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar Proveedor" />
+
+            <Button
+                android:id="@+id/btnActualizarProv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Actualizar Proveedor" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
