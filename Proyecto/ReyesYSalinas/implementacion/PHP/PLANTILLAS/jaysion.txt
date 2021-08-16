@@ -1,0 +1,91 @@
+//aqui ponemos como insertar en Json desde https://reqbin.com/
+
+//Producto: https://serene-escarpment-45910.herokuapp.com/Producto_Insertar.php
+{
+  "RAZONSOCIAL":349813,
+  "CODIGOBARRAS":12856739,
+  "ARTICULO":"PRIT",
+  "FECHAC":"05-05-2021",
+  "PRECIOC":"7.30",
+  "MARCA":"RESISTOL",
+  "DESCRIPCION":"",
+  "PRECIOV":"11",
+  "STOCK":0
+}
+
+//Proveedor: https://serene-escarpment-45910.herokuapp.com/Proveedor_Insertar.php
+{
+  "RAZONSOCIAL":128567,
+  "PNOMBREP":"HUGO",
+  "APELLIDOPP":"PALACIOS",
+  "APELLIDOMP":"CASTILLO",
+  "CALLEP":"FRESNO",
+  "COLONIAP":"SANTAMA",
+  "CPP":"06450",
+  "NUMEROCALLEP":121,
+  "ESTADOP":"CDMX"
+}
+
+//TELEFONO: https://serene-escarpment-45910.herokuapp.com/Telefono_Insertar.php
+{
+  "RAZONSOCIAL":128567,
+  "TELL": 5516952270
+}
+
+//CLIENTE: https://serene-escarpment-45910.herokuapp.com/Cliente_Insertar.php
+{
+  "RFC":"BABJ310707812",
+  "PNOMBREC":"LUIS",
+  "APELLIDOPC":"DIAZ",
+  "APELLIDOMC":"",
+  "CALLEC":"NOGAL",
+  "COLONIAC":"SANTAMA",
+  "CPC":"06450",
+  "NUMEROCALLEC":3,
+  "ESTADOC":"CDMX"
+}
+
+//EMAIL: https://serene-escarpment-45910.herokuapp.com/Email_Insertar.php
+{
+  "RFC":"BABJ310707812",
+  "CORREO": "davidewok_reyes@hotmail.com"
+}
+
+
+--PRUEBA VENTA:
+  -- INSERTAR VENTA: https://serene-escarpment-45910.herokuapp.com/Venta_Insertar.php
+{
+  "FECHAV":"07-21-2021",
+  "RFC": "BABJ310707812"
+}
+
+--INSERTAR EN INCLUYE: https://serene-escarpment-45910.herokuapp.com/Incluye_Insertar.php
+{
+  "CODIGOBARRAS": "78584509",
+  "NOVENTA": "VENT-43",
+  "CANTIDADPROD":1
+}
+
+{
+  "CODIGOBARRAS":"38854350",
+  "NOVENTA": "VENT-43",
+  "CANTIDADPROD":2
+}
+
+{
+  "CODIGOBARRAS":"41850950",
+  "NOVENTA": "VENT-43",
+  "CANTIDADPROD": 3
+}
+
+--ACTUALIZAR INCLUYE: https://serene-escarpment-45910.herokuapp.com/Incluye_Actualizar.php
+{
+  "CODIGOBARRAS": "78584509",
+  "NOVENTA": "VENT-43",
+  "CANTIDADPROD":2
+}
+
+--ACTUALIZAR VENTA: https://serene-escarpment-45910.herokuapp.com/Venta_Actualizar.php
+{
+  "NOVENTA": "VENT-43"
+}
