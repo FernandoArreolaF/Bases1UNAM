@@ -1,0 +1,8 @@
+INSERT INTO PRODUCTO(1000,'MATTEL',10,'HotWheels',' ','Carrito de metal escala 1/64, fabricado en China.',1,'VENT-005','MATTEL S.A. DE C.V.')
+INSERT INTO PRODUCTO(1001,'Ferrero',25,'Ferrero Rocher Black',' ','Dulce de chocolate con avellana.',1,'VENT-006','Dulceria El Bofito S.A. De C.V.')
+INSERT INTO PRODUCTO(1002,'Spectra',10,' ','MOUSE PAD SPECTRA','Con el Mouse Pad Spectra optimiza tus horas de trabajo y el funcionamiento de tu mouse de manera fácil y accesible.',3,'VENT-007','U.S. Ruber Mexicana, S.A.')
+INSERT INTO PRODUCTO(1003,'TECHZONE',99,' ','Diadema Inalámbrica TechZone','Disfruta de un audio impecable en tus comunicaciones y entretenimiento multimedia, además de libre movimiento sin cables gracias a la nueva Diadema Inalámbrica TechZone TZDIBT02.',60,'VENT-008','U.S. Ruber Mexicana, S.A.')
+INSERT INTO PRODUCTO(1004,'SHURE',30,' ','MICROFONO SHURE','El Micrófono Shure SV200 te brindan proyección de audio de alta calidad para tus eventos sin importar si son laborales, públicos, o informales.',19,'VENT-009','U.S. Ruber Mexicana, S.A.')
+INSERT INTO PRODUCTO(1005,'TechZone',98,' ','Mouse Inalámbrico','El nuevo Mouse Inalámbrico TechZone Prisma TZ19MOU02 te brinda la avanzada tecnología y el diseño ergonómico para mejorar tu rendimiento al estudiar, jugar o trabajar.',8,'VENT-010','U.S. Ruber Mexicana, S.A.')
+INSERT INTO PRODUCTO(1006,'Hugfun',130,'Oso de Peluche',' ','Este oso afelpado de 134 cm de tamaño es súper suave y acogedor.
+Su panza de gran tamaño es ideal para recargarse mientras ve su video o programa favorito de TV.',25,'VENT-011','Distribuidora Ges, S.A.')
