@@ -1,7 +1,0 @@
-git add .
-git commit -am "make it better"
-git push heroku main
- 
-
-
-git pull heroku main
