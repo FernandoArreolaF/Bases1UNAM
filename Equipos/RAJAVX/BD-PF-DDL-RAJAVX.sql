@@ -1,0 +1,308 @@
+--
+
+-- TABLE: "ARTICULO" 
+
+--
+
+CREATE TABLE ARTICULO(
+
+    NUM_PRODUCTO  int2             NOT NULL,
+
+    DESCRIPCION   varchar(300)     NOT NULL,
+
+    MARCA         varchar(40)      NOT NULL,
+
+    PRECIO_COMPRA        numeric(8, 2)    NOT NULL,
+	
+	PRECIO_VENTA         numeric(8, 2)    NOT NULL,
+
+    STOCK         int2             NOT NULL,
+
+    CONSTRAINT PK4 PRIMARY KEY (NUM_PRODUCTO),
+    CONSTRAINT CHECK_STOCK CHECK(STOCK>=0),
+    CONSTRAINT  CHECK_PRECIO CHECK (PRECIO_COMPRA>0 or PRECIO_VENTA >0)
+);
+
+-- 
+
+-- TABLE: "CATALOGO" 
+
+--
+
+
+
+CREATE TABLE CATALOGO(
+
+    TIPO_ID       int2           NOT NULL,
+
+    TIPO          varchar(40)    NOT NULL,
+
+    NUM_PRODUCTO  int2           NOT NULL,
+
+    CONSTRAINT PK13 PRIMARY KEY (TIPO_ID)
+
+);
+
+-- 
+
+-- TABLE: "CLIENTE" 
+
+--
+
+
+
+CREATE TABLE CLIENTE(
+
+    RFC      char(13)       NOT NULL,
+
+    NOMBRE   varchar(40)    NOT NULL,
+
+    APELLIDO_PATERNO varchar(40)    NOT NULL,
+
+    APELLIDO_MATERNO varchar(40),
+
+    ESTADO   varchar(40)    NOT NULL,
+
+    CP       char(5)        NOT NULL,
+
+    COLONIA  varchar(40)    NOT NULL,
+
+    CALLE    varchar(40)    NOT NULL,
+
+    NUMERO   int2           NOT NULL,
+
+    CONSTRAINT PK1 PRIMARY KEY (RFC)
+
+);
+
+-- 
+
+-- TABLE: "CLIENTE_EMAIL" 
+
+--
+
+
+
+CREATE TABLE CLIENTE_EMAIL(
+
+    RFC    char(13)        NOT NULL,
+
+    EMAIL  varchar(200)    NOT NULL,
+
+    CONSTRAINT PK14 PRIMARY KEY (RFC)
+
+);
+
+-- 
+
+-- TABLE: "PROOVEDOR_ALMACEN" 
+
+--
+
+
+
+CREATE TABLE PROVEEDOR_ALMACEN(
+
+    PROVEEDOR_ID  int2    NOT NULL,
+
+    NUM_PRODUCTO  int2    NOT NULL,
+
+    FECHA_COMPRA  date    NOT NULL,
+
+    CONSTRAINT PK12 PRIMARY KEY (PROVEEDOR_ID, NUM_PRODUCTO)
+
+);
+
+-- 
+
+-- TABLE: "PROVEEDOR" 
+
+--
+
+
+
+CREATE TABLE PROVEEDOR(
+
+    PROVEEDOR_ID      int2           NOT NULL,
+
+    NOMBRE            varchar(40)    NOT NULL,
+
+    RAZON_SOCIAL      varchar(40)    NOT NULL,
+
+    ESTADO             varchar(40)    NOT NULL,
+
+    CP                char(5)        NOT NULL,
+
+    COLONIA           varchar(40)    NOT NULL,
+
+    CALLE             varchar(40)    NOT NULL,
+
+    NUMERO            int2           NOT NULL,
+
+    TELEFONO_CELULAR  varchar(15)    NOT NULL,
+
+    TELEFONO_CASA     varchar(15),
+
+    CONSTRAINT PK2 PRIMARY KEY (PROVEEDOR_ID)
+
+);
+
+-- 
+
+-- TABLE: "VENTA" 
+
+--
+
+
+
+CREATE TABLE VENTA(
+
+    NUM_VENTA      varchar(7)         NOT NULL,
+
+    FECHA_VENTA     date             NOT NULL,
+
+    PRECIO_TOTAL    numeric(8, 2)   NOT NULL,
+
+    CANTIDAD_TOTAL  int2             NOT NULL,
+
+    RFC             char(13)         NOT NULL,
+
+    CONSTRAINT PK10 PRIMARY KEY (NUM_VENTA),
+    CONSTRAINT CHECK_NUM_VENTA CHECK (substring(NUM_VENTA,1,5)='VENT-')
+);
+
+
+-- 
+
+-- TABLE: "VENTA_ALMACEN" 
+
+--
+
+
+
+CREATE TABLE VENTA_ALMACEN(
+
+    NUM_VENTA        varchar(7)       NOT NULL,
+
+    NUM_PRODUCTO     int2             NOT NULL,
+
+    PRECIO_UNITARIO  numeric(8, 2)    NOT NULL,
+
+    CANTIDAD         int2             NOT NULL,
+
+    PRECIO_CANTIDAD  numeric(8, 2)    NOT NULL,
+
+
+    CONSTRAINT PK11 PRIMARY KEY (NUM_VENTA, NUM_PRODUCTO)
+
+);
+
+
+-- 
+
+-- VIEW: "TICKET" 
+
+--
+-- 
+
+-- TABLE: "CATALOGO" 
+
+--
+
+
+
+ALTER TABLE CATALOGO ADD CONSTRAINT "RefARTICULO241" 
+
+    FOREIGN KEY (NUM_PRODUCTO)
+
+    REFERENCES ARTICULO(NUM_PRODUCTO);
+
+
+-- 
+
+-- TABLE: "CLIENTE_EMAIL" 
+
+--
+
+
+
+ALTER TABLE CLIENTE_EMAIL ADD CONSTRAINT RefCLIENTE251 
+
+    FOREIGN KEY (RFC)
+
+    REFERENCES CLIENTE(RFC);
+
+
+-- 
+
+-- TABLE: "PROOVEDOR_ALMACEN" 
+
+--
+
+
+
+ALTER TABLE PROVEEDOR_ALMACEN ADD CONSTRAINT RefPROVEEDOR211 
+
+    FOREIGN KEY (PROVEEDOR_ID)
+
+    REFERENCES PROVEEDOR(PROVEEDOR_ID);
+
+
+
+ALTER TABLE PROVEEDOR_ALMACEN ADD CONSTRAINT RefARTICULO221
+
+    FOREIGN KEY (NUM_PRODUCTO)
+
+    REFERENCES ARTICULO(NUM_PRODUCTO);
+
+
+-- 
+
+-- TABLE: "VENTA" 
+
+--
+
+
+
+ALTER TABLE VENTA ADD CONSTRAINT RefCLIENTE261 
+
+    FOREIGN KEY (RFC)
+
+    REFERENCES CLIENTE(RFC) ON UPDATE CASCADE;
+
+-- 
+
+-- TABLE: "VENTA_ALMACEN" 
+
+--
+
+ALTER TABLE VENTA_ALMACEN ADD CONSTRAINT RefVENTA141 
+
+    FOREIGN KEY (NUM_VENTA)
+
+    REFERENCES VENTA(NUM_VENTA) ON UPDATE CASCADE;
+
+
+
+ALTER TABLE VENTA_ALMACEN ADD CONSTRAINT RefARTICULO151 
+
+    FOREIGN KEY (NUM_PRODUCTO)
+
+    REFERENCES ARTICULO(NUM_PRODUCTO);
+
+CREATE VIEW TICKET AS
+SELECT VE.RFC, VE.FECHA_VENTA, AR.DESCRIPCION, VEN.PRECIO_UNITARIO, VEN.CANTIDAD, VEN.PRECIO_CANTIDAD, VE.CANTIDAD_TOTAL, VE.PRECIO_TOTAL
+FROM VENTA VE, VENTA_ALMACEN VEN, ARTICULO AR
+WHERE VEN.NUM_VENTA = VE.NUM_VENTA
+ AND VEN.NUM_PRODUCTO = AR.NUM_PRODUCTO
+ 
+ Create sequence seq_venta
+ increment by 1
+ minvalue 1
+ no maxvalue
+ start with 1
+ cache 3
+ no cycle;
+ 
+create index idx_nombres_clientes
+on cliente(NOMBRE,APELLIDO_PATERNO,APELLIDO_MATERNO);
