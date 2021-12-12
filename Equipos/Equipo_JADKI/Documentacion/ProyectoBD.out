@@ -1,0 +1,29 @@
+\BOOKMARK [1][-]{section.1}{Introducci\363n}{}% 1
+\BOOKMARK [1][-]{section.2}{Plan de trabajo}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Descripci\363n}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Plan de actividades}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Cronograma}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Aportaciones}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Dise\361o}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{An\341lisis de requerimientos}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Modelo conceptual}{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Modelo Entidad-Relaci\363n}{subsection.3.2}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Modelo l\363gico}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Representaci\363n Intermedia}{subsection.3.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Transformaci\363n de MER a MR}{subsection.3.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Modelo Relacional}{subsection.3.3}% 14
+\BOOKMARK [3][-]{subsubsection.3.3.4}{Normalizaci\363n}{subsection.3.3}% 15
+\BOOKMARK [1][-]{section.4}{Implementaci\363n}{}% 16
+\BOOKMARK [2][-]{subsection.4.1}{Modelo f\355sico}{section.4}% 17
+\BOOKMARK [3][-]{subsubsection.4.1.1}{IaaS}{subsection.4.1}% 18
+\BOOKMARK [2][-]{subsection.4.2}{DDL}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.3}{DML}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.4}{Funciones}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.5}{Trigger}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.6}{\355ndice Tabla}{section.4}% 23
+\BOOKMARK [1][-]{section.5}{Presentaci\363n}{}% 24
+\BOOKMARK [2][-]{subsection.5.1}{Django}{section.5}% 25
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Mapeo Relacional de Objetos}{subsection.5.1}% 26
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Ejecutar SQL personalizado directamente}{subsection.5.1}% 27
+\BOOKMARK [2][-]{subsection.5.2}{Dise\361o}{section.5}% 28
+\BOOKMARK [1][-]{section.6}{Conclusiones}{}% 29
