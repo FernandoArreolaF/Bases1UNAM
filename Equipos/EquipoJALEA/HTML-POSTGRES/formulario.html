@@ -1,0 +1,31 @@
+<!-- Sábado 11 de Diciembre, 2021. -->
+<!-- Autor: EQUIPO JALEA, BASES DE DATOS -->
+<!-- Descripción: formulario html con atributos de la tabla cliente de la base de datos -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formulario de Registro</title>
+		<!-- Conexion con archivo css -->
+		<link rel ="stylesheet" type ="text/css" href="estilo.css" media="all">
+	</head>
+	<body>
+		<div class = "form">
+			<!-- Enlace del formulario con el archivo php -->
+			<form action = "enlacephp.php" method="POST">
+				<!-- Diseño de las entradas en el formulario -->
+				<input type="text" name="RFC" placeholder="RFC"><br>
+				<input type="text" name="nombre" placeholder="Nombre"><br>
+				<input type="text" name="ap_paterno" placeholder="Apellido Paterno"><br>
+				<input type="text" name="ap_materno" placeholder="Apellido Materno"><br>
+				<input type="text" name="estado" placeholder="Estado"><br>
+				<input type="text" name="codigo_postal" placeholder="Codigo Postal"><br>
+				<input type="text" name="colonia" placeholder="Colonia"><br>
+				<input type="text" name="calle" placeholder="Calle"><br>
+				<input type="text" name="num_domicilio" placeholder="Numero de Domicilio"><br>
+				<br>
+				<br>
+				<input type="submit" value="Enviar">
+			</form>
+		</div>	
+	</body>
+</html>
