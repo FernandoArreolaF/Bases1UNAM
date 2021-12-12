@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+
+            body{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #formulario{
+                height: 200px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            
+            .formInp{
+                width: 25%;
+                height: 30px;
+                margin-left: 10px;
+                border-radius: 5px;
+            }
+         
+            .btn-container{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #btn-send{
+                background: rgb(15, 218, 15);
+                color: white;
+                width: 30%;
+                height: 40px;
+                border-radius: 20px;
+                transition: 0.5s;
+            }
+            #btn-send:hover{
+                transform: scale(1.1);
+                font-weight: bold;
+                transition: 0.5s;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Ingrese de cliente</h1>
+        <form id="formulario" action="/cliente" , method = 'POST'>
+            <input class="formInp" type="text" name="nombre" placeholder="nombre">
+            <input class="formInp" type="text" name="ap_paterno" placeholder="ap_paterno">
+            <input class="formInp" type="text" name="ap_materno" placeholder="ap_materno">
+            <input class="formInp" type="text" name="rfc" placeholder="rfc">
+            <input class="formInp" type="text" name="estado" placeholder="estado">
+            <input class="formInp" type="text" name="colonia" placeholder="colonia">
+            <input class="formInp" type="text" name="calle" placeholder="calle">
+            <input class="formInp" type="text" name="codigo_postal" placeholder="codigo_postal">
+            <input class="formInp" type="text" name="numero" placeholder="numero">
+            <input class="formInp" type="text" name="id_cliente" placeholder="id_cliente">
+        
+            <div class="btn-container"><button id="btn-send" type="submit">Guardar cliente</button></div>
+        </form>        
+    </body>
+</html>
+
+
