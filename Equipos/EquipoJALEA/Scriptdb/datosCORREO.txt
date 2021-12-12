@@ -1,0 +1,10 @@
+1|j@hotmail.com
+1|e@gmail.com
+2|u@hotmail.com
+3|a@gmail.com
+4|b@hotmail.com
+5|c@gmail.com
+6|d@hotmail.com
+7|f@gmail.com
+8|g@gmail.com
+6|di@gmail.com
