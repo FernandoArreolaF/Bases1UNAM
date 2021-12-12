@@ -1,0 +1,3 @@
+psql -h b0c9rpn69qut7zlpkr4t-postgresql.services.clever-cloud.com -p 5432 -U ukx2eg1y5fxtqzogudca -d b0c9rpn69qut7zlpkr4t
+
+Nd1MXRV2wOOrFgCXu52k
