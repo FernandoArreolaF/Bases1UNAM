@@ -1,0 +1,30 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
+\contentsline {section}{\numberline {2}Plan de trabajo}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Descripción}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Plan de actividades}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Cronograma}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Aportaciones}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Diseño}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Análisis de requerimientos}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Modelo conceptual}{4}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Modelo Entidad-Relación}{5}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Modelo lógico}{5}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Representación Intermedia}{5}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Transformación de MER a MR}{6}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Modelo Relacional}{6}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Normalización}{6}{subsubsection.3.3.4}%
+\contentsline {section}{\numberline {4}Implementación}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Modelo físico}{8}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}IaaS}{8}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}DDL}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}DML}{12}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Funciones}{13}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Trigger}{14}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}índice Tabla}{15}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Presentación}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Django}{15}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Mapeo Relacional de Objetos}{15}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Ejecutar SQL personalizado directamente}{16}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Diseño}{16}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Conclusiones}{21}{section.6}%
