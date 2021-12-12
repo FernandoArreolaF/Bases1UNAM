@@ -1,0 +1,344 @@
+
+
+--FACTURA-----------------------------------------------------------------------------
+create view vst_factura as
+select
+  cl.nombre as nombre_cliente,cl.ap_paterno,
+  co.email,a.venta_id,v.fecha_venta,p.nombre as nombre_articulo,
+  p.marca,a.precio,count(*) as cantidad,v.cantidad_articulos,v.pago_final
+from articulo a join producto p on a.producto_id=p.producto_id
+                join venta v on a.venta_id=v.venta_id
+                join cliente cl on v.cliente_id=cl.cliente_id
+                join correo co on cl.cliente_id=co.cliente_id
+group by a.venta_id,v.fecha_venta,cl.nombre,cl.ap_paterno,
+         co.email,v.cantidad_articulos,v.pago_final,
+         p.nombre,p.marca,a.precio
+order by a.venta_id;
+
+select * from vst_factura where venta_id='VENT-011';
+-----------------------------------------------------------------------------
+
+--Agregando check a VENTA----------------------------------------------------
+alter table venta add constraint ck_venta_venta_id check(venta_id like ('VENT-%'));
+-----------------------------------------------------------------------------
+
+--Agregando valores default a VENTA-------------------------------------------
+alter table venta alter column pago_final set default '0.0';
+alter table venta alter column cantidad_articulos set default '0';
+
+-------------------------------CANTIDAD ARTICULOS EN VENTA-------------------------------------
+-----Esto es para los que ya habíamos insertado (calculo de pago_final,cantidad_articulos)
+DO $$
+DECLARE 
+  cur_datos_cant_articulos CURSOR FOR
+    SELECT venta_id,v.fecha_venta,count(*) as cantidad_articulos_total
+    FROM venta v join articulo a using(venta_id)
+    GROUP BY venta_id,v.fecha_venta;
+BEGIN
+  for p in cur_datos_cant_articulos loop
+    update venta set CANTIDAD_ARTICULOS=p.cantidad_articulos_total where venta.venta_id=p.venta_id;
+  end loop;
+END;
+$$
+;
+
+DO $$
+DECLARE
+  cur_datos_pago_final CURSOR FOR
+    select
+      a.venta_id,p.nombre as nombre_articulo,
+      p.marca,a.precio,count(*) as cantidad
+    from articulo a join producto p on a.producto_id=p.producto_id
+    group by a.venta_id,p.nombre,p.marca,a.precio;
+BEGIN
+  for p in cur_datos_pago_final loop
+    update venta set PAGO_FINAL=venta.pago_final+(p.precio*p.cantidad) where venta.venta_id=p.venta_id;
+  end loop;
+END;
+$$
+;
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+--Triggers para nuevas inserciones en ARTICULO--------------------------------
+--Se creó una vista para poder saber los valores a insertar en un nuevo articulo:
+
+create view vst_informacion_para_registrar_articulo as
+select
+  p.producto_id,p.nombre,p.marca,p.precio_proveedor,
+  a.precio as precio_vendido,max(a.articulo_id) as articulo_id_max
+from articulo a right join producto p on a.producto_id=p.producto_id
+group by p.producto_id,p.nombre,p.precio_proveedor,a.precio
+order by p.producto_id;
+
+--Se creó el siguiente procedimiento:-----------------------------------------
+--Parámetros: producto_id del producto que se quiere agregar a la venta vent
+--art=articulo_id, pre=precio al que es vendido (si este está como null,
+--se le aplica una utilidad del 30% por default, si se quiere cambiar
+--la utilidad, modificar este código y volver a ejecutar)
+--preC=precio a consultar
+--preI=precio a ingresar
+--También se decrementa el número de ejemplares en la tabla producto,
+--si hay 0 ejemplares del producto añadido, se aborta la transacción.
+CREATE OR REPLACE PROCEDURE agregar_articulo_a_venta(prod smallint,vent varchar(8))
+LANGUAGE PLPGSQL
+AS $$
+  DECLARE
+    art smallint;
+    preC numeric(6,2);
+    preI numeric(6,2);
+    num_ejem integer;
+  BEGIN
+    IF (select articulo_id_max from vst_informacion_para_registrar_articulo
+        where producto_id=prod) IS NOT NULL THEN
+          art=(select articulo_id_max from vst_informacion_para_registrar_articulo
+        where producto_id=prod)+1;
+          preI=(select precio_vendido from vst_informacion_para_registrar_articulo
+        where producto_id=prod);
+    ELSE
+        art=1;
+        preC=(select precio_proveedor from producto where producto_id=prod);
+        preI=preC+((30*preC)/100);
+    END IF;
+    insert into articulo (articulo_id,producto_id,precio,venta_id)
+      values (art,prod,preI,vent);
+    num_ejem=(select num_ejemplares from producto where producto_id=prod);
+    update producto set num_ejemplares=(num_ejem-1) where producto_id=prod;
+    IF num_ejem > 0 THEN
+      IF num_ejem <= 4 THEN
+        RAISE NOTICE 'ALERTA, QUEDAN % ARTICULOS DEL PRODUCTO SOLICITADO',num_ejem-1;
+      END IF;
+      commit;
+    ELSE
+      RAISE NOTICE 'No existen ejemplares del producto % por el momento.',prod;
+      rollback;
+    END IF;
+  END;
+$$;
+
+--Se creó el sig. trigger para calcular la cantidad de artículos en una venta.----
+CREATE OR REPLACE FUNCTION calcula_cant_articulos_total_por_venta()
+RETURNS TRIGGER 
+AS $$
+  DECLARE
+    v_venta_id venta.venta_id%type;
+    v_cant venta.CANTIDAD_ARTICULOS%type;
+  BEGIN
+    v_venta_id := NEW.venta_id;
+    RAISE NOTICE '%',v_venta_id;
+    v_cant=(SELECT count(*) as cantidad_articulos_total
+    FROM venta v join articulo a on v.venta_id=a.venta_id
+    GROUP BY V.venta_id,v.fecha_venta HAVING v.venta_id=v_venta_id);
+    
+    update venta set CANTIDAD_ARTICULOS=v_cant where venta.venta_id=v_venta_id;
+  RETURN NEW;
+  END;
+$$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER tr_calcula_cant_articulos_total_por_venta
+  AFTER INSERT ON ARTICULO FOR EACH ROW 
+  EXECUTE PROCEDURE calcula_cant_articulos_total_por_venta();
+
+
+--Se creó el sig. trigger para calcular el pago final en una venta.-----
+CREATE OR REPLACE FUNCTION calcula_pago_total_por_venta()
+RETURNS TRIGGER 
+AS $$
+  DECLARE
+    v_venta_id venta.venta_id%type;
+    v_producto_id articulo.producto_id%type;
+    v_pago venta.pago_final%type;
+--    v_cant_indv venta.cantidad_articulos%type;
+  BEGIN
+    v_venta_id := NEW.venta_id;
+    v_producto_id := NEW.producto_id;
+    v_pago=(select a.precio
+      from articulo a join producto p on a.producto_id=p.producto_id
+      group by a.venta_id,a.producto_id,p.nombre,p.marca,a.precio
+      HAVING a.venta_id=v_venta_id and a.producto_id=v_producto_id);
+--    v_cant_indv=(select count(*) as cantidad
+--      from articulo a join producto p on a.producto_id=p.producto_id
+--      group by a.venta_id,a.producto_id,p.nombre,p.marca,a.precio 
+--      HAVING a.venta_id=v_venta_id and a.producto_id=v_producto_id);
+    
+      update venta set PAGO_FINAL=venta.pago_final+v_pago where venta.venta_id=v_venta_id;
+  RETURN NEW;
+  END;
+$$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER tr_calcula_pago_total_por_venta
+  AFTER INSERT ON ARTICULO FOR EACH ROW
+  EXECUTE PROCEDURE calcula_pago_total_por_venta();
+
+-----Procedimiento para insertar un ARTICULO------------------------------------------
+--Insertar venta primero, o se toma una venta que ya esté registrada,
+--EJEMPLO insert en venta:
+insert into venta(venta_id,fecha_venta,cliente_id) values('VENT-012','2019-02-14','5');
+--después, realizar la siguiente consulta para saber qué producto
+--se quiere adquirir (para completar el campo de producto_id de la tabla ARTICULO),
+--el siguiente número para articulo_id, el precio al que será vendido (para completar
+--el campo de precio de la tabla ARTICULO):
+
+select * from vst_informacion_para_registrar_articulo;
+
+--Para insertar artículo con los debidos datos,
+--LLAMAR al procedimiento:
+CALL agregar_articulo_a_venta(7::smallint,'VENT-010');--(producto_id,venta_id)
+
+--Consulta stock
+select producto_id,num_ejemplares,nombre,marca from producto;
+--Consulta factura
+select * from vst_factura where venta_id='VENT-002';--(venta que se acaba de actualizar)
+-----------------------------------------------------------------------------
+
+--Se obtiene la utilidad--------------------------------------------------
+**************************************************************************
+CREATE OR REPLACE PROCEDURE utilidad(cod_barras varchar(15))
+LANGUAGE PLPGSQL
+AS $$
+  DECLARE
+    num_ejem integer;
+    v_producto_id producto.producto_id%type;
+    v_precio_prov producto.precio_proveedor%type;
+    v_precio_vend articulo.precio%type;
+    v_utilidad numeric(6,2);
+  BEGIN
+    v_producto_id=(select producto_id from producto where codigo_barras=cod_barras);
+    v_precio_prov=(select precio_proveedor from producto where codigo_barras=cod_barras);
+    v_precio_vend=(select max(precio) from articulo group by producto_id having producto_id=v_producto_id);
+    v_utilidad=((v_precio_vend-v_precio_prov)*100)/v_precio_prov;
+    
+    RAISE NOTICE 'Producto: %',v_producto_id;
+    RAISE NOTICE 'Precio proveedor: % pesos',v_precio_prov;
+    RAISE NOTICE 'Precio vendido: % pesos',v_precio_vend;
+    RAISE NOTICE 'Utilidad: % por ciento',v_utilidad;
+  END;
+$$;
+--LLAMAR al procedimiento:
+CALL utilidad('A-00050-Z');--(cod_barras varchar(15))
+
+-----------CREACION INDICE-------------------------------------------------
+--Como la consulta para saber la utilidad de un producto, dado su código de barras,
+--es solicitada y suponemos que con mucha frecuencia,
+--con la finalidad de reducir el número de lecturas para recuperar los datos
+--producto_id y precio_proveedor, se crea un índice de tipo unique y con el
+--método BTREE para la columna codigo_barras de la tabla producto.
+--Se especifica que se realice el índice con el método BTREE porque éste tiene
+--sus datos ordenados, no permite datos nulos y su crecimiento
+--evita que el árbol tenga un alto grado de profundidad (con lo cual se reduce
+--el número de lecturas):
+
+create unique index producto_codigo_barras_iuk on producto using btree(codigo_barras);
+
+
+-----------------------------------------------------------------------------
+**************************************************************************
+--Se creó vista para obtener el nombre de los productos con pocos ejemplares
+
+create view vst_productos_escasos as 
+select nombre,marca from producto where num_ejemplares<'3';
+
+-----------------------------------------------------------------------------
+*****************************************************************************
+--Total articulos vendidos entre las fechas 'YYYY-MM-DD' y 'YYYY-MM-DD'
+
+CREATE OR REPLACE PROCEDURE venta_durante_temporada(fec_i date,fec_f date)
+LANGUAGE PLPGSQL
+AS $$
+  DECLARE
+    cur_datos_cant_articulos CURSOR FOR
+      select fecha_venta,sum(cantidad_articulos) as cant_total_art
+      from venta group by fecha_venta 
+      having fecha_venta between fec_i and fec_f;
+
+    cur_datos_precios CURSOR FOR
+      select
+        a.venta_id,v.fecha_venta,a.producto_id,p.nombre as nombre_articulo,
+        p.marca,p.precio_proveedor,a.precio as precio_vendido,count(*) as cantidad
+      from articulo a join producto p on a.producto_id=p.producto_id
+                join venta v on a.venta_id=v.venta_id
+      group by a.venta_id,v.fecha_venta,a.producto_id,
+         p.nombre,p.marca,p.precio_proveedor,a.precio 
+      having v.fecha_venta between fec_i and fec_f;
+      
+    v_cant_total_art integer;
+    v_total_pagada numeric(7,2);
+    v_total_vendida numeric(7,2);
+    v_ganancia numeric(7,2);
+  BEGIN
+    v_cant_total_art=0;
+    v_total_pagada=0.0;
+    v_total_vendida=0.0;
+    
+    for p in cur_datos_cant_articulos loop 
+      v_cant_total_art=v_cant_total_art+p.cant_total_art;
+    end loop;
+    
+    for p in cur_datos_precios loop 
+      v_total_pagada=v_total_pagada+(p.precio_proveedor*p.cantidad);
+      v_total_vendida=v_total_vendida+(p.precio_vendido*p.cantidad);
+    end loop;
+
+    v_ganancia=v_total_vendida-v_total_pagada;
+    
+    RAISE NOTICE 'Cantidad de articulos vendidos entre % y %: %',fec_i,fec_f,v_cant_total_art;
+    RAISE NOTICE 'Total gastado: %',v_total_pagada;
+    RAISE NOTICE 'Total vendido: %',v_total_vendida;
+    RAISE NOTICE 'Ganancia: %',v_ganancia;
+  END;
+$$;
+--LLAMAR al procedimiento:
+CALL venta_durante_temporada('2019-01-01','2019-01-31');--(fec_i date,fec_f date)
+
+
+-----------------------------------------------------------------------------
+*****************************************************************************
+--Total articulo vendidos en un día 'YYYY-MM-DD'
+
+CREATE OR REPLACE PROCEDURE venta_durante_dia(fec date)
+LANGUAGE PLPGSQL
+AS $$
+  DECLARE
+    cur_datos_cant_articulos CURSOR FOR
+      select fecha_venta,sum(cantidad_articulos) as cant_total_art
+      from venta group by fecha_venta 
+      having fecha_venta=fec;
+
+    cur_datos_precios CURSOR FOR
+      select
+        a.venta_id,v.fecha_venta,a.producto_id,p.nombre as nombre_articulo,
+        p.marca,p.precio_proveedor,a.precio as precio_vendido,count(*) as cantidad
+      from articulo a join producto p on a.producto_id=p.producto_id
+                join venta v on a.venta_id=v.venta_id
+      group by a.venta_id,v.fecha_venta,a.producto_id,
+         p.nombre,p.marca,p.precio_proveedor,a.precio 
+      having v.fecha_venta=fec;
+      
+    v_cant_total_art integer;
+    v_total_pagada numeric(7,2);
+    v_total_vendida numeric(7,2);
+    v_ganancia numeric(7,2);
+  BEGIN
+    v_cant_total_art=0;
+    v_total_pagada=0.0;
+    v_total_vendida=0.0;
+    
+    for p in cur_datos_cant_articulos loop 
+      v_cant_total_art=v_cant_total_art+p.cant_total_art;
+    end loop;
+    
+    for p in cur_datos_precios loop 
+      v_total_pagada=v_total_pagada+(p.precio_proveedor*p.cantidad);
+      v_total_vendida=v_total_vendida+(p.precio_vendido*p.cantidad);
+    end loop;
+
+    v_ganancia=v_total_vendida-v_total_pagada;
+    
+    RAISE NOTICE 'Cantidad de articulos vendidos el dia %: %',fec,v_cant_total_art;
+    RAISE NOTICE 'Total gastado: %',v_total_pagada;
+    RAISE NOTICE 'Total vendido: %',v_total_vendida;
+    RAISE NOTICE 'Ganancia: %',v_ganancia;
+  END;
+$$;
+--LLAMAR al procedimiento:
+CALL venta_durante_dia('2019-02-13');--(fec date)
