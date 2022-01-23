@@ -1,1 +1,0 @@
-Este es mi carpeta
