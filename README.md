@@ -1,5 +1,4 @@
-# Bases de datos: Grupo 1, Facultad de Ingeniería UNAM
+# Bases de datos: Grupo 1, Facultad de Ingeniería UNAM <img style="float: right;" src="/img/fi.png">
 <img style="float: right;" src="/img/fi.png">
-Ing. Fernando Arreola
+Ing. Fernando Arreola <br>
 Repositorio de la asignatura, semestre 2022-2
-![alt text](/img/fi.png)
