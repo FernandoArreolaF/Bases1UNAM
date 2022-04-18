@@ -1,1 +1,0 @@
-Alejandro Rodríguez Larios
