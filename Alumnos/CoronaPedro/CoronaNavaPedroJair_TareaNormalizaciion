@@ -1,0 +1,117 @@
+ 
+
+ 
+
+ 
+
+¿Por qué ambos casos son equivalentes?
+
+Del Caso 1 tenemos que:
+A -> {B,C,D,E}
+ 
+E -> {F, G}
+ 
+
+Normalizando el Caso 2 tenemos que:
+A -> {B, C, D} 
+ 
+
+
+
+
+E -> {F, G}
+ 
+ {A, E} -> {}
+
+Observamos que ambos casos cuentan con la dependencia E -> {F, G} y que el caso dos tiene una dependencia más que el caso 1 {A, E} -> {}, un aspecto importante a mencionar es que podemos observar que la dependencia de A en el caso 1 es muy similar a la misma dependencia en caso 2 (falta la ‘E’ ya que es parte de la FK) es aquí cuando entra nuestra dependencia extra del caso 2 ({A, E} -> {}) debido a que con esta dependencia podremos ‘conectar ’ las tablas obteniendo así una equivalencia entre la dependencia de A tanto del caso 1 como del caso 2. Con esto podemos observar que se tienen las mismas dependencias y con ello queda demostrado que ambos casos son equivalentes 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+Diagrama de Dependencias 
+Id_orden
+Fecha
+Id_cliente	Nom_cliente
+Estado	Num_art
+Nom_art	cant	Precio
+
+
+
+
+
+
+
+Caso 1: PK:{A}
+A->{B,C,D,E,F,G,H,I}
+A->{B,C}
+C->{D,E}
+F->{G,I}
+{A,F}-> H
+1FN 
+- ¿hay atributos multivaluados? NO 
+- ¿hay gpos de repetición? NO 
+Cumple 1FN
+2FN 	
+- ¿La pk es simple? SÍ 
+Cumple 2FN
+
+3FN 
+- ¿Hay transitividad entre atts no principales? 
+Sí hay transitividad -> No cumple 3FN
+Quitamos las dependencias transitivas
+
+ 
+  
+
+      
+
+
+   
+
+             
+ 
+ 
+
+Caso 2
+Caso 1: PK:{A,F}
+A->{B,C,D,E,G,H,I}
+A->{B,C}
+C->{D,E}
+F->{G,I}
+{A,F}-> H
+
+
+
+¿Cumple 1FN? 
+- ¿Hay atributos multivaluados?: No 
+- ¿Hay grupos de repetición? No 
+La tabla mostrada cumple 1FN
+
+¿Cumple 2FN? 
+-¿Hay dependencia funcional parcial? 
+Sí 
+La tabla mostrada no cumple 2FN
+
+Eliminamos las dependencias funcionales
+           
+
+                                              
+  	
+No hay dependencias parciales por lo tanto cumplen 2FN
+- ¿Hay transitividad entre atts no principales? 
+R= NO
+Cumplen 3FN
