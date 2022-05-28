@@ -44,7 +44,7 @@ Para la interfaz en la carpeta *ordenes*: <br/>
   ```
 
 Para la interfaz en la carpeta *administracion*: <br/>
-5. Ir a la linea 63 del archivo *main.py* y modificar los parametros para la coneccion.
+5. Ir a la linea 15 del archivo *main.py* y modificar los parametros para la coneccion.
    ```
    NOMBRE_BD = "restaurante" # <----- Modificar valor si lo requiere
    PASSWORD_POSTGRES = "postgres" # <----- Modificar valor si lo requiere
