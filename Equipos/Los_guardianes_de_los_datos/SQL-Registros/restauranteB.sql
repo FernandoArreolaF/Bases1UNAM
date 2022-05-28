@@ -5,13 +5,12 @@
 -- Dumped from database version 14.3
 -- Dumped by pg_dump version 14.3
 
--- Started on 2022-05-27 20:42:00
+-- Started on 2022-05-27 22:36:03
 
---Creación de la base de datos
+-- Creación de la base de datos
 CREATE DATABASE restaurante;
 
 \c restaurante;
-
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -25,7 +24,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 241 (class 1255 OID 17495)
+-- TOC entry 241 (class 1255 OID 17757)
 -- Name: cantidad_monto_ventas_fecha_bdd_function(date); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -45,7 +44,7 @@ $$;
 
 
 --
--- TOC entry 242 (class 1255 OID 17496)
+-- TOC entry 242 (class 1255 OID 17758)
 -- Name: cantidad_monto_ventas_fecha_function(date); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -64,7 +63,7 @@ $$;
 
 
 --
--- TOC entry 243 (class 1255 OID 17497)
+-- TOC entry 243 (class 1255 OID 17759)
 -- Name: cantidad_monto_ventas_fechas_bdd_function(date, date); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -84,7 +83,7 @@ $$;
 
 
 --
--- TOC entry 244 (class 1255 OID 17498)
+-- TOC entry 244 (class 1255 OID 17760)
 -- Name: cantidad_monto_ventas_fechas_function(date, date); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -103,7 +102,7 @@ $$;
 
 
 --
--- TOC entry 224 (class 1255 OID 17474)
+-- TOC entry 224 (class 1255 OID 17736)
 -- Name: cantidad_total_trigger(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -124,7 +123,7 @@ $$;
 
 
 --
--- TOC entry 235 (class 1255 OID 17484)
+-- TOC entry 235 (class 1255 OID 17746)
 -- Name: cantidad_vendida_trigger(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -145,7 +144,7 @@ $$;
 
 
 --
--- TOC entry 236 (class 1255 OID 17488)
+-- TOC entry 236 (class 1255 OID 17750)
 -- Name: disponibilidad_producto_trigger(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -162,7 +161,7 @@ $$;
 
 
 --
--- TOC entry 220 (class 1255 OID 17472)
+-- TOC entry 220 (class 1255 OID 17734)
 -- Name: edad_trigger(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -177,7 +176,7 @@ $$;
 
 
 --
--- TOC entry 245 (class 1255 OID 17499)
+-- TOC entry 245 (class 1255 OID 17761)
 -- Name: factura(character varying); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -254,7 +253,7 @@ $$;
 
 
 --
--- TOC entry 238 (class 1255 OID 17492)
+-- TOC entry 238 (class 1255 OID 17754)
 -- Name: folio_orden(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -270,7 +269,7 @@ $$;
 
 
 --
--- TOC entry 237 (class 1255 OID 17490)
+-- TOC entry 237 (class 1255 OID 17752)
 -- Name: mesero_a_orden_trigger(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -289,7 +288,7 @@ $$;
 
 
 --
--- TOC entry 239 (class 1255 OID 17493)
+-- TOC entry 239 (class 1255 OID 17755)
 -- Name: mesero_ordenes_al_dia_bdd_function(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -310,7 +309,7 @@ $$;
 
 
 --
--- TOC entry 240 (class 1255 OID 17494)
+-- TOC entry 240 (class 1255 OID 17756)
 -- Name: mesero_ordenes_al_dia_function(integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -328,7 +327,7 @@ $$;
 
 
 --
--- TOC entry 225 (class 1255 OID 17478)
+-- TOC entry 225 (class 1255 OID 17740)
 -- Name: precio_total_por_producto_trigger(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -343,7 +342,7 @@ $$;
 
 
 --
--- TOC entry 234 (class 1255 OID 17480)
+-- TOC entry 234 (class 1255 OID 17742)
 -- Name: precio_total_trigger(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -369,7 +368,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 214 (class 1259 OID 17434)
+-- TOC entry 214 (class 1259 OID 17696)
 -- Name: categoria; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -381,7 +380,7 @@ CREATE TABLE public.categoria (
 
 
 --
--- TOC entry 212 (class 1259 OID 17411)
+-- TOC entry 212 (class 1259 OID 17673)
 -- Name: cliente; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -402,7 +401,7 @@ CREATE TABLE public.cliente (
 
 
 --
--- TOC entry 211 (class 1259 OID 17401)
+-- TOC entry 211 (class 1259 OID 17663)
 -- Name: dependiente; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -417,7 +416,7 @@ CREATE TABLE public.dependiente (
 
 
 --
--- TOC entry 209 (class 1259 OID 17379)
+-- TOC entry 209 (class 1259 OID 17641)
 -- Name: empleado; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -446,7 +445,7 @@ CREATE TABLE public.empleado (
 
 
 --
--- TOC entry 217 (class 1259 OID 17471)
+-- TOC entry 217 (class 1259 OID 17733)
 -- Name: folio; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -459,7 +458,7 @@ CREATE SEQUENCE public.folio
 
 
 --
--- TOC entry 216 (class 1259 OID 17454)
+-- TOC entry 216 (class 1259 OID 17716)
 -- Name: incluye; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -473,7 +472,7 @@ CREATE TABLE public.incluye (
 
 
 --
--- TOC entry 213 (class 1259 OID 17418)
+-- TOC entry 213 (class 1259 OID 17680)
 -- Name: orden; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -488,7 +487,7 @@ CREATE TABLE public.orden (
 
 
 --
--- TOC entry 215 (class 1259 OID 17441)
+-- TOC entry 215 (class 1259 OID 17703)
 -- Name: producto; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -509,7 +508,7 @@ CREATE TABLE public.producto (
 
 
 --
--- TOC entry 218 (class 1259 OID 17500)
+-- TOC entry 218 (class 1259 OID 17762)
 -- Name: platillo_mas_vendido_view; Type: VIEW; Schema: public; Owner: -
 --
 
@@ -532,7 +531,7 @@ CREATE VIEW public.platillo_mas_vendido_view AS
 
 
 --
--- TOC entry 219 (class 1259 OID 17505)
+-- TOC entry 219 (class 1259 OID 17767)
 -- Name: productos_no_disponibles_view; Type: VIEW; Schema: public; Owner: -
 --
 
@@ -543,7 +542,7 @@ CREATE VIEW public.productos_no_disponibles_view AS
 
 
 --
--- TOC entry 210 (class 1259 OID 17391)
+-- TOC entry 210 (class 1259 OID 17653)
 -- Name: telefono; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -554,7 +553,7 @@ CREATE TABLE public.telefono (
 
 
 --
--- TOC entry 3406 (class 0 OID 17434)
+-- TOC entry 3406 (class 0 OID 17696)
 -- Dependencies: 214
 -- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: -
 --
@@ -573,7 +572,7 @@ COPY public.categoria (id_categoria, nombre, descripcion) FROM stdin;
 
 
 --
--- TOC entry 3404 (class 0 OID 17411)
+-- TOC entry 3404 (class 0 OID 17673)
 -- Dependencies: 212
 -- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: -
 --
@@ -633,7 +632,7 @@ GUER851209	RosaMaria.Guer@correo.com	Rosa Maria	Guerra	Escobedo	1985-12-09	Resta
 
 
 --
--- TOC entry 3403 (class 0 OID 17401)
+-- TOC entry 3403 (class 0 OID 17663)
 -- Dependencies: 211
 -- Data for Name: dependiente; Type: TABLE DATA; Schema: public; Owner: -
 --
@@ -693,67 +692,67 @@ OSRE990326FIOAON94	Emilio	Osuna	Ramon	Hijo(a)	22
 
 
 --
--- TOC entry 3401 (class 0 OID 17379)
+-- TOC entry 3401 (class 0 OID 17641)
 -- Dependencies: 209
 -- Data for Name: empleado; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.empleado (numero_empleado, foto, rfc, nombre, ap_paterno, ap_materno, edad, sueldo, calle, numero, cp, estado, colonia, fecha_nacimiento, es_mesero, es_administrativo, es_cocinero, horario, rol, especialidad) FROM stdin;
-1	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/1.png	VAAM841027	Maria	Vasquez	Arias	37	1290	Avenida de la Convencion Norte	60	7140	Chiapas	Arboledas	1984-10-27	f	t	f	\N	Promotor de ventas	\N
-2	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/2.png	VABE870327	Enrique	Valenzuela	Bravo	35	1284	Melchor Ocampo 	103	9720	Colima	Francisco Villa	1987-03-27	t	f	t	07:00 -14:00 hrs	\N	Rottiseur (Asados)
-3	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/3.png	TAMA821215	Alberto	Tapia	Mata	39	1276	Calle Durango	152	1160	Tamaulipas	Bosque	1982-12-15	f	t	t	\N	Capitan de meseros 	Saucier (Salsas)
-4	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/4.png	BAPV890721	Victor Manuel	Barrera	Parra	32	3464	Heroes de Nacozari	93	1259	Morelos	La Mexicana 2A Ampliacion	1989-07-21	f	t	t	\N	Supervisor de atención al cliente	Entremetier (Pastas)
-5	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/5.png	ARCS840117	Sandra	Arellano	Castañeda	38	2742	Tuxtla Gutierrez Chicoasen	118	2600	Aguascalientes	Pro-Hogar	1984-01-17	t	f	f	07:00 -14:00 hrs	\N	\N
-6	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/6.png	FIAA831127	Alfredo	Figueroa	Antonio	38	3686	Juan Pablo II 	109	9210	Durango	Tepalcates	1983-11-27	t	f	f	12:00 - 17:00 hrs	\N	\N
-7	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/7.png	PAEH940126	Hector	Padilla	Enriquez	28	3856	Central 57	42	7080	Zacatecas	Gabriel Hernandez	1994-01-26	t	f	t	07:00 -14:00 hrs	\N	Friturier (Fritos)
-8	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/8.png	AYVE930511	Edith	Ayala	Vera	29	3095	Medellin 	186	11200	San Luis Potosi	Lomas Hermosa	1993-05-11	f	t	t	\N	Chef ejecutivo	Saucier (Salsas)
-9	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/9.png	HUCN900213	Norma	Huerta	Cisneros	32	2995	Francisco Villa 	76	13120	Michoacan	Ampliacion Santa Catarina	1990-02-13	t	t	t	07:00 -14:00 hrs	Gerente	Tournant
-10	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/10.png	DURM940212	Maria Teresa	Duran	Rivas	28	2969	Irrigacion 	51	10369	Nuevo Leon	Tierra Unida	1994-02-12	f	t	f	\N	Administrador del restaurante	\N
-11	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/11.png	SAMB870920	Beatriz	Salinas	Montoya	34	3979	Miguel Aleman 	65	9637	Jalisco	Campestre Potrero	1987-09-20	t	t	f	14:00 - 22:00 hrs	Gerente	\N
-12	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/12.png	MOOJ910725	Julio Cesar	Montes	Olivares	30	1341	5 de Febrero 	97	14640	Ciudad de mexico	Ejidos De San Pedro Martir	1991-07-25	t	t	t	14:00 - 22:00 hrs	Coordinador del servicio al cliente	Entremetier (Pastas)
-13	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/13.png	MORG900406	Gustavo	Mora	Rocha	32	2017	Emiliano Zapata	108	10369	Guanajuato	Tierra Unida	1990-04-06	f	f	t	\N	\N	Grillardin (Parrilla)
-14	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/14.png	CACF841019	Felipe	Calderon	Castellanos	37	1582	Calzada Ibarra	148	1410	Queretaro	Palmas	1984-10-19	f	f	t	\N	\N	Grillardin (Parrilla)
-15	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/15.png	MAZG820426	Gloria	Marin	Zuñiga	40	2236	Avenida Ventura 	180	10360	Puebla	Huayatla	1982-04-26	f	t	f	\N	Capitan de meseros 	\N
-16	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/16.png	CUAS920616	Susana	Cuevas	Arroyo	29	2563	Avenida Universidad Planta Baja 	195	16620	Tlaxcala	Barrio San Jose	1992-06-16	t	f	t	14:00 - 22:00 hrs	\N	Grillardin (Parrilla)
-17	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/17.png	VIEO821128	Oscar	Villanueva	Esquivel	39	4144	Insurgentes Oriente 	92	14640	Campeche	Ejidos De San Pedro Martir	1982-11-28	f	t	f	\N	Chef ejecutivo	\N
-18	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/18.png	PAQA890802	Armando	Palacios	Quiroz	32	3376	Calzada Acoxpa 	76	4369	Baja California Sur	Pedregal De Santo Domingo	1989-08-02	t	t	f	14:00 - 22:00 hrs	Promotor de ventas	\N
-19	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/19.png	OLNT921221	Teresa	Olvera	Navarrete	29	2873	Juan De Dios Batiz 	171	2810	Oaxaca	Victoria De Las Democracias	1992-12-21	t	t	f	12:00 - 17:00 hrs	Promotor de ventas	\N
-20	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/20.png	ESVL971214	Lorena	Escobar	Villalobos	24	1303	26 Norte 	106	9410	Chiapas	Aculco	1997-12-14	t	f	t	07:00 -14:00 hrs	\N	Rottiseur (Asados)
-21	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/21.png	SUVJ960506	Jaime	Suarez	Villa	26	1985	Constituyentes	47	7979	Sinaloa	San Juan De Aragon Iv Seccion	1996-05-06	f	f	t	\N	\N	Grillardin (Parrilla)
-22	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/22.png	BEGD951228	David	Benitez	Guevara	26	4112	Francisco I Madero	67	8100	Yucatan	Agricola Pantitlan	1995-12-28	f	f	t	\N	\N	Patisseur (Postres)
-23	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/23.png	GAAJ980524	Juan Manuel	Gallegos	Angeles	24	2774	Jesus Goytortua 	74	2100	Colima	El Rosario	1998-05-24	f	t	t	\N	Gerente	Tournant
-24	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/24.png	FRTM931015	Marisol	Franco	Tovar	28	2808	Prologación Marina Nacional 	48	7880	Sinaloa	Martires De Rio Blanco	1993-10-15	f	f	t	\N	\N	Poissoner (Pescados)
-25	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/25.png	OCCJ910523	Jose Manuel	Ochoa	Cordova	31	4163	Boulevard Luis Encinas Jhonson 	193	15530	Tlaxcala	Moctezuma 2A Seccion	1991-05-23	t	t	f	07:00 -14:00 hrs	Supervisor del area de cocina	\N
-26	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/26.png	CAVM900916	Maria Luisa	Cano	Villarreal	31	3588	Teapa	87	5410	Ciudad de Mexico	San Lorenzo Acopilco	1990-09-16	t	t	t	07:00 -14:00 hrs	Capitan de meseros 	Entremetier (Pastas)
-27	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/27.png	ZACM950817	Maria De Jesus	Zamora	Carmona	26	1328	Hidalgo 	170	4380	Quintana Roo	Pueblo La Candelaria	1995-08-17	f	f	t	\N	\N	Poissoner (Pescados)
-28	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/28.png	BEQS900723	Salvador	Beltran	Quintero	31	2357	Libramiento Poniente 	32	9900	Hidalgo	San Lorenzo	1990-07-23	f	t	f	\N	Supervisor del area de cocina	\N
-29	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/29.png	VIGG910411	Guillermo	Villegas	Gallardo	31	3754	5 de Mayo	105	10330	Tabasco	Las Cruces	1991-04-11	t	f	f	14:00 - 22:00 hrs	\N	\N
-30	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/30.png	MADA991116	Angel	Macias	De La Rosa	22	4353	Calle 14 	104	7320	San Luis Potosi	Ticoman	1999-11-16	t	f	t	07:00 -14:00 hrs	\N	Rottiseur (Asados)
-31	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/31.png	ZAOE990524	Eduardo	Zavala	Ocampo	23	3569	Ruinas de Tulum	200	2250	Tabasco	Santa Catarina	1999-05-24	f	f	t	\N	\N	Poissoner (Pescados)
-32	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/32.png	LOTR910816	Rosa	Lozano	Tellez	30	1347	Calzada General Luis Caballero	35	13200	Nayarit	Miguel Hidalgo	1991-08-16	f	f	t	\N	\N	Boucher (Carnes)
-33	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/33.png	ALZG840212	Gabriel	Alonso	Zapata	38	2314	Central Poniente 	178	7550	Baja California	Providencia	1984-02-12	f	f	t	\N	\N	Boucher (Carnes)
-34	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/34.png	GACD841227	Daniel	Galvan	Caballero	37	1248	Guadalupe Victoria	113	4950	Veracruz 	El Mirador	1984-12-27	f	f	t	\N	\N	Patisseur (Postres)
-35	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/35.png	OSEL850827	Lucia	Osorio	Esparza	36	2087	Calzada de la Viga	53	14248	Coahuila	Cruz Del Farol	1985-08-27	t	f	f	14:00 - 22:00 hrs	\N	\N
-36	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/36.png	PEMM960112	Mario	Peña	Montiel	26	4486	General Mariano Salas 	147	7130	Ciudad de Mexico	El Tepetatal	1996-01-12	f	t	f	\N	Gerente	\N
-37	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/37.png	ROBM841226	Maricela	Roman	Becerra	37	2846	Prolongación centenario	93	7640	Guerrero	Santiago Atepetlac	1984-12-26	f	t	t	\N	Supervisor de atención al cliente	Garde Manger (Ensaladas)
-38	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/38.png	TRLG831214	Graciela	Trujillo	Lugo	38	3244	Boulevard Emiliano Zapata	159	2430	Chihuahua	Presidente Madero	1983-12-14	t	t	t	14:00 - 22:00 hrs	Coordinador del servicio al cliente	Garde Manger (Ensaladas)
-39	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/39.png	GADL981121	Luis	Garza	Davila	23	1953	Calzada General Luis Caballero	24	9510	Campeche	Santa Martha Acatitla	1998-11-21	f	f	t	\N	\N	Boucher (Carnes)
-40	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/40.png	POSR000918	Rocio	Ponce	Santana	21	4472	Calle cuervo 	41	9320	Sonora	Sideral	2000-09-18	f	t	f	\N	Promotor de ventas	\N
-41	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/41.png	PEDG900204	Gerardo	Peralta	De Leon	32	1950	Prolongacion Marina Nacional	139	11870	Queretaro	Tacubaya	1990-02-04	f	t	t	\N	Promotor de ventas	Tournant
-42	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/42.png	GARR950322	Ruben	Galindo	Reyna	27	3449	Guillerno Prieto 	88	1618	Quintana Roo	Ex-Hacienda De Tarango	1995-03-22	t	f	t	07:00 -14:00 hrs	\N	Saucier (Salsas)
-43	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/43.png	LEGL840806	Luz Maria	Leyva	Galicia	37	2374	Constitucion 	74	9310	Coahuila	Leyes De Reforma 3A Seccion	1984-08-06	t	f	f	14:00 - 22:00 hrs	\N	\N
-44	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/44.png	NUPJ920521	Josefina	Nuñez	Paredes	30	1624	Marina	81	2040	Yucatan	San Sebastian	1992-05-21	f	f	t	\N	\N	Patisseur (Postres)
-45	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/45.png	COMJ870720	Jose Antonio	Corona	Munoz	34	3672	Interoceanica Saltillo Torreon	145	13219	Tamaulipas	Las Arboledas	1987-07-20	f	t	f	\N	Coordinador del servicio al cliente	\N
-46	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/46.png	ZAAM900815	Maria Del Rosario	Zarate	Alarcon	31	2115	Gregorio Torres Quintero	119	9870	Sonora	San Andres Tomatlan	1990-08-15	f	t	t	\N	Supervisor de atención al cliente	Entremetier (Pastas)
-47	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/47.png	ANNA860722	Angelica	Andrade	Najera	35	2984	Prolongación Eje 6 Sur	161	9700	Baja California Sur	Santa Cruz Meyehualco	1986-07-22	f	f	t	\N	\N	Garde Manger (Ensaladas)
-48	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/48.png	BEAM980523	Maria De Los Angeles	Bernal	Acevedo	24	1342	Boulevard Fundadores	80	1377	Chihuahua	Jalalpa El Grande	1998-05-23	f	t	f	\N	Administrador del restaurante	\N
-49	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/49.png	TOOV970909	Virginia	Toledo	Ojeda	24	3705	Francisco I Madero	21	14646	Zacatecas	Valle De Tepepan	1997-09-09	t	t	f	14:00 - 22:00 hrs	Supervisor del area de cocina	\N
-50	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/50.png	RUMM970910	Maria De Lourdes	Rubio	Mercado	24	4126	Avenida Insurgentes	44	1510	Veracruz 	Los Cedros	1997-09-10	t	f	t	07:00 -14:00 hrs	\N	Patisseur (Postres)
+1	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/1.png	VAAM841027	Maria	Vasquez	Arias	37	1290	Avenida de la Convencion Norte	60	7140	Chiapas	Arboledas	1984-10-27	f	t	f	\N	Promotor de ventas	\N
+2	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/2.png	VABE870327	Enrique	Valenzuela	Bravo	35	1284	Melchor Ocampo 	103	9720	Colima	Francisco Villa	1987-03-27	t	f	t	07:00 -14:00 hrs	\N	Rottiseur (Asados)
+3	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/3.png	TAMA821215	Alberto	Tapia	Mata	39	1276	Calle Durango	152	1160	Tamaulipas	Bosque	1982-12-15	f	t	t	\N	Capitan de meseros 	Saucier (Salsas)
+4	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/4.png	BAPV890721	Victor Manuel	Barrera	Parra	32	3464	Heroes de Nacozari	93	1259	Morelos	La Mexicana 2A Ampliacion	1989-07-21	f	t	t	\N	Supervisor de atención al cliente	Entremetier (Pastas)
+5	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/5.png	ARCS840117	Sandra	Arellano	Castañeda	38	2742	Tuxtla Gutierrez Chicoasen	118	2600	Aguascalientes	Pro-Hogar	1984-01-17	t	f	f	07:00 -14:00 hrs	\N	\N
+6	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/6.png	FIAA831127	Alfredo	Figueroa	Antonio	38	3686	Juan Pablo II 	109	9210	Durango	Tepalcates	1983-11-27	t	f	f	12:00 - 17:00 hrs	\N	\N
+7	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/7.png	PAEH940126	Hector	Padilla	Enriquez	28	3856	Central 57	42	7080	Zacatecas	Gabriel Hernandez	1994-01-26	t	f	t	07:00 -14:00 hrs	\N	Friturier (Fritos)
+8	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/8.png	AYVE930511	Edith	Ayala	Vera	29	3095	Medellin 	186	11200	San Luis Potosi	Lomas Hermosa	1993-05-11	f	t	t	\N	Chef ejecutivo	Saucier (Salsas)
+9	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/9.png	HUCN900213	Norma	Huerta	Cisneros	32	2995	Francisco Villa 	76	13120	Michoacan	Ampliacion Santa Catarina	1990-02-13	t	t	t	07:00 -14:00 hrs	Gerente	Tournant
+10	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/10.png	DURM940212	Maria Teresa	Duran	Rivas	28	2969	Irrigacion 	51	10369	Nuevo Leon	Tierra Unida	1994-02-12	f	t	f	\N	Administrador del restaurante	\N
+11	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/11.png	SAMB870920	Beatriz	Salinas	Montoya	34	3979	Miguel Aleman 	65	9637	Jalisco	Campestre Potrero	1987-09-20	t	t	f	14:00 - 22:00 hrs	Gerente	\N
+12	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/12.png	MOOJ910725	Julio Cesar	Montes	Olivares	30	1341	5 de Febrero 	97	14640	Ciudad de mexico	Ejidos De San Pedro Martir	1991-07-25	t	t	t	14:00 - 22:00 hrs	Coordinador del servicio al cliente	Entremetier (Pastas)
+13	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/13.png	MORG900406	Gustavo	Mora	Rocha	32	2017	Emiliano Zapata	108	10369	Guanajuato	Tierra Unida	1990-04-06	f	f	t	\N	\N	Grillardin (Parrilla)
+14	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/14.png	CACF841019	Felipe	Calderon	Castellanos	37	1582	Calzada Ibarra	148	1410	Queretaro	Palmas	1984-10-19	f	f	t	\N	\N	Grillardin (Parrilla)
+15	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/15.png	MAZG820426	Gloria	Marin	Zuñiga	40	2236	Avenida Ventura 	180	10360	Puebla	Huayatla	1982-04-26	f	t	f	\N	Capitan de meseros 	\N
+16	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/16.png	CUAS920616	Susana	Cuevas	Arroyo	29	2563	Avenida Universidad Planta Baja 	195	16620	Tlaxcala	Barrio San Jose	1992-06-16	t	f	t	14:00 - 22:00 hrs	\N	Grillardin (Parrilla)
+17	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/17.png	VIEO821128	Oscar	Villanueva	Esquivel	39	4144	Insurgentes Oriente 	92	14640	Campeche	Ejidos De San Pedro Martir	1982-11-28	f	t	f	\N	Chef ejecutivo	\N
+18	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/18.png	PAQA890802	Armando	Palacios	Quiroz	32	3376	Calzada Acoxpa 	76	4369	Baja California Sur	Pedregal De Santo Domingo	1989-08-02	t	t	f	14:00 - 22:00 hrs	Promotor de ventas	\N
+19	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/19.png	OLNT921221	Teresa	Olvera	Navarrete	29	2873	Juan De Dios Batiz 	171	2810	Oaxaca	Victoria De Las Democracias	1992-12-21	t	t	f	12:00 - 17:00 hrs	Promotor de ventas	\N
+20	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/20.png	ESVL971214	Lorena	Escobar	Villalobos	24	1303	26 Norte 	106	9410	Chiapas	Aculco	1997-12-14	t	f	t	07:00 -14:00 hrs	\N	Rottiseur (Asados)
+21	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/21.png	SUVJ960506	Jaime	Suarez	Villa	26	1985	Constituyentes	47	7979	Sinaloa	San Juan De Aragon Iv Seccion	1996-05-06	f	f	t	\N	\N	Grillardin (Parrilla)
+22	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/22.png	BEGD951228	David	Benitez	Guevara	26	4112	Francisco I Madero	67	8100	Yucatan	Agricola Pantitlan	1995-12-28	f	f	t	\N	\N	Patisseur (Postres)
+23	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/23.png	GAAJ980524	Juan Manuel	Gallegos	Angeles	24	2774	Jesus Goytortua 	74	2100	Colima	El Rosario	1998-05-24	f	t	t	\N	Gerente	Tournant
+24	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/24.png	FRTM931015	Marisol	Franco	Tovar	28	2808	Prologación Marina Nacional 	48	7880	Sinaloa	Martires De Rio Blanco	1993-10-15	f	f	t	\N	\N	Poissoner (Pescados)
+25	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/25.png	OCCJ910523	Jose Manuel	Ochoa	Cordova	31	4163	Boulevard Luis Encinas Jhonson 	193	15530	Tlaxcala	Moctezuma 2A Seccion	1991-05-23	t	t	f	07:00 -14:00 hrs	Supervisor del area de cocina	\N
+26	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/26.png	CAVM900916	Maria Luisa	Cano	Villarreal	31	3588	Teapa	87	5410	Ciudad de Mexico	San Lorenzo Acopilco	1990-09-16	t	t	t	07:00 -14:00 hrs	Capitan de meseros 	Entremetier (Pastas)
+27	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/27.png	ZACM950817	Maria De Jesus	Zamora	Carmona	26	1328	Hidalgo 	170	4380	Quintana Roo	Pueblo La Candelaria	1995-08-17	f	f	t	\N	\N	Poissoner (Pescados)
+28	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/28.png	BEQS900723	Salvador	Beltran	Quintero	31	2357	Libramiento Poniente 	32	9900	Hidalgo	San Lorenzo	1990-07-23	f	t	f	\N	Supervisor del area de cocina	\N
+29	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/29.png	VIGG910411	Guillermo	Villegas	Gallardo	31	3754	5 de Mayo	105	10330	Tabasco	Las Cruces	1991-04-11	t	f	f	14:00 - 22:00 hrs	\N	\N
+30	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/30.png	MADA991116	Angel	Macias	De La Rosa	22	4353	Calle 14 	104	7320	San Luis Potosi	Ticoman	1999-11-16	t	f	t	07:00 -14:00 hrs	\N	Rottiseur (Asados)
+31	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/31.png	ZAOE990524	Eduardo	Zavala	Ocampo	23	3569	Ruinas de Tulum	200	2250	Tabasco	Santa Catarina	1999-05-24	f	f	t	\N	\N	Poissoner (Pescados)
+32	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/32.png	LOTR910816	Rosa	Lozano	Tellez	30	1347	Calzada General Luis Caballero	35	13200	Nayarit	Miguel Hidalgo	1991-08-16	f	f	t	\N	\N	Boucher (Carnes)
+33	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/33.png	ALZG840212	Gabriel	Alonso	Zapata	38	2314	Central Poniente 	178	7550	Baja California	Providencia	1984-02-12	f	f	t	\N	\N	Boucher (Carnes)
+34	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/34.png	GACD841227	Daniel	Galvan	Caballero	37	1248	Guadalupe Victoria	113	4950	Veracruz 	El Mirador	1984-12-27	f	f	t	\N	\N	Patisseur (Postres)
+35	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/35.png	OSEL850827	Lucia	Osorio	Esparza	36	2087	Calzada de la Viga	53	14248	Coahuila	Cruz Del Farol	1985-08-27	t	f	f	14:00 - 22:00 hrs	\N	\N
+36	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/36.png	PEMM960112	Mario	Peña	Montiel	26	4486	General Mariano Salas 	147	7130	Ciudad de Mexico	El Tepetatal	1996-01-12	f	t	f	\N	Gerente	\N
+37	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/37.png	ROBM841226	Maricela	Roman	Becerra	37	2846	Prolongación centenario	93	7640	Guerrero	Santiago Atepetlac	1984-12-26	f	t	t	\N	Supervisor de atención al cliente	Garde Manger (Ensaladas)
+38	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/38.png	TRLG831214	Graciela	Trujillo	Lugo	38	3244	Boulevard Emiliano Zapata	159	2430	Chihuahua	Presidente Madero	1983-12-14	t	t	t	14:00 - 22:00 hrs	Coordinador del servicio al cliente	Garde Manger (Ensaladas)
+39	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/39.png	GADL981121	Luis	Garza	Davila	23	1953	Calzada General Luis Caballero	24	9510	Campeche	Santa Martha Acatitla	1998-11-21	f	f	t	\N	\N	Boucher (Carnes)
+40	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/40.png	POSR000918	Rocio	Ponce	Santana	21	4472	Calle cuervo 	41	9320	Sonora	Sideral	2000-09-18	f	t	f	\N	Promotor de ventas	\N
+41	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/41.png	PEDG900204	Gerardo	Peralta	De Leon	32	1950	Prolongacion Marina Nacional	139	11870	Queretaro	Tacubaya	1990-02-04	f	t	t	\N	Promotor de ventas	Tournant
+42	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/42.png	GARR950322	Ruben	Galindo	Reyna	27	3449	Guillerno Prieto 	88	1618	Quintana Roo	Ex-Hacienda De Tarango	1995-03-22	t	f	t	07:00 -14:00 hrs	\N	Saucier (Salsas)
+43	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/43.png	LEGL840806	Luz Maria	Leyva	Galicia	37	2374	Constitucion 	74	9310	Coahuila	Leyes De Reforma 3A Seccion	1984-08-06	t	f	f	14:00 - 22:00 hrs	\N	\N
+44	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/44.png	NUPJ920521	Josefina	Nuñez	Paredes	30	1624	Marina	81	2040	Yucatan	San Sebastian	1992-05-21	f	f	t	\N	\N	Patisseur (Postres)
+45	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/45.png	COMJ870720	Jose Antonio	Corona	Munoz	34	3672	Interoceanica Saltillo Torreon	145	13219	Tamaulipas	Las Arboledas	1987-07-20	f	t	f	\N	Coordinador del servicio al cliente	\N
+46	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/46.png	ZAAM900815	Maria Del Rosario	Zarate	Alarcon	31	2115	Gregorio Torres Quintero	119	9870	Sonora	San Andres Tomatlan	1990-08-15	f	t	t	\N	Supervisor de atención al cliente	Entremetier (Pastas)
+47	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/47.png	ANNA860722	Angelica	Andrade	Najera	35	2984	Prolongación Eje 6 Sur	161	9700	Baja California Sur	Santa Cruz Meyehualco	1986-07-22	f	f	t	\N	\N	Garde Manger (Ensaladas)
+48	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/48.png	BEAM980523	Maria De Los Angeles	Bernal	Acevedo	24	1342	Boulevard Fundadores	80	1377	Chihuahua	Jalalpa El Grande	1998-05-23	f	t	f	\N	Administrador del restaurante	\N
+49	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/49.png	TOOV970909	Virginia	Toledo	Ojeda	24	3705	Francisco I Madero	21	14646	Zacatecas	Valle De Tepepan	1997-09-09	t	t	f	14:00 - 22:00 hrs	Supervisor del area de cocina	\N
+50	https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/50.png	RUMM970910	Maria De Lourdes	Rubio	Mercado	24	4126	Avenida Insurgentes	44	1510	Veracruz 	Los Cedros	1997-09-10	t	f	t	07:00 -14:00 hrs	\N	Patisseur (Postres)
 \.
 
 
 --
--- TOC entry 3408 (class 0 OID 17454)
+-- TOC entry 3408 (class 0 OID 17716)
 -- Dependencies: 216
 -- Data for Name: incluye; Type: TABLE DATA; Schema: public; Owner: -
 --
@@ -868,7 +867,7 @@ ORD-80	8	6	314.82000732421875
 
 
 --
--- TOC entry 3405 (class 0 OID 17418)
+-- TOC entry 3405 (class 0 OID 17680)
 -- Dependencies: 213
 -- Data for Name: orden; Type: TABLE DATA; Schema: public; Owner: -
 --
@@ -958,7 +957,7 @@ ORD-80	2022-06-01	314.82	6	9	GOFA970630
 
 
 --
--- TOC entry 3407 (class 0 OID 17441)
+-- TOC entry 3407 (class 0 OID 17703)
 -- Dependencies: 215
 -- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: -
 --
@@ -1018,7 +1017,7 @@ COPY public.producto (id_producto, nombre, receta, precio, descripcion, disponib
 
 
 --
--- TOC entry 3402 (class 0 OID 17391)
+-- TOC entry 3402 (class 0 OID 17653)
 -- Dependencies: 210
 -- Data for Name: telefono; Type: TABLE DATA; Schema: public; Owner: -
 --
@@ -1096,7 +1095,7 @@ SELECT pg_catalog.setval('public.folio', 80, true);
 
 
 --
--- TOC entry 3222 (class 2606 OID 17390)
+-- TOC entry 3222 (class 2606 OID 17652)
 -- Name: empleado ak_rfc; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1105,7 +1104,7 @@ ALTER TABLE ONLY public.empleado
 
 
 --
--- TOC entry 3234 (class 2606 OID 17440)
+-- TOC entry 3234 (class 2606 OID 17702)
 -- Name: categoria pk_categoria; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1114,7 +1113,7 @@ ALTER TABLE ONLY public.categoria
 
 
 --
--- TOC entry 3230 (class 2606 OID 17417)
+-- TOC entry 3230 (class 2606 OID 17679)
 -- Name: cliente pk_cliente; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1123,7 +1122,7 @@ ALTER TABLE ONLY public.cliente
 
 
 --
--- TOC entry 3228 (class 2606 OID 17405)
+-- TOC entry 3228 (class 2606 OID 17667)
 -- Name: dependiente pk_dependiente; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1132,7 +1131,7 @@ ALTER TABLE ONLY public.dependiente
 
 
 --
--- TOC entry 3224 (class 2606 OID 17388)
+-- TOC entry 3224 (class 2606 OID 17650)
 -- Name: empleado pk_empleado; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1141,7 +1140,7 @@ ALTER TABLE ONLY public.empleado
 
 
 --
--- TOC entry 3239 (class 2606 OID 17459)
+-- TOC entry 3239 (class 2606 OID 17721)
 -- Name: incluye pk_incluye; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1150,7 +1149,7 @@ ALTER TABLE ONLY public.incluye
 
 
 --
--- TOC entry 3232 (class 2606 OID 17423)
+-- TOC entry 3232 (class 2606 OID 17685)
 -- Name: orden pk_orden; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1159,7 +1158,7 @@ ALTER TABLE ONLY public.orden
 
 
 --
--- TOC entry 3237 (class 2606 OID 17448)
+-- TOC entry 3237 (class 2606 OID 17710)
 -- Name: producto pk_producto; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1168,7 +1167,7 @@ ALTER TABLE ONLY public.producto
 
 
 --
--- TOC entry 3226 (class 2606 OID 17395)
+-- TOC entry 3226 (class 2606 OID 17657)
 -- Name: telefono pk_telefono; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1177,7 +1176,7 @@ ALTER TABLE ONLY public.telefono
 
 
 --
--- TOC entry 3235 (class 1259 OID 17470)
+-- TOC entry 3235 (class 1259 OID 17732)
 -- Name: ix_nombre_producto; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1185,7 +1184,7 @@ CREATE INDEX ix_nombre_producto ON public.producto USING btree (nombre);
 
 
 --
--- TOC entry 3257 (class 2620 OID 17477)
+-- TOC entry 3257 (class 2620 OID 17739)
 -- Name: incluye cantidad_total_del_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1193,7 +1192,7 @@ CREATE TRIGGER cantidad_total_del_trigger AFTER DELETE ON public.incluye FOR EAC
 
 
 --
--- TOC entry 3259 (class 2620 OID 17475)
+-- TOC entry 3259 (class 2620 OID 17737)
 -- Name: incluye cantidad_total_ins_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1201,7 +1200,7 @@ CREATE TRIGGER cantidad_total_ins_trigger AFTER INSERT ON public.incluye FOR EAC
 
 
 --
--- TOC entry 3258 (class 2620 OID 17476)
+-- TOC entry 3258 (class 2620 OID 17738)
 -- Name: incluye cantidad_total_upd_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1209,7 +1208,7 @@ CREATE TRIGGER cantidad_total_upd_trigger AFTER UPDATE ON public.incluye FOR EAC
 
 
 --
--- TOC entry 3250 (class 2620 OID 17487)
+-- TOC entry 3250 (class 2620 OID 17749)
 -- Name: incluye cantidad_vendida_del_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1217,7 +1216,7 @@ CREATE TRIGGER cantidad_vendida_del_trigger AFTER DELETE ON public.incluye FOR E
 
 
 --
--- TOC entry 3252 (class 2620 OID 17485)
+-- TOC entry 3252 (class 2620 OID 17747)
 -- Name: incluye cantidad_vendida_ins_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1225,7 +1224,7 @@ CREATE TRIGGER cantidad_vendida_ins_trigger AFTER INSERT ON public.incluye FOR E
 
 
 --
--- TOC entry 3251 (class 2620 OID 17486)
+-- TOC entry 3251 (class 2620 OID 17748)
 -- Name: incluye cantidad_vendida_upd_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1233,7 +1232,7 @@ CREATE TRIGGER cantidad_vendida_upd_trigger AFTER UPDATE ON public.incluye FOR E
 
 
 --
--- TOC entry 3249 (class 2620 OID 17489)
+-- TOC entry 3249 (class 2620 OID 17751)
 -- Name: incluye disponibilidad_producto_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1241,7 +1240,7 @@ CREATE TRIGGER disponibilidad_producto_trigger BEFORE INSERT OR UPDATE ON public
 
 
 --
--- TOC entry 3247 (class 2620 OID 17473)
+-- TOC entry 3247 (class 2620 OID 17735)
 -- Name: empleado edad_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1249,7 +1248,7 @@ CREATE TRIGGER edad_trigger BEFORE INSERT OR UPDATE ON public.empleado FOR EACH 
 
 
 --
--- TOC entry 3248 (class 2620 OID 17491)
+-- TOC entry 3248 (class 2620 OID 17753)
 -- Name: orden mesero_a_orden_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1257,7 +1256,7 @@ CREATE TRIGGER mesero_a_orden_trigger BEFORE INSERT OR UPDATE ON public.orden FO
 
 
 --
--- TOC entry 3253 (class 2620 OID 17483)
+-- TOC entry 3253 (class 2620 OID 17745)
 -- Name: incluye precio_total_del_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1265,7 +1264,7 @@ CREATE TRIGGER precio_total_del_trigger AFTER DELETE ON public.incluye FOR EACH 
 
 
 --
--- TOC entry 3255 (class 2620 OID 17481)
+-- TOC entry 3255 (class 2620 OID 17743)
 -- Name: incluye precio_total_ins_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1273,7 +1272,7 @@ CREATE TRIGGER precio_total_ins_trigger AFTER INSERT ON public.incluye FOR EACH 
 
 
 --
--- TOC entry 3256 (class 2620 OID 17479)
+-- TOC entry 3256 (class 2620 OID 17741)
 -- Name: incluye precio_total_por_producto_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1281,7 +1280,7 @@ CREATE TRIGGER precio_total_por_producto_trigger BEFORE INSERT OR UPDATE ON publ
 
 
 --
--- TOC entry 3254 (class 2620 OID 17482)
+-- TOC entry 3254 (class 2620 OID 17744)
 -- Name: incluye precio_total_upd_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -1289,7 +1288,7 @@ CREATE TRIGGER precio_total_upd_trigger AFTER UPDATE ON public.incluye FOR EACH 
 
 
 --
--- TOC entry 3241 (class 2606 OID 17406)
+-- TOC entry 3241 (class 2606 OID 17668)
 -- Name: dependiente fk_dependiente_empleado; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1298,7 +1297,7 @@ ALTER TABLE ONLY public.dependiente
 
 
 --
--- TOC entry 3245 (class 2606 OID 17460)
+-- TOC entry 3245 (class 2606 OID 17722)
 -- Name: incluye fk_incluye_orden; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1307,7 +1306,7 @@ ALTER TABLE ONLY public.incluye
 
 
 --
--- TOC entry 3246 (class 2606 OID 17465)
+-- TOC entry 3246 (class 2606 OID 17727)
 -- Name: incluye fk_incluye_producto; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1316,7 +1315,7 @@ ALTER TABLE ONLY public.incluye
 
 
 --
--- TOC entry 3242 (class 2606 OID 17424)
+-- TOC entry 3242 (class 2606 OID 17686)
 -- Name: orden fk_orden_cliente; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1325,7 +1324,7 @@ ALTER TABLE ONLY public.orden
 
 
 --
--- TOC entry 3243 (class 2606 OID 17429)
+-- TOC entry 3243 (class 2606 OID 17691)
 -- Name: orden fk_orden_empleado; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1334,7 +1333,7 @@ ALTER TABLE ONLY public.orden
 
 
 --
--- TOC entry 3244 (class 2606 OID 17449)
+-- TOC entry 3244 (class 2606 OID 17711)
 -- Name: producto fk_producto_categoria; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1343,7 +1342,7 @@ ALTER TABLE ONLY public.producto
 
 
 --
--- TOC entry 3240 (class 2606 OID 17396)
+-- TOC entry 3240 (class 2606 OID 17658)
 -- Name: telefono fk_telefono_empleado; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1351,7 +1350,7 @@ ALTER TABLE ONLY public.telefono
     ADD CONSTRAINT fk_telefono_empleado FOREIGN KEY (numero_empleado) REFERENCES public.empleado(numero_empleado) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
--- Completed on 2022-05-27 20:42:04
+-- Completed on 2022-05-27 22:36:07
 
 --
 -- PostgreSQL database dump complete

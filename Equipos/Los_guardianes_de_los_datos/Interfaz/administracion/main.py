@@ -83,9 +83,9 @@ def buscar():
             rows = cur.fetchall()
             if(len(rows)!=0):
                 listbox.delete(0, 'end')
-                cambiar_img(variable)
                 for row in rows:
                     listbox.insert(0,"Numero de empleado: " + str(row[0]))
+                    cambiar_img(str(row[1]))
                     listbox.insert(1,"RFC: " + str(row[2]))
                     listbox.insert(2,"Nombre: " + str(row[3]))
                     listbox.insert(3,"Apellido Paterno: " + str(row[4]))
@@ -107,23 +107,26 @@ def buscar():
                 con.close()
             else:
                 listbox.delete(0, 'end')
-                cambiar_img("white")
+                #Imagen en blanco
+                cambiar_img("https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/white.png")
                 listbox.insert(0,"El empleado no existe.")
                 con.close()
         else:
             listbox.delete(0, 'end')
-            cambiar_img("white")
+            #Imagen en blanco
+            cambiar_img("https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/white.png")
             listbox.insert(0,"Por favor, ingresa el número de empleado.")
     except:
         listbox.delete(0, 'end')
         listbox.insert(0,"El formato del número de empleado es incorrecto.")
-        cambiar_img("white")
+        #Imagen en blanco
+        cambiar_img("https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/white.png")
 
 #Función que permite visualizar la imagen del empleado
 def cambiar_img(aux):
     global imagen
     try:
-        URL="https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/fotos%20empleados%20200x200/"+aux+".png"
+        URL=aux
         u = urlopen(URL)
         raw_data = u.read()
         u.close()
@@ -131,8 +134,12 @@ def cambiar_img(aux):
         foto=Label(tab1,image=imagen).place(relx=0.40,rely=0.165,width=150,height=150)
     except:
         listbox.delete(0, 'end')
-        listbox.insert(1,"La imagen no se pudo encontrar")
-        imagen.config(file="white.png")
+        URL="https://raw.githubusercontent.com/erikcalvillomartinez/Fotos/main/Fotos%20150x150/white.png"
+        u = urlopen(URL)
+        raw_data = u.read()
+        u.close()
+        imagen = ImageTk.PhotoImage(data=raw_data)
+        foto=Label(tab1,image=imagen).place(relx=0.40,rely=0.165,width=150,height=150)
 
 #--------------------------------Código de la segunda pestaña--------------------------------
 
