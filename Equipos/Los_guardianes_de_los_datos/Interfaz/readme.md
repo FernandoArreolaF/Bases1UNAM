@@ -21,6 +21,7 @@ Para la ejecucion de esta interfaz se recomienda tener instalada la base de dato
 3. Seguir las instrucciones de creacion de la base de datos.
 
 Para la interfaz en la carpeta *ordenes*: <br/>
+
 4. Modificar en el archivo *Modelo.py* modificar si se requiere los datos de coneccion con la BD.
 
   ```
@@ -43,9 +44,22 @@ Para la interfaz en la carpeta *ordenes*: <br/>
       )
   ```
 
-Para la interfaz en la carpeta *administracion*: <br/>
-5. Ir a la linea 15 del archivo *main.py* y modificar los parametros para la coneccion.
-   ```
-   NOMBRE_BD = "restaurante" # <----- Modificar valor si lo requiere
-   PASSWORD_POSTGRES = "postgres" # <----- Modificar valor si lo requiere
+5. Moverse a la carpeta ordenes y ejecutar:
   ```
+  python3 main.py
+  ```
+
+Para la interfaz en la carpeta *administracion*: <br/>
+
+6. Ir a la linea 15 del archivo *main.py* y modificar los parametros para la coneccion.
+  ```
+  NOMBRE_BD = "restaurante" # <----- Modificar valor si lo requiere
+  PASSWORD_POSTGRES = "postgres" # <----- Modificar valor si lo requiere
+  ```
+
+7. Moverse a la carpeta administracion y ejecutar:
+  
+  ```
+  python3 main.py
+  ```
+  
