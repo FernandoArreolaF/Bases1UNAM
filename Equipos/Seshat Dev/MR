@@ -1,0 +1,73 @@
+MR
+EMPLEADO:{num_empleado int (PK),
+edad smallint,
+sueldo float,
+fecha_nacimiento date,
+RFC_EMPLEADO  varchar(13),
+nombre varchar(60),
+ap_Paterno varchar(60),
+ap_Materno varchar(60),
+calle  varchar(60),
+numero smallint,
+colonia  varchar(60),
+codigo_Postal int,
+estado varchar(60)
+ }
+ 
+telefono:{ No_telefono int (PK),
+num_empleado int (FK)}
+ 
+COCINERO:{num_empleado int (PK)(FK),
+especialidad varchar(60)}
+ 
+ADMINISTRATIVO:{num_empleado int (PK)(FK),
+rol varchar(25)}
+ 
+CLIENTE:{RFC_CLIENTE varchar(13) (PK),
+nombre varchar(60),
+ap_Paterno varchar(60),
+ap_Materno varchar(60),
+razon_social varchar(100),
+email varchar(100),
+fecha_nacimiento date,
+calle  varchar(60),
+numero smallint,
+colonia  varchar(60),
+codigo_Postal int,
+estado varchar(60)
+}
+ 
+MESERO:{num_empleado int (PK)(FK),
+horario date}
+
+ 
+ORDEN:{ folio int (PK),
+fecha date,
+total_Pago float,
+cantidad_Alimentos int,
+precio_unitario_Alimento float,
+RFC_CLIENTE varchar(13) (FK)
+}
+ 
+DEPENDIENTE:{CURP varchar(18)(PK),
+nombre varchar(60),
+ap_Paterno varchar(60),
+ap_Materno varchar(60),
+parentesco varchar(25),
+num_empleado int (FK)
+}
+ 
+MENU_CATEGORIA:{id_identificador smallint (PK),
+precio float,
+receta varchar(100),
+nombre_alimento varchar(60),
+disponibilidad boolean,
+nombre_categoria varchar(60),
+descripcion  varchar(60),
+desc_Categoria varchar(60),
+tipo_categoria varchar(20) null,
+nivel_de_dificultad smallint null,
+sin_alcohol boolean null,
+con_alcohol boolean null}
+ 
+contiene:{[folio int,id_identificador smallint](PK)(FK)}

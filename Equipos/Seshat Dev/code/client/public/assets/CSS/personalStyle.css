@@ -1,0 +1,18 @@
+.global__container{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #000000;
+}
+
+.personal__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    height: 250px;
+    width: 500px;
+    border-radius: 5px;
+    background: linear-gradient(45deg,#0b071d 0%,#0c0236);
+}
