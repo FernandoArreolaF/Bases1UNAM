@@ -1,0 +1,12 @@
+PRODUCTO: {id_producto int(PK), nombre varchar(150), receta varchar(2000), precio real, descripcion varchar(400), disponibilidad boolean, tipo_producto varchar(8),
+con_alcohol boolean(N), platillo_del_dia boolean(N), cantidad_vendida int(N)(C), id_categoria int(FK)(N)}
+CLIENTE:{ rfc varchar(13)(PK), nombre varchar(60), ap_paterno varchar(60), ap_materno varchar(60)(N), fecha_nacimiento date, razon_social varchar(150), cp int, 
+estado varchar(60), numero smallint, calle varchar (80), colonia varchar (100), email varchar(200)}
+ORDEN: {folio varchar(20)(C)(PK), fecha date, precio_total real(N)(C), cantidad_total smallint(N)(C), numero_empleado int(FK)(N), rfc varchar(13)(FK)(N)}
+EMPLEADO:{numero_empleado int(PK), foto varchar(500), rfc varchar(13)(U), nombre varchar(60), ap_paterno varchar(60), ap_materno varchar(60)(N), edad smallint(N)(C), 
+sueldo float, calle varchar(80), numero smallint, cp int,  estado varchar(60), colonia varchar(100), fecha_nacimiento date,es_mesero boolean, es_administrativo boolean, 
+es_cocinero bit, horario varchar(60)(N), rol varchar (60)(N), especialidad varchar(60)(N)} 
+TELEFONO:{telefono bigint(PK), numero_empleado int(FK)}
+CATEGORIA: {id_categoria int(PK), nombre varchar(50), descripcion varchar(500)}
+DEPENDIENTE:{curp varchar(18)(D)(PK), nombre varchar (60), ap_paterno varchar(60), ap_materno varchar(60)(N), parentesco varchar(30), numero_empleado int(FK)} 
+INCLUYE:{[id_producto int(FK), folio varchar(20)(FK)](PK), cantidad_producto int, precio_total_por_producto float(N)(C)}
