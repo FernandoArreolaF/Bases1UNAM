@@ -1,0 +1,8 @@
+1,Administrador
+2,Gerente
+3,Reclutador
+4,Proveedor
+5,Jefe de meseros
+6,Jefe de bar
+7,Jefe de cocina
+8,Jefe de taqueros

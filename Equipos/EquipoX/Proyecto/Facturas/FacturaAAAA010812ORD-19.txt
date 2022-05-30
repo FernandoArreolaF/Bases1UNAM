@@ -1,0 +1,19 @@
+
+Taqueria Los Inges
+    RFC:FING080312AFD
+    LUGAR Y FECHA DE EMISIÓN: CDMX, 2022-05-27 21:47:48.601463-05
+
+CLIENTE
+    RFC: AAAA010812
+    NOMBRE: A A A
+    CORREO ELECTRONICO: A
+    RAZON SOCIAL: A
+    USO DE CDFI: Por definir
+
+CANTIDAD: 1
+DESCRIPCION: Consumo de alimentos y bebidas. Orden:ORD-19. Fecha orden: 2022-05-27
+IMPORTE: $1110
+
+FORMA DE PAGO: 01-Efectivo
+METODO DE PAGO: PUE-pago en una sola exhibición
+CONDICIONES DE PAGO: 0 días
