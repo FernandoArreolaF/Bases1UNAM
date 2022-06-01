@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="503,301" last-zoom="1" max-obj-count="13"
+	 default-owner="postgres">
+<database name="num_emp" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="EMPLEADO" layer="0" collapse-mode="2" max-obj-count="16" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="680" y="240"/>
+	<column name="num_emp" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="apellido_paterno" not-null="true">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="apellido_materno">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="rfc_emp" not-null="true">
+		<type name="char" length="13"/>
+	</column>
+	<column name="fecha_nac" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="edad" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="estado" not-null="true">
+		<type name="varchar" length="10"/>
+	</column>
+	<column name="cp" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="colonia" not-null="true">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="calle" not-null="true">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="numero_calle" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="sueldo" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+	<column name="foto" not-null="true">
+		<type name="bytea" length="0"/>
+	</column>
+	<constraint name="EMPLEADO_PK" type="pk-constr" table="public.&quot;EMPLEADO&quot;">
+		<columns names="num_emp" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="rf_emp_U" type="uq-constr" table="public.&quot;EMPLEADO&quot;">
+		<columns names="rfc_emp" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="edad_C" type="ck-constr" table="public.&quot;EMPLEADO&quot;">
+			<expression><![CDATA[edad > 0 and edad <= 100]]></expression>
+	</constraint>
+</table>
+
+<table name="EMPLEADO_TELEFONO" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="940" y="20"/>
+	<column name="telefono" not-null="true">
+		<type name="char" length="10"/>
+	</column>
+	<constraint name="EMPLEADO_TELEFONO_pk" type="pk-constr" table="public.&quot;EMPLEADO_TELEFONO&quot;">
+		<columns names="telefono" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="tiene" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ad1e84"
+	 src-table="public.&quot;EMPLEADO&quot;"
+	 dst-table="public.&quot;EMPLEADO_TELEFONO&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="11.2576" y="-3.20204"/>
+	</label>
+</relationship>
+
+<table name="ADMINISTRATIVO" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1240" y="400"/>
+	<column name="num_emp" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="rol" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="ADMINISTRATIVO_pk" type="pk-constr" table="public.&quot;ADMINISTRATIVO&quot;">
+		<columns names="num_emp" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="CATEGORIA" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="920" y="900"/>
+	<column name="nombre_Categoria" not-null="true">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="descripcion" not-null="true">
+		<type name="varchar" length="150"/>
+	</column>
+	<constraint name="CATEGORIA_pk" type="pk-constr" table="public.&quot;CATEGORIA&quot;">
+		<columns names="nombre_Categoria" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="COCINERO" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1260" y="160"/>
+	<column name="num_emp" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="especialidad" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="COCINERO_pk" type="pk-constr" table="public.&quot;COCINERO&quot;">
+		<columns names="num_emp" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="PLATILLO_BEBIDA" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1140" y="620"/>
+	<column name="nombre_platilloBebida" not-null="true">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="precio" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+	<column name="descripcion" not-null="true">
+		<type name="varchar" length="200"/>
+	</column>
+	<column name="receta" not-null="true">
+		<type name="varchar" length="400"/>
+	</column>
+	<column name="disponibilidad" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<constraint name="PLATILLO_BEBIDA_pk" type="pk-constr" table="public.&quot;PLATILLO_BEBIDA&quot;">
+		<columns names="nombre_platilloBebida" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="nombre_Categoria_CATEGORIA" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="CATEGORIA_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="CLIENTE" layer="0" collapse-mode="2" max-obj-count="14" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="440" y="920"/>
+	<column name="rfc_cliente" not-null="true">
+		<type name="char" length="13"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="ap_paterno" not-null="true">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="ap_materno">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="razon_social" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="fecha_nac" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="estado" not-null="true">
+		<type name="varbit" length="15"/>
+	</column>
+	<column name="cp" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="colonia" not-null="true">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="calle" not-null="true">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="numero" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<constraint name="CLIENTE_pk" type="pk-constr" table="public.&quot;CLIENTE&quot;">
+		<columns names="rfc_cliente" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ORDEN" layer="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="100" y="640"/>
+	<column name="folio" not-null="true">
+		<type name="char" length="7"/>
+	</column>
+	<column name="fecha" not-null="true" default-value="now()">
+		<type name="date" length="0"/>
+	</column>
+	<column name="total" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+	<constraint name="ORDEN_pk" type="pk-constr" table="public.&quot;ORDEN&quot;">
+		<columns names="folio" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="num_emp_MESERO" index="3"/>
+		<object name="rfc_cliente_CLIENTE" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="CLIENTE_fk" index="2"/>
+		<object name="MESERO_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="DEPENDIENTE" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="260" y="40"/>
+	<column name="CURP" not-null="true">
+		<type name="char" length="18"/>
+	</column>
+	<column name="parentesco" not-null="true">
+		<type name="varchar" length="10"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="ap_paterno" not-null="true">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="ap_materno">
+		<type name="varchar" length="15"/>
+	</column>
+	<constraint name="DEPENDIENTE_pk" type="pk-constr" table="public.&quot;DEPENDIENTE&quot;">
+		<columns names="CURP" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="num_emp_EMPLEADO" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="EMPLEADO_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="MESERO" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="220" y="300"/>
+	<column name="num_emp" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="hora_inicio" not-null="true" default-value="now ()">
+		<type name="time" length="0"/>
+	</column>
+	<column name="hora_fin" not-null="true" default-value="now ()">
+		<type name="time" length="0"/>
+	</column>
+	<constraint name="MESERO_pk" type="pk-constr" table="public.&quot;MESERO&quot;">
+		<columns names="num_emp" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="posee" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ffff00"
+	 src-table="public.&quot;EMPLEADO&quot;"
+	 dst-table="public.&quot;DEPENDIENTE&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="15.0354" y="-5.48194"/>
+	</label>
+</relationship>
+
+<relationship name="atiende" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1ca500"
+	 src-table="public.&quot;MESERO&quot;"
+	 dst-table="public.&quot;ORDEN&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="paga" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ff5500"
+	 src-table="public.&quot;CLIENTE&quot;"
+	 dst-table="public.&quot;ORDEN&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="pertenece" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#c103a2"
+	 src-table="public.&quot;CATEGORIA&quot;"
+	 dst-table="public.&quot;PLATILLO_BEBIDA&quot;"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="47.7186" y="-8.33226"/>
+	</label>
+</relationship>
+
+<table name="ENLISTA" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<position x="540" y="640"/>
+	<column name="cantidad_platilloBebida" not-null="true">
+		<type name="int2" length="0"/>
+	</column>
+	<column name="precio_platilloBebida" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="folio_ORDEN" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="ENLISTA_pk" index="0"/>
+		<object name="ORDEN_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="enlistaD" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#aaaa7f"
+	 src-table="public.&quot;ORDEN&quot;"
+	 dst-table="public.&quot;ENLISTA&quot;"
+	 src-required="true" dst-required="false"
+	 identifier="true"
+>
+	<label ref-type="name-label">
+		<position x="2.30762" y="15.5239"/>
+	</label>
+</relationship>
+
+<relationship name="enlistaI" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#aaaa7f"
+	 src-table="public.&quot;PLATILLO_BEBIDA&quot;"
+	 dst-table="public.&quot;ENLISTA&quot;"
+	 src-required="true" dst-required="false"/>
+
+<constraint name="ADMIN_EMP_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.&quot;EMPLEADO&quot;" table="public.&quot;ADMINISTRATIVO&quot;">
+	<columns names="num_emp" ref-type="src-columns"/>
+	<columns names="num_emp" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="COCINERO_EMPLEADO_FK" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.&quot;EMPLEADO&quot;" table="public.&quot;COCINERO&quot;">
+	<columns names="num_emp" ref-type="src-columns"/>
+	<columns names="num_emp" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="MES_EMP_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.&quot;EMPLEADO&quot;" table="public.&quot;MESERO&quot;">
+	<columns names="num_emp" ref-type="src-columns"/>
+	<columns names="num_emp" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="&quot;rel_ADMINISTRATIVO_EMPLEADO&quot;" type="relfk" layer="0"
+	 src-table="public.&quot;ADMINISTRATIVO&quot;"
+	 dst-table="public.&quot;EMPLEADO&quot;" reference-fk="ADMIN_EMP_fk"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="&quot;rel_COCINERO_EMPLEADO&quot;" type="relfk" layer="0"
+	 src-table="public.&quot;COCINERO&quot;"
+	 dst-table="public.&quot;EMPLEADO&quot;" reference-fk="COCINERO_EMPLEADO_FK"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="&quot;rel_MESERO_EMPLEADO&quot;" type="relfk" layer="0"
+	 src-table="public.&quot;MESERO&quot;"
+	 dst-table="public.&quot;EMPLEADO&quot;" reference-fk="MES_EMP_fk"
+	 src-required="false" dst-required="true"/>
+
+</dbmodel>

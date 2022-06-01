@@ -1,0 +1,19 @@
+
+Taqueria Los Inges
+    RFC:FING080312AFD
+    LUGAR Y FECHA DE EMISIÓN: CDMX, 2022-05-27 17:45:48.045907-05
+
+CLIENTE
+    RFC: GOEN010210
+    NOMBRE: Nayeli Gómez Esparza
+    CORREO ELECTRONICO: 209gomezesparza@gmail.com
+    RAZON SOCIAL: Nayeli Gómez Esparza
+    USO DE CDFI: Por definir
+
+CANTIDAD: 1
+DESCRIPCION: Consumo de alimentos y bebidas. Orden:ORD-2. Fecha orden: 2022-05-27
+IMPORTE: $78
+
+FORMA DE PAGO: 01-Efectivo
+METODO DE PAGO: PUE-pago en una sola exhibición
+CONDICIONES DE PAGO: 0 días
