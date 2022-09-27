@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.4" use-changelog="false" last-position="1604,592" last-zoom="1.6" max-obj-count="8"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="EDIFICIO" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1320" y="320"/>
+	<column name="nombre_edificio" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="ubicacion" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="numero_pisos" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="EDIFICIO_pk" type="pk-constr" table="public.&quot;EDIFICIO&quot;">
+		<columns names="nombre_edificio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="MATERIAL" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1280" y="800"/>
+	<column name="nombre_material" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="fabricante" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="precio" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+	<constraint name="MATERIAL_pk" type="pk-constr" table="public.&quot;MATERIAL&quot;">
+		<columns names="nombre_material" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="CUADRILLA" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2160" y="640"/>
+	<column name="descripcion" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="numero_cuadrilla" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="clave_funcion" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="CUADRILLA_pk" type="pk-constr" table="public.&quot;CUADRILLA&quot;">
+		<columns names="numero_cuadrilla" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="FUNCION" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2680" y="560"/>
+	<column name="clave" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="especialidad" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="FUNCION_pk" type="pk-constr" table="public.&quot;FUNCION&quot;">
+		<columns names="clave" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TRABAJADOR" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1760" y="860"/>
+	<column name="RFC" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="oficio" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="apellido_paterno" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="apellido_materno" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="numero_cuadrilla" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="rfc_capataz" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="TRABAJADOR_pk" type="pk-constr" table="public.&quot;TRABAJADOR&quot;">
+		<columns names="RFC" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="EDIFICIO_CUADRILLA" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1740" y="460"/>
+	<column name="fechaAds" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="nombre_edif" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="numero_cuadrilla" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="EDIFICIO_CUADRILLA_pk" type="pk-constr" table="public.&quot;EDIFICIO_CUADRILLA&quot;">
+		<columns names="nombre_edif,numero_cuadrilla" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="EDIF_MAT" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1300" y="560"/>
+	<column name="nombre_mat" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="nombre_edificio" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="EDIF_MAT_pk" type="pk-constr" table="public.&quot;EDIF_MAT&quot;">
+		<columns names="nombre_mat,nombre_edificio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="EDIFICIO_has_many_EDIF_MAT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#fa6ba6"
+	 src-table="public.&quot;EDIFICIO&quot;"
+	 dst-table="public.&quot;EDIF_MAT&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="EDIF_MAT_has_many_MATERIAL" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b85ca4"
+	 src-table="public.&quot;EDIF_MAT&quot;"
+	 dst-table="public.&quot;MATERIAL&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="EDIFICIO_has_many_EDIFICIO_CUADRILLA" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ee27b1"
+	 src-table="public.&quot;EDIFICIO&quot;"
+	 dst-table="public.&quot;EDIFICIO_CUADRILLA&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="125.233" y="-53.7891"/>
+	</label>
+</relationship>
+
+<relationship name="EDIFICIO_CUADRILLA_has_many_CUADRILLA" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a59e48"
+	 src-table="public.&quot;EDIFICIO_CUADRILLA&quot;"
+	 dst-table="public.&quot;CUADRILLA&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="129.233" y="-45.5883"/>
+	</label>
+</relationship>
+
+<relationship name="CUADRILLA_has_many_TRABAJADOR" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a789f7"
+	 src-table="public.&quot;CUADRILLA&quot;"
+	 dst-table="public.&quot;TRABAJADOR&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="128.799" y="3.21622"/>
+	</label>
+</relationship>
+
+<relationship name="FUNCION_has_many_CUADRILLA" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#50817e"
+	 src-table="public.&quot;FUNCION&quot;"
+	 dst-table="public.&quot;CUADRILLA&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="108.408" y="-5.97636"/>
+	</label>
+</relationship>
+
+</dbmodel>
