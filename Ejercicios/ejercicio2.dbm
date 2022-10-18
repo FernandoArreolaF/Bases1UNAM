@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="4"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="venta" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="280" y="180"/>
+	<column name="id_venta" not-null="true">
+		<type name="int4" length="0"/>
+	</column>
+	<column name="fecha_venta" not-null="true">
+		<type name="int4" length="0"/>
+	</column>
+	<column name="monto_final" not-null="true">
+		<type name="int4" length="0"/>
+		<comment><![CDATA[atributo calculado]]></comment>
+	</column>
+	<constraint name="venta_pk" type="pk-constr" table="public.venta">
+		<columns names="id_venta" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="producto" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="700" y="200"/>
+	<column name="id_producto" not-null="true">
+		<type name="int4" length="0"/>
+	</column>
+	<column name="foto" not-null="true">
+		<type name="bytea" length="0"/>
+	</column>
+	<column name="stock">
+		<type name="int4" length="0"/>
+	</column>
+	<constraint name="producto_pk" type="pk-constr" table="public.producto">
+		<columns names="id_producto" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="guardar" type="relnn" layer="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#aa97db"
+	 src-table="public.venta"
+	 dst-table="public.producto"
+	 src-required="false" dst-required="false"
+	 table-name="many_venta_has_many_producto">
+	<column name="cantidad" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+</relationship>
+
+</dbmodel>
