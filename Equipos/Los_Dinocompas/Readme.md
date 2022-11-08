@@ -1,4 +1,4 @@
-Integrantes del equipo 
+## <div> Equipo: "Los Dinocompas" <img style="float: right" alt="JuveYell" width="300px" src="dino.png"></div>
 
 1.-Benitez Mera Mario  
 
