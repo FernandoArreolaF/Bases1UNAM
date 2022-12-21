@@ -1,6 +1,6 @@
 # INTEGRANTES
 * Carranza Ochoa José David
 * Casique Corona Luis Enrique
-* García Cruz Stefany
+* Sanchez de Santiago Julián
 * Salgado Miranda Jorge
 * Zárate García Zuriel
