@@ -1,1 +1,0 @@
-Cristhian Herrera Carrillo
