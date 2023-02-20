@@ -1,1 +1,0 @@
-González López David
