@@ -1,0 +1,21 @@
+
+- Creación de cadena de conexión:
+
+PSQL -U alumno -h 10.10.2.239  -p 9005
+
+
+
+- Creación de usuario:
+
+CREATE USER reyesPablo WITH PASSWORD '$DataBase.2023-2$' VALID UNTIL '2023-02-28' WITH CONNECTION LIMIT 50;
+
+
+
+
+
+
+Referencias:
+
+[1]	"How to Create a Postgres User | phoenixNAP KB". Knowledge Base by phoenixNAP. https://phoenixnap.com/kb/postgres-create-user (accedido el 28 de febrero de 2023).
+
+[2]	web_page_person. "How to CREATE USER that is valid until a specific date in PostgreSQL?" TutorialKart. https://www.tutorialkart.com/postgresql/postgresql-create-user-with-password-valid-until-specific-date/ (accedido el 28 de febrero de 2023).
