@@ -1,0 +1,2 @@
+# psql -h 10.10.2.239 -p 9005 -U usuario -d 
+#CREATE USER maChilpa WITH PASSWORD 'alitas2023' VALID UNTIL '2023-03-28' max_connections (100);
