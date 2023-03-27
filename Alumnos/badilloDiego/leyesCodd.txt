@@ -1,0 +1,27 @@
+Las doce leyes de Codd
+
+Regla de la información: Toda la información en la base de datos debe estar representada de manera explícita en una estructura lógica accesible a través del lenguaje de la base de datos.
+
+Regla del acceso garantizado: Cada dato debe ser accesible lógicamente a través de una combinación de nombre de tabla, clave primaria y nombre de columna.
+
+Regla del tratamiento del sistema: El sistema de gestión de la base de datos debe tratar todos los datos como si fueran valores en una tabla.
+
+Regla de sublenguajes completos: El sistema de gestión de la base de datos debe soportar al menos un lenguaje completo que pueda ser utilizado para definir, manipular y controlar la base de datos.
+
+Regla de actualización de vistas: Todas las vistas que sean teóricamente actualizables deben ser actualizables por el sistema de gestión de la base de datos.
+
+Regla de independencia física: La base de datos debe estar aislada del almacenamiento físico y las técnicas de almacenamiento.
+
+Regla de independencia lógica: Los cambios en la estructura lógica de la base de datos no deben afectar a las aplicaciones que utilizan la base de datos.
+
+Regla de integridad de integridad: las reglas que aseguran que los datos son correctos deben estar en la base de datos, y no en los programas que se conectan a ella. Esto significa que si alguien intenta introducir datos que no cumplan con las reglas, el sistema de gestión de la base de datos no lo permitirá. Por ejemplo, si una base de datos requiere que un número de identificación sea único, el sistema no permitirá que se agregue un número de identificación duplicado.
+
+Regla de distribución: la base de datos debe ser capaz de ser compartida en diferentes lugares sin que los usuarios tengan que preocuparse por la ubicación física de los datos. Esto es importante porque las empresas pueden tener oficinas en diferentes lugares del mundo y necesitan acceder a los mismos datos. Si los datos no se pueden compartir fácilmente, se pierde tiempo y se hacen errores al tener que enviar los datos por correo electrónico o por otros medios.
+
+Regla de no subversión: Si un sistema de gestión de la base de datos proporciona una función de acceso a bajo nivel, esta función no debe ser utilizada para eludir los controles de integridad.
+
+Regla de tratamiento de transacciones: El sistema de gestión de la base de datos debe soportar transacciones para garantizar la consistencia de la base de datos.
+
+Regla de capacidades dinámicas: El sistema de gestión de la base de datos debe ser capaz de modificar la estructura lógica de la base de datos mientras sigue siendo operativa.
+
+A. Kumar, "OLAP Guidelines – Codd’s Rule," GeeksforGeeks, 23-Marzo-2019. [En linea]. Disponible: https://www.geeksforgeeks.org/olap-guidelines-codds-rule/. [Accesado: 08-Mar-2023].
