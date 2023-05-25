@@ -1,0 +1,19 @@
+SELECT * FROM PRESTAMO WHERE NOMBRESUCURSAL='Copilco';
+
+SELECT * FROM CLIENTE WHERE CIUDAD='GUANAJUATO';
+
+SELECT cliente.nombreCliente
+FROM cliente
+JOIN ctaCliente ON cliente.nombreCliente = ctaCliente.nombreCliente WHERE ctaCliente.numCta IS NOT NULL OR prestamo.numPrestamo IS NOT NULL;
+
+SELECT cliente.nombreCliente
+FROM cliente
+JOIN ctaCliente ON cliente.nombreCliente = ctaCliente.nombreCliente
+LEFT JOIN prestatario ON ctaCliente.numCta = prestatario.numCta
+WHERE prestatario.numCta IS NULL;
+
+SELECT cliente.nombreCliente
+FROM cliente
+JOIN prestatario ON cliente.nombreCliente = prestatario.nombreCliente
+JOIN prestamo ON prestatario.numPrestamo = prestamo.numPrestamo
+WHERE prestamo.importe > 5000;

@@ -1,0 +1,25 @@
+Tipos de datos en Postgres:
+
+Datos numéricos:
+integer: es un tipo de dato entero. Por ejemplo, SELECT 4 + 3; devuelve 7.
+numeric: es un tipo de dato decimal. Por ejemplo, SELECT 4.2 + 3.8; devuelve 8.0.
+
+Datos de caracteres:
+character varying(n): es un tipo de dato de texto con una longitud máxima de n caracteres. Por ejemplo, SELECT 'Hola, mundo!' AS saludo; devuelve Hola, mundo!.
+text: es un tipo de dato de texto que puede contener una cantidad variable de caracteres. Por ejemplo, SELECT 'Esta es una cadena de texto larga'; devuelve Esta es una cadena de texto larga.
+
+Datos de fecha/hora:
+date: es un tipo de dato de fecha. Por ejemplo, SELECT CURRENT_DATE; devuelve la fecha actual.
+timestamp: es un tipo de dato de fecha y hora. Por ejemplo, SELECT CURRENT_TIMESTAMP; devuelve la fecha y hora actual.
+
+Datos booleanos:
+boolean: es un tipo de dato que puede tener dos valores: TRUE o FALSE. Por ejemplo, SELECT 4 > 3; devuelve TRUE.
+También es posible usar valores NULL para representar la falta de un valor booleano. Por ejemplo, SELECT NULL OR TRUE; devuelve TRUE, porque cuando uno de los valores en una expresión OR es NULL, el resultado es verdadero.
+
+Datos en arrays:
+array: es un tipo de dato que permite almacenar múltiples valores del mismo tipo en una sola columna. Por ejemplo, SELECT ARRAY[1, 2, 3]; devuelve {1,2,3}.
+También es posible crear arrays de otros tipos de datos, como cadenas de texto o fechas. Por ejemplo, SELECT ARRAY['manzana', 'naranja', 'plátano']; devuelve {"manzana","naranja","plátano"}.
+Para acceder a los elementos de un array, se puede utilizar la sintaxis nombre_de_columna[número_de_índice]. Por ejemplo, SELECT ARRAY[1, 2, 3][2]; devuelve 2.
+
+Bibliografia:
+PostgreSQL Global Development Group. (s.f.). Tipos de datos. Documentación de PostgreSQL. Recuperado el 10 de marzo de 2023, de https://www.postgresql.org/docs/current/datatype.html
