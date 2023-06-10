@@ -6,7 +6,8 @@
 -- DROP DATABASE IF EXISTS papeleria;
 CREATE DATABASE papeleria;
 
-\c papeleria -- Sirve para ingresar a la base de datos que acabamos de crear
+-- Sirve para ingresar a la base de datos que acabamos de crear
+\c papeleria 
 
 -- DROP TABLE IF EXISTS public.PROVEEDOR CASCADE;
 CREATE TABLE public.PROVEEDOR (
