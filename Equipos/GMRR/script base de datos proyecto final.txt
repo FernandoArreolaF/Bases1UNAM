@@ -1,0 +1,276 @@
+-- IDENTIDADES Y RELACIONES
+
+CREATE TABLE PROVEDOR(
+	rfcPro varchar(13),
+	nombre varchar (40),
+	razonSocial varchar(250),
+	calle varchar(150),
+	colonia varchar(30),
+	cp int,
+	estado varchar(30),
+	num int,
+	CONSTRAINT rfcPro_PK PRIMARY KEY (rfcPro)
+);
+
+CREATE TABLE TELEFONO(
+	telefono int,
+	rfcPro varchar(13),
+	CONSTRAINT tel_PK PRIMARY KEY (telefono),
+	CONSTRAINT rfcPro_FK FOREIGN KEY (rfcPro)
+	REFERENCES PROVEDOR(rfcPro)
+);
+
+CREATE TABLE CLIENTE(
+	rfcClien varchar(13),
+	nombre varchar(80),
+	aPaterno varchar(30),
+	aMaterno varchar(30),
+	cp int,
+	estado varchar(45),
+	colonia varchar(40),
+	calle varchar(60),
+	num int,
+	CONSTRAINT rfcClien_PK PRIMARY KEY (rfcClien)
+);
+
+CREATE TABLE EMAIL(
+	emails varchar(75),
+	rfcClien varchar(13),
+	CONSTRAINT emails_PK PRIMARY KEY(emails),
+	CONSTRAINT rfcClien_FK FOREIGN KEY(rfcClien)
+	REFERENCES CLIENTE(rfcClien)
+);
+
+CREATE TABLE VENTA(
+	idVen varchar(10),
+	fecha date,
+	total_Venta float,
+	rfcClien varchar(13),
+	CONSTRAINT idVen_PK PRIMARY KEY(idVen),
+	CONSTRAINT rfcClien_FK FOREIGN KEY(rfcClien)
+	REFERENCES CLIENTE(rfcClien)
+);
+
+create table producto(
+	codigoBarras varchar(14),
+	primary key (codigoBarras),
+	precio float,
+	categoria varchar(20) check (categoria in ('Impresiones','Articulos Papeleria','Regalos','Recargas')),
+	marca varchar(20),
+	foto varchar(10),
+	descripcion varchar (100),
+	stock int
+);
+
+CREATE TABLE SUMINISTRAR(
+	rfcPro varchar(13),
+	codigoBarras varchar(14),
+	precio_compra float,
+	fecha_compra date,
+	CONSTRAINT suministrar_PK PRIMARY KEY(rfcPro, codigoBarras),
+	CONSTRAINT sum_rfcPro_FK FOREIGN KEY(rfcPro)
+	REFERENCES PROVEDOR(rfcPro),
+	CONSTRAINT sum_codigoBarras1_FK FOREIGN KEY(codigoBarras)
+	REFERENCES PRODUCTO(codigoBarras)
+);
+
+CREATE TABLE CONFORMAR(
+	codigoBarras varchar(14),
+	idVen int,
+	cantidad int,
+	total float,
+	utilidad float,
+	CONSTRAINT conformar_PK PRIMARY KEY(codigoBarras, idVen),
+	CONSTRAINT conf_codigoBarras2_FK FOREIGN KEY(codigoBarras)
+	REFERENCES PRODUCTO(codigoBarras),
+	CONSTRAINT conf_idVen_FK FOREIGN KEY(idVen)
+	REFERENCES VENTA(idVen)
+);
+
+--Funciones
+
+create or replace function insertarP(Categoria varchar, Marca varchar, Descripcion varchar, Stock int) returns void as $$
+	declare
+		rec record;
+		codigoBarras varchar;
+	begin
+		codigoBarras=concat(UPPER(substring(Categoria, 1, 3)),UPPER(substring(Marca, 1, 3)),UPPER(substring(Descripcion, 1, 3)),1000);
+		insert into Producto (codigobarras,categoria,marca,descripcion,stock) values(codigoBarras,Categoria,Marca,Descripcion,Stock);
+	end; $$ language plpgsql;
+
+create or replace function insertarS(rfc varchar, CB varchar, precio_compra float) returns void as $$
+	declare
+		rec record;
+	begin
+		insert into Suministrar(rfcpro,codigobarras,precio_compra) values(rfc,CB,precio_compra);
+ 	end; $$ language plpgsql;
+
+
+CREATE or replace FUNCTION utilidad(CB varchar) RETURNS float AS $$
+declare
+	rec record;
+	utilidad float;
+	aux int:=1;
+begin
+select * into strict rec from producto where codigoBarras=CB;
+	if rec.categoria='Impresiones' then
+		if rec.marca='color' then
+			aux=2;
+		else if rec.marca='B/N' then
+			aux=1;
+		end if;
+		end if;
+		return aux*3*(select precio_compra from suministrar S inner join producto P on S.codigobarras=P.codigobarras where P.codigobarras=CB);
+	end if;
+	if rec.categoria='Regalos' then
+		return 0.1*(select precio_compra from suministrar S inner join producto P on S.codigobarras=P.codigobarras where P.codigobarras=CB);
+	end if;
+	if rec.categoria='Articulos Papeleria' then
+		return 0.085*(select precio_compra from suministrar S inner join producto P on S.codigobarras=P.codigobarras where P.codigobarras=CB);
+	end if;
+	if rec.categoria='Recargas' then
+		return 1;
+	end if;
+	return 0;
+end; $$ language plpgsql;
+
+CREATE or replace FUNCTION preciop(CB varchar) RETURNS void AS $$
+declare
+rec record;
+begin
+	select * into strict rec from producto where codigoBarras=CB;
+	if rec.categoria!='Recargas' then
+		UPDATE Producto SET precio=(select precio_compra from suministrar S inner join Producto P on S.codigobarras=P.codigobarras 
+		where P.codigobarras=CB) +(select utilidad(CB)) WHERE codigobarras=CB;
+	end if;	
+	if rec.categoria='Recargas' then
+	ALTER TABLE help ALTER COLUMN valor SET DATA TYPE varchar;
+	insert into help (id,valor) values (CB,rec.descripcion);
+	ALTER TABLE help ALTER COLUMN valor SET DATA TYPE int USING valor::integer;
+	UPDATE Producto SET precio=(select valor from help H inner join Producto P on H.id=P.codigobarras 
+		where P.codigobarras=CB) +(select utilidad(CB)) WHERE codigobarras=CB;
+	end if;
+
+end;$$ language plpgsql;
+
+--Precedimientos
+
+CREATE OR REPLACE FUNCTION actualizar_stock()
+RETURNS TRIGGER AS $$
+DECLARE
+	stockv int;
+	categ varchar(50); 
+BEGIN
+	SELECT categoria INTO categ FROM PRODUCTO WHERE codigoBarras = NEW.codigoBarras;
+	SELECT stock INTO stockv FROM PRODUCTO WHERE codigoBarras = NEW.codigoBarras;
+
+	IF (stockv - NEW.cantidad ) > 0 THEN
+		RAISE NOTICE 'Compra Realizada';
+		IF (stockv - NEW.cantidad) < 3 THEN
+			RAISE NOTICE 'ADVERTENCIA: ESTE PRODUCTO TIENE MENOS DE 3 UNIDADES EN STOCK';
+		END IF;
+
+		IF categ = 'Recargas' THEN
+			UPDATE PRODUCTO SET stock = stock - NEW.total+1
+			WHERE codigoBarras = NEW.codigoBarras;
+ 		ELSE
+			UPDATE PRODUCTO SET stock = stock - NEW.cantidad
+			WHERE codigoBarras = NEW.codigoBarras;
+		END IF;
+	ELSE
+		RAISE NOTICE 'Sin stock suficiente, Compra no realizada';
+		DELETE FROM CONFORMAR WHERE (codigoBarras = NEW.codigoBarras) AND (idVen = NEW.idVen);
+	END IF;
+	RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER trigger_actualizar_stock
+AFTER INSERT ON CONFORMAR
+FOR EACH ROW 
+EXECUTE FUNCTION actualizar_stock();
+
+CREATE OR REPLACE PROCEDURE comprar(cliente varchar(13), codigoBarras varchar(14), cantidad int)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+	num_venta varchar(8);
+BEGIN
+	SELECT idven INTO num_venta FROM VENTA WHERE (rfcclien = cliente) AND (total_venta = 0);
+	INSERT INTO CONFORMAR VALUES(codigoBarras, num_venta, cantidad, calcular_total_producto(codigoBarras), cantidad*utilidad(codigoBarras));	
+END;
+$$;
+
+
+CREATE OR REPLACE PROCEDURE venta(rfcClien varchar(13))
+LANGUAGE plpgsql
+AS $$
+BEGIN
+	INSERT INTO VENTA VALUES(id_venta_serial(), now(), 0, rfcClien);
+		
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE finalizarVenta(cliente varchar(13))
+LANGUAGE plpgsql
+AS $$
+DECLARE
+	num_venta varchar(8);
+	totalf float;
+BEGIN
+	SELECT idVen INTO num_venta FROM VENTA WHERE (rfcClien = cliente) AND (total_venta = 0);
+	SELECT sum(total) INTO totalf FROM CONFORMAR WHERE idVen = num_venta;
+	UPDATE VENTA SET total_venta = totalf WHERE idVen = num_venta;
+
+
+CREATE OR REPLACE VIEW vista_factura AS
+SELECT 
+  'FAC-' || LPAD(ROW_NUMBER() OVER (ORDER BY (SELECT NULL))::TEXT, 3, '0') AS factura,
+  now() AS fecha_emision,
+  'PLC230520T56' AS rfc_emitente,
+  'Papelería Clarky S.A de C.V.' AS razon_social,
+  t1.idven,
+  t1.rfcclien,
+  t2.codigobarras,
+  t3.precio, t3.marca,
+  t2.cantidad,
+  t2.total
+FROM 
+  VENTA AS t1
+JoIN
+CONFORMAR AS t2 ON t1.idven = t2.idven
+JOIN
+PRODUCTO AS t3 ON t2.codigobarras = t3.codigobarras;
+SELECT * FROM vista_factura;
+END;
+$$;
+
+
+
+
+CREATE OR REPLACE FUNCTION calcular_total_producto(idproducto varchar(14))
+RETURNS FLOAT AS $$
+DECLARE
+	p float;
+BEGIN
+	
+	SELECT precio INTO p FROM PRODUCTO WHERE codigoBarras = idproducto;
+	RETURN p;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION calcularGananciafecha(fechaG varchar(10))
+RETURNS VOID AS $$
+
+BEGIN
+	
+	RAISE NOTICE 'TOTAL VENTA %',(SELECT sum(total_venta) FROM VENTA WHERE fecha = fechaG::DATE);
+
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+								
