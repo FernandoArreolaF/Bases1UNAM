@@ -4,9 +4,9 @@ Integrantes:
 
 García Sánchez Luis Manuel.
 
-Mejía Ramos Bryan.
+Gaytán Herrera Belén.
 
-Rivera Ortega Carlos Yahir.
+Mejía Ramos Bryan.
 
 Ruiz Aguilar Cristian Jair.
 
