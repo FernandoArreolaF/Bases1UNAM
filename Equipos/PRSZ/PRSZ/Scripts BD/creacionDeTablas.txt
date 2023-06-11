@@ -1,0 +1,97 @@
+CREATE TABLE Proveedores (
+    RFC VARCHAR(13) PRIMARY KEY,
+    ApellidoPaterno VARCHAR(100),
+    ApellidoMaterno VARCHAR(100),
+    Nombres VARCHAR(100),
+    RazonSocial VARCHAR(255) NOT NULL,
+    Estado VARCHAR(100) NOT NULL,
+    CodigoPostal VARCHAR(5) NOT NULL,
+    Colonia VARCHAR(100) NOT NULL,
+    Calle VARCHAR(100) NOT NULL,
+    Numero VARCHAR(10) NOT NULL
+);
+
+-- Tabla TelefonosProveedor
+CREATE TABLE TelefonosProveedor (
+    Telefono VARCHAR(15) PRIMARY KEY,
+    ProveedorRFC VARCHAR(13),
+    FOREIGN KEY (ProveedorRFC) REFERENCES Proveedores(RFC) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Tabla Clientes
+CREATE TABLE Clientes (
+    RFC VARCHAR(13) PRIMARY KEY,
+    ApellidoPaterno VARCHAR(100),
+    ApellidoMaterno VARCHAR(100),
+    Nombres VARCHAR(100),
+    Estado VARCHAR(100) NOT NULL,
+    CodigoPostal VARCHAR(5) NOT NULL,
+    Colonia VARCHAR(100) NOT NULL,
+    Calle VARCHAR(100) NOT NULL,
+    Numero VARCHAR(10) NOT NULL
+);
+
+-- Tabla EmailsCliente
+CREATE TABLE EmailsCliente (
+    Email VARCHAR(255) PRIMARY KEY,
+    ClienteRFC VARCHAR(13),
+    FOREIGN KEY (ClienteRFC) REFERENCES Clientes(RFC) ON DELETE CASCADE ON UPDATE CASCADE
+);
+CREATE SEQUENCE tipoproductos_seq START 1;
+-- Tabla TipoProductos
+CREATE TABLE TipoProductos (
+    TipoProductoID INTEGER DEFAULT NEXTVAL('tipoproductos_seq') PRIMARY KEY,
+    Tipo VARCHAR(50) NOT NULL,
+    CONSTRAINT uk_tipo_producto UNIQUE (Tipo)
+);
+CREATE SEQUENCE productos_seq START 1;
+-- Tabla Productos
+CREATE TABLE Productos (
+    ProductoID INTEGER DEFAULT NEXTVAL('productos_seq') PRIMARY KEY,
+    CodigoBarras VARCHAR(13) NOT NULL,
+    PrecioCompra NUMERIC(8, 2) NOT NULL,
+    Foto TEXT,
+    FechaCompra DATE NOT NULL,
+    Stock INTEGER NOT NULL,
+    Marca VARCHAR(100),
+    Descripcion TEXT,
+    PrecioVenta NUMERIC(8, 2) NOT NULL,
+    TipoProductoID INTEGER,
+    ProveedorRFC VARCHAR(13),
+    FOREIGN KEY (TipoProductoID) REFERENCES TipoProductos(TipoProductoID),
+    FOREIGN KEY (ProveedorRFC) REFERENCES Proveedores(RFC),
+    CONSTRAINT uk_codigo_barras UNIQUE (CodigoBarras)
+);
+CREATE SEQUENCE venta_id_seq START 1;
+CREATE SEQUENCE numero_venta_seq START 1;
+-- Tabla Ventas
+CREATE TABLE Ventas (
+    VentaID INTEGER DEFAULT NEXTVAL('venta_id_seq') PRIMARY KEY,
+    NumeroVenta VARCHAR(50) NOT NULL DEFAULT 'VENT-' || LPAD(CAST(NEXTVAL('numero_venta_seq') AS TEXT), 3, '0'),
+    FechaVenta DATE NOT NULL,
+    ClienteRFC VARCHAR(13),
+    TotalPagar NUMERIC(10, 2),
+    FOREIGN KEY (ClienteRFC) REFERENCES Clientes(RFC) 
+);
+
+-- Tabla Venta_Detalles
+CREATE SEQUENCE venta_detalle_seq START 1;
+CREATE TABLE Venta_Detalles (
+   VentaDetalleID INTEGER DEFAULT NEXTVAL('venta_detalle_seq') PRIMARY KEY,
+   VentaID INTEGER NOT NULL,
+   ProductoID INTEGER NOT NULL,
+   Cantidad INTEGER NOT NULL,
+   PrecioTotal NUMERIC(10, 2),
+   FOREIGN KEY (VentaID) REFERENCES Ventas(VentaID) ON UPDATE CASCADE,
+   FOREIGN KEY (ProductoID) REFERENCES Productos(ProductoID) ON UPDATE CASCADE
+);
+-- Tabla Inventarios
+CREATE SEQUENCE inventario_id_seq START 1;
+CREATE TABLE Inventarios (
+    InventarioID INTEGER DEFAULT nextval('inventario_id_seq'),
+    ProductoID INTEGER NOT NULL,
+    CantidadEnStock INTEGER NOT NULL,
+    Alerta BOOLEAN NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (ProductoID) REFERENCES Productos(ProductoID) ON UPDATE CASCADE
+);
+CREATE INDEX idx_productos_productoid ON Productos (ProductoID);
