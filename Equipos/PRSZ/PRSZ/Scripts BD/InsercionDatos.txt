@@ -1,0 +1,32 @@
+-- Tabla Proveedores
+INSERT INTO Proveedores (RFC, ApellidoPaterno, ApellidoMaterno, Nombres, RazonSocial, Estado, CodigoPostal, Colonia, Calle, Numero)
+VALUES ('PROV001', 'Pérez', 'Gómez', 'Juan', 'Proveedor 1', 'Estado 1', 'CP1', 'Colonia 1', 'Calle 1', '1');
+
+-- Tabla TelefonosProveedor
+INSERT INTO TelefonosProveedor (Telefono, ProveedorRFC)
+VALUES ('1234567890', 'PROV001');
+
+-- Tabla Clientes
+INSERT INTO Clientes (RFC, ApellidoPaterno, ApellidoMaterno, Nombres, Estado, CodigoPostal, Colonia, Calle, Numero)
+VALUES ('CLI001', 'López', 'García', 'María', 'Estado 2', 'CP2', 'Colonia 2', 'Calle 2', '2');
+
+-- Tabla EmailsCliente
+INSERT INTO EmailsCliente (Email, ClienteRFC)
+VALUES ('cliente1@example.com', 'CLI001');
+
+-- Tabla TipoProductos
+INSERT INTO TipoProductos (Tipo)
+VALUES ('Tipo 1'), ('Tipo 2'), ('Tipo 3');
+
+-- Tabla Productos
+INSERT INTO Productos (CodigoBarras, PrecioCompra, Foto, FechaCompra, Stock, Marca, Descripcion, PrecioVenta, TipoProductoID)
+VALUES ('1234567890123', 10.50, 'imagen1.jpg', '2023-01-01', 100, 'Marca 1', 'Descripción 1', 15.99, 1),
+('9876543210987', 8.75, 'imagen2.jpg', '2023-02-01', 50, 'Marca 2', 'Descripción 2', 12.99, 2);
+
+-- Tabla Ventas
+INSERT INTO Ventas (FechaVenta, ClienteRFC)
+VALUES ('2023-05-01', 'CLI001'), ('2023-05-02', 'CLI001');
+
+-- Tabla Venta_Detalles
+INSERT INTO Venta_Detalles (VentaID, ProductoID, Cantidad)
+VALUES (1, 1, 3), (1, 2, 2), (2, 1, 2), (2, 2, 1);

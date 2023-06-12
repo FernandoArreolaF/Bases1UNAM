@@ -1,0 +1,127 @@
+-- Vista Factura
+CREATE OR REPLACE VIEW Factura AS
+SELECT v.NumeroVenta, v.FechaVenta, c.Nombres, c.RFC, c.Estado, c.CodigoPostal, c.Colonia, c.Calle, c.Numero,
+       vd.Cantidad, p.Marca, p.Descripcion, p.PrecioVenta, vd.PrecioTotal
+FROM Ventas v
+JOIN Clientes c ON v.ClienteRFC = c.RFC
+JOIN Venta_Detalles vd ON v.VentaID = vd.VentaID
+JOIN Productos p ON vd.ProductoID = p.ProductoID;
+
+-- Función ventas_ganancia
+CREATE OR REPLACE FUNCTION ventas_ganancia(p_fecha_inicio DATE, p_fecha_fin DATE)
+RETURNS TABLE(total_vendido NUMERIC, ganancia NUMERIC) AS $$
+BEGIN
+  RETURN QUERY 
+    SELECT CAST(SUM(vd.Cantidad) AS NUMERIC) AS total_vendido, CAST(SUM(vd.PrecioTotal - (vd.Cantidad * p.PrecioCompra)) AS NUMERIC) AS ganancia
+    FROM Ventas v
+    INNER JOIN Venta_Detalles vd ON v.VentaID = vd.VentaID
+    INNER JOIN Productos p ON vd.ProductoID = p.ProductoID
+    WHERE v.FechaVenta BETWEEN p_fecha_inicio AND p_fecha_fin;
+END; $$ LANGUAGE plpgsql;
+
+-- Función calcular_precio_total
+CREATE OR REPLACE FUNCTION calcular_precio_total()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.PrecioTotal := (
+        SELECT PrecioVenta * NEW.Cantidad
+        FROM Productos
+        WHERE ProductoID = NEW.ProductoID
+    );
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Disparador calcular_precio_total_trigger
+CREATE TRIGGER calcular_precio_total_trigger
+BEFORE INSERT OR UPDATE ON Venta_Detalles
+FOR EACH ROW
+EXECUTE FUNCTION calcular_precio_total();
+-- Función actualizar_inventario
+CREATE OR REPLACE FUNCTION actualizar_inventario()
+RETURNS TRIGGER AS $$
+BEGIN
+    INSERT INTO Inventarios (ProductoID, CantidadEnStock)
+    VALUES (NEW.ProductoID, NEW.Stock);
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER actualizar_inventario_trigger
+AFTER INSERT ON Productos
+FOR EACH ROW
+EXECUTE FUNCTION actualizar_inventario();
+-- Modificar la función actualizar_stock_producto
+CREATE OR REPLACE FUNCTION actualizar_stock_producto() RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE Productos
+    SET Stock = Stock - NEW.Cantidad
+    WHERE ProductoID = NEW.ProductoID;
+
+    UPDATE Inventarios
+    SET CantidadEnStock = CantidadEnStock - NEW.Cantidad
+    WHERE ProductoID = NEW.ProductoID;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- El disparador actualizar_stock_producto_trigger
+CREATE TRIGGER actualizar_stock_producto_trigger
+AFTER INSERT ON Venta_Detalles
+FOR EACH ROW
+EXECUTE FUNCTION actualizar_stock_producto();
+
+
+CREATE OR REPLACE FUNCTION actualizar_stock_producto() RETURNS TRIGGER AS $$
+DECLARE
+  nuevo_stock INTEGER;
+BEGIN
+    SELECT Stock - NEW.Cantidad INTO nuevo_stock
+    FROM Productos
+    WHERE ProductoID = NEW.ProductoID;
+
+    IF nuevo_stock < 0 THEN
+        RAISE EXCEPTION 'Stock insuficiente para completar la transacción';
+    ELSIF nuevo_stock = 0 THEN
+        RAISE EXCEPTION 'El stock ha llegado a cero. Abortando la transacción';
+    ELSIF nuevo_stock < 3 THEN
+        RAISE NOTICE 'Quedan menos de 3 productos en stock. Se ha generado una alerta';
+    END IF;
+
+    UPDATE Productos
+    SET Stock = nuevo_stock
+    WHERE ProductoID = NEW.ProductoID;
+
+    UPDATE Inventarios
+    SET CantidadEnStock = nuevo_stock
+    WHERE ProductoID = NEW.ProductoID;
+
+    UPDATE Ventas
+    SET TotalPagar = (
+      SELECT SUM(PrecioTotal)
+      FROM Venta_Detalles
+      WHERE VentaID = NEW.VentaID
+    )
+    WHERE VentaID = NEW.VentaID;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION calcular_utilidad(p_codigo_barras VARCHAR(13))
+RETURNS NUMERIC AS $$
+DECLARE
+  v_precio_compra NUMERIC;
+  v_precio_venta NUMERIC;
+BEGIN
+  SELECT PrecioCompra INTO v_precio_compra
+  FROM Productos
+  WHERE CodigoBarras = p_codigo_barras;
+
+  SELECT PrecioVenta INTO v_precio_venta
+  FROM Productos
+  WHERE CodigoBarras = p_codigo_barras;
+
+  RETURN v_precio_venta - v_precio_compra;
+END; $$ LANGUAGE plpgsql;
