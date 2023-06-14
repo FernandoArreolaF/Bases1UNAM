@@ -1,0 +1,185 @@
+-- Los DROP que van antes de la creación de objetos nos permiten eliminar
+-- objetos que se llamen igual, para asegurarnos que nuestros objetos son
+-- los que prevalecerán en la base de datos. Los pusimos comentados, pero
+-- en caso de necesitarlos solo los descomentamos y se ejecutarán con el resto
+-- de los scripts
+-- DROP DATABASE IF EXISTS papeleria;
+CREATE DATABASE papeleria;
+
+-- Sirve para ingresar a la base de datos que acabamos de crear
+\c papeleria 
+
+-- DROP TABLE IF EXISTS public.PROVEEDOR CASCADE;
+CREATE TABLE public.PROVEEDOR (
+	id_proveedor varchar(13) NOT NULL,
+	razon_social varchar(100) NOT NULL,
+	nombre_proveedor varchar(70) NOT NULL,
+	ap_pat_proveedor varchar(50) NOT NULL,
+	ap_mat_proveedor varchar(50),
+	calle_proveedor varchar(60) NOT NULL,
+	num_proveedor varchar(10) NOT NULL,
+	CP_proovedor_CP_PROVEEDOR bigint,
+	CONSTRAINT PROVEEDOR_pk PRIMARY KEY (id_proveedor)
+);
+
+ALTER TABLE public.PROVEEDOR OWNER TO postgres;
+
+-- DROP TABLE IF EXISTS public.TELEFONO CASCADE;
+CREATE TABLE public.TELEFONO (
+	telefono_proveedor bigint NOT NULL,
+	id_proveedor_PROVEEDOR varchar(13),
+	CONSTRAINT TELEFONO_pk PRIMARY KEY (telefono_proveedor)
+);
+
+ALTER TABLE public.TELEFONO OWNER TO postgres;
+
+-- DROP TABLE IF EXISTS public.INVENTARIO CASCADE;
+CREATE TABLE public.INVENTARIO (
+	cod_barras varchar(20) NOT NULL,
+	cantidad smallint NOT NULL,
+	CONSTRAINT INVENTARIO_pk PRIMARY KEY (cod_barras)
+);
+
+ALTER TABLE public.INVENTARIO OWNER TO postgres;
+
+-- DROP TABLE IF EXISTS public.CLIENTE CASCADE;
+CREATE TABLE public.CLIENTE (
+	RFC_cliente varchar(13) NOT NULL,
+	nombre_cliente varchar(70) NOT NULL,
+	ap_pat_cliente varchar(70) NOT NULL,
+	ap_Mat_cliente varchar(50),
+	calle_cliente varchar(60) NOT NULL,
+	num_cliente varchar(10) NOT NULL,
+	CP_cliente_CP_CLIENTE bigint,
+	CONSTRAINT CLIENTE_pk PRIMARY KEY (RFC_cliente)
+);
+
+ALTER TABLE public.CLIENTE OWNER TO postgres;
+
+-- DROP TABLE IF EXISTS public.EMAIL CASCADE;
+CREATE TABLE public.EMAIL (
+	email_cliente varchar(150) NOT NULL,
+	RFC_cliente_CLIENTE varchar(13) NOT NULL,
+	CONSTRAINT EMAIL_pk PRIMARY KEY (email_cliente)
+);
+
+ALTER TABLE public.EMAIL OWNER TO postgres;
+
+-- DROP TABLE IF EXISTS public.VENTA CASCADE;
+CREATE TABLE public.VENTA (
+	num_venta varchar(20) NOT NULL,
+	fecha_venta date NOT NULL,
+	total_venta money NOT NULL,
+	RFC_cliente_CLIENTE varchar(13),
+	CONSTRAINT VENTA_pk PRIMARY KEY (num_venta)
+);
+
+ALTER TABLE public.VENTA OWNER TO postgres;
+
+-- DROP TABLE IF EXISTS public.ARTICULO CASCADE;
+CREATE TABLE public.ARTICULO (
+	clave_articulo bigint NOT NULL,
+	precio_articulo money NOT NULL,
+	marca_articulo varchar(50) NOT NULL,
+	descripcion_articulo varchar(100) NOT NULL,
+	tipo_articulo varchar(1) NOT NULL,
+	cod_barras_INVENTARIO varchar(20),
+	CONSTRAINT ARTICULO_pk PRIMARY KEY (clave_articulo)
+);
+
+ALTER TABLE public.ARTICULO OWNER TO postgres;
+
+-- DROP TABLE IF EXISTS public.PROVEE CASCADE;
+CREATE TABLE public.PROVEE (
+	id_proveedor_PROVEEDOR varchar(13) NOT NULL,
+	cod_barras_INVENTARIO varchar(20) NOT NULL,
+	fecha date NOT NULL,
+	precio_compra money,
+	CONSTRAINT PROVEE_pk PRIMARY KEY (id_proveedor_PROVEEDOR,cod_barras_INVENTARIO)
+);
+
+ALTER TABLE public.PROVEE OWNER TO postgres;
+
+-- ALTER TABLE public.PROVEE DROP CONSTRAINT IF EXISTS PROVEEDOR_fk CASCADE;
+ALTER TABLE public.PROVEE ADD CONSTRAINT PROVEEDOR_fk FOREIGN KEY (id_proveedor_PROVEEDOR)
+REFERENCES public.PROVEEDOR (id_proveedor) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- ALTER TABLE public.PROVEE DROP CONSTRAINT IF EXISTS INVENTARIO_fk CASCADE;
+ALTER TABLE public.PROVEE ADD CONSTRAINT INVENTARIO_fk FOREIGN KEY (cod_barras_INVENTARIO)
+REFERENCES public.INVENTARIO (cod_barras) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- DROP TABLE IF EXISTS public.TIENE CASCADE;
+CREATE TABLE public.TIENE (
+	num_venta_VENTA varchar(20) NOT NULL,
+	clave_articulo_ARTICULO smallint NOT NULL,
+	precio money NOT NULL,
+	cantidad smallint NOT NULL,
+	CONSTRAINT TIENE_pk PRIMARY KEY (num_venta_VENTA,clave_articulo_ARTICULO)
+);
+
+ALTER TABLE public.TIENE OWNER TO postgres;
+
+-- ALTER TABLE public.TIENE DROP CONSTRAINT IF EXISTS VENTA_fk CASCADE;
+ALTER TABLE public.TIENE ADD CONSTRAINT VENTA_fk FOREIGN KEY (num_venta_VENTA)
+REFERENCES public.VENTA (num_venta) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- ALTER TABLE public.TIENE DROP CONSTRAINT IF EXISTS ARTICULO_fk CASCADE;
+ALTER TABLE public.TIENE ADD CONSTRAINT ARTICULO_fk FOREIGN KEY (clave_articulo_ARTICULO)
+REFERENCES public.ARTICULO (clave_articulo) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- ALTER TABLE public.VENTA DROP CONSTRAINT IF EXISTS CLIENTE_fk CASCADE;
+ALTER TABLE public.VENTA ADD CONSTRAINT CLIENTE_fk FOREIGN KEY (RFC_cliente_CLIENTE)
+REFERENCES public.CLIENTE (RFC_cliente) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ALTER TABLE public.VENTA DROP CONSTRAINT IF EXISTS VENTA_uq CASCADE;
+ALTER TABLE public.VENTA ADD CONSTRAINT VENTA_uq UNIQUE (RFC_cliente_CLIENTE);
+
+-- ALTER TABLE public.EMAIL DROP CONSTRAINT IF EXISTS CLIENTE_fk CASCADE;
+ALTER TABLE public.EMAIL ADD CONSTRAINT CLIENTE_fk FOREIGN KEY (RFC_cliente_CLIENTE)
+REFERENCES public.CLIENTE (RFC_cliente) MATCH FULL
+ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- ALTER TABLE public.ARTICULO DROP CONSTRAINT IF EXISTS INVENTARIO_fk CASCADE;
+ALTER TABLE public.ARTICULO ADD CONSTRAINT INVENTARIO_fk FOREIGN KEY (cod_barras_INVENTARIO)
+REFERENCES public.INVENTARIO (cod_barras) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ALTER TABLE public.TELEFONO DROP CONSTRAINT IF EXISTS PROVEEDOR_fk CASCADE;
+ALTER TABLE public.TELEFONO ADD CONSTRAINT PROVEEDOR_fk FOREIGN KEY (id_proveedor_PROVEEDOR)
+REFERENCES public.PROVEEDOR (id_proveedor) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- DROP TABLE IF EXISTS public.CP_CLIENTE CASCADE;
+CREATE TABLE public.CP_CLIENTE (
+	CP_cliente bigint NOT NULL,
+	estado_cliente varchar(70) NOT NULL,
+	colonia_cliente varchar(70) NOT NULL,
+	CONSTRAINT CP_CLIENTE_pk PRIMARY KEY (CP_cliente)
+);
+
+ALTER TABLE public.CP_CLIENTE OWNER TO postgres;
+
+-- DROP TABLE IF EXISTS public.CP_PROVEEDOR CASCADE;
+CREATE TABLE public.CP_PROVEEDOR (
+	CP_proovedor bigint NOT NULL,
+	estado_proveedor varchar(70) NOT NULL,
+	colonia_proveedor varchar(70) NOT NULL,
+	CONSTRAINT CP_PROVEEDOR_pk PRIMARY KEY (CP_proovedor)
+);
+
+ALTER TABLE public.CP_PROVEEDOR OWNER TO postgres;
+
+-- ALTER TABLE public.PROVEEDOR DROP CONSTRAINT IF EXISTS CP_PROVEEDOR_fk CASCADE;
+ALTER TABLE public.PROVEEDOR ADD CONSTRAINT CP_PROVEEDOR_fk FOREIGN KEY (CP_proovedor_CP_PROVEEDOR)
+REFERENCES public.CP_PROVEEDOR (CP_proovedor) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- ALTER TABLE public.CLIENTE DROP CONSTRAINT IF EXISTS CP_CLIENTE_fk CASCADE;
+ALTER TABLE public.CLIENTE ADD CONSTRAINT CP_CLIENTE_fk FOREIGN KEY (CP_cliente_CP_CLIENTE)
+REFERENCES public.CP_CLIENTE (CP_cliente) MATCH FULL
+ON DELETE SET NULL ON UPDATE CASCADE;
