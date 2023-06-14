@@ -1,0 +1,9 @@
+﻿codigo_barras,precio_venta,precio_compra,fotografia,stock,id_categoria_fk,nombre
+98981,700,550,null,10,4,Kit de regalo
+41234,20,10,null,9,8,Plumas
+56789,100,80,null,8,5,Carpetas para documentos
+34564,69,60,null,7,7,Paquete de dos cuadernos 
+14325,87,70,null,6,6,Pegamento en barra
+10103,3599,135,null,2,1,Reloj
+23456,70,50,null,5,2,Lista vocabulario en ingles
+76589,50,25,null,6,3,USB
