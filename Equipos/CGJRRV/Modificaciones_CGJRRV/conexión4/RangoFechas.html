@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="style.css">
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Consultas-PB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  </head>
+
+    <header>
+      <div class="contacto"><img src="logo_pape.png"></div>
+      <div class="nombre">
+        <li><a href="principal.html">Papelerias Paper Bird &reg</a></li>
+      </div>
+    </header>
+
+    <article class="ordenar">
+        <form method="POST" action="RangoFechas.php">
+            <label for="Inserte la fecha de venta a consultar">Inserte la fecha de inicio:</label>
+            <input type="text" id="dateq1" placeholder="2001-01-01" name="dateq1" required>
+            <label for="Inserte la fecha de venta a consultar">Inserte la fecha de fin:</label>
+            <input type="text" id="dateq2" placeholder="2001-01-01" name="dateq2" required>
+            <input type="submit" value="Ver registro">
+          </form>
+      <body>
+      <br><br><br><br>
+      <section>
+        <ul>
+          <img src="logo_pape.png">
+          <p class="copyright">
+              &copy Copyright FI-UNAM - 2023
+          </p>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>

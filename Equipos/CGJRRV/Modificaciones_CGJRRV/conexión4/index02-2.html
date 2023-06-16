@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="style.css">
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Registro PB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="contacto"><img src="logo_pape.png"></div>
+      <div class="nombre">
+        <li><a href="principal.html">Papelerias Paper Bird &reg</a></li>
+      </div>|                                           
+    </header>
+    <article class="ordenar">
+        <section>
+            <br>
+                <h2>Registrar Cliente</h2>
+            <br>
+            <form id="formRegistro" action="GuardaRegistros.php" method="POST">
+                <label for="rfc">RFC:</label>
+                <input type="text" id="cli_rfc" placeholder="Ej. EEAA090697" name="rfc" required >
+                
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="cli_nombre" placeholder="Manuel Alejandro" name="nombre" required>
+                
+                <label for="apellido paterno">Apellido paterno:</label>
+                <input type="text" id="cli_ap_pat" placeholder="Hernandez" name="apellidopaterno" required>
+
+                <label for="apelido materno">Apellido materno:</label>
+                <input type="text" id="cli_ap_Mat"  placeholder="Perez" name="apellidomaterno" >
+
+                <label for="Estado">Estado:</label>
+                <input type="text" id="cli_estado" placeholder="Ciudad de México" name="estado" required>
+
+                <label for="codigo postal">Codigo Postal:</label>
+                <input type="text" id="cli_CP" placeholder="45091" name="codigopostal" required pattern="[0-9]{5}">
+
+                <label for="Colonia">Colonia:</label>
+                <input type="text" id="cli_colonia" placeholder="Copilco" name="colonia" required>
+
+                <label for="Calle">Calle:</label>
+                <input type="text" id="cli_calle" placeholder="independencia" name="calle" required>
+
+                <label for="Numero">Numero:</label>
+                <input type="text" id="cli_numero" placeholder="23" name="numero" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="prueba@gmail.com " name="email" required>
+                <br>
+                <input onclick="mostrarAlerta(mensajePHP1)" type="submit" name="BotonRegistro" value="Registrar Cliente">
+            </form>
+        </section>
+        <br>
+            <section>
+            <h2>Ingresar Venta</h2>
+        <br>
+        <form id="formVenta" action="GuardaRegistros.php" method="POST">
+          <label for="cli_rfc2">RFC:</label>
+              <input type="text" id="cli_rfc2" placeholder="EEAA090697" name="cli_rfc2" required>
+          <label for="articulo1">Artículo 1:</label>
+          <select id="articulo1" name="articulo1">
+            <option value=" "> </option>
+            <option value="Lapiz">Lapiz</option>
+            <option value="Pluma">Pluma</option>
+            <option value="Goma">Goma</option>
+            <option value="Cuaderno Cuadro Chico">Cuaderno Cuadro Chico</option>
+            <option value="Cuaderno Raya">Cuaderno raya</option>
+            <option value="Cuaderno Jean Book Cuadro">Cuaderno Jean Book Cuadro</option>
+            <option value="Pritt">Pritt</option>
+            <option value="Taza Decorada Mario Bros">Taza Decorada Mario Bros</option>
+            <option value="Oso de peluche">Oso de peluche</option>
+            <option value="Mochila">Mochila</option>
+            <option value="Recarga Movistar">Recarga Movistar</option>
+            <option value="Recarga Telcel">Recarga Telcel</option>
+            <option value="Recarga Pillofon">Recarga Pillofon</option>
+            <option value="Recarga AT&T">Recarga AT&T</option>
+            <option value="Impresion">Impresion </option>
+          </select>
+          <label for="cantidad1">Cantidad:</label>
+          <input type="number" id="cantidad1" name="cantidad1" min="1" max="100">
+          
+          <label for="articulo2">Artículo 2:</label>
+          <select id="articulo2" name="articulo2">
+            <option value=" "> </option>
+            <option value="Lapiz">Lapiz</option>
+            <option value="Pluma">Pluma</option>
+            <option value="Goma">Goma</option>
+            <option value="Cuaderno Cuadro Chico">Cuaderno Cuadro Chico</option>
+            <option value="Cuaderno Raya">Cuaderno raya</option>
+            <option value="Cuaderno Jean Book Cuadro">Cuaderno Jean Book Cuadro</option>
+            <option value="Pritt">Pritt</option>
+            <option value="Taza Decorada Mario Bros">Taza Decorada Mario Bros</option>
+            <option value="Oso de peluche">Oso de peluche</option>
+            <option value="Regalo">Regalo</option>
+            <option value="Recarga Movistar">Recarga Movistar</option>
+            <option value="Recarga Telcel">Recarga Telcel</option>
+            <option value="Recarga Pillofon">Recarga Pillofon</option>
+            <option value="Recarga AT&T">Recarga AT&T</option>
+            <option value="Impresion">Impresion </option>
+          </select>
+          <label for="cantidad2">Cantidad:</label>
+          <input type="number" id="cantidad2" name="cantidad2" min="1" max="100">
+          
+          <label for="articulo3">Artículo 3:</label>
+          <select id="articulo3" name="articulo3">
+            <option value=" "> </option>
+            <option value="Lapiz">Lapiz</option>
+            <option value="Pluma">Pluma</option>
+            <option value="Goma">Goma</option>
+            <option value="Cuaderno Cuadro Chico">Cuaderno Cuadro Chico</option>
+            <option value="Cuaderno Raya">Cuaderno raya</option>
+            <option value="Cuaderno Jean Book Cuadro">Cuaderno Jean Book Cuadro</option>
+            <option value="Pritt">Pritt</option>
+            <option value="Taza Decorada Mario Bros">Taza Decorada Mario Bros</option>
+            <option value="Oso de peluche">Oso de peluche</option>
+            <option value="Mochila">Mochila</option>
+            <option value="Recarga Movistar">Recarga Movistar</option>
+            <option value="Recarga Telcel">Recarga Telcel</option>
+            <option value="Recarga Pillofon">Recarga Pillofon</option>
+            <option value="Recarga AT&T">Recarga AT&T</option>
+            <option value="Impresion">Impresion </option>
+          </select>
+          <label for="cantidad3">Cantidad:</label>
+          <input type="number" id="cantidad3" name="cantidad3" min="1" max="100">
+          <br>
+          <input onclick="mostrarAlerta(mensajePHP1)" type="submit" name="BotonCompra" value="Ingresar Venta">
+        </form>
+      </section>
+
+      <section>
+        <ul>
+          <img src="logo_pape.png">
+          <p class="copyright">
+              &copy Copyright FI-UNAM - 2023
+          </p>
+        </ul>
+      </section>
+    </article>
+  </body>
+</html>
