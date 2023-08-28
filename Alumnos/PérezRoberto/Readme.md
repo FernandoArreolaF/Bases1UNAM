@@ -1,1 +1,3 @@
-Hola, aqui creamos nuestra carperta para tareas para la materia BD
+Hola, aqui creamos nuestra carpeta para tareas para la materia BD
+
+Alumno: Pérez Aguilar Roberto
