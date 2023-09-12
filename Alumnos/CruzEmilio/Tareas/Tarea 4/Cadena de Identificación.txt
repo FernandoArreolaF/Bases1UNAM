@@ -1,0 +1,5 @@
+La cadena de conexión para el usuario **alumno**. La BD trabaja sobre el puerto 9005 y la ip es 10.10.2.239:
+En postgres:
+$ psql -U alumno -d BD01 -p 9005 -h 10.10.2.239
+En otras aplicaciones:
+postgresql://alumno@10.10.2.239:9005/BD01 
