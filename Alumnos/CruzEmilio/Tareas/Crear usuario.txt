@@ -1,0 +1,2 @@
+Crear un usuario con contraseña, que si cuenta sea válida por un mes y establecer un límite de conexiones:
+create user tarea4BD with encrypted password 'tarea4BD' valiu until '2023-10-04' connection limit 3;
