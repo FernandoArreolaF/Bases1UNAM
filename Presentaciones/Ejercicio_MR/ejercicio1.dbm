@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3" use-changelog="false" last-position="0,0" last-zoom="1" max-obj-count="6"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="DIRECTOR" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="420" y="0"/>
+	<column name="ced_prof" not-null="true">
+		<type name="int4" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="120"/>
+	</column>
+	<column name="telefono" not-null="true">
+		<type name="int4" length="0"/>
+	</column>
+	<constraint name="DIRECTOR_pk" type="pk-constr" table="public.&quot;DIRECTOR&quot;">
+		<columns names="ced_prof" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="PROFESOR" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="780" y="200"/>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="120"/>
+	</column>
+	<column name="ced_prof" not-null="true">
+		<type name="int4" length="0"/>
+	</column>
+	<column name="salario" not-null="true">
+		<type name="float4" length="0"/>
+	</column>
+	<column name="grado" not-null="true">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="PROFESOR_pk" type="pk-constr" table="public.&quot;PROFESOR&quot;">
+		<columns names="ced_prof" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="FACULTAD" layer="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="100" y="200"/>
+	<column name="clave" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="ubicacion" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="FACULTAD_pk" type="pk-constr" table="public.&quot;FACULTAD&quot;">
+		<columns names="clave" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ALUMNO" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="120" y="460"/>
+	<column name="curp" not-null="true">
+		<type name="varchar" length="18"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="direccion" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="edad" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="ALUMNO_pk" type="pk-constr" table="public.&quot;ALUMNO&quot;">
+		<columns names="curp" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="MATERIA" layer="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="740" y="480"/>
+	<column name="clave_materia" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="80"/>
+	</column>
+	<constraint name="MATERIA_pk" type="pk-constr" table="public.&quot;MATERIA&quot;">
+		<columns names="clave_materia" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="dirige" type="rel11" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#157ab5"
+	 src-table="public.&quot;FACULTAD&quot;"
+	 dst-table="public.&quot;DIRECTOR&quot;"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-5.80405" y="-40.6747"/>
+	</label>
+</relationship>
+
+<relationship name="pertence" type="rel1n" layer="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#477711"
+	 src-table="public.&quot;FACULTAD&quot;"
+	 dst-table="public.&quot;PROFESOR&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="imparte" type="relnn" layer="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#1296b5"
+	 src-table="public.&quot;PROFESOR&quot;"
+	 dst-table="public.&quot;MATERIA&quot;"
+	 src-required="false" dst-required="false"
+	 single-pk-col="true"
+	 table-name="imparte">
+	<label ref-type="name-label">
+		<position x="48.8233" y="-12.8323"/>
+	</label>
+</relationship>
+
+<relationship name="inscribe" type="relnn" layer="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#6cdb71"
+	 src-table="public.&quot;ALUMNO&quot;"
+	 dst-table="public.&quot;MATERIA&quot;"
+	 src-required="false" dst-required="false"
+	 table-name="inscribe">
+	<label ref-type="name-label">
+		<position x="-5.33565" y="-5.61478"/>
+	</label>
+</relationship>
+
+</dbmodel>
