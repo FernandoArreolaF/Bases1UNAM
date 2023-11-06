@@ -1,0 +1,29 @@
+- Encontrar la información de todos los préstamos realizados en la sucrusal "copilco"
+σ (nombreSucursal= ′copilco′)(prestamo)
+SELECT * FROM prestamo WHERE nombreSucursal= ′copilco′
+
+- Determinar el nombre de los clientes que viven en Guanjuato
+pi nombreCleinte σ (ciudad= ′Guanajuato ′) (cliente)
+
+R1=σ (ciudad= ′Guanajuato ′) (cliente)
+R)pi nombreCleinte(R1)
+SELECT * FROM cliente WHERE ciudad= ′Guanajuato′
+
+- Nombre de los cleintes del banco que tienen una cuenta, un préstamos o amabas cosas
+R1= pi nombreClietne (prestatario)
+R2= pi nombreClietne (ctacLIENTE)
+R=R1  UNION R2
+SELECT * FROM ctaCliente INTERSECT prestatario​
+
+- Relación de clientes que tienen abierta una cuenta pero no tienen ninguna de préstamo
+R1= pi nombreClietne (prestatario)
+R2= pi nombreClietne (ctacLIENTE)
+R=R1  - R2
+sELECT * FROM prestatario SELECT nombreClliente EXCEPT SELECT nombrCliente
+
+- Nomnre de los cleintes con préstamo mayor a 5000 pesos
+R1= prestamos JOIN prestatario
+R2= σ (importe> 5000) (R1)
+R= pi nombreCleitne (R2)
+
+SELECT * FROM prestamos JOIN prestatario WHERE importe>5000 SELECT nombreCliente
