@@ -1,6 +1,6 @@
 Integrantes del Equipo:
 Jorge Maldonado Mendez
-Erandi Jimenez
+Péres Jiménez Erandi
 Diana Serrano
-Abdiel Puente Estrada
+Puente Estrada Rodrigo Abdiel
 Ingrid Giron
