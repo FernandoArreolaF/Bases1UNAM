@@ -1,6 +1,6 @@
 Integrantes del Equipo:
 Méndez Maldonado Jorge
 Péres Jiménez Erandi
-Diana Serrano
+Serrano Martinez Diana
 Puente Estrada Rodrigo Abdiel
 Girón Reyes Ingrid
