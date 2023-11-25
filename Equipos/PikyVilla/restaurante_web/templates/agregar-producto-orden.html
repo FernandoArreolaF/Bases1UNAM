@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar producto a orden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+        <div>
+            {% if msg %}
+                <form action="/agregar_producto_orden" method="POST" autocomplete="off" class="form">
+                        
+                    <div class="form__container">
+                        <h2 class="form__title">Agregar Producto a Orden</h2>
+                        
+                        <div class="form__group">   
+                            <input type="text" id="folio" class="form__input" name="folio" placeholder=" ">
+                            <label for="folio" class="form__label">Folio de orden</label>
+                            <span class="form_line"></span>
+                        </div>
+                        
+                        <div class="form__group">   
+                            <input type="number" id="id_prod" class="form__input" name="id_prod" placeholder=" ">
+                            <label for="id_prod" class="form__label">ID del producto</label>
+                            <span class="form_line"></span>
+                        </div>
+                        
+                        <div class="form__group">   
+                            <input type="number" id="cant" class="form__input" name="cant" placeholder=" ">
+                            <label for="cant" class="form__label">Cantidad</label>
+                            <span class="form_line"></span>
+                        </div>
+                        
+        
+                                            
+                                <input type="submit" class="form__submit" value="Agregar">
+                            
+                            <h2> {{ msg }} </h2>
+                    </div>
+                </form>
+            {% else %}
+                <form action="/agregar_producto_orden" method="POST" autocomplete="off" class="form">
+                    
+                    <div class="form__container">
+                        <h2 class="form__title">Agregar Producto a Orden</h2>
+                        
+                        <div class="form__group">   
+                            <input type="text" id="folio" class="form__input" name="folio" placeholder=" ">
+                            <label for="folio" class="form__label">Folio de orden</label>
+                            <span class="form_line"></span>
+                        </div>
+                        
+                        <div class="form__group">   
+                            <input type="number" id="id_prod" class="form__input" name="id_prod" placeholder=" ">
+                            <label for="id_prod" class="form__label">ID del producto</label>
+                            <span class="form_line"></span>
+                        </div>
+                        
+                        <div class="form__group">   
+                            <input type="number" id="cant" class="form__input" name="cant" placeholder=" ">
+                            <label for="cant" class="form__label">Cantidad</label>
+                            <span class="form_line"></span>
+                        </div>
+                        
+        
+                                            
+                                <input type="submit" class="form__submit" value="Agregar">
+                            
+                        </div>
+                </form>
+            {% endif %}
+            </div>
+    </body>
+</html>

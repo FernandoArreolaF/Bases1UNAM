@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar producto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+        <!-- Fin barra de navegación-->
+        <div>
+
+            <form action="/agregar_producto" method="POST" autocomplete="off" class="form">
+                
+                <div class="form__container">
+                    <h2 class="form__title">Agregar Producto</h2>
+                    
+                    <div class="form__group">   
+                        <input type="text" id="nombre" class="form__input" name="nombre" placeholder=" " required>
+                        <label for="nombre" class="form__label">Nombre del Producto</label>
+                        <span class="form_line"></span>
+                    </div>
+                    
+                    <div class="form__group">   
+                        <input type="text" id="desc" class="form__input" name="desc" placeholder=" " required>
+                        <label for="desc" class="form__label">Descripción del producto</label>
+                        <span class="form_line"></span>
+                    </div>
+                    
+                    <div class="form__group">   
+                        <input type="number" step="0.01" id="precio" class="form__input" name="precio" placeholder=" " required>
+                        <label for="precio" class="form__label">Precio</label>
+                        <span class="form_line"></span>
+                    </div>
+                    
+                    <div class="form__group">   
+                        <input type="checkbox" id="disp" class="form__input" name="disp">
+                        <label for="disp" class="form__label">Disponibilidad</label>
+                        <span class="form_line"></span>
+                    </div>
+
+                    <div class="form__group">   
+                        <input type="text" id="desc" class="form__input" name="receta" placeholder=" " required>
+                        <label for="receta" class="form__label">Receta</label>
+                        <span class="form_line"></span>
+                    </div>
+                        
+                    <div class="form__group">   
+                        <input type="NUMBER" id="id_cat" class="form__input" name="id_cat" placeholder=" " required>
+                        <label for="id_cat" class="form__label">ID Categoría</label>
+                        <span class="form_line"></span>
+                    </div>
+                            <input type="submit" class="form__submit" value="Agregar">
+                    </div>
+                </form>
+            </div>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+        <!-- Fin barra de navegacíon-->
+        <div class="menu__productos">
+            <header>
+                <h1 class="title__menu">Ticket</h1>
+                <p class="established">pikivillas's coffee</p>
+                <br>
+    
+                <header>
+                    <hr class="meun__line">
+                    <section>
+                        <br>
+                        <h3 class="title__product">Cliente</h3>
+                        <article class="item">
+                            <p class="ticket__data-h">Campo</p><p class="ticket__value-h">Dato</p><br>
+                            <hr class=".meun__line-ventas"><br>
+                            <p class="ticket__data">RFC</p><p class="ticket__value">{{cliente.0}}</p><br>
+                            <p class="ticket__data">NOMBRE</p><p class="ticket__value">{{cliente.1}}</p><br>
+                            <p class="ticket__data">Ap. Paterno</p><p class="ticket__value">{{cliente.2}}</p><br>
+                            <p class="ticket__data">Ap. Materno</p><p class="ticket__value">{{cliente.3}}</p><br>
+                            <p class="ticket__data">Fecha Nac.</p><p class="ticket__value">{{cliente.4}}</p><br>
+                            <p class="ticket__data">Correo</p><p class="ticket__value">{{cliente.10}}</p><br>
+                            <p class="ticket__data">Razón Social</p><p class="ticket__value">{{cliente.11}}</p><br>
+                        </article>
+                        <br><h3 class="title__product">Vivienda</h3>
+                        <article class="item">
+                            <p class="ticket__data-h">Campo</p><p class="ticket__value-h">Dato</p><br>
+                            <hr class=".meun__line-ventas"><br>
+                            <p class="ticket__data">Ciudad</p><p class="ticket__value">{{cliente.5}}</p><br>
+                            <p class="ticket__data">Codigo Postal</p><p class="ticket__value">{{cliente.6}}</p><br>
+                            <p class="ticket__data">Colonia</p><p class="ticket__value">{{cliente.7}}</p><br>
+                            <p class="ticket__data">Calle</p><p class="ticket__value">{{cliente.8}}</p><br>
+                            <p class="ticket__data">Número</p><p class="ticket__value">{{cliente.9}}</p><br>
+                        </article>
+                        <br><h3 class="title__product">Productos</h3>
+                        <article class="item">
+                            <p class="ticket__prod-t">Producto</p><p class="ticket__cant-t">Cantidad</p><p class="ticket__price-t">Precio</p><br>
+                            <hr class=".meun__line-ventas"><br>
+                            {% for tickets in ticket %}
+                            <p class="ticket__prod">{{tickets.0}}</p><p class="ticket__cant">{{tickets.1}}</p><p class="ticket__price">{{tickets.2}}</p><br>
+                            {% endfor %}
+                            <p class="ticket__data">Total</p><p class="ticket__value-t">{{orden.2}}</p><br>
+                        </article>
+                        <br><h3 class="title__product">Datos Adicionales</h3>
+                        <article class="item">
+                            <p class="ticket__data-h">Campo</p><p class="ticket__value-h">Dato</p><br>
+                            <hr class=".meun__line-ventas"><br>
+                            <p class="ticket__data">Folio</p><p class="ticket__value">{{orden.0}}</p><br>
+                            <p class="ticket__data">Fecha</p><p class="ticket__value">{{fecha}}</p><br>
+                            <p class="ticket__data">Mesero</p><p class="ticket__value">{{orden.3}}</p><br>
+
+                            
+                        </article>
+    
+                    </section>
+
+                </header>
+            </header>
+        </div>
+
+
+    </body>
+</html>

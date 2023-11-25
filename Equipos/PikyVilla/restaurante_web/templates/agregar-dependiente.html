@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar dependientes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+        <!-- Fin barra de navegación-->
+        <div>
+
+            <form action="/agregar_dependiente" method="POST" autocomplete="off" class="form">
+                
+                <div class="form__container">
+                    <h2 class="form__title">Agregar Dependiente</h2>
+                    
+                    <div class="form__group">   
+                        <input type="text" id="curp" class="form__input" name="curp" placeholder=" ">
+                        <label for="curp" class="form__label">CURP</label>
+                        <span class="form_line"></span>
+                    </div>
+                    
+                    <div class="form__group">   
+                        <input type="text" id="nombre" class="form__input" name="nombre" placeholder=" ">
+                        <label for="nombre" class="form__label">Nombre</label>
+                        <span class="form_line"></span>
+                    </div>
+                    
+                    <div class="form__group">   
+                        <input type="text" id="appat" class="form__input" name="appat" placeholder=" ">
+                        <label for="appat" class="form__label">Apellido Paterno</label>
+                        <span class="form_line"></span>
+                    </div>
+                    
+                    <div class="form__group">   
+                        <input type="text" id="apmat" class="form__input" name="apmat" placeholder=" ">
+                        <label for="apmat" class="form__label">Apellido Materno</label>
+                        <span class="form_line"></span>
+                    </div>
+                        
+                        
+                    <div class="form__group">   
+                        <input type="text" id="parent" class="form__input" name="parent" placeholder=" ">
+                        <label for="parent" class="form__label">Parentesco</label>
+                        <span class="form_line"></span>
+                    </div>
+                        
+                   
+                    <div class="form__group">   
+                        <input type="int" id="num_emp" class="form__input" name="num_emp" placeholder=" ">
+                        <label for="num_emp" class="form__label">Número de Empleado</label>
+                        <span class="form_line"></span>
+                    </div>
+                
+                            <input type="submit" class="form__submit" value="Agregar">
+                        
+                    </div>
+                </form>
+            </div>
+    </body>
+</html>

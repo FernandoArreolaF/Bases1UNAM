@@ -1,0 +1,76 @@
+<!-- Esto lo estoy probando yo -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información empleado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+        <!-- Fin barra de navegacíon-->
+    <div>
+        <!-- 
+            En este caso, se deberá de solicitar el nombre del empleado deseado.
+            - Python regresará todos los registros asociadas a dicho nombre, por lo que se deberán de mostrar dichas opciones.
+            - Una vez seleccionado alguno de los empleados, se deberá de mostrar una vista con la información de dicho cliente
+        -->
+        <div>
+            <form action="/obtener_info_empleado" method="POST" autocomplete="off" class="form">
+                <div class="form__container">
+                    <h1 class="form__title">Buscar empleado: </h1>
+                    
+                    <div class="form__group">   
+                        <input type="text" id="nombre" class="form__input" name="nombre" placeholder=" ">
+                        <label for="nombre" class="form__label">Ingrese el nombre de pila: </label>
+                        <span class="form_line"></span>
+                    </div>
+                    <input type="submit" class="form__submit" value="Buscar">
+            </form>
+            
+            <!-- Cuando haya mas de un empleado, mostraremos la tabla aquí con la opción de selección -->
+            {% if datos %}
+            <form action="/empleado_seleccionado" method="POST" autocomplete="off">
+                <div class="form__container">
+                        <h2 class="form__title">Se obtuvieron los registros siguientes: </h2>
+                        <div class="form__group">
+                            <label for="seleccion">Registros:</label>
+                            <select id="seleccion" name="seleccion">
+                                {% for id, record in datos %}
+                                    <option value="{{ id }}">Empleado {{ record.0 }}: {{ record.2 }} {{ record.3 }} {{ record.4 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <br>
+                    </div>
+                    <input type="submit" class="form__submit" value="Seleccionar">
+                </form>
+            {% endif %}
+        </div>
+    </body>
+</html>

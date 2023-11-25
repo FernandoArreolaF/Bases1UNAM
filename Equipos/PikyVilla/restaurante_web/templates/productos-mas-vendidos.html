@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos más vendidos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+        <!-- Fin barra de navegacíon-->
+        <div class="menu__productos">
+            <header>
+                <h1 class="title__menu">Productos mas vendidos</h1>
+                <p class="established">pikivillas's coffee</p>
+                <br>
+    
+                <header>
+                    <hr class="meun__line">
+                    <section>
+                        <br>
+                        <h2 class="title__product">coffee</h2>
+                        <article class="item">
+                            <p class="id_v-c">ID</p> <p class="flavor-c">Producto</p> <p class="sells-c">Ventas</p> <p class="price-c">Precio</p>
+                            <hr class=".meun__line-ventas"><br>
+                            {% for platillo in platillos %}
+                            <div class="productos__vendidos">
+                                <p class="id_v">id:{{platillo.0}}</p> <p class="flavor">{{platillo.1}}</p> <p class="sells">{{platillo.7}}</p> <p class="price">{{platillo.3}}</p>
+                            </div>
+                            {% endfor %}
+                        </article>
+    
+    
+                    </section>
+
+                </header>
+            </header>
+        </div>
+
+
+        <!-- 
+            En este caso, se deberá de solicitar el nombre del empleado deseado.
+            - Python regresará todos los registros asociadas a dicho nombre, por lo que se deberán de mostrar dichas opciones.
+            - Una vez seleccionado alguno de los empleados, se deberá de mostrar una vista con la información de dicho cliente
+        -->
+
+    </body>
+</html>

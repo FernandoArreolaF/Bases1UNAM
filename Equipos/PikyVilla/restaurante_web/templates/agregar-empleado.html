@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Empleado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
+    
+</head>
+
+<body class="fondo__pages">
+<div>
+
+    <header class="header-inpages">
+
+        <div class="menu container">
+
+            <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+            </label>
+
+            <nav class="navbar">    
+                <ul class="menu__horizontal">
+                    <li>
+                        <a href="{{url_for('inicio')}}">Inicio</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+</header>
+</div>
+        <!-- Fin barra de navegacíon-->
+    <div>
+
+        <form action="/agregar_empleado" method="POST" autocomplete="off" class="form" enctype="multipart/form-data" id="formulario">
+            
+            <div class="form__container">
+                <h2 class="form__title">Agregar empleado</h2>
+                
+                <div class="form__group">   
+                    <input type="text" id="rfc" class="form__input" name="rfc" placeholder=" ">
+                    <label for="rfc" class="form__label">RFC</label>
+                    <span class="form__line"></span>
+                </div>
+                
+                <div class="form__group">   
+                    <input type="text" id="nombre" class="form__input" name="nombre" placeholder=" ">
+                    <label for="nombre" class="form__label">Nombre:</label>
+                    <span class="form__line"></span>
+                </div>
+                
+                <div class="form__group">   
+                    <input type="text" id="appat" class="form__input" name="appat" placeholder=" ">
+                    <label for="appat" class="form__label">Apellido Paterno</label>
+                    <span class="form__line"></span>
+                </div>
+                
+                <div class="form__group">   
+                    <input type="text" id="apmat" class="form__input" name="apmat" placeholder=" ">
+                    <label for="apmat" class="form__label">Apellido Materno</label>
+                    <span class="form__line"></span>
+                </div>
+                    
+                    
+                <div class="form__group">   
+                    <input type="date" id="fechanac" class="form__input" name="fechanac" placeholder=" ">
+                    <label for="fechanac" class="form__label">Fecha de Nacimiento</label>
+                    <span class="form__line"></span>
+                </div>
+                    
+                <div class="form__group">   
+                    <input type="number" id="edad" class="form__input" name="edad" placeholder=" ">
+                    <label for="edad" class="form__label">Edad</label>
+                    <span class="form__line"></span>
+                </div>
+                    
+                <div class="form__group">   
+                    <input type="file" id="foto" class="form__input" name="foto" placeholder=" " accept="image/*" required>
+                    <label for="foto" class="form__label">Seleccione una Foto</label>
+                    <span class="form__line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="number" step="0.01" id="sueldo" class="form__input" name="sueldo" placeholder=" ">
+                    <label for="sueldo" class="form__label">Sueldo</label>
+                    <span class="form__line"></span>
+                </div>
+                
+                    <legend>Datos de Vivienda</legend>
+                    
+                <div class="form__group">   
+                    <input type="text" id="estado" class="form__input" name="estado" placeholder=" ">
+                    <label for="estado" class="form__label">Estado</label>
+                    <span class="form__line"></span>
+                </div>
+
+                <div class="form__group">
+                    <input type="number" id="cp" class="form__input" name="cp" placeholder=" " >
+                    <label for="cp" class="form__label">Codigo Postal</label>
+                    <span class="form__line"></span>
+                </div>
+                
+                <div class="form__group">
+                    <input type="text" id="colonia" class="form__input" name="colonia" placeholder=" ">
+                    <label for="colonia" class="form__label">Colonia</label>
+                    <span class="form__line"></span>
+                </div>
+                
+                <div class="form__group">
+                    <input type="text" class="form__input" id="calle" name="calle" placeholder=" ">
+                    <label for="calle" class="form__label">Calle</label>
+                    <span class="form__line"></span>
+                </div>
+                
+                <div class="form__group">
+                    <input type="number" id="numero" class="form__input" name="numero" placeholder=" ">
+                    <label for="numero" class="form__label">Numero</label>
+                    <span class="form__line"></span>
+                </div>
+                
+                <legend>Puesto de Trabajo</legend>
+                <input type="checkbox" id="mesero" name="mesero" value="mesero" class="form__imput-chk">
+                <label for="mesero" id="mesero" class="form__label-chk">Mesero:</label>
+
+                <input type="checkbox" id="administrativo" name="administrativo" value="administrativo" class="form__imput-chk">
+                <label for="administrativo" id="administrativo" class="form__label-chk">Administrativo:</label>
+
+                <input type="checkbox" id="cocinero" name="cocinero" value="cocinero" class="form__imput-chk">
+                <label for="cocinero" id="cocinero" class="form__label-chk">Cocinero:</label>
+
+                <!-- Modificar formato -->
+                <div id="descripcionMesero" style="display: none;">
+                    <label for="horario_entrada">Horario de entrada para Mesero:</label>
+                    <input type="time" id="horario_entrada" name="horario_entrada">
+                    <br>
+                    <label for="horario_salida">Horario de salida para Mesero:</label>
+                    <input type="time" id="horario_salida" name="horario_salida">
+                    <br>
+                </div>
+
+                <div id="descripcionCocinero" style="display: none;">
+                    <label for="especialidad">Especialidad como cocinero:</label>
+                    <input type="text" id="especialidad" name="especialidad">
+                    <br>
+                </div>
+
+                <div id="descripcionAdministrativo" style="display: none;">
+                    <label for="rol">Rol como administrativo:</label>
+                    <input type="text" id="rol" name="rol">
+                    <br>
+                </div>
+
+                <div class="form__group" id="telefonos">
+                    <input type="tel" class="form__input" id="telefono1" name="telefonos" placeholder=" " required>
+                    <label for="telefono1" class="form__label">Teléfono 1:</label>
+                    <span class="form__line"></span>
+                </div>
+
+                <button type="button" onclick="agregarTelefono()">Agregar Teléfono</button>
+
+                
+                <input type="submit" class="form__submit" value="Agregar">
+            </div>
+        </form>
+        </div>
+
+        <script>
+            document.getElementById("formulario").addEventListener("change", actualizarHTML);
+    
+            function actualizarHTML() {
+                var meseroCheckbox = document.getElementById("mesero");
+                var administrativoCheckbox = document.getElementById("administrativo");
+                var cocineroCheckbox = document.getElementById("cocinero");
+                var descripcionMeseroDiv = document.getElementById("descripcionMesero");
+                var descripcionCocineroDiv = document.getElementById("descripcionCocinero");
+                var descripcionAdministrativoDiv = document.getElementById("descripcionAdministrativo");
+    
+                // Lógica para actualizar el contenido según la selección
+                if (meseroCheckbox.checked) {
+                    descripcionMeseroDiv.style.display = 'block';
+                } else {
+                    descripcionMeseroDiv.style.display = 'none';
+                }
+
+                if (administrativoCheckbox.checked) {
+                    descripcionAdministrativoDiv.style.display = 'block';
+                } else {
+                    descripcionAdministrativoDiv.style.display = 'none';
+                }
+
+                if (cocineroCheckbox.checked) {
+                    descripcionCocineroDiv.style.display = 'block';
+                } else {
+                    descripcionCocineroDiv.style.display = 'none';
+                }
+            }
+
+            function agregarTelefono() {
+                var contenedorTelefonos = document.getElementById("telefonos");
+
+                // Obtener el número de teléfonos actuales en el formulario
+                var numeroTelefonos = document.querySelectorAll('[name="telefonos"]').length + 1;
+
+                var nuevoContenedor = document.createElement("div");
+                nuevoContenedor.classList.add("form__group");
+                // Crear un nuevo campo de entrada de teléfono
+                var nuevoTelefono = document.createElement("input");
+                nuevoTelefono.type = "tel";
+                nuevoTelefono.name = "telefonos";
+                nuevoTelefono.id = "telefono" + numeroTelefonos;
+                nuevoTelefono.required = true;
+                nuevoTelefono.placeholder = " ";
+                nuevoTelefono.classList.add("form__input");
+
+                // Crear una etiqueta para el nuevo campo de teléfono
+                var nuevaEtiqueta = document.createElement("label");
+                nuevaEtiqueta.htmlFor = "telefono" + numeroTelefonos;
+                nuevaEtiqueta.textContent = "Teléfono " + numeroTelefonos + ":";
+                nuevaEtiqueta.classList.add("form__label");
+
+
+                var nuevoSpan = document.createElement("span");
+                nuevoSpan.classList.add("form__line");
+                // Agregar el nuevo campo de entrada de teléfono y la etiqueta al contenedor
+                contenedorTelefonos.appendChild(nuevaEtiqueta);
+                contenedorTelefonos.appendChild(nuevoTelefono);
+                nuevoContenedor.appendChild(nuevoSpan);
+
+                // Agregar el contenedor al contenedor principal
+                contenedorTelefonos.appendChild(nuevoContenedor);
+                nuevoContenedor.appendChild(document.createElement("br"));
+
+                
+            }
+        </script>
+    </body>
+</html>

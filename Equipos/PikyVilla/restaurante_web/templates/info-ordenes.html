@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información ordenes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+
+    
+
+
+
+
+    </div>
+        <!-- Fin barra de navegacíon-->
+    <div>
+        <form action="/info_ordenes" method="POST" autocomplete="off" class="form">
+            <div class="form__container">
+                <h1 class="form__title">Obtener información de las ordenes de un mesero </h1>        
+                <div class="form__group">   
+                    <input type="text" id="id_empleado" class="form__input" name="id_empleado" placeholder=" ">
+                    <label for="id_empleado" class="form__label">Ingrese su número de empleado(mesero): </label>
+                    <span class="form_line"></span>
+                </div>
+                <input type="submit" class="form__submit" value="Buscar">
+        </form>
+
+        {% if msg %}
+            {% if msg != 'Se obtuvieron los siguientes datos para el empleado: ' %}
+                <h2> {{ msg }} </h2>
+            {% else %}
+                <h2> {{ msg }} </h2>
+                {% if datos %}
+                
+                <ul>
+                    <h3 class="txt-p">Número de órdenes tomadas: {{ numero }}</h3><br>
+                    <h3 class="txt-p">Total de ganancias generadas: {{ total }}</h3>
+                </ul>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+
+    </div>
+</body>
+</html>

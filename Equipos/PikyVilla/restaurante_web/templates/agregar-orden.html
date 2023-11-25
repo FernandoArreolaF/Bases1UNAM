@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar orden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+        <!-- Fin barra de navegacíon-->
+    <div>
+        {% if msg %}
+            
+            <form action="/agregar_orden" method="POST" autocomplete="off" class="form">
+                <div class="form__container">
+                    <h1 class="form__title">Comenzar registro de orden</h1>        
+                    <div class="form__group">
+                        <div class="form__group">   
+                            <input type="number" id="id_mesero" class="form__input" name="id_mesero" placeholder=" " required>
+                            <label for="id_mesero" class="form__label">Ingrese el número de empleado (mesero): </label>
+                            <span class="form_line"></span>
+                        </div>
+                    </div>
+                    <input type="submit" class="form__submit" value="Agregar"> 
+                </div>
+                <br>
+                <h3 class="txt-p"> {{ msg }} </h3><br>
+            </form>
+
+        {% else %}
+            <form action="/agregar_orden" method="POST" autocomplete="off" class="form">
+                <div class="form__container">
+                    <h1 class="form__title">Comenzar registro de orden</h1>        
+                    <div class="form__group">
+                        <div class="form__group">   
+                            <input type="number" id="id_mesero" class="form__input" name="id_mesero" placeholder=" " required>
+                            <label for="id_mesero" class="form__label">Ingrese el número de empleado (mesero): </label>
+                            <span class="form_line"></span>
+                        </div>
+                    </div>
+                    <input type="submit" class="form__submit" value="Agregar"> 
+                </div>
+            </form>
+        {% endif %}
+    </div>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!--Barra de navegacíon-->
+    <header class="header">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Agregar información</a>
+                            <ul class="menu__vertical">
+                                <li><a href="{{url_for('agregarEmpleado')}}">Agregar Empleado</a></li>
+                                <li><a href="{{url_for('agregarCategoria')}}">Agregar Categoría</a></li>
+                                <li><a href="{{url_for('agregarDependiente')}}">Agregar Dependiente</a></li>
+                                <li><a href="{{url_for('agregarProducto')}}">Agregar Producto</a></li>
+                                <li><a href="{{url_for('agregarProductoOrden')}}">Agregar Productos a la orden</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Funciones</a>
+                            <ul class="menu__vertical">
+                                <li><a href="{{url_for('obtenerInformacion')}}">Información de ordenes</a></li>
+                                <li><a href="{{url_for('productos_no_disponibles')}}">Mostrar platillos no disponibles</a></li>
+                                <li><a href="{{url_for('ventasPorFecha')}}">Ventas por fecha</a></li>
+                                <li><a href="{{url_for('producto_mas_vendido')}}">Ver producto más vendido</a></li>
+                                <li><a href="{{url_for('generarFactura')}}">Generar factura de orden</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{url_for('obtenerInfoEmpleado')}}">Obtener información de empleado</a>
+                        </li>
+                        <li>
+                            <a href="{{url_for('agregarOrden')}}">Registrar orden</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            
+            <div class="header-content container">
+                <h1>Pikivilla's COFFEE </h1>
+            </div>
+
+
+    </header>
+    <!-- Fin barra de navegacíon-->
+
+    <section class="coffee">
+
+        <div class="coffee-content container">
+
+            <h2>¡Bienvenido!</h2>
+            <p class="txt-p">"El café ayuda a quien duerme poco y sueña mucho"</p>
+            
+            <div class="coffee-group">
+                <div class="coffee-1">
+                    <img src="/static/images/c1.png" alt="">
+                    <h3>¿Qué es esta página?</h3>
+                    <p>Esta página está orientada al sistema de administración del restaurante</p>
+                </div>
+                <div class="coffee-1">
+                    <img src="/static/images/c2.png" alt="">
+                    <h3>¿Quiénes somos?</h3>
+                    <p>Somos Pikyvilla y la pandilla, equipo destinado a brindar sonrisas y café a tus días.</p>
+                </div>
+                <div class="coffee-1">
+                    <img src="/static/images/c3.png" alt="">
+                    <h3>¿Dónde encontrarnos?</h3>
+                    <p>Facultad de ingeniería. Salón 404</p>
+                </div>
+                
+            </div>
+            <a href="#" class="btn-1">info</a>
+        </div>
+    </section>
+
+    <main class="services">
+        <h2>Cafeteria servicios</h2>
+        <div class="services-content container">
+
+            <div class="services-group">
+                <div class="services-1">
+                    <img src="/static/images/i1.svg" alt="">
+                    <h3>Café</h3>
+                </div>
+                <div class="services-1">
+                    <img src="/static/images/i2.svg" alt="">
+                    <h3>Comida</h3>
+                </div>
+                <div class="services-1">
+                    <img src="/static/images/i3.svg" alt="">
+                    <h3>Servicio a domicilio</h3>
+                </div>
+                
+                
+            </div>
+            <a href="#" class="btn-1">Inicio</a>
+        </div>
+
+    </main>
+</body>
+</html>

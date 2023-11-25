@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="fondo__pages">
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+
+    <div>
+        <form action="/agregar_cliente" method="POST" autocomplete="off" class="form">
+            <div class="form__container">
+                <h2 class="form__title">Agregar Cliente</h2>
+
+                <div class="form__group">   
+                    <input type="text" id="folio" class="form__input" name="folio" placeholder=" ">
+                    <label for="folio" class="form__label">Folio de Orden</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="rfc" class="form__input" name="rfc" placeholder=" ">
+                    <label for="rfc" class="form__label">RFC</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="nombre" class="form__input" name="nombre" placeholder=" ">
+                    <label for="nombre" class="form__label">Nombre del Cliente:</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="appat" class="form__input" name="appat" placeholder=" ">
+                    <label for="appat" class="form__label">Apellido Paterno del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="apmat" class="form__input" name="apmat" placeholder=" ">
+                    <label for="apmat" class="form__label">Apellido Materno del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="date" id="fechanac" class="form__input" name="fechanac" placeholder=" ">
+                    <label for="fechanac" class="form__label">Fecha de Nacimiento del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="estado" class="form__input" name="estado" placeholder=" ">
+                    <label for="estado" class="form__label">Estado del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="cp" class="form__input" name="cp" placeholder=" ">
+                    <label for="cp" class="form__label">Código Postal del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="colonia" class="form__input" name="colonia" placeholder=" ">
+                    <label for="colonia" class="form__label">Colonia del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="calle" class="form__input" name="calle" placeholder=" ">
+                    <label for="calle" class="form__label">Calle del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="numero" class="form__input" name="numero" placeholder=" ">
+                    <label for="numero_cliente" class="form__label">Número del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="email" id="email" class="form__input" name="email" placeholder=" ">
+                    <label for="email" class="form__label">Email del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <div class="form__group">   
+                    <input type="text" id="razon" class="form__input" name="razon" placeholder=" ">
+                    <label for="razon" class="form__label">Razón Social del Cliente</label>
+                    <span class="form_line"></span>
+                </div>
+
+                <input type="submit" class="form__submit" value="Agregar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
