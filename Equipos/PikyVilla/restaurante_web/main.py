@@ -22,6 +22,13 @@ rfc = None
 @app.route('/')
 def inicio():
   datos_empleado.clear()
+  ruta_del_archivo = 'static/images/empleado.jpg'
+  if os.path.exists(ruta_del_archivo):
+    try:
+      os.remove(ruta_del_archivo)
+      print(f'Archivo {ruta_del_archivo} borrado con éxito.')
+    except OSError as e:
+      print(f'Error al borrar el archivo: {e}')
   return render_template('index.html')
 
 
