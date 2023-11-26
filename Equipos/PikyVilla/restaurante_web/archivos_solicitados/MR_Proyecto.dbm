@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.0.6" use-changelog="false" last-position="0,58" last-zoom="0.65" max-obj-count="9"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="restaurante" layers="0" rect-visible="true" fill-color="#e1e1e1">
+	<role name="postgres"/>
+</schema>
+
+<table name="EMPLEADO" layers="0" collapse-mode="2" max-obj-count="24" z-value="0">
+	<schema name="restaurante"/>
+	<role name="postgres"/>
+	<position x="100" y="100"/>
+	<column name="num_empleado" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="RFC">
+		<type name="char" length="13"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="apellido_pat">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="apellido_mat">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="fecha_nacimiento">
+		<type name="date" length="0"/>
+	</column>
+	<column name="edad">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="estado">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="CP">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="colonia">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="calle">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="numero">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="foto">
+		<type name="bytea" length="0"/>
+	</column>
+	<column name="es_mesero">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="es_cocinero">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="es_admin">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="horario">
+		<type name="varchar" length="15"/>
+	</column>
+	<column name="especialidad">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="puesto">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="sueldo">
+		<type name="double precision" length="0"/>
+	</column>
+	<constraint name="num_empleado" type="pk-constr" table="restaurante.&quot;EMPLEADO&quot;">
+		<columns names="num_empleado" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="rfc_u" type="uq-constr" table="restaurante.&quot;EMPLEADO&quot;">
+		<columns names="RFC" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="foto" type="uq-constr" table="restaurante.&quot;EMPLEADO&quot;">
+		<columns names="foto" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="sueldo" type="ck-constr" no-inherit="true" table="restaurante.&quot;EMPLEADO&quot;">
+			<expression> <![CDATA[sueldo > 3000...
+]]> </expression>
+	</constraint>
+</table>
+
+<table name="DEPENDIENTE" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="restaurante"/>
+	<role name="postgres"/>
+	<position x="640" y="300"/>
+	<column name="CURP" not-null="true">
+		<type name="char" length="18"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="apellido_pat">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="apellido_mat">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="parentesco">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="num_empleado">
+		<type name="serial" length="0"/>
+	</column>
+	<constraint name="curp" type="pk-constr" table="restaurante.&quot;DEPENDIENTE&quot;">
+		<columns names="CURP" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ORDEN" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="restaurante"/>
+	<role name="postgres"/>
+	<position x="120" y="720"/>
+	<column name="folio" not-null="true">
+		<type name="char" length="7"/>
+	</column>
+	<column name="fecha">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="total">
+		<type name="double precision" length="0"/>
+	</column>
+	<column name="id_mesero">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="RFC">
+		<type name="char" length="13"/>
+	</column>
+	<constraint name="folio" type="pk-constr" table="restaurante.&quot;ORDEN&quot;">
+		<columns names="folio" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="CLIENTE" layers="0" collapse-mode="2" max-obj-count="14" z-value="0">
+	<schema name="restaurante"/>
+	<role name="postgres"/>
+	<position x="660" y="500"/>
+	<column name="RFC" not-null="true">
+		<type name="char" length="13"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="apellido_pat">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="apellido_mat">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="fecha_nacimiento">
+		<type name="date" length="0"/>
+	</column>
+	<column name="estado">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="CP">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="colonia">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="calle">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="numero">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="email">
+		<type name="varchar" length="120"/>
+	</column>
+	<column name="razon_social">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="rfc_cliente" type="pk-constr" table="restaurante.&quot;CLIENTE&quot;">
+		<columns names="RFC" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="email" type="uq-constr" table="restaurante.&quot;CLIENTE&quot;">
+		<columns names="email" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="PRODUCTO" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="restaurante"/>
+	<role name="postgres"/>
+	<position x="1020" y="200"/>
+	<column name="id_alimento" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="precio">
+		<type name="double precision" length="0"/>
+	</column>
+	<column name="disponibilidad">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="receta">
+		<type name="text" length="0"/>
+	</column>
+	<column name="id_categoria">
+		<type name="serial" length="0"/>
+	</column>
+	<constraint name="id_alimento" type="pk-constr" table="restaurante.&quot;PRODUCTO&quot;">
+		<columns names="id_alimento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="CATEGORIA" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="restaurante"/>
+	<role name="postgres"/>
+	<position x="1220" y="600"/>
+	<column name="id_categoria" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="nombre">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="id_categoria" type="pk-constr" table="restaurante.&quot;CATEGORIA&quot;">
+		<columns names="id_categoria" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ORDEN_CONTIENE_PRODUCTO" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="restaurante"/>
+	<role name="postgres"/>
+	<position x="940" y="760"/>
+	<column name="folio" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="id_alimento" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="cantidad">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="total">
+		<type name="double precision" length="0"/>
+	</column>
+	<constraint name="orden_contiene_producto_pk" type="pk-constr" table="restaurante.&quot;ORDEN_CONTIENE_PRODUCTO&quot;">
+		<columns names="folio,id_alimento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TELEFONO" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="restaurante"/>
+	<role name="postgres"/>
+	<position x="520" y="120"/>
+	<column name="telefono" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="num_empleado" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<constraint name="telefono_num_empleado" type="pk-constr" table="restaurante.&quot;TELEFONO&quot;">
+		<columns names="telefono,num_empleado" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="fk_num_empleado" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="restaurante.&quot;EMPLEADO&quot;" table="restaurante.&quot;DEPENDIENTE&quot;">
+	<columns names="num_empleado" ref-type="src-columns"/>
+	<columns names="num_empleado" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="id_mesero" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="restaurante.&quot;EMPLEADO&quot;" table="restaurante.&quot;ORDEN&quot;">
+	<columns names="id_mesero" ref-type="src-columns"/>
+	<columns names="num_empleado" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="RFC_cliente" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="restaurante.&quot;CLIENTE&quot;" table="restaurante.&quot;ORDEN&quot;">
+	<columns names="RFC" ref-type="src-columns"/>
+	<columns names="RFC" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="id_categoria" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="restaurante.&quot;CATEGORIA&quot;" table="restaurante.&quot;PRODUCTO&quot;">
+	<columns names="id_categoria" ref-type="src-columns"/>
+	<columns names="id_categoria" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="folio_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="restaurante.&quot;ORDEN&quot;" table="restaurante.&quot;ORDEN_CONTIENE_PRODUCTO&quot;">
+	<columns names="folio" ref-type="src-columns"/>
+	<columns names="folio" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="producto_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="restaurante.&quot;PRODUCTO&quot;" table="restaurante.&quot;ORDEN_CONTIENE_PRODUCTO&quot;">
+	<columns names="id_alimento" ref-type="src-columns"/>
+	<columns names="id_alimento" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_num_empleado" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="restaurante.&quot;EMPLEADO&quot;" table="restaurante.&quot;TELEFONO&quot;">
+	<columns names="num_empleado" ref-type="src-columns"/>
+	<columns names="num_empleado" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="&quot;rel_ORDEN_EMPLEADO&quot;" type="relfk" layers="0"
+	 src-table="restaurante.&quot;ORDEN&quot;"
+	 dst-table="restaurante.&quot;EMPLEADO&quot;" reference-fk="id_mesero"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_ORDEN_CLIENTE&quot;" type="relfk" layers="0"
+	 src-table="restaurante.&quot;ORDEN&quot;"
+	 dst-table="restaurante.&quot;CLIENTE&quot;" reference-fk="RFC_cliente"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_PRODUCTO_CATEGORIA&quot;" type="relfk" layers="0"
+	 src-table="restaurante.&quot;PRODUCTO&quot;"
+	 dst-table="restaurante.&quot;CATEGORIA&quot;" reference-fk="id_categoria"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_TELEFONO_EMPLEADO&quot;" type="relfk" layers="0"
+	 src-table="restaurante.&quot;TELEFONO&quot;"
+	 dst-table="restaurante.&quot;EMPLEADO&quot;" reference-fk="fk_num_empleado"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="&quot;rel_DEPENDIENTE_EMPLEADO&quot;" type="relfk" layers="0"
+	 src-table="restaurante.&quot;DEPENDIENTE&quot;"
+	 dst-table="restaurante.&quot;EMPLEADO&quot;" reference-fk="fk_num_empleado"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_ORDEN_CONTIENE_PRODUCTO_ORDEN&quot;" type="relfk" layers="0"
+	 src-table="restaurante.&quot;ORDEN_CONTIENE_PRODUCTO&quot;"
+	 dst-table="restaurante.&quot;ORDEN&quot;" reference-fk="folio_fk"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="&quot;rel_ORDEN_CONTIENE_PRODUCTO_PRODUCTO&quot;" type="relfk" layers="0"
+	 src-table="restaurante.&quot;ORDEN_CONTIENE_PRODUCTO&quot;"
+	 dst-table="restaurante.&quot;PRODUCTO&quot;" reference-fk="producto_fk"
+	 src-required="false" dst-required="true"/>
+
+</dbmodel>
