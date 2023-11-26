@@ -1,0 +1,150 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model administrador {
+  numero_empleado_id Int      @id(map: "administrador_pk") @default(autoincrement())
+  rol                String   @db.VarChar(40)
+  empleado           empleado @relation(fields: [numero_empleado_id], references: [numero_empleado_id], onDelete: NoAction, onUpdate: NoAction, map: "administrador_numero_empleado_id_fk")
+}
+
+model alimento {
+  alimento_id           Int                @id(map: "alimento_pk") @default(autoincrement())
+  categoria_alimento_id Int                @default(autoincrement())
+  descripcion           String             @db.VarChar(200)
+  disponible            Boolean            @default(false)
+  nombre                String             @db.VarChar(60)
+  precio                Decimal            @db.Decimal(10, 2)
+  receta                String
+  categoria_alimento    categoria_alimento @relation(fields: [categoria_alimento_id], references: [categoria_alimento_id], onDelete: NoAction, onUpdate: NoAction, map: "alimento_categoria_alimento_id_fk")
+  orden_detalle         orden_detalle[]
+}
+
+model categoria_alimento {
+  categoria_alimento_id Int        @id(map: "categoria_alimento_pk") @default(autoincrement())
+  nombre                String     @db.VarChar(60)
+  descripcion           String
+  alimento              alimento[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model cliente {
+  cliente_id       Int             @id(map: "cliente_pk") @default(autoincrement())
+  email            String          @unique(map: "cliente_email_uk") @db.VarChar(200)
+  pw               String          @db.VarChar(70)
+  nombre           String          @db.VarChar(40)
+  ap_pat           String          @db.VarChar(40)
+  ap_mat           String?         @db.VarChar(40)
+  calle            String?         @db.VarChar(60)
+  codigo_postal    String?         @db.Char(5)
+  colonia          String?         @db.VarChar(60)
+  es_moral         Boolean?
+  estado           String?         @db.VarChar(40)
+  fecha_nacimiento DateTime        @db.Date
+  numero_calle     String?         @db.VarChar(40)
+  rfc              String?         @unique(map: "cliente_rfc_uk") @db.Char(13)
+  orden_general    orden_general[]
+
+  @@index([email], map: "cliente_email_ix")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model cocinero {
+  numero_empleado_id Int      @id(map: "cocinero_pk") @default(autoincrement())
+  especialidad       String   @db.VarChar(40)
+  empleado           empleado @relation(fields: [numero_empleado_id], references: [numero_empleado_id], onDelete: NoAction, onUpdate: NoAction, map: "cocinero_numero_empleado_id_fk")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model dependiente {
+  dependiente_id     Int      @id(map: "dependiente_pk") @default(autoincrement())
+  numero_empleado_id Int      @default(autoincrement())
+  ap_mat             String?  @db.VarChar(40)
+  ap_pat             String   @db.VarChar(40)
+  curp               String   @unique(map: "dependiente_curp_uk") @db.Char(18)
+  nombre             String   @db.VarChar(40)
+  parentesco         String   @db.VarChar(40)
+  empleado           empleado @relation(fields: [numero_empleado_id], references: [numero_empleado_id], onDelete: NoAction, onUpdate: NoAction, map: "dependiente_numero_empleado_id_fk")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model empleado {
+  numero_empleado_id Int            @id(map: "empleado_pk") @default(autoincrement())
+  ap_pat             String         @db.VarChar(40)
+  ap_mat             String?        @db.VarChar(40)
+  email              String         @unique(map: "empleado_email_uk") @db.VarChar(200)
+  pw                 String         @db.VarChar(70)
+  calle              String         @db.VarChar(60)
+  codigo_postal      String         @db.VarChar(5)
+  colonia            String         @db.VarChar(60)
+  edad               Decimal        @db.Decimal(3, 0)
+  estado             String         @db.VarChar(40)
+  es_administrador   Boolean        @default(false)
+  es_cocinero        Boolean        @default(false)
+  es_mesero          Boolean        @default(false)
+  fecha_nacimiento   DateTime       @db.Date
+  foto               Bytes?
+  nombre             String         @db.VarChar(70)
+  numero_calle       String         @db.VarChar(40)
+  rfc                String         @unique(map: "empleado_rfc_uk") @db.Char(13)
+  sueldo             Decimal        @db.Decimal(8, 2)
+  administrador      administrador?
+  cocinero           cocinero?
+  dependiente        dependiente[]
+  mesero             mesero?
+  telefono           telefono[]
+
+  @@index([email], map: "empleado_email_ix")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model mesero {
+  numero_empleado_id Int             @id(map: "mesero_pk") @default(autoincrement())
+  hora_fin           DateTime        @db.Timestamp(6)
+  hora_inicio        DateTime        @db.Timestamp(6)
+  empleado           empleado        @relation(fields: [numero_empleado_id], references: [numero_empleado_id], onDelete: NoAction, onUpdate: NoAction, map: "mesero_numero_empleado_id_fk")
+  orden_general      orden_general[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model orden_detalle {
+  orden_general_id Int           @default(autoincrement())
+  alimento_id      Int           @default(autoincrement())
+  cantidad         Decimal       @db.Decimal(3, 0)
+  subtotal         Decimal       @db.Decimal(12, 2)
+  alimento         alimento      @relation(fields: [alimento_id], references: [alimento_id], onDelete: NoAction, onUpdate: NoAction, map: "orden_detalle_alimento_id")
+  orden_general    orden_general @relation(fields: [orden_general_id], references: [orden_general_id], onDelete: NoAction, onUpdate: NoAction, map: "orden_detalle_orden_general_id")
+
+  @@id([orden_general_id, alimento_id], map: "orden_detalle_pk")
+  @@index([orden_general_id], map: "orden_detalle_orden_general_id_ix")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model orden_general {
+  orden_general_id   Int             @id(map: "orden_general_pk") @default(autoincrement())
+  estatus            String          @default("REGISTRADA") @db.VarChar(40)
+  genero_factura     Boolean         @default(false)
+  folio              String?         @db.VarChar(40)
+  fecha              DateTime        @default(now()) @db.Timestamp(6)
+  total              Decimal         @db.Decimal(15, 2)
+  cliente_id         Int             @default(autoincrement())
+  numero_empleado_id Int             @default(autoincrement())
+  orden_detalle      orden_detalle[]
+  cliente            cliente         @relation(fields: [cliente_id], references: [cliente_id], onDelete: NoAction, onUpdate: NoAction, map: "orden_general_cliente_id_fk")
+  mesero             mesero          @relation(fields: [numero_empleado_id], references: [numero_empleado_id], onDelete: NoAction, onUpdate: NoAction, map: "orden_general_numero_empleado_fk")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model telefono {
+  numero_empleado_id Int      @default(autoincrement())
+  telefono           Decimal  @db.Decimal(15, 0)
+  empleado           empleado @relation(fields: [numero_empleado_id], references: [numero_empleado_id], onDelete: NoAction, onUpdate: NoAction, map: "telefono_numero_empleado_id_fk")
+
+  @@id([numero_empleado_id, telefono], map: "telefono_pk")
+}

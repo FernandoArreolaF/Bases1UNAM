@@ -1,0 +1,13 @@
+services:
+  postgres_db:
+    container_name: base_datos
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - ./src/database:/docker-entrypoint-initdb.d
