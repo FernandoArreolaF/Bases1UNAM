@@ -1,126 +1,238 @@
-CREATE TABLE EMPLEADO (
-    Num_empleado SERIAL PRIMARY KEY,
-    RFC VARCHAR(13) UNIQUE,
-    estado VARCHAR(13),
-    CP INT,
-    colonia VARCHAR(100),
-    calle VARCHAR(60),
-    número SMALLINT,
+-- Crear tabla de empleado con todas las columnas desde el inicio
+CREATE TABLE empleado (
+    rfc VARCHAR(13) PRIMARY KEY,
+    num_empleado INT,
     nombre VARCHAR(100),
-    Ap_paterno VARCHAR(100),
-    Ap_materno VARCHAR(100),
-    Fecha_nac DATE,
-    Edad INT,
-    Foto BYTEA
+    apellido_paterno VARCHAR(50),
+    apellido_materno VARCHAR(50),
+    fecha_nacimiento DATE,
+    telefono VARCHAR(15),
+    edad INT,
+    domicilio VARCHAR(255),
+    sueldo DECIMAL(10, 2)
 );
+
+-- Crear tabla de cocineros
+CREATE TABLE cocinero (
+    rfc VARCHAR(13) PRIMARY KEY,
+    especialidad VARCHAR(50)
+);
+
+-- Crear tabla de meseros
+CREATE TABLE mesero (
+    rfc VARCHAR(13) PRIMARY KEY,
+    horario VARCHAR(50)
+);
+
+-- Crear tabla de administrativos
+CREATE TABLE administrativo (
+    rfc VARCHAR(13) PRIMARY KEY,
+    rol VARCHAR(50)
+);
+
+-- Crear tabla de dependientes
+CREATE TABLE dependiente (
+    rfc_empleado VARCHAR(13),
+    curp VARCHAR(18) PRIMARY KEY,
+    nombre_dependiente VARCHAR(100),
+    parentesco VARCHAR(50),
+    FOREIGN KEY (rfc_empleado) REFERENCES empleado(rfc) ON DELETE CASCADE
+);
+
+-- Crear tabla de categorías
+CREATE TABLE categoria (
+    id_categoria SERIAL PRIMARY KEY,
+    nombre VARCHAR(50),
+    descripcion TEXT
+);
+
+-- Crear tabla de platillos
+CREATE TABLE platillo (
+    id_platillo SERIAL PRIMARY KEY,
+    nombre VARCHAR(100),
+    descripcion TEXT,
+    receta TEXT,
+    precio DECIMAL(10, 2),
+    disponibilidad BOOLEAN,
+    id_categoria INT REFERENCES categoria(id_categoria)
+);
+
+-- Crear tabla de bebidas
+CREATE TABLE bebida (
+    id_bebida SERIAL PRIMARY KEY,
+    nombre VARCHAR(100),
+    descripcion TEXT,
+    precio DECIMAL(10, 2),
+    disponibilidad BOOLEAN,
+    id_categoria INT REFERENCES categoria(id_categoria)
+);
+
+-- Crear tabla de órdenes
+CREATE SEQUENCE folio_seq;
+CREATE TABLE orden (
+    folio VARCHAR(20) PRIMARY KEY DEFAULT 'ORD-' || LPAD(nextval('folio_seq')::TEXT, 3, '0'),
+    fecha_hora TIMESTAMP,
+    total_pagar DECIMAL(10, 2),
+    rfc_mesero VARCHAR(13),
+    FOREIGN KEY (rfc_mesero) REFERENCES mesero(rfc) ON DELETE SET NULL
+);
+
+-- Crear tabla de detalles de orden
+CREATE TABLE detalle_orden (
+    id_detalle SERIAL PRIMARY KEY,
+    folio_orden VARCHAR(20),
+    id_platillo INT,
+    id_bebida INT,
+    cantidad INT,
+    precio_total DECIMAL(10, 2),
+    FOREIGN KEY (folio_orden) REFERENCES orden(folio),
+    FOREIGN KEY (id_platillo) REFERENCES platillo(id_platillo),
+    FOREIGN KEY (id_bebida) REFERENCES bebida(id_bebida)
+);
+
+-- Crear tabla de clientes
+CREATE TABLE cliente (
+    rfc VARCHAR(13) PRIMARY KEY,
+    nombre VARCHAR(100),
+    domicilio VARCHAR(255),
+    razon_social VARCHAR(100),
+    email VARCHAR(100),
+    fecha_nacimiento DATE,
+    estado VARCHAR(50),
+    codigo_postal VARCHAR(10),
+    colonia VARCHAR(100),
+    calle VARCHAR(255),
+    numero VARCHAR(10)
+);
+
+-- Agregar índices
+CREATE INDEX idx_empleado_num ON empleado(num_empleado);
+CREATE INDEX idx_disponibilidad ON platillo(disponibilidad);
+CREATE INDEX idx_disponibilidad_bebida ON bebida(disponibilidad);
+CREATE INDEX idx_fecha_hora_orden ON orden(fecha_hora);
+
+-- Modificar la relación entre empleado y mesero
+CREATE TABLE mesero_empleado (
+    rfc_mesero VARCHAR(13) PRIMARY KEY,
+    FOREIGN KEY (rfc_mesero) REFERENCES empleado(rfc) ON DELETE CASCADE
+);
+
+-- Vista para mostrar detalles del platillo más vendido
+CREATE VIEW v_platillo_mas_vendido AS
+SELECT p.id_platillo, p.nombre, p.descripcion, COUNT(d.id_detalle) AS total_ventas
+FROM platillo p
+JOIN detalle_orden d ON p.id_platillo = d.id_platillo
+GROUP BY p.id_platillo
+ORDER BY total_ventas DESC
+LIMIT 1;
+
+-- Vista para obtener el nombre de productos no disponibles
+CREATE VIEW v_productos_no_disponibles AS
+SELECT id_platillo AS id_producto, nombre, 'platillo' AS tipo_producto
+FROM platillo
+WHERE disponibilidad = FALSE
+UNION
+SELECT id_bebida AS id_producto, nombre, 'bebida' AS tipo_producto
+FROM bebida
+WHERE disponibilidad = FALSE;
+
+-- Función almacenada para actualizar totales y validar disponibilidad
+CREATE OR REPLACE FUNCTION agregar_producto_a_orden(
+    in folio_orden VARCHAR(20),
+    in id_platillo INT,
+    in id_bebida INT,
+    in cantidad INT
+)
+RETURNS VOID AS $$
+DECLARE
+    precio_platillo DECIMAL;
+    precio_bebida DECIMAL;
+BEGIN
+    -- Obtener precios de platillo y bebida
+    SELECT precio INTO precio_platillo FROM platillo WHERE id_platillo = id_platillo;
+    SELECT precio INTO precio_bebida FROM bebida WHERE id_bebida = id_bebida;
+
+    -- Validar disponibilidad
+    IF id_platillo IS NOT NULL AND NOT EXISTS (SELECT 1 FROM platillo WHERE id_platillo = id_platillo AND disponibilidad = TRUE) THEN
+        RAISE EXCEPTION 'El platillo no está disponible';
+    END IF;
+
+    IF id_bebida IS NOT NULL AND NOT EXISTS (SELECT 1 FROM bebida WHERE id_bebida = id_bebida AND disponibilidad = TRUE) THEN
+        RAISE EXCEPTION 'La bebida no está disponible';
+    END IF;
+
+    -- Actualizar totales
+    UPDATE orden SET total_pagar = total_pagar + (cantidad * COALESCE(precio_platillo, 0) + cantidad * COALESCE(precio_bebida, 0)) WHERE folio = folio_orden;
+    INSERT INTO detalle_orden(folio_orden, id_platillo, id_bebida, cantidad, precio_total)
+    VALUES (folio_orden, id_platillo, id_bebida, cantidad, cantidad * COALESCE(precio_platillo, 0) + cantidad * COALESCE(precio_bebida, 0));
+END;
+$$ LANGUAGE plpgsql;
+
+-- Función almacenada para obtener estadísticas de un mesero
+CREATE OR REPLACE FUNCTION estadisticas_mesero(
+    in num_empleado INT,
+    out num_ordenes INT,
+    out total_pagado DECIMAL
+)
+RETURNS RECORD AS $$
+DECLARE
+    rfc_mesero VARCHAR(13);
+BEGIN
+    -- Obtener RFC del empleado
+    SELECT rfc INTO rfc_mesero FROM empleado WHERE num_empleado = num_empleado AND EXISTS (SELECT 1 FROM mesero_empleado WHERE rfc_mesero = empleado.rfc);
+
+    -- Validar que sea un mesero
+    IF rfc_mesero IS NULL THEN
+        RAISE EXCEPTION 'El empleado no es un mesero';
+    END IF;
+
+    -- Obtener estadísticas
+    SELECT COUNT(*), COALESCE(SUM(total_pagar), 0) INTO num_ordenes, total_pagado FROM orden WHERE rfc_mesero = rfc_mesero;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Modificar la tabla de órdenes
+ALTER TABLE orden
+ADD COLUMN rfc_cliente VARCHAR(13),
+ADD CONSTRAINT fk_cliente_orden FOREIGN KEY (rfc_cliente) REFERENCES cliente(rfc) ON DELETE SET NULL;
+
+-- Vista para asemejar a una factura de una orden
+CREATE VIEW v_factura_orden AS
+SELECT
+    o.folio AS folio_orden,
+    o.fecha_hora,
+    o.total_pagar,
+    c.nombre AS nombre_cliente,
+    c.domicilio AS domicilio_cliente,
+    c.razon_social,
+    c.email,
+    c.fecha_nacimiento AS fecha_nacimiento_cliente,
+    c.estado,
+    c.codigo_postal,
+    c.colonia,
+    c.calle,
+    c.numero,
+    m.rfc AS rfc_mesero,
+    m.horario AS horario_mesero,
+    d.id_detalle,
+    COALESCE(p.nombre, b.nombre) AS nombre_producto,
+    d.cantidad,
+    d.precio_total
+FROM orden o
+JOIN cliente c ON o.rfc_cliente = c.rfc
+LEFT JOIN mesero m ON o.rfc_mesero = m.rfc
+JOIN detalle_orden d ON o.folio = d.folio_orden
+LEFT JOIN platillo p ON d.id_platillo = p.id_platillo
+LEFT JOIN bebida b ON d.id_bebida = b.id_bebida;
 
 
 
 CREATE TABLE TELÉFONO (
-    Num_empleado INT,
+    rfc VARCHAR,
     telefono INT,
-    PRIMARY KEY (Num_empleado, telefono),
-    FOREIGN KEY (Num_empleado) REFERENCES EMPLEADO(Num_empleado)
+    PRIMARY KEY (rfc, telefono),
+    FOREIGN KEY (rfc) REFERENCES EMPLEADO(rfc VARCHAR)
 );
-
-
-CREATE TABLE COCINERO (
-    Num_empleado INT PRIMARY KEY,
-    Especialidad VARCHAR(100)
-);
-
-
-CREATE TABLE MESERO (
-    Num_empleado INT PRIMARY KEY,
-    Horario DATE
-);
-
-
-CREATE TABLE ADMINISTRATIVO (
-    Num_empleado INT PRIMARY KEY,
-    Rol VARCHAR(100)
-);
-
-
-CREATE TABLE DEPENDIENTES (
-    CURP VARCHAR(18),
-    Num_empleado INT,
-    PRIMARY KEY (CURP),
-    FOREIGN KEY (Num_empleado) REFERENCES EMPLEADO(Num_empleado),
-    Nombre_dependiente VARCHAR(100),
-    parentesco VARCHAR(50)
-);
-
-
-CREATE TABLE FACTURA (
-    RFC VARCHAR(13) PRIMARY KEY,
-    Nombre_cliente VARCHAR(500),
-    Fecha_nac DATE CHECK (Fecha_nac IS NOT NULL),
-    Email VARCHAR(500),
-    Razon_social VARCHAR(200),
-    Colonia VARCHAR(100),
-    CP INT,
-    Número INT,
-    Calle VARCHAR(100),
-    Estado VARCHAR(200)
-);
-
-CREATE TABLE DETALLE_DE_ORDEN (
-    ID_detalle INT PRIMARY KEY,
-    Cantidad FLOAT,
-    Precio_total FLOAT
-);
-
-
-CREATE TABLE ORDEN (
-    Folio VARCHAR(100) PRIMARY KEY,
-    Fecha_hora TIMESTAMP,
-    Total_pagar FLOAT(6),
-    ID_detalle INT,
-    RFC VARCHAR(13),
-    FOREIGN KEY (ID_detalle) REFERENCES DETALLE_DE_ORDEN(ID_detalle),
-    FOREIGN KEY (RFC) REFERENCES FACTURA(RFC)
-);
-
-CREATE TABLE CATEGORIA (
-    Id_categoria SMALLINT PRIMARY KEY,
-    Nombre VARCHAR(200),
-    Descripcion VARCHAR(500)
-);
-
-
-CREATE TABLE COMIDA (
-    Id_comida INT PRIMARY KEY,
-    Id_categoria SMALLINT,
-    Nombre VARCHAR(100) UNIQUE,
-    Receta TEXT,
-    Precio FLOAT,
-    Disponibilidad BOOLEAN,
-    Descripcion TEXT,
-    FOREIGN KEY (Id_categoria) REFERENCES CATEGORIA(Id_categoria)
-);
-
-
-CREATE TABLE INCLUYE (
-    Id_comida INT,
-    Id_detalle INT,
-    PRIMARY KEY (Id_comida, Id_detalle),
-    FOREIGN KEY (Id_comida) REFERENCES COMIDA(Id_comida),
-    FOREIGN KEY (Id_detalle) REFERENCES DETALLE_DE_ORDEN(ID_detalle)
-);
-
-
-
-CREATE TABLE ATIENDE (
-    num_empleado INT,
-    Folio VARCHAR(200),
-    num_mesa SMALLINT,
-    PRIMARY KEY (num_empleado, Folio),
-    FOREIGN KEY (num_empleado) REFERENCES MESERO(Num_empleado),
-    FOREIGN KEY (Folio) REFERENCES ORDEN(Folio)
-);
-
-
 
 -- 65 Registros Empleado
 INSERT INTO EMPLEADO (Num_empleado, RFC, estado, CP, colonia, calle, número, nombre, Ap_paterno, Ap_materno, Fecha_nac, Edad, Foto)
