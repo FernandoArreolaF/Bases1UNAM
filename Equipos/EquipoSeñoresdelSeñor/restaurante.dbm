@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.0.4" use-changelog="false" last-position="0,660" last-zoom="1" max-obj-count="12"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="empleado" layers="0" collapse-mode="2" max-obj-count="16" z-value="0">
+	<schema name="public"/>
+	<position x="460" y="560"/>
+	<column name="num_empleado" not-null="true">
+		<type name="bigserial" length="0"/>
+	</column>
+	<column name="rfc" not-null="true">
+		<type name="varchar" length="13"/>
+	</column>
+	<column name="edad" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="sueldo" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+	<column name="fecha_nacimiento" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="foto" not-null="true">
+		<type name="bytea" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="ap_pat" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="ap_mat">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="calle" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="numero_domicilio" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="colonia" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="cod_postal" not-null="true">
+		<type name="varchar" length="5"/>
+	</column>
+	<column name="estado" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="empleado_pk" type="pk-constr" table="public.empleado">
+		<columns names="num_empleado" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="rfc_uq" type="uq-constr" table="public.empleado">
+		<columns names="rfc" ref-type="src-columns"/>
+	</constraint>
+	<initial-data>
+<![CDATA["num_empleado";"rfc";"edad";"sueldo";"fecha_nacimiento";"foto";"nombre";"ap_pat";"ap_mat";"calle";"numero_domicilio";"colonia";"cod_postal";"estado"
+"";"DEML970615MNT";"26";"";"1997-06-15";"";"Lorena";"Delgado";"Marquez";"";"";"Altavista";"63722";"Nayarit"
+"";"FOCN971030MNT";"26";"";"1997-10-30";"";"Nayvelin";"Flores";"Cueto";"";"";"Altavista";"63722";"Nayarit"
+"";"OEGK971203MJC";"25";"";"1997-12-03";"";"Kimberly";"Ortega";"Godinez";"";"";"Altavista";"63722";"Nayarit"
+"";"PAMJ980107MNT";"25";"";"1998-01-07";"";"Jimena";"Palomera";"Medina";"";"";"Altavista";"63722";"Nayarit"
+"";"RABF970524MNT";"26";"";"1997-05-24";"";"Fatima Abigai";"Ramos";"Borrayo";"";"";"Altavista";"63722";"Nayarit"
+"";"SAUM970703HNT";"26";"";"1997-07-03";"";"Marco Antonio";"Salvatierra";"Ureña";"";"";"Altavista";"63722";"Nayarit"
+"";"VILA981018MNT";"26";"";"1998-10-18";"";"Alondra Lizeth";"Virgen";"López";"";"";"Altavista";"63722";"Nayarit"
+"";"BIGA970121HNT";"26";"";"1997-01-21";"";"Axel Gael";"Briceño";"García";"";"";"Altavista";"63722";"Nayarit"
+"";"DUTR970120HNT";"26";"";"1997-01-20";"";"Rodrigo Joaquín";"Duran";"Tirado";"";"";"Altavista";"63722";"Nayarit"
+"";"OEGK981229HJC";"24";"";"1998-12-29";"";"Kevin Wilfredo";"Ortega";"Godinez";"";"";"Altavista";"63722";"Nayarit"
+"";"OEMR980514HNE";"25";"";"1998-05-14";"";"Raymond Leopold";"Ortega";"Mora";"";"";"Altavista";"63722";"Nayarit"
+"";"SAFE971227HJC";"25";"";"1997-12-27";"";"Emmanuel";"Sánchez";"Figueroa";"";"";"Altavista";"63722";"Nayarit"
+"";"ZAFJ980707HNT";"25";"";"1998-07-07";"";"Jorge Alonso";"Zamudio";"Figueora";"";"";"Altavista";"63722";"Nayarit"
+"";"CUML960512MNT";"27";"";"1996-05-12";"";"Lesli Araidi";"Cueto";"Magallanes";"";"";"Altavista";"63722";"Nayarit"
+"";"CUUC950201MNT";"28";"";"1995-02-01";"";"Carime Alexandra";"Cueto";"Ureña";"";"";"Altavista";"63722";"Nayarit"
+]]>
+	</initial-data>
+</table>
+
+<table name="telefono" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<position x="40" y="500"/>
+	<column name="telefono" not-null="true">
+		<type name="varchar" length="10"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="num_empleado_empleado" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="empleado_fk" index="0"/>
+		<object name="telefono_pk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="dependiente" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<position x="820" y="420"/>
+	<column name="curp" not-null="true">
+		<type name="varchar" length="18"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="ap_pat" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="ap_mat" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="parentesco" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="num_empleado_empleado" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="dependiente_pk" index="1"/>
+		<object name="empleado_fk" index="0"/>
+	</customidxs>
+	<initial-data>
+<![CDATA["curp";"nombre";"ap_pat";"ap_mat";"parentesco";"num_empleado_empleado"
+"CUUW031107MJCTRNA9";"Wendelis Adanalea";"Cueto";"Ureña";"";""
+"EIPF061027MNTSDLA1";"Flor Guadalupe";"Espino";"Padilla";"";""
+"FISN030730MNTGLMA2";"Naomi Estephania";"Figueroa";"Salazar";"";""
+"GAPL010327MNTRLZA3";"Lizeth Ramona";"García";"Palomera";"";""
+"GOLN040816MGTNNDA8";"Nadia Abigail";"González";"Lona";"";""
+"JACY021003MNTRTNA0";"Yaneth";"Jauregui";"Cueto";"";""
+"JAGY03032MNTRRSA9";"Yesenia Guadalupe";"Jauregui";"García";"";""
+"JULC051028MNTRPRA1";"Carmen Catalina";"Juaréz";"López";"";""
+"JULD051028MNTRPLA7";"Delia Nereida";"Juaréz";"López";"";""
+"OEPE060316MNTRXVA2";"Evelyn";"Ortega";"Peña";"";""
+"PABE040125MBCLRVA0";"Evelyn Juanita";"Palacios";"Barajas";"";""
+"PABY021128MNTNRRA2";"Yareli Socorro";"Palacios";"Barajas";"";""
+"PAMD061118MNTLDLA5";"Dulce María";"Palomera";"Medina";"";""
+"PAMS011010MNTLDRA2";"Saira Aracely";"Palomera";"Medina";"";""
+"PAEK020629MNTRCLA7";"Keilly Aramara";"Parra";"Echeverria";"";""
+]]>
+	</initial-data>
+</table>
+
+<table name="cocinero" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<position x="20" y="960"/>
+	<column name="especialidad" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="num_empleado_empleado" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="cocinero_pk" index="0"/>
+		<object name="empleado_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="administrativo" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<position x="400" y="1080"/>
+	<column name="rol" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="num_empleado_empleado" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="administrativo_pk" index="0"/>
+		<object name="empleado_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="mesero" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<position x="820" y="1000"/>
+	<column name="horario_inicio" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="horario_fin" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="num_empleado_empleado" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="empleado_fk" index="1"/>
+		<object name="mesero_pk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="empleado_has_many_telefono" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1d3b0a"
+	 src-table="public.empleado"
+	 dst-table="public.telefono"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="52.9646" y="29.1837"/>
+	</label>
+	<constraint name="telefono_pk" type="pk-constr" table="public.telefono">
+		<columns names="telefono" ref-type="src-columns"/>
+	</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="dependen" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#2e02f8"
+	 src-table="public.empleado"
+	 dst-table="public.dependiente"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="38.9354" y="3.88151"/>
+	</label>
+	<constraint name="dependiente_pk" type="pk-constr" table="public.dependiente">
+		<columns names="curp" ref-type="src-columns"/>
+	</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="empleado_has_many_cocinero" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#db8386"
+	 src-table="public.empleado"
+	 dst-table="public.cocinero"
+	 src-required="true" dst-required="false">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="empleado_has_many_administrativo" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#72e069"
+	 src-table="public.empleado"
+	 dst-table="public.administrativo"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="empleado_has_many_mesero" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a771e8"
+	 src-table="public.empleado"
+	 dst-table="public.mesero"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="orden" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<position x="1000" y="1260"/>
+	<column name="folio" not-null="true">
+		<type name="varchar" length="7"/>
+	</column>
+	<column name="fecha_y_hora" not-null="true">
+		<type name="timestamp" length="0"/>
+	</column>
+	<column name="cantidad_a_pagar" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+	<constraint name="orden_pk" type="pk-constr" table="public.orden">
+		<columns names="folio" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="num_empleado_empleado_mesero" index="3"/>
+		<object name="rfc_cliente" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="cliente_fk" index="2"/>
+		<object name="mesero_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="cliente" layers="0" collapse-mode="2" max-obj-count="14" z-value="0">
+	<schema name="public"/>
+	<position x="1420" y="920"/>
+	<column name="rfc" not-null="true">
+		<type name="varchar" length="13"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="fecha_nacimiento" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="razon_social" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="ap_pat" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="ap_mat">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="calle" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="numero_domicilio" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="colonia" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="cod_postal" not-null="true">
+		<type name="varchar" length="5"/>
+	</column>
+	<column name="estado" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="cliente_pk" type="pk-constr" table="public.cliente">
+		<columns names="rfc" ref-type="src-columns"/>
+	</constraint>
+	<initial-data>
+<![CDATA["rfc";"email";"fecha_nacimiento";"razon_social";"nombre";"ap_pat";"ap_mat";"calle";"numero_domicilio";"colonia";"cod_postal";"estado"
+"PAQF911019MJC";"";"1991-10-19";"";"María Fernanda";"Patiño";"Quintero";"";"";"Altavista";"63722
+";"Nayarit"
+"PEPJ940303MNT";"";"1994-03-03";"";"Jenifer Elizabeth";"Pérez";"Prado";"";"";"Altavista";"63722
+";"Nayarit"
+"PEPR960611MNT";"";"1996-06-11";"";"Rubi";"Pérez";"Prado";"";"";"Altavista";"63722
+";"Nayarit"
+"PEPV910410MNT";"";"1991-04-10";"";"Vanessa Lizeth";"Pérez";"Prado";"";"";"Altavista";"63722
+";"Nayarit"
+"PACH960720MNT";"";"1996-07-20";"";"Heidi Elizabeth";"Prado";"Cueto";"";"";"Altavista";"63722
+";"Nayarit"
+"PASK950116MNT";"";"1995-01-16";"";"Keidi Marcela";"Prado";"Sánchez";"";"";"Altavista";"63722
+";"Nayarit"
+"QUBN931124MNT";"";"1993-11-24";"";"Nalemzy del Rosario";"Quintero";"Borrayo";"";"";"Altavista";"63722
+";"Nayarit"
+"RARA920723MNT";"";"1992-07-23";"";"Andrea Yamileth";"Ramírez";"Ramos";"";"";"Altavista";"63722
+";"Nayarit"
+"RAMM930708MNT";"";"1993-07-08";"";"Marelina";"Ramos";"Marín";"";"";"Altavista";"63722
+";"Nayarit"
+"RIBN940228MNT";"";"1994-02-28";"";"Ninel Ruth";"Rivera";"Borrayo";"";"";"Altavista";"63722
+";"Nayarit"
+"ROCM950625MNT";"";"1995-06-25";"";"Marisol Jazmin";"Robles";"Cueto";"";"";"Altavista";"63722
+";"Nayarit"
+"ROUV960129MNT";"";"1996-01-29";"";"Valeria";"Robles";"Ureña";"";"";"Altavista";"63722
+";"Nayarit"
+"RUSR950115MNT";"";"1995-01-15";"";"Rayza Yareli";"Ruiz";"Salvatierra";"";"";"Altavista";"63722
+";"Nayarit"
+"SAZF960526MNT";"";"1996-05-26";"";"Fernanda";"Sánchez";"Zamudio";"";"";"Altavista";"63722
+";"Nayarit"
+"VEEM961124MNT";"";"1996-11-24";"";"Miriam Carolina";"Ureña";"Espino";"";"";"Altavista";"63722
+";"Nayarit"
+]]>
+	</initial-data>
+</table>
+
+<relationship name="registra" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b98bf3"
+	 src-table="public.mesero"
+	 dst-table="public.orden"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="factura" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#128a7d"
+	 src-table="public.cliente"
+	 dst-table="public.orden"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<table name="categoria" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<position x="540" y="1620"/>
+	<column name="id_categoria" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre_categoria" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="descrip_categoria" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<constraint name="categoria_pk" type="pk-constr" table="public.categoria">
+		<columns names="id_categoria" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="producto" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<position x="1000" y="1620"/>
+	<column name="cod_barra" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre_producto" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="precio" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+	<column name="receta" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="descripcion_producto" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="disponibilidad" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="producto_pk" type="pk-constr" table="public.producto">
+		<columns names="cod_barra" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="id_categoria_categoria" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="categoria_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="pertenece" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#10b516"
+	 src-table="public.categoria"
+	 dst-table="public.producto"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="agregar" type="relnn" layers="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#11dc9f"
+	 src-table="public.orden"
+	 dst-table="public.producto"
+	 src-required="false" dst-required="false"
+	 table-name="many_orden_has_many_producto">
+	<label ref-type="name-label">
+		<position x="1.55339" y="4.24701"/>
+	</label>
+	<column name="cantidad_producto" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="total_por_pagar" not-null="true">
+		<type name="money" length="0"/>
+	</column>
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+</dbmodel>
