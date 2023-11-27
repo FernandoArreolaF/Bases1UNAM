@@ -1,7 +1,8 @@
-Integrantes:
+## Data Matrix Studios
+# Integrantes:
+    Alvarez Saldaña Ariana Lizeth
+    López González Erick
+    R Alan
 
-López González Erick
 
-Alvarez Saldaña Ariana Lizeth
 
-Pérez Aguilar Roberto
