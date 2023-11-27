@@ -1,0 +1,33 @@
+Integrantes:
+Cruz Vargas Emilio
+Martínez Pavón María Guadalupe 
+--  Se desea conocer aquellos alumnos que ya cuentan con asesor. Interesa el nombre del asesor y del alumno.
+SELECT nombre_alumno,nombre_asesor
+FROM alumno INNER JOIN asesor
+ON alumno.id_asesor=asesor.id_asesor
+-- Se desea conocer aquellos alumnos que ya cuentan con asesor y aquellos que no. Interesa el nombre del asesor y del alumno.
+SELECT nombre_alumno
+FROM alumno FULL JOIN asesor
+ON alumno.id_asesor=asesor.id_asesor
+-- Se desea conocer aquellos asesores que ya cuentan con tesista y aquellos que no. Interesa el nombre del asesor y del alumno.
+SELECT nombre_asesor,nombre_alumno as tesista
+FROM alumno inner JOIN asesor
+ON alumno.id_asesor=asesor.id_asesor
+-- Se desea conocer aquellos alumnos que ya cuentan con asesor, así como los alumnos sin asesor y los asesores sin alumnos. Interesa el nombre del asesor y del alumno.
+SELECT asesor.nombre_asesor,alumno.nombre_alumno 
+FROM asesor full JOIN alumno
+ON alumno.id_asesor=asesor.id_asesor
+-- Se desea conocer aquellos alumnos sin asesor y los asesores sin alumnos. Interesa el nombre del asesor y del alumno.
+SELECT asesor.nombre_asesor,alumno.nombre_alumno 
+FROM asesor full JOIN alumno
+ON alumno.id_asesor=asesor.id_asesor
+-- Se desea conocer aquellos alumnos sin asesor. Interesa el nombre del alumno. Emplear joins.
+SELECT nombre_alumno, nombre_asesor
+FROM alumno left JOIN asesor
+ON alumno.id_asesor=asesor.id_asesor
+WHERE nombre_asesor is null
+-- Se desea conocer aquellos asesores sin alumnos. Interesa el nombre del asesor. Emplear joins.
+SELECT nombre_alumno, nombre_asesor
+FROM alumno right JOIN asesor
+ON alumno.id_asesor=asesor.id_asesor
+WHERE nombre_alumno is null
