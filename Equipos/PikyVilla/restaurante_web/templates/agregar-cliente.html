@@ -37,18 +37,33 @@
         <form action="/agregar_cliente" method="POST" autocomplete="off" class="form">
             <div class="form__container">
                 <h2 class="form__title">Agregar Cliente</h2>
+                
+                {% if folio %}
+                    <div class="form__group">   
+                        <input type="text" id="folio" class="form__input" name="folio" placeholder="{{folio}}" value="{{folio}}">
+                        <label for="folio" class="form__label">Folio de Orden</label>
+                        <span class="form_line"></span>
+                    </div>
 
-                <div class="form__group">   
-                    <input type="text" id="folio" class="form__input" name="folio" placeholder=" ">
-                    <label for="folio" class="form__label">Folio de Orden</label>
-                    <span class="form_line"></span>
-                </div>
+                    <div class="form__group">   
+                        <input type="text" id="rfc" class="form__input" name="rfc" placeholder="{{ rfc }}" value="{{ rfc }}">
+                        <label for="rfc" class="form__label">RFC</label>
+                        <span class="form_line"></span>
+                    </div>
+                {% else %}
+                    <div class="form__group">   
+                        <input type="text" id="folio" class="form__input" name="folio" placeholder=" ">
+                        <label for="folio" class="form__label">Folio de Orden</label>
+                        <span class="form_line"></span>
+                    </div>
 
-                <div class="form__group">   
-                    <input type="text" id="rfc" class="form__input" name="rfc" placeholder=" ">
-                    <label for="rfc" class="form__label">RFC</label>
-                    <span class="form_line"></span>
-                </div>
+                    <div class="form__group">   
+                        <input type="text" id="rfc" class="form__input" name="rfc" placeholder=" ">
+                        <label for="rfc" class="form__label">RFC</label>
+                        <span class="form_line"></span>
+                    </div>
+                {% endif %}
+                
 
                 <div class="form__group">   
                     <input type="text" id="nombre" class="form__input" name="nombre" placeholder=" ">

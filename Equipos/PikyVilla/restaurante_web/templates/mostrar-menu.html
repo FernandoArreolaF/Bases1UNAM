@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body class="fondo__pages">
+
+    
+
+    <div>
+
+        <header class="header-inpages">
+
+            <div class="menu container">
+
+                <a class="logo" href="{{url_for('inicio')}}">COFFEE</a>
+                <input type="checkbox" id="menu">
+                <label for="menu">
+                    <img src="{{ url_for('static', filename='images/menu.png') }}" class="menu-icono" alt="">
+                </label>
+
+                <nav class="navbar">    
+                    <ul class="menu__horizontal">
+                        <li>
+                            <a href="{{url_for('inicio')}}">Inicio</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+    </header>
+    </div>
+
+
+    <div class="menu__productos">
+        <header>
+            <h1 class="title__menu">Menú</h1>
+            <p class="established">pikivilla's coffee</p>
+            <br>
+
+            <header>
+                <hr class="meun__line">
+                <section>
+                    <br>
+
+                    <article class="item">
+                        {% for dato in datos %}
+                        <p class="flavor__nv"><b>{{dato.1}}</b></p><p class="price_nv">${{dato.3}}</p> <br>
+                        <p class="descrption__menu">{{dato.2}}</p>
+                        {% endfor %}
+                    </article>
+
+
+                </section>
+
+            </header>
+        </header>
+    </div>
+
+    </body>
+</html>

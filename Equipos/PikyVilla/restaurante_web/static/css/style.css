@@ -492,27 +492,18 @@ body{
     width: 514px;
     height: auto;
     border-radius: 12px;
-    overflow: hidden;
     margin: 68px auto;
     background-color: #c6c6c6;
 }
-
-.card__first-secction {
-    border-radius: 5cm;
-    background-color: transparent;
-}
-
 .img__container{
     display: flex;
-    background-color: transparent;
     justify-content: center;
     align-items: center;
-    border-radius: 5cm;
+    border-radius: 0;
 }
 .card_first-section_image{
     width: 10%;
-    border-radius: 5cm;
-
+    border-radius: 0;
 }
 
 .card__second-section__empleado-puesto{
@@ -584,6 +575,7 @@ body{
 .established{
     text-align: center;
     font-style: italic;
+    text-transform: uppercase;
 }
 .title__menu {
     text-align: center;
@@ -723,4 +715,11 @@ body{
     height: 1px;
     background-color: #706c6c;
     border-color: #706c6c;
+}
+
+.descrption__menu{
+    width: 60%;
+    text-align: left;
+    padding-left: 50px;
+    color: #414247;
 }

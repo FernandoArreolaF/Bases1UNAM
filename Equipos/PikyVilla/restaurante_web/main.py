@@ -1,11 +1,11 @@
 from flask import Flask, request, render_template
 import psycopg2
-import base64
 from io import BytesIO
 from PIL import Image
 import os
-from psycopg2 import sql
 from io import BytesIO
+
+# Hacer menú. Optimizar el agregar un cliente
 
 host = "localhost"
 database = "restaurante_bd"
@@ -93,6 +93,32 @@ def agregarProductoOrden():
 def generarFactura():
   return render_template('generar-factura.html')
 
+# Falta implementar el HTML
+@app.route('/mostrar_menu')
+def mostrar_menu():
+  try:
+    #Parametros para coneccion a la base
+    connection = psycopg2.connect(host=host,
+                                  database=database,
+                                  user=user,
+                                  password=password)
+
+    # Crear un cursor para ejecutar consultas
+    cur = connection.cursor()
+
+    #Instruccion a ejecutar en sintaxis postgres
+    instruction = "SELECT * FROM restaurante.producto ORDER BY id_alimento;"
+    #Los datos son las variables declaradas
+    cur.execute(instruction)
+    records = cur.fetchall()
+    for record in records:
+      print(record)
+    cur.close()
+    connection.close()
+
+  except (Exception, psycopg2.Error) as error:
+    print("Error al conectarse a la base de datos:", error)
+  return render_template('mostrar-menu.html', datos=records)
 
 @app.route('/agregar_empleado', methods=['POST'])
 def agregar_empleado():
@@ -547,7 +573,6 @@ def agregar_cliente():
     numero = request.form['numero']
     email = request.form['email']
     razon_social = request.form['razon']
-
     try:
       #Parametros para coneccion a la base
       connection = psycopg2.connect(host=host,
@@ -852,7 +877,7 @@ def obtener_rfc():
         # No hay ningún cliente registrado con dicho RFC
         cur.close()
         connection.close()
-        return render_template('agregar-cliente.html')
+        return render_template('agregar-cliente.html',rfc=rfc,folio=folio)
       else:
         # Ya se ha registrado dicho cliente
         instruction = f'UPDATE restaurante.orden SET rfc_cliente = \'{rfc}\' WHERE folio = \'{folio}\';'
