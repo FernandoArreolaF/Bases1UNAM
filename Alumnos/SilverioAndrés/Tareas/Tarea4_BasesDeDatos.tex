@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\centering
+		\vspace*{1cm}
+		\Large Universidad Nacional Autónoma de México\\
+		\Large Facultad de Ingeniería\\
+		\vspace*{0.5cm}
+		\large Nombre del Alumno:\\
+		\large Silverio Martínez Andrés \\
+		\vspace*{0.5cm}
+		\large Nombre de la Materia:\\
+		\large Bases de Datos\\
+		\vspace*{0.5cm}
+		\large Nombre del Profesor:\\
+		\large Fernando Arreola Franco \\
+		\vspace*{0.5cm}
+		\large Tarea 4:\\
+		\large  Dependencia e independencia de existencia y entidad débil\\
+		\vspace*{0.5cm}
+		\large Grupo:\\
+		\large 1 \\
+		\vspace*{0.5cm}
+		\large Semestre:\\
+		\large 2024 - 2:\\
+		\vspace*{0.5cm}
+
+	\end{titlepage}
+	
+	\title{Tarea 4}
+	\author{Silverio Martínez Andrés}
+	\date{\today}
+	
+	\maketitle
+	
+	\section{Dependencia e independencia de existencia}
+	Una dependencia en existencia se refiere a una relación entre entidades, en la que la existencia de una entidad, si o sí, va a depender de la exitencia de la otra. Por ejemplo, en un modelo de base de datos, se puede tener una entidad “Pedido” y una entidad “Producto”. Si cada pedido debe contener al menos un producto, entonces la entidad “Pedido” tiene una dependencia en existencia con la entidad “Producto”.
+	
+	\vspace*{0.5cm}
+	
+	Mientras que la independencia de datos es la característica de una base de datos, la cual permite modificar la estructura o el formato de los datos en un área sin afectar a los datos de otras áreas. Existen dos tipos, que son:
+	
+	\vspace*{0.5cm}
+	
+	- Independencia lógica: Permite realizar cambios en la estructura de los datos de manera independiente, o modificar las aplicaciones que utilizan esos datos.
+
+	- Independencia física: Permite realizar cambios en la estructura física de la base de datos sin la necesidad de realizar cambios en las aplicaciones que utilizan las bases de datos.
+
+	\vspace*{5 cm}
+
+	\section{Entidad débil}
+	Una entidad débil es una entidad que cuyas propiedades o atributos no la identifican completamente, solamente de forma parcial. Esta entidad debe de ser partícipe de una relación que la ayude a identificarla.
+	En el modelo E/R una entidad débil se representa con el nombre de la entidad encerrado en un rectángulo doble, como se muestra a continuación:
+
+	
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{screenshot001}
+	\caption{Entidad débil}
+	\label{fig:screenshot001}
+\end{figure}
+
+	\section{Referencias}
+
+[1]	3.1.- Tipos: fuertes y débiles. | DAM\_BD03\_Contenido”. S'Arreplec. Accedido el 15 de febrero de 2024. [En línea]. Disponible: https://sarreplec.caib.es/pluginfile
+.php/10828/mod\_resource/content/2/31\_tipos\_fuertes\_y\_dbiles.html
+
+\vspace{0.5 cm}
+
+[2]	¿Qué es la Independencia de Datos?” Ordenadores y Portátiles. Accedido el 15 de febrero de 2024. [En línea]. Disponible: https://ordenadores-y-portatiles.com/independencia-de-datos/
+	
+
+\end{document}
