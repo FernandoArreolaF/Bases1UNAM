@@ -1,0 +1,8 @@
+CREATE USER tarea WITH [ENCRYPTED]
+password 'tarea3' CONECTION LIMIT 2
+VALID UNTIL '2024-03-14'
+CREATE RULE admin b.d
+GRANT RULE adminb.d
+GRANT select,update,delete ON estudiante TO admin_bd
+GRANT admin_bd TO tarea
+
