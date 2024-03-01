@@ -1,0 +1,53 @@
+CREATE TABLE Proveedor (
+    proveedor_id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100),
+    direccion TEXT,
+    telefono VARCHAR(20),
+    pagina_web VARCHAR(255)
+);
+
+CREATE TABLE Cliente (
+    cliente_id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100),
+    direccion TEXT,
+    rfc VARCHAR(13)
+);
+
+CREATE TABLE TelefonoCliente (
+    cliente_id INT,
+    telefono INT,
+    FOREIGN KEY (cliente_id) REFERENCES Cliente(cliente_id)
+);
+
+CREATE TABLE Producto (
+   producto_id SERIAL PRIMARY KEY,
+   nombre VARCHAR(100),
+   precio_actual DECIMAL,
+   stock INT,
+   fotografia BYTEA,
+   categoria_id INT
+);
+
+CREATE TABLE Categoria (
+   categoria_id SERIAL PRIMARY KEY,
+   nombre VARCHAR(100),
+   descripcion TEXT
+);
+
+CREATE TABLE Venta (
+  venta_id SERIAL PRIMARY KEY,
+  cliente_id INT, 
+  fecha DATE, 
+  monto_final DECIMAL, 
+  FOREIGN KEY (cliente_id) REFERENCES Cliente(cliente_id)
+);
+
+CREATE TABLE DetalleVenta (
+  venta_id INT, 
+  producto_id INT, 
+  cantidad INT, 
+  monto_total DECIMAL, 
+  FOREIGN KEY (venta_id) REFERENCES Venta(venta_id), 
+  FOREIGN KEY (producto_id) REFERENCES Producto(producto_id)
+);
+
