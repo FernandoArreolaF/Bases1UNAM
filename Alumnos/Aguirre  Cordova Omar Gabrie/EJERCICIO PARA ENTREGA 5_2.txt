@@ -1,0 +1,13 @@
+EJERCICIO PARA ENTREGA 5_2
+Sea R(A,B,C,D,)
+DF: {AB->CD, D->B, C->A}
+Encontrar todas las CKs
+Determinar el conjunto de APs
+Indicar la PK
+AB+→ {A,B,C,D} CK
+D+→ {D,B}
+C+→ {C,A}
+DC+→ {A,B,C,D} CK
+APs: {AB}
+CKs: {AB,DC} 
+PK: {AB} 

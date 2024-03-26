@@ -1,0 +1,19 @@
+Ejercicio a entregar		Aguirre Cordova Omar Gabriel 
+Sea R{A, B , C, D, E}
+DF: {A→B, D→E}
+Dterminar
+1)	A+
+	A+ → {A,B}
+2)	ABCDE+
+	ABCDE+ → {A,B,C,D,E} SK
+3)	ACDE+
+	ACDE+ → {A,C,D,E,B} SK
+4)	BC+
+	BC+ → {B,C}
+5)	ABDE+
+	ABDE+ → {A,B,D,E}
+6)	ACD+
+	ACD+ → {A,C,D,B,E} SK
+SK's: [ABCDE, ACDE, ACD]
+PK's: []
+PK= ACD
