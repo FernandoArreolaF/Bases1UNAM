@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\title{Tarea VI. Reglas de CODD}
+\author{Bases de Datos. Gonzalez Cuellar Pablo Arturo}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Introducción}
+	Las reglas de Codd, establecidas por Edgar F. Codd en la década de 1970, son un conjunto de normas que definen las características que debe tener un sistema de gestión de bases de datos relacionales para ser considerado verdaderamente relacional. Estas reglas son fundamentales para garantizar la integridad, la consistencia y la fiabilidad de los datos en un sistema de base de datos relacional.
+	
+	\section*{Reglas de Codd}
+	
+	\subsection*{Regla 1: La Regla de la Información}
+	Cada valor almacenado en una base de datos debe ser accesible mediante una estructura de datos relacional que esté compuesta por el nombre de una tabla, el valor de una clave primaria y el nombre de una columna.
+	
+	\subsection*{Regla 2: La Regla del Acceso Garantizado}
+	Cada pieza de información en la base de datos debe ser accesible sin ambigüedad mediante un nombre de tabla, un valor de clave primaria y el nombre de una columna.
+	
+	\subsection*{Regla 3: Tratamiento Sistemático de los Valores Nulos}
+	Los valores nulos (NULL) deben ser manejados de forma sistemática y consistente en toda la base de datos, permitiendo su representación y manipulación adecuadas.
+	
+	\subsection*{Regla 4: Catálogo en Línea Basado en el Modelo de Datos}
+	El catálogo de la base de datos, que contiene información sobre la estructura y organización de los datos, debe ser accesible mediante el propio modelo de datos relacional.
+	
+	\subsection*{Regla 5: Sublenguaje de Datos Completo}
+	El sistema de gestión de la base de datos debe admitir al menos un lenguaje de consulta que tenga capacidades para definir datos, consultas, actualizaciones, esquemas y restricciones de integridad.
+	
+	\subsection*{Regla 6: Regla de Actualización Vista-Columna}
+	Todas las vistas actualizables deben ser actualizables mediante las mismas operaciones que se utilizan para actualizar las tablas base.
+	
+	\subsection*{Regla 7: Independencia de los Datos Físicos}
+	Las aplicaciones deben estar separadas de los detalles físicos de cómo se almacenan los datos. Los cambios en la forma en que se almacenan los datos no deben afectar a las aplicaciones.
+	
+	\subsection*{Regla 8: Independencia de los Datos Lógicos}
+	Los cambios en la estructura lógica de la base de datos (tabla, columna, clave primaria, etc.) no deben afectar a las aplicaciones existentes.
+	
+	\subsection*{Regla 9: Independencia de la Integridad}
+	Las restricciones de integridad deben ser independientes de las aplicaciones y almacenarse en el diccionario de datos.
+	
+	\subsection*{Regla 10: Independencia de la Distribución}
+	Las aplicaciones deben ser independientes de la distribución de los datos en la red. Los cambios en la distribución de los datos no deben afectar a las aplicaciones.
+	
+	\subsection*{Regla 11: Independencia de la Replicación}
+	Las aplicaciones deben ser independientes de si los datos se almacenan o se replican. La replicación de datos no debe afectar a las aplicaciones.
+	
+	\subsection*{Regla 12: Regla de la No-Subversión}
+	Si un sistema de base de datos relacional tiene un lenguaje de bajo nivel, no debe ser posible subvertir las reglas y restricciones expresadas en un nivel más alto mediante el uso del lenguaje de bajo nivel.
+	
+	\section*{Referencias}
+	\begin{enumerate}
+		\item Quiroz, J. (2003). El modelo relacional de bases de datos. Boletín de Política Informática, 6, 53-61.
+		\item Rivera, F. L. O. (2008). Base de datos relacionales. Itm.
+	\end{enumerate}
+	
+\end{document}
