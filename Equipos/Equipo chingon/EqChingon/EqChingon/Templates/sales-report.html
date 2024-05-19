@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reporte de Ventas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <a href="admin-bd.html">
+          <div class="logo-restaurante"></div>
+        </a>
+        <span class="ventas-por-periodo">Ventas por periodo</span
+        ><span class="mar-de-sabores">Mar de Sabores</span>
+      </div>
+      <div class="sales">
+        <form id="salesForm">
+        <label class="fecha-inicio" for="startDate">Fecha de Inicio:</label>
+        <input type="date" id="startDate" name="startDate"><br><br>
+        
+        <label for="endDate">Fecha de Fin:</label>
+        <input type="date" id="endDate" name="endDate"><br><br>
+        
+        <button type="button">Consultar</button>
+    </form>
+    <div id="result"></div>
+      </div>
+      <div class="menu"></div>
+    </div>
+    
+    
+<style>
+    :root {
+        --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+          "Source Han Sans CN", sans-serif;
+      }
+
+      /* Estilo del cuerpo */
+    body {
+      font-family: 'Monda', sans-serif;
+    }
+      
+      .main-container {
+        overflow: hidden;
+      }
+      
+      .main-container,
+      .main-container * {
+        box-sizing: border-box;
+      }
+      
+      input,
+      select,
+      textarea,
+      button {
+        outline: 0;
+      }
+      
+      .main-container {
+        position: relative;
+        width: 1400px;
+        height: 894px;
+        margin: 0 auto;
+        background: #ffffff;
+      }
+      .header {
+        position: relative;
+        width: 1400px;
+        height: 166px;
+        margin: 0 0 0 0;
+        background: #1e1e1e;
+        overflow: hidden;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      .logo-restaurante {
+        position: absolute;
+        width: 157px;
+        height: 145px;
+        top: 11px;
+        left: 22px;
+        background: url("images/logo-restaurante.jpeg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 3;
+        border-radius: 72.5px;
+        box-sizing: content-box;
+      }
+      .ventas-por-periodo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 244px;
+        height: 94px;
+        top: 40px;
+        left: 1156px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 31.2px;
+        text-align: center;
+        z-index: 2;
+      }
+      .mar-de-sabores {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 247px;
+        height: 50px;
+        top: 58px;
+        left: 202px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 1;
+        -webkit-text-stroke: 1px #000000;
+      }
+      .sales {
+        position: relative;
+        width: 1362px;
+        height: 375px;
+        margin: 18px 0 0 19px;
+        background: #0ead87;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 4;
+        box-sizing: content-box;
+      }
+      .menu {
+        position: relative;
+        width: 1361px;
+        height: 302px;
+        margin: 17px 0 0 20px;
+        background: url("images/ventas-fondo.jpg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 5;
+        border-radius: 8px;
+      }
+      
+      .sales label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-left: 300px;
+        
+      }
+      
+      .sales input[type="date"],
+      .sales button {
+        width: calc(60% - 40px); /* Considerando el padding horizontal */
+        padding: 8px;
+        margin-bottom: 12px;
+        margin-left: 300px;
+        border: none;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+      }
+      
+      .sales button {
+        padding: 10px 20px;
+        background-color: #ffffff;
+        color: #0ead87;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border-radius: 4px;
+      }
+      
+      .sales button:hover {
+        background-color: #0ead87;
+        color: #ffffff;
+      }
+      
+      .fecha-inicio{
+        margin-top: 80px;
+      }
+
+</style>
+    
+  </body>
+</html>
+

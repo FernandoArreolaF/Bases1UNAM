@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Empleados</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <a href="digital-system.html">
+            <div class="logo-restaurante"></div>
+          </a>
+        <span class="registros-de-empleados">Registros de Empleados</span
+        ><span class="mar-de-sabores">Mar de Sabores</span>
+      </div>
+      <div class="datos">
+        <div class="table-container">
+            <table class="recipe-table">
+                <tr>
+                  <td rowspan="15"><img src="ruta_de_la_imagen.jpg" alt="Foto de Juan Pérez López"></td>
+                  <td colspan="2"><h2>Identificación de Empleado</h2></td>
+                </tr>
+                <tr>
+                  <td class="label">RFC:</td>
+                  <td>ABCD123456EFG</td>
+                </tr>
+                <tr>
+                  <td class="label">Número de empleado:</td>
+                  <td>12345678</td>
+                </tr>
+                <tr>
+                  <td class="label">Nombre:</td>
+                  <td>Juan Pérez López</td>
+                </tr>
+                <tr>
+                  <td class="label">Fecha de nacimiento:</td>
+                  <td>1990-01-01</td>
+                </tr>
+                <tr>
+                  <td class="label">Teléfonos:</td>
+                  <td>123-456-7890, 987-654-3210</td>
+                </tr>
+                <tr>
+                  <td class="label">Edad:</td>
+                  <td>30</td>
+                </tr>
+                <tr>
+                  <td class="label">Dirección:</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Estado:</td>
+                  <td>Ciudad de México</td>
+                </tr>
+                <tr>
+                  <td>Código Postal:</td>
+                  <td>12345</td>
+                </tr>
+                <tr>
+                  <td>Colonia:</td>
+                  <td>Colonia Ejemplo</td>
+                </tr>
+                <tr>
+                  <td>Calle:</td>
+                  <td>Calle Ejemplo</td>
+                </tr>
+                <tr>
+                  <td>Número:</td>
+                  <td>123</td>
+                </tr>
+                <tr>
+                  <td class="label">Sueldo:</td>
+                  <td>$15,000</td>
+                </tr>
+                <tr>
+                  <td class="label">Rol:</td>
+                  <td>Mesero</td>
+                </tr>
+                <tr>
+                  <td class="label">Horario:</td>
+                  <td>9:00 AM - 5:00 PM</td>
+                </tr>
+                <tr>
+                  <td class="label">Dependientes:</td>
+                  <td>Nombre:</td>
+                  <td>María Pérez López</td>
+                  <td>Parentesco:</td>
+                  <td>Hija</td>
+                </tr>
+                <tr>
+                  <td>CURP:</td>
+                  <td>ABCD123456XYZ</td>
+                </tr>
+              </table>
+        </div>
+      </div>
+      <div class="fondo-pagina-principal"></div>
+    </div>
+  </body>
+
+  <style>
+    :root {
+        --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+          "Source Han Sans CN", sans-serif;
+      }
+      
+      body {
+        font-family: 'Monda', sans-serif;
+      }
+
+      .main-container {
+        overflow: hidden;
+      }
+      
+      .main-container,
+      .main-container * {
+        box-sizing: border-box;
+      }
+      
+      input,
+      select,
+      textarea,
+      button {
+        outline: 0;
+      }
+      
+      .main-container {
+        position: relative;
+        width: 1400px;
+        height: 920px;
+        margin: 0 auto;
+        background: #ffffff;
+      }
+      .header {
+        position: relative;
+        width: 1400px;
+        height: 166px;
+        margin: 0 0 0 0;
+        background: #1e1e1e;
+        overflow: hidden;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      .logo-restaurante {
+        position: absolute;
+        width: 157px;
+        height: 145px;
+        top: 11px;
+        left: 27px;
+        background: url("/images/logo-restaurante.jpeg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 4;
+        border-radius: 72.5px;
+        box-sizing: content-box;
+      }
+      .registros-de-empleados {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 244px;
+        height: 60px;
+        top: 53px;
+        left: 1156px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 31.2px;
+        text-align: center;
+        z-index: 2;
+      }
+      .mar-de-sabores {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 247px;
+        height: 50px;
+        top: 58px;
+        left: 202px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 1;
+        -webkit-text-stroke: 1px #000000;
+      }
+      .datos {
+        position: relative;
+        width: 1343px;
+        height: 570px;
+        margin: 94px 0 0 27px;
+        background: #0ead87;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 5;
+      }
+      .fondo-pagina-principal {
+        position: absolute;
+        width: 1400px;
+        height: 754px;
+        top: 166px;
+        left: 0;
+        background: url("/images/fondo-pagina-principal.jpg")
+          no-repeat center;
+        background-size: cover;
+        filter: blur(2px);
+        z-index: 3;
+      }
+      .recipe-table {
+        width: 1343px;
+        height: 570px;/* Ancho ajustable */
+        border-collapse: collapse;
+        font-family: var(--default-font-family);
+        margin: 0 auto; 
+      }
+      
+      .recipe-table th, 
+      .recipe-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: justify;
+      }
+      
+      .recipe-table th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
+      
+      .recipe-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      
+      .recipe-table tr:hover {
+        background-color: #ddd;
+      }
+      
+      .table-container {
+        width: 1343px;
+        height: 570px; /* Altura deseada para el contenedor */
+        overflow: auto; /* Agregar scroll si el contenido excede la altura */
+      }
+  </style>
+</html>
+
+
+
+
+
+

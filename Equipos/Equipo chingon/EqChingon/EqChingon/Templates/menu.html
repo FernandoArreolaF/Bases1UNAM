@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título de la página -->
+    <title>Menú</title>
+    <!-- Enlace a la fuente de Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" />
+    <!-- Enlace al archivo de estilos CSS -->
+    <link rel="stylesheet" href="/css/menu.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Encabezado -->
+      <div class="header">
+        <!-- Logo del restaurante -->
+        <a href="admin-bd.html">
+          <div class="logo-restaurante"></div>
+        </a>
+        <!-- Título del menú -->
+        <span class="menu">Menú</span
+        ><span class="mar-de-sabores">Mar de Sabores</span>
+      </div>
+      <!-- Sección para mostrar elementos del menú -->
+      <div class="menu-1"></div>
+      <!-- Formulario para agregar/editar elementos del menú -->
+      <div class="menu-2">
+        <form id="menuForm">
+          <!-- Campos del formulario -->
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" required><br>
+
+          <label for="description">Descripción:</label>
+          <textarea id="description" name="description" required></textarea><br>
+
+          <label for="recipe">Receta:</label>
+          <textarea id="recipe" name="recipe" required></textarea><br>
+
+          <label for="price">Precio:</label>
+          <input type="number" id="price" name="price" required><br>
+
+          <label for="availability">Disponibilidad:</label>
+          <select id="availability" name="availability" required>
+            <option value="available">Disponible</option>
+            <option value="not_available">No disponible</option>
+          </select><br>
+
+          <label for="category">Categoría:</label>
+          <select id="category" name="category" required>
+            <option value="plato_principal">Plato Principal</option>
+            <option value="entrante">Entrante</option>
+            <option value="postre">Postre</option>
+            <option value="bebida">Bebida</option>
+          </select><br>
+
+          <!-- Botón para enviar el formulario -->
+          <button type="submit">Agregar/Editar</button>
+        </form>
+      </div>
+      <!-- Sección para mostrar más elementos del menú -->
+      <div class="menu-3"></div>
+    </div>
+
+    <style>
+      :root {
+        --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+          "Source Han Sans CN", sans-serif;
+      }
+
+      /* Estilo del cuerpo */
+    body {
+      font-family: 'Monda', sans-serif;
+    }
+      
+      .main-container {
+        overflow: hidden;
+      }
+      
+      .main-container,
+      .main-container * {
+        box-sizing: border-box;
+      }
+      
+      input,
+      select,
+      textarea,
+      button {
+        outline: 0;
+      }
+      
+      .main-container {
+        position: relative;
+        width: 1400px;
+        height: 898px;
+        margin: 0 auto;
+        background: #ffffff;
+      }
+      .header {
+        position: relative;
+        width: 1400px;
+        height: 166px;
+        margin: 0 0 0 0;
+        background: #1e1e1e;
+        overflow: hidden;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      .logo-restaurante {
+        position: absolute;
+        width: 157px;
+        height: 145px;
+        top: 11px;
+        left: 20px;
+        background: url("images/logo-restaurante.jpeg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 3;
+        border-radius: 72.5px;
+        box-sizing: content-box;
+      }
+      .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 244px;
+        height: 94px;
+        top: 40px;
+        left: 1156px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 31.2px;
+        text-align: center;
+        z-index: 2;
+      }
+      .mar-de-sabores {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 247px;
+        height: 50px;
+        top: 58px;
+        left: 202px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 1;
+        -webkit-text-stroke: 1px #000000;
+      }
+      .menu-1 {
+        position: relative;
+        width: 1362px;
+        height: 145px;
+        margin: 22px 0 0 21px;
+        background: url("images/menu-fondo.jpg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 5;
+        border-radius: 8px;
+      }
+      .menu-2 {
+        position: relative;
+        width: 1363px;
+        height: 379px;
+        margin: 10px 0 0 20px;
+        background: #0ead87;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 6;
+        box-sizing: content-box;
+        overflow-y: auto; /* Agregar scroll vertical */
+      }
+      .menu-3 {
+        position: relative;
+        width: 1362px;
+        height: 145px;
+        margin: 12px 0 0 21px;
+        background: url("images/menu-fondo.jpg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 4;
+        border-radius: 8px;
+      }
+      
+      #menuForm {
+        padding: 20px;
+      }
+      
+      #menuForm label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #ffffff; /* Color del texto del label */
+      }
+      
+      #menuForm input[type="text"],
+      #menuForm input[type="textarea"],
+      #menuForm input[type="number"],
+      #menuForm select {
+        width: calc(100% - 16px);
+        padding: 8px;
+        margin-bottom: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1); /* Color de fondo del input */
+        color: #ffffff; /* Color del texto del input */
+      }
+      
+      #menuForm textarea {
+        width: calc(100% - 16px);
+        padding: 8px;
+        margin-bottom: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1); /* Color de fondo del textarea */
+        color: #ffffff; /* Color del texto del textarea */
+      }
+      
+      #menuForm select {
+        width: calc(100% - 16px);
+        padding: 8px;
+        margin-bottom: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1); /* Color de fondo del select */
+        color: #ffffff; /* Color del texto del select */
+      }
+      
+      #menuForm button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #ffffff; /* Color de fondo del botón */
+        color: #0ead87; /* Color del texto del botón */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      #menuForm button[type="submit"]:hover {
+        background-color: #0ead87; /* Cambia el color de fondo al pasar el mouse */
+        color: #ffffff; /* Cambia el color del texto al pasar el mouse */
+      }    
+    </style>
+  </body>
+</html>

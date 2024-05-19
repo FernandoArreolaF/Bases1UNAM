@@ -1,0 +1,25 @@
+--psql -U adminbd -d restaurante   
+\q
+psql postgres 
+drop database restaurante;
+create database RESTAURANTE;
+\c restaurante
+\i /Users/monserratlopez/Desktop/ProyectoBases/ProyectoBD2024/Proyecto_Mar_de_Delicias /Database/creacion_tablas.sql
+\i /Users/monserratlopez/Desktop/ProyectoBases/ProyectoBD2024/Proyecto_Mar_de_Delicias /Database/inserciones.sql
+\i /Users/monserratlopez/Desktop/ProyectoBases/ProyectoBD2024/Proyecto_Mar_de_Delicias /Database/funciones_triggers.sql
+\i /Users/monserratlopez/Desktop/ProyectoBases/ProyectoBD2024/Proyecto_Mar_de_Delicias /Database/indices.sql
+/Users/monserratlopez/Desktop/ProyectoBases/ProyectoBD2024/Proyecto_Mar_de_Delicias /Database/consultas_vistas.sql
+
+-- Para git
+Para git
+Git status
+Git add
+Git commit -m 'Archivos de sql listos'
+Git status
+Git log
+Git push origin master
+En linea :
+Update branch
+Pull request
+—
+git pull origin master

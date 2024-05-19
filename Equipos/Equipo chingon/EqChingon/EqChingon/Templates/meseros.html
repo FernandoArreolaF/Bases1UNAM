@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Dgital - Meseros</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <a href="categories.html">
+            <div class="logo-restaurante"></div>
+        </a>
+        <span class="sistema-digital-meseros">Sistema Digital<br />Meseros</span
+        ><span class="mar-de-sabores">Mar de Sabores</span>
+      </div>
+      <div class="opcions">
+        <div class="frame">
+            <a href="consulta-ordenes.html">
+              <span class="registro-de-ordenes">Ordenes</span>
+            </a>
+          </div>
+          <div class="frame-1">
+            <a href="consultar-menu.html">
+              <span class="consulta-menu">Menú</span>
+            </a>
+          </div>          
+      </div>
+      <div class="fondo-pagina-principal"></div>
+    </div>
+    
+    <style>
+
+        body {
+            font-family: 'Monda', sans-serif; /* Aplicar fuente Monda al cuerpo del documento */
+          }
+
+        :root {
+            --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+              "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+              "Source Han Sans CN", sans-serif;
+          }
+          
+          .main-container {
+            overflow: hidden;
+          }
+          
+          .main-container,
+          .main-container * {
+            box-sizing: border-box;
+          }
+          
+          input,
+          select,
+          textarea,
+          button {
+            outline: 0;
+          }
+          
+          .main-container {
+            position: relative;
+            width: 1400px;
+            height: 920px;
+            margin: 0 auto;
+            background: #ffffff;
+          }
+          .header {
+            position: relative;
+            width: 1400px;
+            height: 166px;
+            margin: 0 0 0 0;
+            background: #1e1e1e;
+            overflow: hidden;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+          }
+          .logo-restaurante {
+            position: absolute;
+            width: 157px;
+            height: 145px;
+            top: 11px;
+            left: 27px;
+            background: url("images/logo-restaurante.jpeg")
+              no-repeat center;
+            background-size: cover;
+            z-index: 4;
+            border-radius: 72.5px;
+            box-sizing: content-box;
+          }
+          .sistema-digital-meseros {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            width: 244px;
+            height: 60px;
+            top: 53px;
+            left: 1156px;
+            color: #ffffff;
+            font-family: Monda, var(--default-font-family);
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 31.2px;
+            text-align: center;
+            z-index: 2;
+          }
+          .mar-de-sabores {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: absolute;
+            width: 247px;
+            height: 50px;
+            top: 58px;
+            left: 202px;
+            color: #ffffff;
+            font-family: Monda, var(--default-font-family);
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 50px;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 1;
+            -webkit-text-stroke: 1px #000000;
+          }
+          .opcions {
+            position: relative;
+            width: 250px;
+            height: 168px;
+            margin: 293px 0 0 575px;
+            background: #0ead87;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 5;
+            overflow: visible auto;
+            border-radius: 8px;
+          }
+          .frame {
+            position: relative;
+            width: 198px;
+            height: 45px;
+            margin: 31px 0 0 26px;
+            background: #ffffff;
+            z-index: 6;
+            overflow: hidden;
+            border-radius: 8px;
+          }
+          .registro-de-ordenes {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            width: 155px;
+            height: 21px;
+            top: calc(50% - 10.5px);
+            left: calc(50% - 77px);
+            color: #000000;
+            font-family: Monda, var(--default-font-family);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 20.8px;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 7;
+          }
+          .frame-1 {
+            position: relative;
+            width: 198px;
+            height: 45px;
+            margin: 17px 0 0 26px;
+            background: #ffffff;
+            z-index: 8;
+            overflow: hidden;
+            border-radius: 8px;
+          }
+          .consulta-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            width: 117px;
+            height: 21px;
+            top: calc(50% - 10.5px);
+            left: calc(50% - 58px);
+            color: #000000;
+            font-family: Monda, var(--default-font-family);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 20.8px;
+            text-align: center;
+            white-space: nowrap;
+            z-index: 9;
+            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          }
+          .fondo-pagina-principal {
+            position: absolute;
+            width: 1400px;
+            height: 754px;
+            top: 166px;
+            left: 0;
+            background: url("images/fondo-pagina-principal.jpg")
+              no-repeat center;
+            background-size: cover;
+            filter: blur(2px);
+            z-index: 3;
+          }          
+    </style>
+
+  </body>
+</html>

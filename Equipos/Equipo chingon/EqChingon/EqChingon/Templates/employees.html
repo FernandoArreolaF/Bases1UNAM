@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Empleados</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" />
+    <link rel="stylesheet" href="/css/employees.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <a href="digital-system.html">
+          <div class="logo-restaurante"></div>
+        </a>
+        <span class="registro-empleados">Registro de Empleados</span
+        ><span class="mar-de-sabores">Mar de Sabores</span>
+      </div>
+      <div class="flex-row-fd">
+        <div class="employees">
+          <form id="employeeForm">
+            <label for="rfc">RFC:</label>
+            <input type="text" id="rfc" name="rfc" required><br>
+        
+            <label for="employeeNumber">Número de empleado:</label>
+            <input type="text" id="employeeNumber" name="employeeNumber" required><br>
+        
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="lastName">Apellido Paterno:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+              
+            <label for="maternalLastName">Apellido Materno:</label>
+            <input type="text" id="maternalLastName" name="maternalLastName" required><br>
+        
+            <label for="birthdate">Fecha de nacimiento:</label>
+            <input type="date" id="birthdate" name="birthdate" required><br>
+        
+            <label for="phones">Teléfonos:</label>
+            <textarea id="phones" name="phones" required></textarea><br>
+        
+            <label for="age">Edad:</label>
+            <input type="number" id="age" name="age" required><br>
+        
+            <!-- Domicilio -->
+            <fieldset>
+                <legend>Domicilio</legend>
+                <label for="state">Estado:</label>
+                <input type="text" id="state" name="state" required><br>
+        
+                <label for="postalCode">Código Postal:</label>
+                <input type="text" id="postalCode" name="postalCode" required><br>
+        
+                <label for="colony">Colonia:</label>
+                <input type="text" id="colony" name="colony" required><br>
+        
+                <label for="street">Calle:</label>
+                <input type="text" id="street" name="street" required><br>
+        
+                <label for="number">Número:</label>
+                <input type="text" id="number" name="number" required><br>
+            </fieldset>
+        
+            <label for="salary">Sueldo:</label>
+            <input type="number" id="salary" name="salary" required><br>
+        
+            <label for="photo">Foto:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required><br>
+        
+            <label for="roleSelect">Selecciona un rol:</label>
+            <select id="roleSelect" name="roleSelect" onchange="toggleField(this.value)">
+                <option value="">Selecciona un rol</option>
+                <option value="mesero">Mesero</option>
+                <option value="cocinero">Cocinero</option>
+                <option value="administrativo">Administrativo</option>
+            </select><br>
+        
+            <div id="specificField">
+                <!-- Aquí se mostrará el campo específico según el rol seleccionado -->
+            </div>
+        
+            <!-- Dependientes -->
+            <fieldset>
+                <legend>Dependientes</legend>
+                <div id="dependents">
+                  <label for="curp">CURP:</label>
+                  <input type="text" id="curp" name="curp" required><br>
+              
+                  <label for="dependentName">Nombre:</label>
+                  <input type="text" id="dependentName" name="dependentName" required><br>
+              
+                  <label for="lastName">Apellido Paterno:</label>
+                  <input type="text" id="lastName" name="lastName" required><br>
+              
+                  <label for="maternalLastName">Apellido Materno:</label>
+                  <input type="text" id="maternalLastName" name="maternalLastName" required><br>
+              
+                  <label for="relationship">Parentesco:</label>
+                  <input type="text" id="relationship" name="relationship" required><br>
+                </div>
+                <button type="button" onclick="addDependent()">Agregar Dependiente</button>
+            </fieldset>
+        
+            <button type="submit">Registrar</button>
+            <a href="employees-register.html" class="registro-employees-anchor">Registro de empleados</a>
+        </form>
+        
+        <script>
+            function toggleField(role) {
+                var specificField = document.getElementById('specificField');
+                specificField.innerHTML = ''; // Limpiar el contenido anterior
+        
+                if (role === 'mesero') {
+                    specificField.innerHTML = '<label for="schedule">Horario:</label>' +
+                        '<input type="text" id="schedule" name="schedule"><br>';
+                } else if (role === 'cocinero') {
+                    specificField.innerHTML = '<label for="specialty">Especialidad:</label>' +
+                        '<input type="text" id="specialty" name="specialty"><br>';
+                } else if (role === 'administrativo') {
+                    specificField.innerHTML = '<label for="role">Rol:</label>' +
+                        '<input type="text" id="role" name="role"><br>';
+                }
+            }
+        </script>
+        
+        </div>
+        <div class="empleado"></div>
+        <div class="empleado-1"></div>
+      </div>
+    </div>
+    
+    <style>
+      :root {
+        --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+          "Source Han Sans CN", sans-serif;
+      }
+      
+      body {
+        font-family: 'Monda', sans-serif;
+      }
+
+      .main-container {
+        overflow: hidden;
+      }
+      
+      .main-container,
+      .main-container * {
+        box-sizing: border-box;
+      }
+      
+      input,
+      select,
+      textarea,
+      button {
+        outline: 0;
+      }
+      
+      .main-container {
+        position: relative;
+        width: 1400px;
+        height: 907px;
+        margin: 0 auto;
+        background: #ffffff;
+      }
+      .header {
+        position: relative;
+        width: 1400px;
+        height: 166px;
+        margin: 0 0 0 0;
+        background: #1e1e1e;
+        z-index: 1;
+        overflow: hidden;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      .logo-restaurante {
+        position: absolute;
+        width: 157px;
+        height: 145px;
+        top: 11px;
+        left: 18px;
+        background: url("images/logo-restaurante.jpeg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 4;
+        border-radius: 72.5px;
+        box-sizing: content-box;
+      }
+      .registro-empleados {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 244px;
+        height: 94px;
+        top: 49px;
+        left: 1156px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 31.2px;
+        text-align: center;
+        z-index: 3;
+      }
+      .mar-de-sabores {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 247px;
+        height: 50px;
+        top: 58px;
+        left: 202px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 2;
+        -webkit-text-stroke: 1px #000000;
+      }
+      .flex-row-fd {
+        position: relative;
+        width: 1367px;
+        height: 710px;
+        margin: 15px 0 0 17px;
+        z-index: 6;
+      }
+      .employees {
+        position: absolute;
+        width: 883px;
+        height: 710px;
+        background: #0ead87;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-sizing: content-box;
+        overflow-y: auto; /* Agregar scroll vertical */
+      }
+      .empleado {
+        position: absolute;
+        width: 468px;
+        height: 344px;
+        top: 0;
+        left: 899px;
+        background: url("images/mandil-mesero.jpg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 5;
+        border-radius: 8px;
+      }
+      .empleado-1 {
+        position: absolute;
+        width: 468px;
+        height: 354px;
+        top: 356px;
+        left: 899px;
+        background: url("images/gorro-chef.jpg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 6;
+        border-radius: 8px;
+      }
+      
+      /* Estilos para el formulario */
+      #employeeForm {
+        position: absolute;
+        width: 883px; /* Ancho de .employees */
+        height: 710px; /* Alto de .employees */
+        padding: 20px;
+        background: #0ead87;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-sizing: border-box; /* Utilizar el modelo de caja de borde */
+      }
+      
+      #employeeForm label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #ffffff;
+      }
+      
+      #employeeForm input[type="text"],
+      #employeeForm input[type="date"],
+      #employeeForm input[type="number"],
+      #employeeForm input[type="file"],
+      #employeeForm input[type="email"],
+      #employeeForm textarea,
+      #employeeForm select {
+        width: calc(100% - 40px); /* Considerando el padding horizontal */
+        padding: 8px;
+        margin-bottom: 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+      }
+      
+      #employeeForm textarea {
+        resize: vertical;
+      }
+      
+      #employeeForm fieldset {
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        padding: 12px;
+      }
+      
+      #employeeForm legend {
+        font-weight: bold;
+        color: #ffffff;
+      }
+      
+      #employeeForm button[type="submit"],
+      #employeeForm button[type="button"] {
+        padding: 10px 20px;
+        background-color: #ffffff;
+        color: #0ead87;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      #employeeForm button[type="submit"]:hover,
+      #employeeForm button[type="button"]:hover {
+        background-color: #0ead87;
+        color: #ffffff;
+      }
+      
+      #employeeForm label[for="photo"] {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #ffffff;
+      }
+      
+      #employeeForm input[type="file"] {
+        width: calc(100% - 40px); /* Considerando el padding horizontal */
+        padding: 8px;
+        margin-bottom: 12px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+      }
+      
+      #employeeForm input[type="file"]::file-selector-button {
+        background-color: #0ead87;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      #employeeForm input[type="file"]::file-selector-button:hover {
+        background-color: #0ab979;
+      }
+      
+      #employeeForm button[type="button"] {
+        background-color: #0ead87;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      #employeeForm button[type="button"]:hover {
+        background-color: #0ab979;
+      }
+      
+      .registro-employees-anchor {
+        display: inline-block;
+        margin-top: 10px;
+        font-family: Monda, var(--default-font-family);
+        font-size: 14px;
+        color: #ffffff;
+        text-decoration: none;
+        border: 1px solid #ffffff;
+        padding: 5px 20px; /* Mismo padding que el botón */
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .registro-employees-anchor:hover {
+        background-color: #ffffff;
+        color: #0ead87;
+      }
+    </style>
+
+
+  </body>
+</html>
+
+

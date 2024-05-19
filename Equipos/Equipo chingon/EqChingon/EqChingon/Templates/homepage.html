@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadatos y configuración de la página -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Inicio</title>
+    <!-- Enlace a la fuente de Google Fonts para la fuente Monda -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" />
+  </head>
+  <body>
+    <!-- Contenedor principal -->
+    <div class="main-container">
+      <!-- Encabezado de la página -->
+      <div class="header">
+        <!-- Logotipo del restaurante -->
+        <a href="homepage.html">
+          <div class="logo-restaurante"></div>
+        </a>
+        <!-- Nombre del restaurante -->
+        <span class="mar-de-sabores">Mar de Sabores</span>
+        <!-- Botón de acceso para empleados -->
+        <a href="categories.html" class="cart-button">
+            <span class="acceso-empleados">Acceso para empleados</span>
+        </a>        
+      </div>
+      <!-- Encabezado para el sistema digital -->
+      <span class="sistema-digital">Sistema Digital</span>
+      <!-- Sección de platos -->
+      <div class="dishes">
+        <!-- Imagen del primer plato -->
+        <div class="platillo"></div>
+        <!-- Imagen del segundo plato -->
+        <div class="platillo-1"></div>
+        <!-- Imagen del tercer plato -->
+        <div class="platillo-2"></div>
+      </div>
+    </div>
+    <!-- Estilos CSS -->
+    <style>
+      /* Definición de variables CSS */
+      :root {
+        --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+          "Source Han Sans CN", sans-serif;
+      }
+      
+      body {
+        font-family: 'Monda', sans-serif;
+      }
+
+      /* Estilos generales para el contenedor principal */
+      .main-container {
+        overflow: hidden;
+      }
+      
+      .main-container,
+      .main-container * {
+        box-sizing: border-box;
+      }
+      
+      /* Eliminar contorno predeterminado en elementos de formulario */
+      input,
+      select,
+      textarea,
+      button {
+        outline: 0;
+      }
+      
+      /* Estilos para el contenedor principal */
+      .main-container {
+        position: relative;
+        width: 1402px;
+        height: 871px;
+        margin: 0 auto;
+        background: #ffffff;
+      }
+      /* Estilos para el encabezado */
+      .header {
+        position: relative;
+        width: 1402px;
+        height: 166px;
+        margin: 0 0 0 0;
+        background: #1e1e1e;
+        overflow: hidden;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      /* Estilos para el logotipo */
+      .logo-restaurante {
+        position: absolute;
+        width: 157px;
+        height: 145px;
+        top: 11px;
+        left: 21px;
+        background: url("images/logo-restaurante.jpeg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 3;
+        border-radius: 72.5px;
+        box-sizing: content-box;
+      }
+      /* Estilos para el nombre del restaurante */
+      .mar-de-sabores {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 247px;
+        height: 50px;
+        top: 58px;
+        left: 202px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 1;
+        -webkit-text-stroke: 1px #000000;
+      }
+      /* Estilos para el botón de acceso para empleados */
+      .cart-button {
+        position: absolute;
+        width: 208px;
+        height: 48px;
+        top: 59px;
+        right: 44px;
+        background: #0ead87;
+        z-index: 8;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      /* Estilos para el texto del botón de acceso para empleados */
+      .acceso-empleados {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 181px;
+        height: 21px;
+        top: calc(50% - 12px);
+        left: calc(50% - 90px);
+        color: #000000;
+        font-family: Monda, var(--default-font-family);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.8px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 9;
+      }
+      /* Estilos para el encabezado del sistema digital */
+      .sistema-digital {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+        width: 247px;
+        height: 50px;
+        margin: 17px 0 0 578px;
+        color: #000000;
+        font-family: Monda, var(--default-font-family);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 2;
+      }
+      /* Estilos para la sección de platos */
+      .dishes {
+        position: relative;
+        width: 1402px;
+        height: 621px;
+        margin: 17px 0 0 0;
+        background: #0ead87;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 4;
+        box-sizing: content-box;
+      }
+      /* Estilos para las imágenes de los platos */
+      .platillo {
+        position: absolute;
+        width: 400px;
+        height: 436px;
+        top: 92px;
+        left: 501px;
+        background: url("images/platillo1.jpg") no-repeat center;
+        background-size: cover;
+        z-index: 5;
+        border-radius: 35px;
+      }
+      .platillo-1 {
+        position: absolute;
+        width: 400px;
+        height: 436px;
+        top: 97px;
+        left: 43px;
+        background: url("images/platillo2.jpg") no-repeat center;
+        background-size: cover;
+        z-index: 6;
+        border-radius: 35px;
+      }
+      .platillo-2 {
+        position: absolute;
+        width: 400px;
+        height: 436px;
+        top: 97px;
+        left: 959px;
+        background: url("images/platillo3.jpg") no-repeat center;
+        background-size: cover;
+        z-index: 7;
+        border-radius: 35px;
+      }
+    
+    </style>
+  </body>
+</html>
+
