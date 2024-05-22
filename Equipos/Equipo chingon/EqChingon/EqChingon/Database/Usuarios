@@ -1,0 +1,10 @@
+CREATE ROLE adminbd LOGIN SUPERUSER PASSWORD 'adminbd_password';
+SELECT rolname FROM pg_roles;
+
+--
+CREATE ROLE administrativo LOGIN PASSWORD 'administrativo_password';
+GRANT CREATE ROLE, CREATEDB, CONNECT ON DATABASE dbname TO administrativo;
+-- CREATE ROLE empleado LOGIN PASSWORD 'empleado_password';
+GRANT CONNECT ON DATABASE dbname TO empleado;
+GRANT USAGE ON SCHEMA public TO empleado;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO empleado;

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empleados</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap">
+  <style>
+    /* Definición de variables */
+    :root {
+      --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+    }
+    
+    /* Estilo del cuerpo */
+    body {
+      font-family: 'Monda', sans-serif;
+    }
+
+    /* Estilo del contenedor principal */
+    .main-container {
+      overflow: hidden;
+      position: relative;
+      width: 1400px;
+      height: 907px;
+      margin: 0 auto;
+      background: #ffffff;
+    }
+    
+    /* Estilo del encabezado */
+    .header {
+      position: relative;
+      width: 1400px;
+      height: 166px;
+      margin: 0 0 0 0;
+      background: #1e1e1e;
+      overflow: hidden;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Estilo del logo */
+    .logo-restaurante {
+      position: absolute;
+      width: 157px;
+      height: 145px;
+      top: 11px;
+      left: 18px;
+      background: url("images/logo-restaurante.jpeg") no-repeat center;
+      background-size: cover;
+      z-index: 4;
+      border-radius: 72.5px;
+      box-sizing: content-box;
+    }
+    
+    /* Estilo del título "Empleados" */
+    .empleados {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 244px;
+      height: 94px;
+      top: 49px;
+      left: 1156px;
+      color: #ffffff;
+      font-family: Monda, var(--default-font-family);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 31.2px;
+      text-align: center;
+      z-index: 2;
+    }
+    
+    /* Estilo del título "Mar de Sabores" */
+    .mar-de-sabores {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      position: absolute;
+      width: 247px;
+      height: 50px;
+      top: 58px;
+      left: 202px;
+      color: #ffffff;
+      font-family: Monda, var(--default-font-family);
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 50px;
+      text-align: center;
+      white-space: nowrap;
+      z-index: 1;
+      -webkit-text-stroke: 1px #000000;
+    }
+    
+    /* Estilo del contenedor de filas flexibles */
+    .flex-row-cfd {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      width: 1370px;
+      height: 710px;
+      margin: 17px 0 0 18px;
+      z-index: 5;
+    }
+    
+    /* Estilo de la imagen */
+    .image {
+      flex-shrink: 0;
+      position: relative;
+      width: 476px;
+      height: 710px;
+      background: url("images/empleados.jpg") no-repeat center;
+      background-size: cover;
+      z-index: 3;
+    }
+    
+    /* Estilo del menú */
+    .menu {
+      flex-shrink: 0;
+      position: relative;
+      width: 883px;
+      height: 710px;
+      background: #0ead87;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 5;
+      box-sizing: content-box;
+      overflow-y: auto; /* Agregar scroll vertical */
+    }
+
+    /* Estilo del formulario de búsqueda */
+    .search-form {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      font-family: 'Monda', sans-serif;
+    }
+
+    .search-form input[type="text"] {
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 5px;
+      font-size: 16px;
+    }
+
+    .search-form button {
+      padding: 8px 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #1e1e1e;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Estilo para la tabla */
+    .table-container {
+      margin-bottom: 20px;
+    }
+    
+    .table-container h2 {
+      margin-top: 0;
+    }
+    
+    .recipe-table-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .recipe-table {
+      width: 100%; /* Ancho ajustable */
+      border-collapse: collapse;
+      font-family: var(--default-font-family);
+      margin: 0 auto; 
+    }
+    
+    .recipe-table th, .recipe-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: justify;
+    }
+    
+    .recipe-table th {
+      background-color: #f2f2f2;
+      text-align: left;
+    }
+    
+    .recipe-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    .recipe-table tr:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+        <a href="admin-bd.html">
+            <div class="logo-restaurante"></div>
+        </a>
+      <span class="empleados">Empleados</span>
+      <span class="mar-de-sabores">Mar de Sabores</span>
+    </div>
+    <div class="flex-row-cfd">
+      <div class="image"></div>
+      <div class="menu">
+        <form class="search-form" action="#" method="GET">
+          <input type="text" name="search" placeholder="Buscar empleado...">
+          <button type="submit">Buscar</button>
+        </form>
+        <!-- Tabla de empleados -->
+        <div class="table-container">
+         
+            <h2>Datos del Empleado</h2>
+            <table class="recipe-table" border="1">
+              <thead>
+                <tr>
+                  <th>Identificador</th>
+                  <th>Nombre</th>
+                  <th>Puesto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Fila vacía -->
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>
+  

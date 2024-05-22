@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!--
+ * ER/Studio 8.0 XML Schema Generation
+ * Company:		FIUNAM
+ * Project:		Realacional-Proyecto-Final.DM1
+ * Author:		DanielaMB
+ * Version:		1.0
+ * Date Created:	17/05/2024
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"/>

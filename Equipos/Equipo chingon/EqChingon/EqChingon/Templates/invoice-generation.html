@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /> <!-- Configuración de la codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Configuración de la vista en dispositivos móviles -->
+    <title>Generación de Factura</title> <!-- Título de la página -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" /> <!-- Enlace a las fuentes de Google Fonts -->
+    <link rel="stylesheet" href="/css/invoice-generation.css" /> <!-- Enlace al archivo CSS personalizado -->
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <a href="orders.html">
+          <div class="logo-restaurante"></div>
+        </a>
+        <span class="mar-de-sabores">Mar de Sabores</span
+        ><span class="generacion-de-factura">Generación de Factura</span>
+      </div>
+      <div class="flex-row-ed">
+        <div class="caja-registradora"></div> <!-- Contenedor de la caja registradora -->
+        <div class="invoice">
+          <form id="invoiceForm">
+            <!-- Campos del formulario -->
+            <label for="clientRFC">RFC del cliente:</label>
+            <input type="text" id="clientRFC" name="clientRFC" required><br>
+
+            <label for="clientName">Nombre del cliente:</label>
+            <input type="text" id="clientName" name="clientName" required><br>
+            <!-- Domicilio del cliente -->
+            <fieldset>
+                <legend>Domicilio del cliente</legend>
+                <label for="clientState">Estado:</label>
+                <input type="text" id="clientState" name="clientState" required><br>
+
+                <label for="clientPostalCode">Código Postal:</label>
+                <input type="text" id="clientPostalCode" name="clientPostalCode" required><br>
+
+                <label for="clientColony">Colonia:</label>
+                <input type="text" id="clientColony" name="clientColony" required><br>
+
+                <label for="clientStreet">Calle:</label>
+                <input type="text" id="clientStreet" name="clientStreet" required><br>
+
+                <label for="clientNumber">Número:</label>
+                <input type="text" id="clientNumber" name="clientNumber" required><br>
+            </fieldset>
+
+            <label for="clientLegalName">Razón social:</label>
+            <input type="text" id="clientLegalName" name="clientLegalName" required><br>
+
+            <label for="clientEmail">Email:</label>
+            <input type="email" id="clientEmail" name="clientEmail" required><br>
+
+            <label for="clientBirthdate">Fecha de nacimiento del cliente:</label>
+            <input type="date" id="clientBirthdate" name="clientBirthdate" required><br>
+            <!-- Botón de enviar -->
+            <button type="submit">Generar Factura</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Estilos CSS -->
+    <style>
+      /* Definición de variables CSS */
+      :root {
+        --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+          "Source Han Sans CN", sans-serif;
+      }
+
+      body {
+        font-family: 'Monda', sans-serif;
+      }
+      
+      /* Estilos para el contenedor principal */
+      .main-container {
+        overflow: hidden;
+      }
+      .main-container,
+      .main-container * {
+        box-sizing: border-box;
+      }
+      input,
+      select,
+      textarea,
+      button {
+        outline: 0;
+      }
+      .main-container {
+        position: relative;
+        width: 1400px;
+        height: 907px;
+        margin: 0 auto;
+        background: #ffffff;
+      }
+      .header {
+        position: relative;
+        width: 1400px;
+        height: 166px;
+        margin: 0 0 0 0;
+        background: #1e1e1e;
+        z-index: 2;
+        overflow: hidden;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      .logo-restaurante {
+        position: absolute;
+        width: 157px;
+        height: 145px;
+        top: 11px;
+        left: 15px;
+        background: url("images/logo-restaurante.jpeg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 5;
+        border-radius: 72.5px;
+        box-sizing: content-box;
+      }
+      .mar-de-sabores {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 247px;
+        height: 50px;
+        top: 58px;
+        left: 202px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 3;
+        -webkit-text-stroke: 1px #000000;
+      }
+      .generacion-de-factura {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 244px;
+        height: 94px;
+        top: 61px;
+        left: 1156px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 31.2px;
+        text-align: center;
+        z-index: 4;
+      }
+      .flex-row-ed {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 1367px;
+        height: 702px;
+        margin: 21px 0 0 15px;
+        z-index: 1;
+      }
+      .caja-registradora {
+        flex-shrink: 0;
+        position: relative;
+        width: 438px;
+        height: 702px;
+        background: url("images/factura.jpg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 1;
+        border-radius: 8px;
+      }
+      .invoice {
+        flex-shrink: 0;
+        position: relative;
+        width: 917px;
+        height: 702px;
+        background: #0ead87;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-sizing: content-box;
+        overflow-y: auto; /* Agregar scroll vertical */
+      }
+      /* Estilos para el formulario de factura */
+      #invoiceForm {
+        padding: 20px;
+      }
+      /* Estilos para las etiquetas del formulario */
+      #invoiceForm label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #ffffff; /* Color del texto del label */
+      }
+      /* Estilos para los campos de entrada del formulario */
+      #invoiceForm input[type="text"],
+      #invoiceForm input[type="date"],
+      #invoiceForm input[type="number"],
+      #invoiceForm input[type="file"],
+      #invoiceForm input[type="email"],
+      #invoiceForm textarea,
+      #invoiceForm select {
+        width: calc(100% - 16px);
+        padding: 8px;
+        margin-bottom: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1); /* Color de fondo del input */
+        color: #ffffff; /* Color del texto del input */
+      }
+      /* Estilos para el campo de texto multilínea */
+      #invoiceForm textarea {
+        resize: vertical; /* Permite ajustar la altura verticalmente */
+      }
+      /* Estilos para el fieldset */
+      #invoiceForm fieldset {
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Color del borde del fieldset */
+        border-radius: 4px;
+        padding: 12px;
+      }
+      /* Estilos para la leyenda del fieldset */
+      #invoiceForm legend {
+        font-weight: bold;
+        color: #ffffff; /* Color del texto de la leyenda */
+      }
+      
+      /* Estilos para el botón de enviar */
+      #invoiceForm button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #ffffff; /* Color de fondo del botón */
+        color: #0ead87; /* Color del texto del botón */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      /* Estilos para el botón de enviar al pasar el mouse */
+      #invoiceForm button[type="submit"]:hover {
+        background-color: #0ead87; /* Cambia el color de fondo al pasar el mouse */
+        color: #ffffff; /* Cambia el color del texto al pasar el mouse */
+      }    
+    </style>
+  </body>
+</html>
+

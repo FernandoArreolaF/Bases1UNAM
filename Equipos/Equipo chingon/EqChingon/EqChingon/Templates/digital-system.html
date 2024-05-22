@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Digital</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap" />
+    <link rel="stylesheet" href="/css/sistema-digital.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <a href="homepage.html">
+          <div class="logo-restaurante"></div>
+        </a>
+        <span class="sistema-digital">Sistema Digital</span
+        ><span class="mar-de-sabores">Mar de Sabores</span>
+      </div>
+      <div class="opcions">
+        <div class="frame">
+          <a href="employees.html" class="registro-empleados">Registro de Empleados</a>
+        </div>
+        <div class="frame-1">
+          <a href="orders.html" class="registro-ordenes">Registro de Órdenes</a>
+        </div>
+        <div class="frame-2"><a href="menu.html" class="menu-3">Menú</a></div>
+        <div class="frame-4">
+          <a href="invoice-generation.html" class="generacion-factura">Generación de Factura</a>
+        </div>
+        <div class="frame-5">
+          <span class="platillo-mas-vendido">Platillo más Vendido</span>
+        </div>
+        <div class="frame-6">
+          <a href="sales-report.html" class="ventas-por-periodo">Ventas por periodo</a>
+        </div>
+      </div>
+      <div class="fondo-pagina-principal"></div>
+    </div>
+    
+    <style>
+      :root {
+        --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+          "Source Han Sans CN", sans-serif;
+      }
+      
+      .main-container {
+        overflow: hidden;
+      }
+      
+      .main-container,
+      .main-container * {
+        box-sizing: border-box;
+      }
+      
+      input,
+      select,
+      textarea,
+      button {
+        outline: 0;
+      }
+      
+      .main-container {
+        position: relative;
+        width: 1400px;
+        height: 920px;
+        margin: 0 auto;
+        background: #ffffff;
+      }
+      .header {
+        position: relative;
+        width: 1400px;
+        height: 166px;
+        margin: 0 0 0 0;
+        background: #1e1e1e;
+        overflow: hidden;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      }
+      .logo-restaurante {
+        position: absolute;
+        width: 157px;
+        height: 145px;
+        top: 11px;
+        left: 27px;
+        background: url("images/logo-restaurante.jpeg")
+          no-repeat center;
+        background-size: cover;
+        z-index: 4;
+        border-radius: 72.5px;
+        box-sizing: content-box;
+      }
+      .sistema-digital {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 244px;
+        height: 60px;
+        top: 53px;
+        left: 1156px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 31.2px;
+        text-align: center;
+        z-index: 2;
+      }
+      .mar-de-sabores {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        width: 247px;
+        height: 50px;
+        top: 58px;
+        left: 202px;
+        color: #ffffff;
+        font-family: Monda, var(--default-font-family);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 50px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 1;
+        -webkit-text-stroke: 1px #000000;
+      }
+      .opcions {
+        position: relative;
+        width: 250px;
+        height: 487px;
+        margin: 139px 0 0 575px;
+        background: #0ead87;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 5;
+        overflow: visible auto;
+      }
+      .frame {
+        position: relative;
+        width: 198px;
+        height: 45px;
+        margin: 38px 0 0 26px;
+        background: #ffffff;
+        z-index: 14;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .registro-empleados {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 175px;
+        height: 21px;
+        top: calc(50% - 10.5px);
+        left: calc(50% - 87px);
+        color: #000000;
+        font-family: Monda, var(--default-font-family);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.8px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 15;
+      }
+      .frame-1 {
+        position: relative;
+        width: 198px;
+        height: 45px;
+        margin: 34px 0 0 26px;
+        background: #ffffff;
+        z-index: 10;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .registro-ordenes {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 155px;
+        height: 21px;
+        top: calc(50% - 10.5px);
+        left: calc(50% - 77px);
+        color: #000000;
+        font-family: Monda, var(--default-font-family);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.8px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 11;
+      }
+      .frame-2 {
+        position: relative;
+        width: 198px;
+        height: 45px;
+        margin: 28px 0 0 26px;
+        background: #ffffff;
+        z-index: 12;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .menu-3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 44px;
+        height: 21px;
+        top: calc(50% - 10.5px);
+        left: calc(50% - 22px);
+        color: #000000;
+        font-family: Monda, var(--default-font-family);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.8px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 13;
+      }
+      .frame-4 {
+        position: relative;
+        width: 198px;
+        height: 45px;
+        margin: 28px 0 0 26px;
+        background: #ffffff;
+        z-index: 8;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .generacion-factura {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 173px;
+        height: 21px;
+        top: calc(50% - 10.5px);
+        left: calc(50% - 86px);
+        color: #000000;
+        font-family: Monda, var(--default-font-family);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.8px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 9;
+      }
+      .frame-5 {
+        position: relative;
+        width: 198px;
+        height: 45px;
+        margin: 28px 0 0 26px;
+        background: #ffffff;
+        z-index: 6;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .platillo-mas-vendido {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 158px;
+        height: 21px;
+        top: calc(50% - 10.5px);
+        left: calc(50% - 79px);
+        color: #000000;
+        font-family: Monda, var(--default-font-family);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.8px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 7;
+      }
+      .frame-6 {
+        position: relative;
+        width: 198px;
+        height: 45px;
+        margin: 28px 0 0 26px;
+        background: #ffffff;
+        z-index: 16;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .ventas-por-periodo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 144px;
+        height: 21px;
+        top: calc(50% - 10.5px);
+        left: calc(50% - 72px);
+        color: #000000;
+        font-family: Monda, var(--default-font-family);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20.8px;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 17;
+      }
+      .fondo-pagina-principal {
+        position: absolute;
+        width: 1400px;
+        height: 754px;
+        top: 166px;
+        left: 0;
+        background: url("images/fondo-pagina-principal.jpg")
+          no-repeat center;
+        background-size: cover;
+        filter: blur(2px);
+        z-index: 3;
+      }      
+    </style>
+
+  </body>
+</html>
