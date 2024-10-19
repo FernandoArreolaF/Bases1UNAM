@@ -1,5 +1,5 @@
-*Integrantes de Databendes*
+*Integrantes de Databenders*
 - Luis Fernando Franco Arellano
 - Gustavo Isaac Soto Huerta
 - Eduardo Zavala Sánchez
-- José Eudardo Villeda Tlecuitl
+- José Eduardo Villeda Tlecuitl
