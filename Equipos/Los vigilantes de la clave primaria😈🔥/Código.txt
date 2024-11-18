@@ -1,0 +1,75 @@
+---
+config:
+  theme: neutral
+---
+erDiagram
+    PROVEEDOR {
+        int id_proveedor PK
+        string razon_social
+        string telefono
+        string estado
+        string codigo_postal
+        string colonia
+        string calle
+        string numero
+    }
+    CLIENTE {
+        int id_cliente PK
+        string rfc
+        string nombre
+        string ap_paterno
+        string ap_materno
+        string email
+        string estado
+        string codigo_postal
+        string colonia
+        string calle
+        string numero
+    }
+    EMPLEADO {
+        int id_empleado PK
+        string clave
+        string nombre
+        string ap_paterno
+        string ap_materno
+        date fecha_nacimiento
+        date fecha_ingreso
+    }
+    PRODUCTO {
+        int id_producto PK
+        string codigo_barras
+        decimal precio_compraoi
+        string foto_url
+        date fecha_compra
+        int stock
+        string tipo "regalo|papeleria|impresion|recarga"
+        string marca
+        string descripcion
+        decimal precio_venta
+    }
+    VENTA {
+        string folio PK "VENT-XXX"
+        date fecha_venta
+        decimal total
+        int id_empleado FK
+        int id_cliente FK
+    }
+    DETALLE_VENTA {
+        int id_detalle PK
+        string folio_venta FK
+        int id_producto FK
+        int cantidad
+        decimal precio_unitario
+        decimal subtotal
+    }
+    ALERTA_STOCK {
+        int id_alerta PK
+        int id_producto FK
+        int stock_actual
+        timestamp fecha_alerta
+    }
+    PROVEEDOR ||--o{ PRODUCTO : suministra
+    PRODUCTO ||--o{ DETALLE_VENTA : contiene
+    VENTA ||--|{ DETALLE_VENTA : tiene
+    EMPLEADO ||--o{ VENTA : realiza
+    CLIENTE ||--o{ VENTA : compra
