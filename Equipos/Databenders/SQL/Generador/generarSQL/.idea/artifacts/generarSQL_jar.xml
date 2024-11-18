@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="generarSQL:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/generarSQL_jar</output-path>
+    <root id="archive" name="generarSQL.jar">
+      <element id="module-output" name="generarSQL" />
+    </root>
+  </artifact>
+</component>
