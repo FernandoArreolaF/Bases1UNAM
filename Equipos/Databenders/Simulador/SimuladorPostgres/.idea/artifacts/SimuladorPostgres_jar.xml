@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SimuladorPostgres:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SimuladorPostgres_jar</output-path>
+    <root id="archive" name="SimuladorPostgres.jar">
+      <element id="module-output" name="SimuladorPostgres" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
