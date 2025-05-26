@@ -1,0 +1,16 @@
+numEmpleado,nombreE,apPaE,apMaE,emailE,telefonosE,rfcE,curpE,tipoEmp,fechIng,calleE,cpE,numE,cdE,coloniaE,idSucursal,idSupervisor
+1,Diego,Lomeli,Bermudez,corderomiriam@gmail.com,18046827567,LOBD7302126TD,LBD730212HNLCE5Q,administrador,17/10/2016,Circunvalacion Esparza,3856,76,Ciudad de Mexico,Centro,1,1
+2,Ricardo,Montalvo,Mena,kmaestas@gmail.com,2437540254,MOMR0012084D7,MMR001208MQRYK4L,cajero,09/04/2024,Retorno Costa Rica,22223,121,Ciudad de Mexico,Centro,1,1
+3,Carmen,Quintana,Hurtado,ramiroaragon@montanez-cordero.info,2841067275x2088,QUHC961222NCI,QHC961222MCSVQ8E,vendedor,19/03/2023,Peatonal Nuevo Leon,97517,20,Ciudad de Mexico,Centro,1,1
+4,Alfredo,Chavez,Urena,padillaserafin@gmail.com,15150939834x301,CHUA880516K4Z,CUA880516HYNLA1I,seguridad,21/12/2024,Avenida Norte Esquivel,59980,111,Ciudad de Mexico,Centro,1,1
+5,Jose Eduardo,Olvera,Nieves,jeronimo47@hotmail.com,3767426629,OLNJ8410235T1,ONJ841023MCHUG2H,limpieza,15/02/2021,Calzada Honduras,85196,215,Ciudad de Mexico,Centro,1,1
+6,Linda,del Rio,Valadez,eduardoolivarez@industrias.org,7873002447,DEVL850213XWC,DVL850213MBCQO8J,administrador,08/06/2021,Viaducto Loera,27301,220,Guadalajara,Lafayette,2,2
+7,Jos,Verdugo,Rosales,soledad71@yahoo.com,9042902572x5204,VERJ030822AMU,VRJ030822HCMNJ0R,cajero,20/06/2023,Viaducto Norte Arriaga,48183,260,Guadalajara,Lafayette,2,2
+8,Pamela,Medrano,Mata,beatriz89@yahoo.com,284576521,MEMP9408223SA,MMP940822MBSQZ3A,vendedor,31/03/2022,Periferico Estados Unidos de America,89888,183,Guadalajara,Lafayette,2,2
+9,Camila,Perales,Rincon,adrianarosado@marrero-naranjo.info,852.401.3223x4232,PERC8612303M1,PRC861230HQTDJ4U,seguridad,23/01/2021,Boulevard Sur Almaraz,60310,90,Guadalajara,Lafayette,2,2
+10,Caridad,Hernandes,Armas,calderacarlota@hotmail.com,19325012495,HEAC8608264Y0,HAC860826MGRVB8O,limpieza,23/05/2023,Periferico Uzbekistan,89119,19,Guadalajara,Lafayette,2,2
+11,Adela,Tafoya,Gamboa,pabloacuna@hotmail.com,3875927125,TAGA931001KBH,TGA931001HPLYN0R,administrador,09/01/2017,Eje vial Sur Serrano,61517,243,Monterrey,Tecnologico,3,3
+12,Blanca,Solis,Chacon,porfirio01@yahoo.com,164.794.7386x463,SOCB010407J2G,SCB010407MCCWI2L,cajero,26/12/2020,Corredor Sur Alcantar,16781,224,Monterrey,Tecnologico,3,3
+13,Rosa,Canales,de la Garza,ivonnefernandez@hotmail.com,1367499465x796,CADR860807717,CDR860807MQTZM5Z,vendedor,07/07/2024,Calle Veracruz de Ignacio de la Llave,14773,266,Monterrey,Tecnologico,3,3
+14,Soledad,Cervantes,Anguiano,samaniegoaldonza@club.com,9911877347,CEAS871014JCP,CAS871014MGROI1V,seguridad,25/07/2024,Privada Queretaro,6167,152,Monterrey,Tecnologico,3,3
+15,Ignacio,Ocampo,Quintero,diazporfirio@laboratorios.com,6719788977,OCQI000114LVP,OQI000114MQRLS0T,limpieza,05/03/2025,Periferico Bahrein,47969,223,Monterrey,Tecnologico,3,3

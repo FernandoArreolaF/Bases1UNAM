@@ -1,0 +1,146 @@
+
+-- Tabla SUCURSAL
+CREATE TABLE SUCURSAL (
+    idSucursal SERIAL PRIMARY KEY,
+    calleS VARCHAR(100) NOT NULL,
+    cpS CHAR(5) NOT NULL,
+    numS VARCHAR(10) NOT NULL,
+    cdS VARCHAR(100) NOT NULL,
+    coloniaS VARCHAR(100) NOT NULL,
+    telefonoSuc VARCHAR(20) NOT NULL,
+    anioFundacionS INTEGER NOT NULL,
+    CONSTRAINT chk_anio_fundacion CHECK (anioFundacionS > 0)
+);
+
+
+-- Tabla EMPLEADO
+CREATE TABLE EMPLEADO (
+    numEmpleado SERIAL PRIMARY KEY,
+    nombreE VARCHAR(100) NOT NULL,
+    apPaE VARCHAR(100) NOT NULL,
+    apMaE VARCHAR(100),
+    emailE VARCHAR(100) NOT NULL UNIQUE,
+    telefonosE VARCHAR(20) NOT NULL,
+    rfcE CHAR(13) NOT NULL UNIQUE,
+    curpE CHAR(18) NOT NULL UNIQUE,
+    tipoEmp VARCHAR(30) NOT NULL CHECK (tipoEmp IN ('cajero', 'vendedor', 'administrador', 'seguridad', 'limpieza')),
+    fechIng DATE NOT NULL,
+    calleE VARCHAR(100) NOT NULL,
+    cpE CHAR(5) NOT NULL,
+    numE VARCHAR(10) NOT NULL,
+    cdE VARCHAR(100) NOT NULL,
+    coloniaE VARCHAR(100) NOT NULL,
+    idSucursal INTEGER NOT NULL REFERENCES SUCURSAL(idSucursal),
+	idSupervisor INTEGER REFERENCES SUPERVISOR(idSupervisor)
+);
+
+--Tabla Supervisor
+CREATE TABLE SUPERVISOR (
+    idSupervisor INTEGER PRIMARY KEY,
+    nombreS VARCHAR(100) NOT NULL,
+    apPaS VARCHAR(100) NOT NULL,
+    apMaS VARCHAR(100),
+    emailS VARCHAR(100) NOT NULL UNIQUE,
+    telefonosS VARCHAR(20) NOT NULL,
+    rfcS CHAR(13) NOT NULL UNIQUE,
+    curpS CHAR(18) NOT NULL UNIQUE,
+    fechaAsignacion DATE NOT NULL,
+    observaciones TEXT,
+    idSucursal INTEGER NOT NULL REFERENCES SUCURSAL(idSucursal)
+);
+
+
+-- Tabla CLIENTE
+CREATE TABLE CLIENTE (
+    rfcCliente CHAR(13) PRIMARY KEY,
+    nomCli VARCHAR(100) NOT NULL,
+    apPaCli VARCHAR(100) NOT NULL,
+    apMaCli VARCHAR(100),
+    razonSocialCli VARCHAR(100) DEFAULT 'nombre completo',
+    telefonoCli VARCHAR(20) NOT NULL,
+    emailCli VARCHAR(100) NOT NULL UNIQUE,
+    cpC CHAR(5) NOT NULL,
+    calleC VARCHAR(100) NOT NULL,
+    cdC VARCHAR(100) NOT NULL,
+    coloniaC VARCHAR(100) NOT NULL,
+    numC VARCHAR(10) NOT NULL
+);
+
+-- Tabla VENTA
+CREATE TABLE VENTA (
+    folio SERIAL PRIMARY KEY,
+    fechaVent DATE NOT NULL,
+    cantidadTotalArt INTEGER NOT NULL CHECK (cantidadTotalArt >= 0),
+    montoTotal NUMERIC(10,2) NOT NULL CHECK (montoTotal >= 0),
+    numEmpleadoVendedor INTEGER NOT NULL REFERENCES EMPLEADO(numEmpleado),
+    numEmpleadoCajero INTEGER NOT NULL REFERENCES EMPLEADO(numEmpleado),
+    CONSTRAINT chk_dos_empleados CHECK (numEmpleadoVendedor <> numEmpleadoCajero)
+);
+
+-- Tabla FACTURA
+CREATE TABLE FACTURA (
+    folioFac INTEGER PRIMARY KEY,
+    fechFac DATE NOT NULL,
+    montoFac NUMERIC(10,2) NOT NULL,
+    formaPago VARCHAR(30) NOT NULL,
+    metodoPago VARCHAR(30) NOT NULL,
+    folio INTEGER NOT NULL REFERENCES VENTA(folio),
+    rfcCliente CHAR(13) REFERENCES CLIENTE(rfcCliente)
+);
+
+-- Tabla CATEGORIA
+CREATE TABLE CATEGORIA (
+    idCategoria SERIAL PRIMARY KEY,
+    nombreCatego VARCHAR(50) NOT NULL CHECK (char_length(nombreCatego) > 0)
+);
+
+-- Tabla ARTICULO
+CREATE TABLE ARTICULO (
+    codigoBarras VARCHAR(50) PRIMARY KEY,
+    precioCompra NUMERIC(10,2) NOT NULL CHECK (precioCompra >= 0),
+    nombreArt VARCHAR(100) NOT NULL,
+    fotografiaArt BYTEA,
+    precioVenta NUMERIC(10,2) NOT NULL CHECK (precioVenta >= 0),
+    stock INTEGER NOT NULL CHECK (stock >= 0),
+    idCategoria INTEGER NOT NULL REFERENCES CATEGORIA(idCategoria)
+);
+
+-- Tabla VENTA_DETALLE (VENTA_ARTICULO)
+CREATE TABLE VENTA_DETALLE (
+    montoPorArt NUMERIC(10,2) NOT NULL CHECK (montoPorArt >= 0),
+    cantidadPorArt INTEGER NOT NULL CHECK (cantidadPorArt > 0),
+    folio INTEGER NOT NULL REFERENCES VENTA(folio),
+    codigoBarras VARCHAR(50) NOT NULL REFERENCES ARTICULO(codigoBarras),
+    PRIMARY KEY (folio, codigoBarras)
+);
+
+-- Tabla PROGRAMALEALTAD
+CREATE TABLE PROGRAMALEALTAD (
+    idProgramaL SERIAL PRIMARY KEY,
+    nomPrograma VARCHAR(50) NOT NULL,
+    beneficios TEXT,
+    descuento NUMERIC(5,2) CHECK (descuento >= 0 AND descuento <= 100),
+    puntos INTEGER CHECK (puntos >= 0)
+);
+
+-- Tabla PROVEEDOR
+CREATE TABLE PROVEEDOR (
+    rfc CHAR(13) PRIMARY KEY,
+    razonSocial VARCHAR(100) NOT NULL,
+    telefonoProv VARCHAR(20) NOT NULL,
+    nombreProv VARCHAR(100) NOT NULL,
+    cuentaPagoProv VARCHAR(50) NOT NULL,
+    cp CHAR(5) NOT NULL,
+    calle VARCHAR(100) NOT NULL,
+    cd VARCHAR(100) NOT NULL,
+    num VARCHAR(10) NOT NULL,
+    colonia VARCHAR(100) NOT NULL
+);
+
+-- Tabla PROVEEDOR_ARTICULO
+CREATE TABLE PROVEEDOR_ARTICULO (
+    historialProv DATE NOT NULL,
+    rfc CHAR(13) NOT NULL REFERENCES PROVEEDOR(rfc) ON DELETE CASCADE,
+    codigoBarras VARCHAR(50) NOT NULL REFERENCES ARTICULO(codigoBarras) ON DELETE CASCADE,
+    PRIMARY KEY (rfc, codigoBarras)
+);

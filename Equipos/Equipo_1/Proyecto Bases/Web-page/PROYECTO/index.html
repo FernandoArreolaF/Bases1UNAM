@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUEBLES - Diseño minimalista</title>
+
+    <!--<link rel="stylesheet">-->
+    <style>
+
+        .menu-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .header-container {
+            position: relative;
+            justify-content: start;
+        }
+
+
+        /* Estilos generales */
+        :root {
+            --color-primario: #333;
+            --color-secundario: #555;
+            --color-terciario: #777;
+            --color-fondo: #f9f9f9;
+            --color-borde: #e0e0e0;
+            --color-boton: #222;
+            --color-boton-hover: #000;
+        }
+                
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+                
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--color-secundario);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: var(--color-borde);
+            margin: 40px 0;
+        }
+                
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #a8a296;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background-color: #8c8679;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===========
+            HEADER
+        ===============
+        */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra */
+            position: sticky;   /* Permanece visible al hacer scroll */
+            top: 0;     /* Fijado al tope */
+            z-index: 100;       /* Prioridad sobre otros elementos */
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;   /* Espacio entre elementos */
+            align-items: center;      
+            padding: 20px 0;
+        }
+
+        /* ===========
+            LOGO
+        ===============
+        */
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+                
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            font-weight: 300;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-boton);
+        }
+
+        /* ===========
+            CARRITO DE COMPRAS
+        ===============
+        */
+
+        .carrito-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .carrito-count {
+            position: absolute;
+            top: -8px;
+            /*right: -8px;*/
+            background-color: #a8a296;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Menú desplegable */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e9e5dc;
+        }
+
+        /* Carrito de compras - Ticket */
+        .carrito-ticket {
+            display: none;
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 350px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1000;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .carrito-ticket.active {
+            display: block;
+        }
+
+        .carrito-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .carrito-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .close-carrito {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .carrito-items {
+            margin-bottom: 20px;
+        }
+
+        .carrito-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .carrito-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+
+        .carrito-item-info {
+            flex: 1;
+        }
+
+        .carrito-item-nombre {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .carrito-item-precio {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .carrito-item-cantidad {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .carrito-item-cantidad button {
+            background: #f5f5f5;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .carrito-item-cantidad input {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 2px;
+        }
+
+        .carrito-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .carrito-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-carrito {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .btn-vaciar {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .btn-vaciar:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Hero */
+        .hero {
+            background-color: #b8b5ac;
+            padding: 100px 0;
+            text-align: center;
+        }
+                
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-solid {
+            background-color: #fff;
+            color: #333;
+            border: 1px solid white;
+        }
+
+        .btn-solid:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--color-hero);
+        }
+
+        /* Colecciones */
+        .colecciones {
+            background-color: white;
+            color: fuchsia;
+        }
+                
+        .coleccion-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .coleccion-item {
+            border-radius: 8px;
+            color: #333;
+            padding: 40px 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .coleccion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .coleccion-item h3 {
+            margin-bottom: 15px;
+        }
+                
+        .coleccion-item p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .coleccion-item .btn {
+            position: relative;
+            z-index: 2;
+            background-color:transparent;
+            color: #e41e1e;
+            border: 1px solid rgb(23, 70, 163);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        /* Colores específicos para cada colección */
+        .coleccion-item.minimalista {
+            background-color: #e9e5dc;
+        }
+
+        .coleccion-item.escandinavo {
+            background-color: #d8d4c9;
+        }
+
+        .coleccion-item.contemporaneo {
+            background-color: #e9e5dc;
+        }
+
+        .coleccion-item.minimalista:hover {
+            background-color: #d8d4c9;
+        }
+
+        .coleccion-item.escandinavo:hover {
+            background-color: #e9e5dc;
+        }
+
+        .coleccion-item.contemporaneo:hover {
+            background-color: #d8d4c9;
+        }
+
+        /* Productos - Modificado */
+        .productos {
+            background-color: #f8f7f4;
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .producto-card {
+            border-radius: 8px;
+            height: 100%;
+            background-color: white;
+            padding: 20px;
+            /*border: 1px solid var(--color-borde);*/
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+                
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .producto-card h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+        }
+
+        .producto-card p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .producto-info {
+            margin-top: 15px;
+        }
+
+        .producto-stock {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--color-terciario);
+            margin-bottom: 8px;
+        }
+                
+        .producto-stock.disponible {
+            color: #4CAF50;
+        }
+
+        .producto-stock.agotado {
+            color: #F44336;
+        }
+
+        .producto-stock.ultimas-unidades {
+            color: #FF9800;
+        }
+
+        .producto-precio-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .producto-precio {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+                
+        .btn-anadir {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .ver-todos {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            color: var(--color-boton);
+            font-weight: 500;
+        }
+                
+        /* Newsletter */
+        .newsletter {
+            background-color: white;
+            padding: 60px 0;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 30px auto 0;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--color-borde);
+            border-right: none;
+        }
+                
+        .newsletter-form button {
+            padding: 0 25px;
+            background-color: var(--color-boton);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-primario);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-contacto p {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .producto-imagen {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .coleccion-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .productos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 200px;
+                margin-bottom: 10px;
+            }
+            
+            .coleccion-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .carrito-ticket {
+                width: 90%;
+                right: 5%;
+                top: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">MUEBLES</div>
+            <div class="menu-center">
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li class="dropdown">
+                            <a href="#productos">Productos <span style="margin-left: 5px;"></span></a>
+                            <div class="dropdown-content">
+                                <a href="#sala">Sala</a>
+                                <a href="#oficina">Oficina</a>
+                                <a href="#camas">Camas y colchones</a>
+                                <a href="#comedor">Comedor</a>
+                                <a href="#cocinas">Cocinas</a>
+                            </div>
+                        </li>
+                        <li><a href="#colecciones">Colecciones</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="carrito-icon" id="carrito-btn">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="carrito-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Carrito de compras - Ticket -->
+    <div class="carrito-ticket" id="carrito-ticket">
+        <div class="carrito-header">
+            <h3 class="carrito-title">Tu Carrito</h3>
+            <button class="close-carrito" id="close-carrito">×</button>
+        </div>
+        <div class="carrito-items" id="carrito-items">
+            <!-- Los productos se añadirán aquí dinámicamente -->
+            <p class="carrito-vacio">Tu carrito está vacío</p>
+        </div>
+        <div class="carrito-total" id="carrito-total">
+            <span>Total:</span>
+            <span>$0.00</span>
+        </div>
+        <div class="carrito-buttons">
+            <button class="btn btn-carrito btn-vaciar" id="vaciar-carrito">Vaciar carrito</button>
+            <button class="btn btn-carrito">Finalizar compra</button>
+        </div>
+    </div>
+
+    <!-- Hero Section - Modificado -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>Bienvenidos a Maderno</h2>
+            <p>Muebles que combinan funcionalidad y estética para transformar tu hogar</p>
+            <div class="hero-buttons">
+                <a href="#productos" class="btn btn-solid">Ver catálogo</a>
+                <a href="#colecciones" class="btn btn-outline">Explorar colecciones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colecciones Section -->
+    <section id="colecciones" class="colecciones">
+        <div class="container">
+            <h2 class="text-center">Nuestras colecciones</h2>
+            
+            <div class="coleccion-grid">
+                <div class="coleccion-item minimalista">
+                    <h3>Minimalista</h3>
+                    <p>Diseños simples y funcionales que maximizan el espacio y la estética.</p>
+                    <a href="#" class="btn">Explorar →</a>
+                </div>
+                
+                <div class="coleccion-item escandinavo">
+                    <h3>Escandinavo</h3>
+                    <p>Inspirado en la naturaleza con líneas limpias y materiales cálidos.</p>
+                    <a href="#" class="btn">Explorar →</a>
+                </div>
+                
+                <div class="coleccion-item contemporaneo">
+                    <h3>Contemporáneo</h3>
+                    <p>Diseños actuales que combinan confort y estilo para el hogar moderno.</p>
+                    <a href="#" class="btn">Explorar →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos" class="productos">
+        <div class="container">
+            <h2 class="text-center">Productos destacados</h2>
+            <p class="text-center">Descubre nuestra selección de muebles diseñados para crear espacios armoniosos y funcionales.</p>
+            
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <img src="/Imagenes/2.png" alt="Sillón Blanco" class="producto-imagen">
+                    <h3>Sofá Modular Lino</h3>
+                    <p>Diseño versátil con tapizado de lino natural</p>
+                    <div class="producto-info">
+                        <span class="producto-stock disponible">Disponible: 5 unidades</span>
+                        <div class="producto-precio-container">
+                            <div class="producto-precio">$1,299</div>
+                            <button class="btn btn-anadir" data-id="1" data-nombre="Sofá Modular Lino" data-precio="1299" data-imagen="/Imagenes/2.png">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <img src="/Imagenes/3.png" alt="Sillón Rojo" class="producto-imagen">
+                    <h3>Mesa de Centro Nórdica</h3>
+                    <p>Madera de roble con acabado natural</p>
+                    <div class="producto-info">
+                        <span class="producto-stock disponible">Disponible: 3 unidades</span>
+                        <div class="producto-precio-container">
+                            <div class="producto-precio">$549</div>
+                            <button class="btn btn-anadir" data-id="2" data-nombre="Mesa de Centro Nórdica" data-precio="549" data-imagen="/Imagenes/3.png">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <img src="/Imagenes/4.png" alt="Sillón Blanco" class="producto-imagen">
+                    <h3>Estantería Minimalista</h3>
+                    <p>Diseño modular con acabado mate</p>
+                    <div class="producto-info">
+                        <span class="producto-stock ultimas-unidades">Últimas unidades</span>
+                        <div class="producto-precio-container">
+                            <div class="producto-precio">$799</div>
+                            <button class="btn btn-anadir" data-id="3" data-nombre="Estantería Minimalista" data-precio="799" data-imagen="/Imagenes/4.png">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <img src="/Imagenes/OutOfStock.png" alt="Sillón Rojo" class="producto-imagen">
+                    <h3>Silla Ergonómica Lana</h3>
+                    <p>Tapizado en lana con estructura de nogal</p>
+                    <div class="producto-info">
+                        <span class="producto-stock agotado">Agotado</span>
+                        <div class="producto-precio-container">
+                            <div class="producto-precio">$349</div>
+                            <button class="btn btn-anadir" disabled>Añadir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="ver-todos">Ver todos los productos</a>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="text-center">Mantente informado</h2>
+            <p class="text-center">Suscríbete para recibir novedades, tendencias y ofertas exclusivas.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Tu correo electrónico">
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>MUEBLES</h3>
+                    <p>Diseño minimalista para espacios extraordinarios.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#colecciones">Colecciones</a></li>
+                        <li><a href="#espacios">Espacios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col footer-contacto">
+                    <h3>Contacto</h3>
+                    <p>Av. Principal 123, CDMX</p>
+                    <p>info@muebles.com</p>
+                    <p>55 0000 0000</p>
+                    <p>Lun-Vie: 9:00 - 18:00</p>
+                    <p>Sab: 10:00 - 14:00</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 MUEBLES. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variables del carrito
+            let carrito = [];
+            const carritoBtn = document.getElementById('carrito-btn');
+            const carritoTicket = document.getElementById('carrito-ticket');
+            const closeCarrito = document.getElementById('close-carrito');
+            const carritoItems = document.getElementById('carrito-items');
+            const carritoTotal = document.getElementById('carrito-total');
+            const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
+            const carritoCount = document.querySelector('.carrito-count');
+            
+            // Abrir/cerrar carrito
+            carritoBtn.addEventListener('click', function() {
+                carritoTicket.classList.toggle('active');
+            });
+            
+            closeCarrito.addEventListener('click', function() {
+                carritoTicket.classList.remove('active');
+            });
+            
+            // Vaciar carrito
+            vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+            
+            // Añadir productos al carrito
+            const addButtons = document.querySelectorAll('.btn-anadir:not([disabled])');
+            
+            addButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = button.getAttribute('data-id');
+                    const nombre = button.getAttribute('data-nombre');
+                    const precio = parseFloat(button.getAttribute('data-precio'));
+                    const imagen = button.getAttribute('data-imagen');
+                    
+                    // Verificar si el producto ya está en el carrito
+                    const productoExistente = carrito.find(item => item.id === id);
+                    
+                    if (productoExistente) {
+                        productoExistente.cantidad++;
+                    } else {
+                        carrito.push({
+                            id,
+                            nombre,
+                            precio,
+                            imagen,
+                            cantidad: 1
+                        });
+                    }
+                    
+                    actualizarCarrito();
+                    carritoTicket.classList.add('active');
+                });
+            });
+            
+            // Actualizar carrito
+            function actualizarCarrito() {
+                carritoItems.innerHTML = '';
+                
+                if (carrito.length === 0) {
+                    carritoItems.innerHTML = '<p class="carrito-vacio">Tu carrito está vacío</p>';
+                    carritoTotal.innerHTML = '<span>Total:</span><span>$0.00</span>';
+                    carritoCount.textContent = '0';
+                    return;
+                }
+                
+                let total = 0;
+                let totalItems = 0;
+                
+                carrito.forEach(item => {
+                    const itemTotal = item.precio * item.cantidad;
+                    total += itemTotal;
+                    totalItems += item.cantidad;
+                    
+                    const carritoItem = document.createElement('div');
+                    carritoItem.classList.add('carrito-item');
+                    carritoItem.innerHTML = `
+                        <img src="${item.imagen}" alt="${item.nombre}" class="carrito-item-img">
+                        <div class="carrito-item-info">
+                            <div class="carrito-item-nombre">${item.nombre}</div>
+                            <div class="carrito-item-precio">$${item.precio.toFixed(2)}</div>
+                            <div class="carrito-item-cantidad">
+                                <button class="disminuir" data-id="${item.id}">-</button>
+                                <input type="number" value="${item.cantidad}" min="1" data-id="${item.id}">
+                                <button class="aumentar" data-id="${item.id}">+</button>
+                            </div>
+                        </div>
+                    `;
+                    carritoItems.appendChild(carritoItem);
+                });
+                
+                // Actualizar total
+                carritoTotal.innerHTML = `<span>Total:</span><span>$${total.toFixed(2)}</span>`;
+                carritoCount.textContent = totalItems;
+                
+                // Añadir eventos a los botones de cantidad
+                document.querySelectorAll('.disminuir').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = btn.getAttribute('data-id');
+                        const item = carrito.find(item => item.id === id);
+                        
+                        if (item.cantidad > 1) {
+                            item.cantidad--;
+                        } else {
+                            carrito = carrito.filter(item => item.id !== id);
+                        }
+                        
+                        actualizarCarrito();
+                    });
+                });
+                
+                document.querySelectorAll('.aumentar').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = btn.getAttribute('data-id');
+                        const item = carrito.find(item => item.id === id);
+                        item.cantidad++;
+                        actualizarCarrito();
+                    });
+                });
+                
+                document.querySelectorAll('.carrito-item-cantidad input').forEach(input => {
+                    input.addEventListener('change', function() {
+                        const id = input.getAttribute('data-id');
+                        const item = carrito.find(item => item.id === id);
+                        const nuevaCantidad = parseInt(input.value);
+                        
+                        if (nuevaCantidad >= 1) {
+                            item.cantidad = nuevaCantidad;
+                        } else {
+                            item.cantidad = 1;
+                            input.value = 1;
+                        }
+                        
+                        actualizarCarrito();
+                    });
+                });
+            }
+            
+            // Vaciar carrito
+            function vaciarCarrito() {
+                carrito = [];
+                actualizarCarrito();
+            }
+            
+            // Menú desplegable en móviles
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            if (window.innerWidth <= 768) {
+                dropdowns.forEach(dropdown => {
+                    const link = dropdown.querySelector('a');
+                    
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

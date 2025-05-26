@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Mapsscraper - google maps scraper",
+  "version": "3.2",
+  "version_name": "3.2",
+  "description": "Get the data you need, faster and easier with our Google Maps scraper",
+  "background": {
+    "service_worker": "./background.js"
+  },
+  "permissions": 
+  ["storage",
+  "background",
+  "identity.email",
+  "identity",
+  "unlimitedStorage",
+  "webRequest",
+  "offscreen"
+
+],
+
+"host_permissions": [
+  "*://*/*",
+  "https://api2.mapsscraper.com/*"
+],
+
+  "content_scripts":[{
+    "matches":["https://www.google.com/maps/*","https://www.google.ad/maps/*","https://www.google.ae/maps/*","https://www.google.ac/maps/*","https://www.google.com.ag/maps/*","https://www.google.com.ai/maps/*","https://www.google.com.af/maps/*","https://www.google.al/maps/*","https://www.google.am/maps/*","https://www.google.co.ao/maps/*","https://www.google.at/maps/*","https://www.google.com.ar/maps/*","https://www.google.as/maps/*","https://www.google.com.au/maps/*","https://www.google.com.bd/maps/*","https://www.google.az/maps/*","https://www.google.ba/maps/*","https://www.google.bg/maps/*","https://www.google.be/maps/*","https://www.google.bf/maps/*","https://www.google.com.bh/maps/*","https://www.google.com.bn/maps/*","https://www.google.bi/maps/*","https://www.google.bj/maps/*","https://www.google.bs/maps/*","https://www.google.com.bo/maps/*","https://www.google.com.br/maps/*","https://www.google.bt/maps/*","https://www.google.co.bw/maps/*","https://www.google.by/maps/*","https://www.google.com.bz/maps/*","https://www.google.ca/maps/*","https://www.google.com.kh/maps/*","https://www.google.cc/maps/*","https://www.google.cd/maps/*","https://www.google.cf/maps/*","https://www.google.cat/maps/*","https://www.google.cg/maps/*","https://www.google.ch/maps/*","https://www.google.ci/maps/*","https://www.google.co.ck/maps/*","https://www.google.cl/maps/*","https://www.google.cm/maps/*","https://www.google.cn/maps/*","https://www.google.com.co/maps/*","https://www.google.co.cr/maps/*","https://www.google.com.cu/maps/*","https://www.google.cv/maps/*","https://www.google.com.cy/maps/*","https://www.google.cz/maps/*","https://www.google.de/maps/*","https://www.google.dj/maps/*","https://www.google.dk/maps/*","https://www.google.dm/maps/*","https://www.google.com.do/maps/*","https://www.google.dz/maps/*","https://www.google.com.ec/maps/*","https://www.google.ee/maps/*","https://www.google.com.eg/maps/*","https://www.google.es/maps/*","https://www.google.com.et/maps/*","https://www.google.fi/maps/*","https://www.google.com.fj/maps/*","https://www.google.fm/maps/*","https://www.google.fr/maps/*","https://www.google.ga/maps/*","https://www.google.ge/maps/*","https://www.google.gf/maps/*","https://www.google.gg/maps/*","https://www.google.com.gh/maps/*","https://www.google.com.gi/maps/*","https://www.google.gl/maps/*","https://www.google.gm/maps/*","https://www.google.gp/maps/*","https://www.google.gr/maps/*","https://www.google.com.gt/maps/*","https://www.google.gy/maps/*","https://www.google.com.hk/maps/*","https://www.google.hn/maps/*","https://www.google.hr/maps/*","https://www.google.ht/maps/*","https://www.google.hu/maps/*","https://www.google.co.id/maps/*","https://www.google.iq/maps/*","https://www.google.ie/maps/*","https://www.google.co.il/maps/*","https://www.google.im/maps/*","https://www.google.co.in/maps/*","https://www.google.io/maps/*","https://www.google.is/maps/*","https://www.google.it/maps/*","https://www.google.je/maps/*","https://www.google.com.jm/maps/*","https://www.google.jo/maps/*","https://www.google.co.jp/maps/*","https://www.google.co.ke/maps/*","https://www.google.ki/maps/*","https://www.google.kg/maps/*","https://www.google.co.kr/maps/*","https://www.google.com.kw/maps/*","https://www.google.kz/maps/*","https://www.google.la/maps/*","https://www.google.com.lb/maps/*","https://www.google.com.lc/maps/*","https://www.google.li/maps/*","https://www.google.lk/maps/*","https://www.google.co.ls/maps/*","https://www.google.lt/maps/*","https://www.google.lu/maps/*","https://www.google.lv/maps/*","https://www.google.com.ly/maps/*","https://www.google.co.ma/maps/*","https://www.google.md/maps/*","https://www.google.me/maps/*","https://www.google.mg/maps/*","https://www.google.mk/maps/*","https://www.google.ml/maps/*","https://www.google.com.mm/maps/*","https://www.google.mn/maps/*","https://www.google.ms/maps/*","https://www.google.com.mt/maps/*","https://www.google.mu/maps/*","https://www.google.mv/maps/*","https://www.google.mw/maps/*","https://www.google.com.mx/maps/*","https://www.google.com.my/maps/*","https://www.google.co.mz/maps/*","https://www.google.com.na/maps/*","https://www.google.ne/maps/*","https://www.google.com.nf/maps/*","https://www.google.com.ng/maps/*","https://www.google.com.ni/maps/*","https://www.google.nl/maps/*","https://www.google.no/maps/*","https://www.google.com.np/maps/*","https://www.google.nr/maps/*","https://www.google.nu/maps/*","https://www.google.co.nz/maps/*","https://www.google.com.om/maps/*","https://www.google.com.pk/maps/*","https://www.google.com.pa/maps/*","https://www.google.com.pe/maps/*","https://www.google.com.ph/maps/*","https://www.google.pl/maps/*","https://www.google.com.pg/maps/*","https://www.google.pn/maps/*","https://www.google.com.pr/maps/*","https://www.google.ps/maps/*","https://www.google.pt/maps/*","https://www.google.com.py/maps/*","https://www.google.com.qa/maps/*","https://www.google.ro/maps/*","https://www.google.rs/maps/*","https://www.google.ru/maps/*","https://www.google.rw/maps/*","https://www.google.com.sa/maps/*","https://www.google.com.sb/maps/*","https://www.google.sc/maps/*","https://www.google.co.th/maps/*","https://www.google.com.tj/maps/*","https://www.google.tk/maps/*","https://www.google.tl/maps/*","https://www.google.tm/maps/*","https://www.google.to/maps/*","https://www.google.tn/maps/*","https://www.google.com.tr/maps/*","https://www.google.tt/maps/*","https://www.google.com.tw/maps/*","https://www.google.co.tz/maps/*","https://www.google.se/maps/*","https://www.google.com.sg/maps/*","https://www.google.sh/maps/*","https://www.google.si/maps/*","https://www.google.sk/maps/*","https://www.google.com.sl/maps/*","https://www.google.sn/maps/*","https://www.google.sm/maps/*","https://www.google.so/maps/*","https://www.google.st/maps/*","https://www.google.sr/maps/*","https://www.google.com.sv/maps/*","https://www.google.td/maps/*","https://www.google.tg/maps/*","https://www.google.com.ua/maps/*","https://www.google.co.ug/maps/*","https://www.google.co.uk/maps/*","https://www.google.com/maps/*","https://www.google.com.uy/maps/*","https://www.google.co.uz/maps/*","https://www.google.com.vc/maps/*","https://www.google.co.ve/maps/*","https://www.google.vg/maps/*","https://www.google.co.vi/maps/*","https://www.google.com.vn/maps/*","https://www.google.vu/maps/*","https://www.google.ws/maps/*","https://www.google.co.za/maps/*","https://www.google.co.zm/maps/*","https://www.google.co.zw/maps/*","https://*/maps/*","https://www.google.com/maps?hl=eng"],
+    "js":["jquery-3.6.0.js","jquery-ui.js","content2.js"],
+    "css":["./css/index.css","./css/global.css"],
+    "run_at": "document_end"
+  
+    }],
+  "oauth2": {
+    "client_id": "420749555302-58nq74o9omg6b3c3of2hscc7ovbga9cs.apps.googleusercontent.com",
+    "scopes":["https://www.googleapis.com/auth/userinfo.email" ]
+  },
+"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArXjTHPLA8Dyy7BQIEUrj6moEmEW+wwDQ5FlTaRI9FsrNAAW6pxdV+ujNQYRDKI5o4RSMEbp6TiFg83gAVcQCIxn+NuD6/IK9enS49g3f6TMfTAsRE0ED+tEI3MMhFdcyvXlsfaKrEZBosHTXTp0GHNkIPdjz00C7+DX2elV/rGahLyMmp0H6VY+ZOQT6fz8zbMxJs6eXGvqxuMIAfQy0riLV7pydIxO+miYxSmBY/g4jje5u89IOe7RAfT0zsr3zPUmraOQtFMAkqNPFUez8xW8C1qYcEulcm+D6KMmsfl60VsfWJkLlcsbEO8VUy5ihQZR8AkOKTjUzshZ90poC1QIDAQAB",
+  "author": "Mapsscraper.com",
+  "homepage_url": "https://mapsscraper.com/",
+
+  "short_name": "Mapsscraper",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Mapsscraper",
+    "default_icon": {
+      "16": "/images/n-16.png",
+      "32": "/images/n-32.png",
+      "48": "/images/n-48.png",
+      "128": "/images/n-128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/n-16.png",
+    "32": "/images/n-32.png",
+    "48": "/images/n-48.png",
+    "128": "/images/n-128.png"
+  }
+}

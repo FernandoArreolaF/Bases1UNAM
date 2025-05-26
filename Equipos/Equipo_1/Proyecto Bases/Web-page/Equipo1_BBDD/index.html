@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUEBLES - Diseño minimalista</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">MADERNO</div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="¿Buscas algo?">
+                <button id="search-btn">Buscar</button>
+            </div> 
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li class="dropdown">
+                            <a href="#productos">Productos <span style="margin-left: 5px;"></span></a>
+                            <div class="dropdown-content">
+                                <a href="#sala">Sala</a>
+                                <a href="#oficina">Oficina</a>
+                                <a href="#camas">Camas y colchones</a>
+                                <a href="#comedor">Comedor</a>
+                                <a href="#cocinas">Cocinas</a>
+                            </div>
+                        </li>
+                        <li><a href="#colecciones">Colecciones</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            <div class="carrito-icon" id="carrito-btn">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="carrito-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Carrito de compras - Ticket -->
+    <div class="carrito-ticket" id="carrito-ticket">
+        <div class="carrito-header">
+            <h3 class="carrito-title">Tu Carrito</h3>
+            <button class="close-carrito" id="close-carrito">×</button>
+        </div>
+        <div class="carrito-items" id="carrito-items">
+            <!-- Los productos se añadirán aquí dinámicamente -->
+            <p class="carrito-vacio">Tu carrito está vacío</p>
+        </div>
+        <div class="carrito-total" id="carrito-total">
+            <span>Total:</span>
+            <span>$0.00</span>
+        </div>
+        <div class="carrito-buttons">
+            <button class="btn btn-carrito btn-vaciar" id="vaciar-carrito">Vaciar carrito</button>
+            <button class="btn btn-carrito">Finalizar compra</button>
+        </div>
+    </div>
+
+    <!-- Modal de Método de Pago (nuevo) -->
+    <div class="pago-modal" id="pago-modal">
+        <div class="pago-container">
+            <div class="pago-header">
+                <h3>Método de Pago</h3>
+                <button class="close-pago" id="close-pago">×</button>
+            </div>
+            <form id="pago-form">
+                <div class="pago-opciones">
+                    <label class="pago-opcion">
+                        <input type="radio" name="metodo-pago" value="tarjeta">
+                        <span>Tarjeta</span>
+                    </label>
+                </div>
+                
+                <div class="tarjeta-campos" id="tarjeta-campos">
+                    <div class="form-group">
+                        <label for="nombre-tarjeta">Nombre en la tarjeta</label>
+                        <input type="text" id="nombre-tarjeta" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numero-cuenta">Número de cuenta</label>
+                        <input type="text" id="numero-cuenta" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rfc">RFC</label>
+                        <input type="text" id="rfc" required>
+                    </div>
+                </div>
+                
+                <div class="pago-buttons">
+                    <button type="button" class="btn btn-cancelar" id="cancelar-pago">Cancelar</button>
+                    <button type="submit" class="btn btn-confirmar">Confirmar Pago</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>Bienvenidos a Maderno</h2>
+            <p>Muebles que combinan funcionalidad y estética para transformar tu hogar</p>
+            <div class="hero-buttons">
+                <a href="#productos" class="btn btn-solid">Ver catálogo</a>
+                <a href="#colecciones" class="btn btn-outline">Explorar colecciones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colecciones Section -->
+    <section id="colecciones" class="colecciones">
+        <div class="container">
+            <h2 class="text-center">Nuestras colecciones</h2>
+            
+            <div class="coleccion-grid">
+                <div class="coleccion-item minimalista">
+                    <h3>Minimalista</h3>
+                    <p>Diseños simples y funcionales que maximizan el espacio y la estética.</p>
+                    <a href="#" class="btn">Explorar →</a>
+                </div>
+                
+                <div class="coleccion-item escandinavo">
+                    <h3>Escandinavo</h3>
+                    <p>Inspirado en la naturaleza con líneas limpias y materiales cálidos.</p>
+                    <a href="#" class="btn">Explorar →</a>
+                </div>
+                
+                <div class="coleccion-item contemporaneo">
+                    <h3>Contemporáneo</h3>
+                    <p>Diseños actuales que combinan confort y estilo para el hogar moderno.</p>
+                    <a href="#" class="btn">Explorar →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section id="productos" class="productos">
+        <div class="container">
+            <h2 class="text-center">Productos destacados</h2>
+            <p class="text-center">Descubre nuestra selección de muebles diseñados para crear espacios armoniosos y funcionales.</p>
+            
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <img src="/Imagenes/2.png" alt="Sillón Blanco" class="producto-imagen">
+                    <h3>Aparador Oslo</h3>
+                    <p>Aparador de líneas limpias con puerta y cajón, en madera clara con patas contrastantes en tono nogal.</p>
+                    <div class="producto-info">
+                        <span class="producto-stock disponible">Disponible: 5 unidades</span>
+                        <div class="producto-precio-container">
+                            <div class="producto-precio">$5,990</div>
+                            <button class="btn btn-anadir">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <img src="/Imagenes/3.png" alt="Sillón Rojo" class="producto-imagen">
+                    <h3>Silla Madera Mixta</h3>
+                    <p>Silla con respaldo de barrotes verticales y asiento en madera sólida tono oscuro.</p>
+                    <div class="producto-info">
+                        <span class="producto-stock disponible">Disponible: 3 unidades</span>
+                        <div class="producto-precio-container">
+                            <div class="producto-precio">$1,590</div>
+                            <button class="btn btn-anadir">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <img src="/Imagenes/4.png" alt="Comedor" class="producto-imagen">
+                    <h3>Comedor Tallin</h3>
+                    <p>Mesa de comedor rectangular con cubierta clara y base escultórica en madera tono nogal.</p>
+                    <div class="producto-info">
+                        <span class="producto-stock ultimas-unidades">Últimas unidades</span>
+                        <div class="producto-precio-container">
+                            <div class="producto-precio">$7,990</div>
+                            <button class="btn btn-anadir">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <img src="/Imagenes/OutOfStock.png" alt="Sillón Rojo" class="producto-imagen">
+                    <h3>Silla Ergonómica Lana</h3>
+                    <p>Tapizado en lana con estructura de nogal</p>
+                    <div class="producto-info">
+                        <span class="producto-stock agotado">Agotado</span>
+                        <div class="producto-precio-container">
+                            <div class="producto-precio">$1,349</div>
+                            <button class="btn btn-anadir" disabled>Añadir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botón y productos adicionales -->
+            <div class="ver-mas-container">
+                <input type="checkbox" id="ver-mas-checkbox" class="ver-mas-checkbox">
+                <label for="ver-mas-checkbox" class="btn ver-todos">Ver más</label>
+                
+                <div class="productos-adicionales">
+                    <div class="producto-card">
+                        <img src="/Imagenes/SillonLuna.png" alt="Sillon" class="producto-imagen">
+                        <h3>Sillón Luna</h3>
+                        <p>Sillón envolvente tapizado en tono crema con forma orgánica tipo cápsula.</p>
+                        <div class="producto-info">
+                            <span class="producto-stock disponible">Disponible: 8 unidades</span>
+                            <div class="producto-precio-container">
+                                <div class="producto-precio">$4,990</div>
+                                <button class="btn btn-anadir">Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="producto-card">
+                        <img src="/Imagenes/Silla.png" alt="Escritorio Moderno" class="producto-imagen">
+                        <h3>Silla Alba</h3>
+                        <p>Silla tapizada en bouclé color marfil con respaldo curvo envolvente y estructura de madera sólida.</p>
+                        <div class="producto-info">
+                            <span class="producto-stock ultimas-unidades">Últimas unidades</span>
+                            <div class="producto-precio-container">
+                                <div class="producto-precio">$2,690</div>
+                                <button class="btn btn-anadir">Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="producto-card">
+                        <img src="/Imagenes/Comedor.png" alt="Comedor Álamo" class="producto-imagen">
+                        <h3>Comedor Álamo</h3>
+                        <p>Mesa rectangular de diseño minimalista con cubierta de madera natural tipo álamo. Ideal para reunir hasta 8 personas. No incluye sillas</p>
+                        <div class="producto-info">
+                            <span class="producto-stock disponible">Disponible: 10 unidades</span>
+                            <div class="producto-precio-container">
+                                <div class="producto-precio">$13,990</div>
+                                <button class="btn btn-anadir">Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="producto-card">
+                        <img src="/Imagenes/Escritorio.png" alt="Escritorio Moderno" class="producto-imagen">
+                        <h3>Escritorio Nórdico</h3>
+                        <p>Escritorio compacto de estilo escandinavo con acabado en madera clara, una repisa abierta y un cajón funcional.</p>
+                        <div class="producto-info">
+                            <span class="producto-stock ultimas-unidades">Últimas unidades</span>
+                            <div class="producto-precio-container">
+                                <div class="producto-precio">$3,490</div>
+                                <button class="btn btn-anadir">Añadir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="text-center">Mantente informado</h2>
+            <p class="text-center">Suscríbete para recibir novedades, tendencias y ofertas exclusivas.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Tu correo electrónico">
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>MUEBLES</h3>
+                    <p>Diseño minimalista para espacios extraordinarios.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#colecciones">Colecciones</a></li>
+                        <li><a href="#espacios">Espacios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col footer-contacto">
+                    <h3>Contacto</h3>
+                    <p>Av. Principal 123, CDMX</p>
+                    <p>info@muebles.com</p>
+                    <p>55 0000 0000</p>
+                    <p>Lun-Vie: 9:00 - 18:00</p>
+                    <p>Sab: 10:00 - 14:00</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 MUEBLES. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>
