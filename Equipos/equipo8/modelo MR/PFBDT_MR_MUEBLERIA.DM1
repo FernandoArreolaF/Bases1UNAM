@@ -1,0 +1,3477 @@
+Repository_Object_Role
+Repository_Object_Role_ID,Repository_Role_ID,Object_Type,Object_GUID,Object_ID,Save_Date
+
+Repository_Role_Privilege
+Repository_Role_Privilege_ID,Repository_Role_ID,Privilege_Name
+
+Repository_Role
+Repository_Role_ID,Role_Name
+
+Repository_User_Info
+Repository_User_Info_ID,User_Name,Machine_Name,User_ID,Machine_ID,Flags
+
+Project_Link
+Project_Link_ID,Parent_Project_ID,Child_Project_ID,Ultimate_Parent_Project_ID,RootNode
+
+Defaults
+DefaultId,Dictionary_Object_ID,DefaultNameId,DefaultTextId,NSTFlag,Global_User_ID,Row_Time_Stamp
+
+Rules
+RuleId,Dictionary_Object_ID,RuleNameId,RuleTextId,Global_User_ID,NSTFlag,Row_Time_Stamp
+
+UserDatatype
+UserDatatypeId,Dictionary_Object_ID,Length,Scale,Nullable,CheckConstraintId,DeclaredDefaultId,UserDatatype,DatatypeId,DefaultId,RuleId,Global_User_ID,Row_Time_Stamp
+
+Domain
+DomainId,Dictionary_Object_ID,Length,Scale,Nullable,IdentityColumn,IdentitySeed,IdentityIncrement,DeclaredDefaultId,CheckConstraintId,DomainNameId,ColumnNameId,DatatypeId,UserDatatype,DefaultId,RuleId,UserDatatypeId,Reference_Value_ID,Naming_Standards_Template_ID,AttributeName_ID,Description_ID,Notes_ID,NSTFlag,IsCategory,Global_User_ID,Row_Time_Stamp
+
+Version
+VersionId,Version_ID,Copyright,Global_User_ID,Row_Time_Stamp
+800,1,"Copyright (c) Embarcadero Technologies, Inc. 1995-2003",0,0
+
+Diagram
+DiagramId,Version_ID,VersionId,LastUpdate,CreateDate,ActiveModel,ActiveSubmodel,VSplitterPosition,X,Y,Width,Height,DiagramNameId,AuthorId,CompanyId,VersionNoId,CopyrightStringId,DefinitionId,UnificationOptionId,FileNameId,CopyrightYearStringId,DiagramName,CodePage,SignatureGUID,ReleaseName,Flags,Global_User_ID,Row_Time_Stamp
+1,1,800,05/24/2025 19:11:01G,04/28/2025 20:53:36G,1,1,180,0,0,0,0,94,95,96,97,96,0,98,218,0,Model2.DM1,1252,NULL,"",0,1,0
+
+Model
+DiagramId,ModelId,Model_ID,ModelType,PlatformId,NamePrefix,SpaceHandling,CaseHandling,GenPrimaryKey,GenAlternateKey,GenInversionEntry,GenForeignKey,Notation,ModelNameId,RowOverhead,TableOverhead,IndexOverhead,BlobOverhead,BlobBlockSize,Global_User_ID,Row_Time_Stamp
+1,1,1,1,0,NULL,P,P,0,0,0,0,DASHED_IE,3,0,NULL,0,NULL,0,3,0
+
+ModelOption
+DiagramId,ModelId,OptionType,ModelOption_ID,Model_ID,OptionValue,Global_User_ID,Row_Time_Stamp
+1,1,Display,8,1,1,11,0
+1,1,RoleNmPref,10,1,"",13,0
+1,1,Edit LogNames,14,1,0,18,0
+1,1,Width,5,1,40,8,0
+1,1,Datatype,4,1,VAR,7,0
+1,1,NameMax,1,1,65,4,0
+1,1,Scale,6,1,0,9,0
+1,1,Logical View Parser Platform,17,1,1,20,0
+1,1,NameSync,2,1,0,5,0
+1,1,NotNull,7,1,1,10,0
+1,1,BkgColor,11,1,16777215,14,0
+1,1,Attr/Column NameSync,3,1,0,6,0
+1,1,CaseShift,12,1,2,15,0
+1,1,ColmOrd,13,1,0,16,0
+1,1,PK Indexes Sequencing,16,1,1,17,0
+1,1,Zoom,9,1,0,12,0
+1,1,FK Definition Note Synchronization,15,1,1,21,0
+
+Submodel
+DiagramId,ModelId,SubmodelId,Submodel_ID,Model_ID,SubmodelName,DescendantUpdateFlags,DefinitionId,NoteId,Global_User_ID,Row_Time_Stamp
+1,1,1,1,1,Main Model,0,0,0,22,0
+
+SubmodelLink
+SubmodelLink_ID,Model_ID,Parent_ID,Child_ID,UltimateParent_ID,NodeLevel,IsBottomLevel,Global_User_ID
+
+DiagramDisplay
+DiagramId,ModelId,SubmodelId,DiagramDisplay_ID,Submodel_ID,PlatformId,Animate,ZoomFactor,HviewSize,VviewSize,HorizontalScrollPosition,VerticalScrollPosition,PageOrientation,PageSize,DisplayFormat,EntityDisplayInfo,ViewDisplayFormat,ViewDisplayInfo,Shadow,CompleteRoleName,ShowVerbs,ShowCardinality,MethodologyId,StraightRelLine,PageBoundary,ShowViewRelationship,ShowView,HideTrigger,Global_User_ID,Row_Time_Stamp,ShowSchemaObjEdge,ShowSchemaObj,SchemaObjDisplayFormat,ShowRelationshipName,ShowLogicalRelationshipName,ShowTriggerLabel,ShowShape,ShowShapeEdge,ShowShapeName,ShowShapeEdgeName,ShowShapeEdgeVerbs,TransformationDisplayFormat
+1,1,1,1,1,0,0,6239,0,0,-578,-163,1,1,8,3269,1,0,1,0,1,1,0,0,0,0,0,1,23,0,1,6,7,0,0,0,0,0,1,0,1,10
+
+GridDisplay
+DiagramId,ModelId,SubmodelId,GridDisplay_ID,Submodel_ID,Show,Snap,HorizontalSpacing,VerticalSpacing,HorizontalGridsPerLine,VericalGridsPerLine,Units,Global_User_ID,Row_Time_Stamp
+1,1,1,1,1,0,0,2500,2500,1,1,0,24,0
+
+Graph_Geometry
+Graph_Geometry_ID,Submodel_ID,Undirected,ProportionalLeftSpacing,ProportionalRightSpacing,ProportionalBottomSpacing,ProportionalTopSpacing,ConstantLeftSpacing,ConstantRightSpacing,ConstantBottomSpacing,ConstantTopSpacing,LayoutStyle,HasCircularLayout,HasHierarchicalLayout,HasOrthogonalLayout,HasSymmetricLayout,HasTreeLayout,Global_User_ID
+1,1,0,0,0,0,0,20,20,20,20,0,0,0,0,0,0,290
+
+Disconnected_Nodes_Layout
+Disconnected_Nodes_Layout_ID,Submodel_ID,Detect,ProportionalRowSpacing,ProportionalColumnSpacing,ConstantRowSpacing,ConstantColumnSpacing,LayoutStyle,PackingStyle,TilingStyle,TileByName,Stagger,StaggerBy,Global_User_ID
+1,1,1,70,70,20,20,1,0,0,1,0,12,291
+
+Components_Layout
+Components_Layout_ID,Submodel_ID,Detect,ProportionalRowSpacing,ProportionalColumnSpacing,ConstantRowSpacing,ConstantColumnSpacing,LayoutStyle,PackingStyle,TilingStyle,Stagger,StaggerBy,Global_User_ID
+1,1,1,70,70,20,20,0,0,1,0,12,292
+
+Circular_Layout
+Circular_Layout_ID,Submodel_ID,Degree,ClusterByGroupID,ClusterByIPAddress,ClusterByBiConnectivity,AutomateGroupIDs,MinNumberOfNodesInCluster,MaxNumberOfNodesInCluster,DisableMinNumberOfNodesInCluster,DisableMaxNumberOfNodesInCluster,ProportionalNodeSpacing,ConstantNodeSpacing,IncrementalWithinComponentLayout,IncrementalDisconnectedNodesLayout,IncrementalComponentsLayout,AccumulatedInternalGroupID,ProportionalRadialSpacing,ProportionalTangentialSpacing,ConstantRadialSpacing,ConstantTangentialSpacing,RadialAlignment,Global_User_ID
+1,1,5,1,1,1,0,4,20,0,0,500,0,0,0,0,0,600,600,0,0,0,293
+
+Hierarchical_Layout
+Hierarchical_Layout_ID,Submodel_ID,DiscardLevels,DisableMinSlopePerMil,MinSlopePerMil,KeepLevelPositionInIncrementalLayout,RespectFlowInIncrementalLayout,OrthogonalRouting,VariableLevelSpacing,HorizontalEdgeSpacing,VerticalEdgeSpacing,LevelOrientation,LevelAlignment,Quality,ConstantLevelSpacing,ProportionalLevelSpacing,ConstantNodeSpacing,ProportionalNodeSpacing,UsePorts,MergeEdgeChannels,CalculatedSize,PortSharingMaximization,ReduceCrossingsInIncrementalLayout,IncrementalWithinComponentLayout,IncrementalDisconnectedNodesLayout,IncrementalComponentsLayout,Global_User_ID
+1,1,1,0,200,0,0,1,1,12,12,3,0,1,50,0,20,100,1,0,1,1,0,0,0,0,294
+
+Orthogonal_Layout
+Orthogonal_Layout_ID,Submodel_ID,UpwardDrawing,NumberOfCompactions,HorizontalNodeSpacing,VerticalNodeSpacing,HorizontalEdgeSpacing,VerticalEdgeSpacing,UsePorts,SideOffsetPerMil,KeepNodeSizes,RespectNodePositionsInIncrementalLayout,IncrementalWithinComponentLayout,IncrementalDisconnectedNodesLayout,IncrementalComponentsLayout,Global_User_ID
+1,1,0,1,20,20,60,60,0,250,0,1,0,0,0,295
+
+Symmetric_Layout
+Symmetric_Layout_ID,Submodel_ID,NodeSpacing,RandomSeed,RouteEdges,DegreeSpacing,PreventNodeOverlaping,IncrementalWithinComponentLayout,IncrementalDisconnectedNodesLayout,IncrementalComponentsLayout,Global_User_ID
+1,1,75,1,0,1,0,0,0,0,296
+
+Tree_Layout
+Tree_Layout_ID,Submodel_ID,RouteNonTreeEdgesWithinLevels,RouteNonTreeEdgesBetweenLevels,ConstantSiblingSpacing,ProportionalSiblingSpacing,ConstantBranchSpacing,ProportionalBranchSpacing,ConstantLevelSpacing,ProportionalLevelSpacing,HorizontalEdgeSpacing,LevelAlignment,IncrementalWithinComponentLayout,IncrementalDisconnectedNodesLayout,IncrementalComponentsLayout,Global_User_ID
+1,1,1,0,40,0,0,0,40,0,12,0,0,0,0,297
+
+FontProperty
+PropertyId,FontProperty_ID,Description,Global_User_ID,Row_Time_Stamp
+0,0,"",0,0
+1750,5,Foreign Keys,0,0
+32801,56,Primary Key Index,0,0
+1751,6,Foreign Non-Keys,0,0
+4303,0,Relationship Name,0,0
+32803,57,Unique Indexes,0,0
+4305,0,Relationship Business Name,0,0
+35757,63,Transformation Name,0,0
+5359,1,Individual Attribute Font,0,0
+35759,69,Transformation Inputs,0,0
+5360,8,Individual View Field Font,0,0
+35761,70,Transformation Outputs,0,0
+32762,33,Indexes,0,0
+32764,37,Attachments,0,0
+1765,7,View Name,0,0
+1665,2,Entity Name,0,0
+35116,59,Data Security,0,0
+32766,35,Triggers,0,0
+1666,3,Primary Keys,0,0
+1667,4,Attributes,0,0
+1668,0,Verbs,0,0
+32768,38,Dimensional Type Label,0,0
+1669,0,Text Blocks,0,0
+1670,0,Page Number,0,0
+35771,75,Transformation Definition,0,0
+35772,76,Transformation Code,0,0
+5374,0,Schema Object,0,0
+1778,0,Title Block Font,0,0
+5432,0,Shape,0,0
+32833,58,Non-unique Indexes,0,0
+5435,50,Shape Text,0,0
+1787,9,View Fields,0,0
+
+FontDefault
+DiagramId,ModelId,SubmodelId,PropertyId,FontDefault_ID,FontProperty_ID,Submodel_ID,Face,Size,Bold,Italic,Underline,Strikeout,Escapement,Orientation,CharacterSet,OutputPrecision,ClipPrecision,Quality,Pitch,Family,Global_User_ID,Row_Time_Stamp
+1,1,1,1750,3,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,27,0
+1,1,1,32801,9,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,33,0
+1,1,1,1751,4,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,28,0
+1,1,1,4303,28,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,43,0
+1,1,1,32803,10,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,34,0
+1,1,1,4305,29,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,44,0
+1,1,1,35757,23,0,1,Arial,-12.000000,700,0,0,0,0.000000,0.000000,0,3,2,1,2,32,106,0
+1,1,1,35759,24,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,107,0
+1,1,1,35761,25,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,108,0
+1,1,1,32762,8,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,32,0
+1,1,1,32764,12,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,38,0
+1,1,1,1765,16,0,1,Arial,-12.000000,800,0,0,0,0.000000,0.000000,0,3,2,1,2,32,40,0
+1,1,1,1665,2,0,1,Arial,-12.000000,800,0,0,0,0.000000,0.000000,0,3,2,1,2,32,26,0
+1,1,1,35116,13,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,39,0
+1,1,1,32766,14,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,36,0
+1,1,1,1666,5,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,29,0
+1,1,1,1667,6,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,30,0
+1,1,1,1668,18,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,42,0
+1,1,1,32768,7,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,37,0
+1,1,1,1669,19,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,45,0
+1,1,1,1670,1,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,25,0
+1,1,1,35771,26,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,109,0
+1,1,1,35772,27,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,110,0
+1,1,1,5374,30,0,1,Arial,-12.000000,800,0,0,0,0.000000,0.000000,0,3,2,1,2,32,65,0
+1,1,1,1778,20,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,46,0
+1,1,1,5432,21,0,1,Arial,-12.000000,700,0,0,0,0.000000,0.000000,0,3,2,1,2,32,96,0
+1,1,1,32833,11,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,35,0
+1,1,1,5435,22,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,97,0
+1,1,1,1787,17,0,1,Arial,-12.000000,400,0,0,0,0.000000,0.000000,0,3,2,1,2,32,41,0
+
+ColorProperty
+PropertyId,ColorProperty_ID,Description,Global_User_ID,Row_Time_Stamp
+5372,30,Schema Object Background,0,0
+0,0,"",0,0
+5373,0,Schema Object Title,0,0
+5375,31,Schema Object Relationship,0,0
+35773,74,Transformation Code,0,0
+35774,73,Transformation Definition,0,0
+1775,0,Title Block Background,0,0
+1776,0,Title Block Border,0,0
+5449,46,Shape Foreground,0,0
+1777,0,Title Block Text Color,0,0
+5450,47,Shape Background,0,0
+1786,22,View Field Text,0,0
+35724,65,Data Stream,0,0
+32802,53,Primary Key Index,0,0
+35115,60,Data Security,0,0
+5335,12,Entity Foreground,0,0
+5336,13,Entity Background,0,0
+5337,11,Entity Title,0,0
+5338,17,Inherited Primary Keys,0,0
+5339,15,Non-Inherited Primary Keys,0,0
+5340,18,Inherited Non-Keys,0,0
+5341,16,Non-Inherited Non-Keys,0,0
+5342,24,Relationships,0,0
+5343,19,View Foreground,0,0
+5344,20,View Background,0,0
+5345,23,View Title,0,0
+1741,0,Page Foreground,0,0
+1742,0,Page Number,0,0
+5347,26,View Relationships,0,0
+1743,0,Off Page Foreground,0,0
+1744,0,Off Page Background,0,0
+1676,0,Diagram Background,0,0
+1748,0,Verb Text,0,0
+1749,0,Text Block Border,0,0
+1682,0,Shadow,0,0
+1683,0,Text Background,0,0
+32759,45,Dimensional Type Label,0,0
+1684,0,Text Foreground,0,0
+32763,40,Indexes,0,0
+32832,54,Unique Indexes,0,0
+5361,25,Supertypes,0,0
+32765,44,Attachments,0,0
+5362,10,Individual Attribute Color,0,0
+35758,68,Transformation Name,0,0
+32834,55,Non-unique Indexes,0,0
+5363,21,Individual View Field Color,0,0
+5431,0,Shape Title,0,0
+35760,71,Transformation Inputs,0,0
+35762,72,Transformation Outputs,0,0
+5434,52,Line,0,0
+35763,66,Transformation Background,0,0
+35764,67,Transformation Foreground,0,0
+5436,51,Shape Text,0,0
+5371,29,Schema Object Foreground,0,0
+
+ColorDefault
+DiagramId,ModelId,SubmodelId,PropertyId,ColorDefault_ID,ColorProperty_ID,Submodel_ID,Red,Green,Blue,Global_User_ID,Row_Time_Stamp
+1,1,1,1749,38,0,1,0,0,0,89,0
+1,1,1,5340,5,0,1,0,0,255,51,0
+1,1,1,5341,7,0,1,0,0,0,53,0
+1,1,1,5342,22,0,1,0,0,0,72,0
+1,1,1,5343,23,0,1,0,0,0,73,0
+1,1,1,35773,51,0,1,0,0,0,104,0
+1,1,1,5344,24,0,1,192,192,192,74,0
+1,1,1,35774,50,0,1,0,0,0,103,0
+1,1,1,5345,17,0,1,0,0,0,63,0
+1,1,1,5347,27,0,1,0,0,0,78,0
+1,1,1,32759,12,0,1,0,0,0,61,0
+1,1,1,35724,52,0,1,0,0,0,105,0
+1,1,1,32763,8,0,1,0,0,0,54,0
+1,1,1,32765,13,0,1,0,0,0,59,0
+1,1,1,32832,10,0,1,0,0,0,56,0
+1,1,1,1775,25,0,1,255,255,255,75,0
+1,1,1,32834,11,0,1,0,0,0,57,0
+1,1,1,1776,26,0,1,0,0,0,76,0
+1,1,1,5431,42,0,1,0,0,0,93,0
+1,1,1,1777,21,0,1,0,0,0,71,0
+1,1,1,5434,44,0,1,0,0,0,95,0
+1,1,1,5371,54,0,1,0,0,0,66,0
+1,1,1,5372,53,0,1,255,255,255,67,0
+1,1,1,5436,43,0,1,0,0,0,94,0
+1,1,1,5373,55,0,1,0,0,0,68,0
+1,1,1,5375,56,0,1,0,0,0,77,0
+1,1,1,1786,18,0,1,0,0,0,64,0
+1,1,1,35115,14,0,1,0,0,0,60,0
+1,1,1,5449,40,0,1,0,0,0,91,0
+1,1,1,5450,41,0,1,255,255,255,92,0
+1,1,1,35758,47,0,1,0,0,0,100,0
+1,1,1,1676,30,0,1,255,255,255,81,0
+1,1,1,35760,48,0,1,0,0,0,101,0
+1,1,1,1741,33,0,1,0,0,0,84,0
+1,1,1,35762,49,0,1,0,0,0,102,0
+1,1,1,1742,2,0,1,0,0,0,48,0
+1,1,1,35763,46,0,1,255,255,255,99,0
+1,1,1,32802,9,0,1,0,0,0,55,0
+1,1,1,1743,28,0,1,0,0,0,79,0
+1,1,1,35764,45,0,1,0,0,0,98,0
+1,1,1,5335,34,0,1,0,0,0,85,0
+1,1,1,1744,29,0,1,128,128,128,80,0
+1,1,1,1682,36,0,1,127,127,127,87,0
+1,1,1,5336,35,0,1,255,255,255,86,0
+1,1,1,1683,39,0,1,255,255,255,90,0
+1,1,1,5337,3,0,1,0,0,0,49,0
+1,1,1,1684,20,0,1,0,0,0,70,0
+1,1,1,5338,4,0,1,255,0,0,50,0
+1,1,1,1748,19,0,1,0,0,0,69,0
+1,1,1,5339,6,0,1,0,0,0,52,0
+
+Entity
+DiagramId,ModelId,EntityId,Entity_ID,Model_ID,EntityNameId,TableNameId,DefinitionId,NoteId,OwnerId,EntityTypeId,Flags,DataWhseSettings,NSTFlag,CompareFlags,PhysicalCompareFlags,Global_User_ID,Row_Time_Stamp
+1,1,1,1,1,109,109,0,0,0,0,0,0,0,0,0,116,0
+1,1,2,2,1,119,119,0,0,0,0,0,0,0,0,0,121,0
+1,1,3,3,1,37,37,0,0,0,0,0,0,0,0,0,137,0
+1,1,4,4,1,64,64,0,0,0,0,0,0,0,0,0,142,0
+1,1,5,5,1,71,71,0,0,0,0,0,0,0,0,0,147,0
+1,1,6,6,1,47,47,0,0,0,0,0,0,0,0,0,152,0
+1,1,7,7,1,56,56,0,0,0,0,0,0,0,0,0,157,0
+1,1,8,8,1,52,52,0,0,0,0,0,0,0,0,0,162,0
+1,1,9,9,1,76,76,0,0,0,0,0,0,0,0,0,249,0
+1,1,10,10,1,87,87,0,0,0,0,0,0,0,0,0,270,0
+1,1,11,11,1,157,157,0,0,0,0,0,0,0,0,0,342,0
+
+TableStorage
+DiagramId,ModelId,EntityId,TableStorage_ID,Entity_ID,Location,FillfactorPercent,MaximumRowsPerPage,PercentFree,PercentUsed,MinimumExtents,MaximumExtents,InitialExtentSize,NextExtentSize,ExtentGrowthFactor,MinimumTransactions,MaximumTransactions,LockModeSetting,RowCount,DataGrowth,GrowthRate,GrowthType,GrowthPeriod,MaximumSize,Global_User_ID,Row_Time_Stamp
+1,1,1,1,1,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,117,0
+1,1,2,2,2,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,122,0
+1,1,3,3,3,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,138,0
+1,1,4,4,4,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,143,0
+1,1,5,5,5,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,148,0
+1,1,6,6,6,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,153,0
+1,1,7,7,7,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,158,0
+1,1,8,8,8,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,163,0
+1,1,9,9,9,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,250,0
+1,1,10,10,10,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,271,0
+1,1,11,11,11,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",0,0,0,"","",0,343,0
+
+Attribute
+DiagramId,ModelId,EntityId,AttributeId,Attribute_ID,Entity_ID,UserDatatypeId,RuleId,DomainId,DefaultId,AttributeNameId,ColumnNameId,DefinitionId,NoteId,RoleNameId,LogicalRoleNameId,DatatypeId,Nullable,Length,Scale,IdentityColumn,IdentitySeed,IdentityIncrement,SequenceNo,CheckConstraintId,DefaultTextId,ColumnNameSet,RoleNameSet,LogicalRoleNameSet,GlobalId,UserDatatype,OverrideDataBits,DefaultNameId,AverageWidth,PercentNull,Flags,UnifiedToId,NSTFlag,CompareFlags,PhysicalCompareFlags,Global_User_ID,Row_Time_Stamp
+1,1,8,3,26,8,0,0,0,0,153,153,0,0,0,0,110,0,10,0,N,1,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,195,0
+1,1,5,9,81,5,0,0,0,0,69,69,0,0,69,69,110,0,13,0,N,0,0,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,340,0
+1,1,8,6,33,8,0,0,0,0,152,152,0,0,0,0,110,0,10,0,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,215,0
+1,1,11,1,82,11,0,0,0,0,159,159,0,0,0,0,110,0,15,0,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,347,0
+1,1,11,3,84,11,0,0,0,0,158,158,0,0,0,0,110,0,12,0,N,1,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,354,0
+1,1,11,4,85,11,0,0,0,0,191,191,0,0,191,191,110,0,15,0,N,0,0,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,357,0
+1,1,8,10,59,8,0,0,0,0,191,171,0,0,171,171,110,0,15,0,N,0,0,7,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,268,0
+1,1,8,14,75,8,0,0,0,0,69,69,0,0,69,69,110,0,13,0,N,0,0,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,316,0
+1,1,8,17,93,8,0,0,0,0,191,170,0,0,170,170,110,0,15,0,N,0,0,6,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,378,0
+1,1,3,1,13,3,0,0,0,0,125,125,0,0,0,0,12,0,40,-1,N,1,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,169,0
+1,1,3,3,15,3,0,0,0,0,126,126,0,0,0,0,121,0,40,-1,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,171,0
+1,1,3,4,16,3,0,0,0,0,127,127,0,0,0,0,110,0,10,0,N,1,1,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,172,0
+1,1,3,6,12,3,0,0,0,0,124,124,0,0,0,0,110,0,40,0,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,168,0
+1,1,6,1,20,6,0,0,0,0,48,48,0,0,0,0,110,0,15,0,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,185,0
+1,1,3,7,23,3,0,0,0,0,48,48,0,0,48,48,110,0,15,0,N,0,0,6,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,191,0
+1,1,6,2,21,6,0,0,0,0,122,122,0,0,0,0,12,0,50,-1,N,1,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,186,0
+1,1,6,3,22,6,0,0,0,0,123,123,0,0,0,0,12,0,200,-1,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,187,0
+1,1,3,9,71,3,0,0,0,0,148,148,0,0,0,0,110,0,10,0,N,1,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,301,0
+1,1,9,1,48,9,0,0,0,0,191,191,0,0,0,0,110,0,15,0,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,254,0
+1,1,9,2,49,9,0,0,0,0,78,78,0,0,0,0,12,0,13,-1,N,1,1,11,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,255,0
+1,1,9,4,50,9,0,0,0,0,79,79,0,0,0,0,12,0,120,-1,N,1,1,13,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,257,0
+1,1,9,5,51,9,0,0,0,0,80,80,0,0,0,0,12,0,40,-1,N,1,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,258,0
+1,1,9,6,52,9,0,0,0,0,192,192,0,0,0,0,110,0,5,0,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,259,0
+1,1,9,7,53,9,0,0,0,0,130,130,0,0,0,0,12,0,40,-1,N,1,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,260,0
+1,1,9,8,54,9,0,0,0,0,131,131,0,0,0,0,12,0,40,-1,N,1,1,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,261,0
+1,1,9,9,55,9,0,0,0,0,194,194,0,0,0,0,110,0,4,0,N,1,1,7,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,262,0
+1,1,9,10,56,9,0,0,0,0,195,195,0,0,0,0,12,0,40,-1,N,1,1,8,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,263,0
+1,1,9,11,57,9,0,0,0,0,196,196,0,0,0,0,12,0,40,-1,N,1,1,9,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,264,0
+1,1,9,12,58,9,0,0,0,0,197,197,0,0,0,0,12,1,40,-1,N,1,1,10,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,265,0
+1,1,9,13,66,9,0,0,0,0,91,91,0,0,91,91,110,0,15,0,N,0,0,15,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,284,0
+1,1,9,14,67,9,0,0,0,0,191,92,0,0,92,92,110,1,15,0,N,0,0,14,0,0,1,1,1,0,0,4096,0,0,0,0,0,0,0,0,288,0
+1,1,9,15,68,9,0,0,0,0,136,136,0,0,0,0,12,0,18,-1,N,1,1,12,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,298,0
+1,1,9,16,94,9,0,0,0,0,193,193,0,0,0,0,12,0,40,-1,N,1,1,6,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,380,0
+1,1,1,1,2,1,0,0,0,0,111,111,0,0,0,0,12,0,200,-1,N,1,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,127,0
+1,1,1,2,3,1,0,0,0,0,215,215,0,0,0,0,12,0,30,-1,N,1,1,7,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,128,0
+1,1,1,3,4,1,0,0,0,0,113,113,0,0,0,0,110,0,5,0,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,129,0
+1,1,1,4,5,1,0,0,0,0,216,216,0,0,0,0,110,0,4,0,N,1,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,130,0
+1,1,1,5,6,1,0,0,0,0,115,115,0,0,0,0,12,0,40,-1,N,1,1,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,131,0
+1,1,1,6,7,1,0,0,0,0,116,116,0,0,0,0,12,0,40,-1,N,1,1,6,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,132,0
+1,1,4,1,38,4,0,0,0,0,69,69,0,0,0,0,110,0,13,0,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,228,0
+1,1,1,7,8,1,0,0,0,0,117,117,0,0,0,0,110,0,12,0,N,1,1,8,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,133,0
+1,1,4,2,39,4,0,0,0,0,208,208,0,0,0,0,12,0,100,-1,N,1,1,6,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,229,0
+1,1,1,8,9,1,0,0,0,0,118,118,0,0,0,0,110,0,20,0,N,1,1,9,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,134,0
+1,1,4,3,40,4,0,0,0,0,182,182,0,0,0,0,12,0,200,-1,N,1,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,230,0
+1,1,1,9,1,1,0,0,0,0,13,13,0,0,0,0,110,0,13,0,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,126,0
+1,1,4,4,41,4,0,0,0,0,205,205,0,0,0,0,12,0,40,-1,N,1,1,10,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,231,0
+1,1,4,5,42,4,0,0,0,0,181,181,0,0,0,0,12,0,120,-1,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,232,0
+1,1,4,6,43,4,0,0,0,0,141,141,0,0,0,0,110,0,12,0,N,1,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,233,0
+1,1,7,1,27,7,0,0,0,0,160,160,0,0,0,0,110,0,10,0,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,197,0
+1,1,4,7,95,4,0,0,0,0,203,203,0,0,0,0,110,0,5,0,N,1,1,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,381,0
+1,1,7,2,28,7,0,0,0,0,150,150,0,0,0,0,110,0,12,0,N,1,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,198,0
+1,1,4,8,96,4,0,0,0,0,206,206,0,0,0,0,12,0,40,-1,N,1,1,11,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,382,0
+1,1,7,3,29,7,0,0,0,0,151,151,0,0,151,151,110,0,15,0,N,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,201,0
+1,1,4,9,97,4,0,0,0,0,204,204,0,0,0,0,12,0,4,-1,N,1,1,9,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,383,0
+1,1,7,4,30,7,0,0,0,0,124,124,0,0,124,124,110,0,40,0,N,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,206,0
+1,1,4,10,98,4,0,0,0,0,207,207,0,0,0,0,12,0,40,-1,N,1,1,12,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,384,0
+1,1,4,11,99,4,0,0,0,0,209,209,0,0,0,0,12,0,40,-1,N,1,1,7,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,385,0
+1,1,4,12,100,4,0,0,0,0,210,210,0,0,0,0,12,1,40,-1,N,1,1,8,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,386,0
+1,1,10,1,60,10,0,0,0,0,88,88,0,0,0,0,110,0,12,0,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,275,0
+1,1,10,2,61,10,0,0,0,0,202,202,0,0,0,0,142,0,-2,-1,N,1,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,276,0
+1,1,10,3,62,10,0,0,0,0,165,165,0,0,0,0,164,0,6,0,N,1,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,277,0
+1,1,10,6,65,10,0,0,0,0,91,91,0,0,0,0,110,0,15,0,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,280,0
+1,1,10,7,69,10,0,0,0,0,201,201,0,0,0,0,12,0,40,-1,N,1,1,6,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,299,0
+1,1,10,8,86,10,0,0,0,0,199,199,0,0,0,0,12,0,40,-1,N,1,1,7,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,359,0
+1,1,10,9,87,10,0,0,0,0,211,211,0,0,0,0,110,0,4,0,N,1,1,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,360,0
+1,1,10,10,88,10,0,0,0,0,198,198,0,0,0,0,12,0,40,-1,N,1,1,8,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,361,0
+1,1,2,1,10,2,0,0,0,0,146,146,0,0,0,0,142,0,-2,-1,N,1,1,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,136,0
+1,1,2,2,11,2,0,0,0,0,147,147,0,0,0,0,110,0,10,0,N,1,1,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,167,0
+1,1,2,3,18,2,0,0,0,0,13,13,0,0,13,13,110,0,13,0,N,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,177,0
+1,1,2,4,19,2,0,0,0,0,124,124,0,0,124,124,110,0,40,0,N,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,182,0
+1,1,5,1,44,5,0,0,0,0,72,72,0,0,0,0,12,0,40,-1,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,235,0
+1,1,8,1,24,8,0,0,0,0,151,151,0,0,0,0,110,0,15,0,N,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,193,0
+1,1,8,2,25,8,0,0,0,0,59,59,0,0,0,0,142,0,-2,-1,N,1,1,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,194,0
+1,1,5,8,80,5,0,0,0,0,151,151,0,0,151,151,110,0,15,0,N,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,336,0
+
+PrimaryKey
+DiagramId,ModelId,EntityId,AttributeId,PrimaryKey_ID,Attribute_ID,SequenceNo,Global_User_ID,Row_Time_Stamp
+1,1,4,1,5,38,1,0,0
+1,1,7,3,8,29,1,0,0
+1,1,7,4,9,30,2,0,0
+1,1,10,6,12,65,1,0,0
+1,1,1,9,1,1,1,0,0
+1,1,9,1,11,48,1,0,0
+1,1,6,1,7,20,1,0,0
+1,1,3,6,4,12,1,0,0
+1,1,11,1,13,82,1,0,0
+1,1,8,1,10,24,1,0,0
+1,1,5,1,6,44,1,0,0
+1,1,2,3,2,18,1,0,0
+1,1,2,4,3,19,2,0,0
+
+Indexes
+DiagramId,ModelId,EntityId,IndexId,Indexes_ID,Entity_ID,IsUniqueId,IndexTypeId,KeyType,HashSize,HashSizeTypeId,IgnoreDupKeyId,DupRowId,NoSortId,SortOrderingId,IndexNameId,Flags,NSTFlag,CompareFlags,Global_User_ID,Row_Time_Stamp
+1,1,10,1,10,10,7,0,P,0,0,0,0,0,0,108,0,0,0,272,0
+1,1,7,1,7,7,7,0,P,0,0,0,0,0,0,105,0,0,0,159,0
+1,1,4,1,4,4,7,0,P,0,0,0,0,0,0,102,0,0,0,144,0
+1,1,1,1,1,1,7,0,P,0,0,0,0,0,0,99,0,0,0,118,0
+1,1,9,1,9,9,7,0,P,0,0,0,0,0,0,107,0,0,0,251,0
+1,1,6,1,6,6,7,0,P,0,0,0,0,0,0,104,0,0,0,154,0
+1,1,3,1,3,3,7,0,P,0,0,0,0,0,0,101,0,0,0,139,0
+1,1,11,1,11,11,7,0,P,0,0,0,0,0,0,162,0,0,0,344,0
+1,1,8,1,8,8,7,0,P,0,0,0,0,0,0,106,0,0,0,164,0
+1,1,5,1,5,5,7,0,P,0,0,0,0,0,0,103,0,0,0,149,0
+1,1,2,1,2,2,7,0,P,0,0,0,0,0,0,100,0,0,0,123,0
+
+IndexStorage
+DiagramId,ModelId,EntityId,IndexId,IndexStorage_ID,Indexes_ID,Location,FillfactorPercent,MaximumRowsPerPage,PercentFree,PercentUsed,MinimumExtents,MaximumExtents,InitialExtentSize,NextExtentSize,ExtentGrowthFactor,MinimumTransactions,MaximumTransactions,LockModeSetting,Global_User_ID,Row_Time_Stamp
+1,1,10,1,10,10,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",273,0
+1,1,7,1,7,7,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",160,0
+1,1,4,1,4,4,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",145,0
+1,1,1,1,1,1,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",119,0
+1,1,9,1,9,9,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",252,0
+1,1,6,1,6,6,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",155,0
+1,1,3,1,3,3,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",140,0
+1,1,11,1,11,11,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",345,0
+1,1,8,1,8,8,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",165,0
+1,1,5,1,5,5,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",150,0
+1,1,2,1,2,2,"",-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,"",124,0
+
+IndexColumn
+DiagramId,ModelId,EntityId,IndexId,AttributeId,IndexColumn_ID,Attribute_ID,Indexes_ID,SequenceNo,SortOrdering,Global_User_ID,Row_Time_Stamp
+1,1,8,1,1,6,24,8,1,A,196,0
+1,1,3,1,6,2,12,3,1,A,174,0
+1,1,7,1,3,7,29,7,1,A,203,0
+1,1,7,1,4,8,30,7,2,A,208,0
+1,1,11,1,1,14,82,11,1,A,348,0
+1,1,2,1,3,3,18,2,1,A,179,0
+1,1,2,1,4,4,19,2,2,A,184,0
+1,1,6,1,1,5,20,6,1,A,188,0
+1,1,10,1,6,13,65,10,1,A,281,0
+1,1,5,1,1,11,44,5,1,A,240,0
+1,1,1,1,9,1,1,1,1,A,135,0
+1,1,9,1,1,12,48,9,1,A,256,0
+1,1,4,1,1,10,38,4,1,A,234,0
+
+CheckConstraints
+DiagramId,ModelId,EntityId,CheckId,CheckConstraints_ID,Entity_ID,Attribute_ID,AttributeId,ConstraintNameId,CheckTextId,NSTFlag,Global_User_ID,Row_Time_Stamp
+
+ForeignKey
+DiagramId,ModelId,RelationshipId,ForeignKey_ID,New_Child_Entity_ID,New_Parent_Entity_ID,ParentEntityId,ChildEntityId,Parent_Index_ID,RelationshipTypeId,ParentConstraintTypeId,ParentCardinalityId,ParentCardinalityNo,ChildCardinalityId,ChildCardinalityNo,ParentOptionalityId,ChildOptionalityId,ParentInsertId,ParentUpdateId,ParentDeleteId,ChildInsertId,ChildUpdateId,ChildDeleteId,DefinitionId,InversePhraseId,VerbPhraseId,NoteId,RelationshipNameId,Flags,LogicalRelationshipNameId,NSTFlag,CompareFlags,Global_User_ID,Row_Time_Stamp
+1,1,29,29,8,9,9,8,0,44,0,45,0,51,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,376,0
+1,1,1,1,2,1,1,2,0,46,0,45,0,45,0,0,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,175,0
+1,1,2,2,2,3,3,2,0,46,0,45,0,45,0,0,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,180,0
+1,1,3,3,3,6,6,3,0,44,0,45,0,45,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,189,0
+1,1,4,4,7,8,8,7,0,46,0,45,0,45,0,0,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,199,0
+1,1,5,5,7,3,3,7,0,46,0,45,0,51,0,0,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,204,0
+1,1,12,12,8,9,9,8,0,44,0,45,0,51,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,266,0
+1,1,13,13,9,10,10,9,0,44,0,45,0,45,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,282,0
+1,1,14,14,9,9,9,9,0,44,0,45,0,45,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,286,0
+1,1,18,18,8,4,4,8,0,44,0,45,0,45,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,314,0
+1,1,23,23,5,8,8,5,0,44,0,45,0,73,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,334,0
+1,1,24,24,5,4,4,5,0,44,0,45,0,51,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,338,0
+1,1,26,26,11,9,9,11,0,44,0,45,0,51,0,50,0,44,44,44,44,44,0,0,0,0,0,0,0,0,0,0,355,0
+
+ForeignKeyColumn
+ForeignKeyColumn_Id,DiagramId,ModelId,RelationshipId,ForeignKey_ID,SequenceNo,ParentEntityId,ParentAttributeId,ChildEntityId,ChildAttributeId,OriginalParentId,OriginalAttributeId,Global_User_ID,Row_Time_Stamp
+14,1,1,12,12,7,9,1,8,10,9,1,269,0
+26,1,1,24,24,3,4,1,5,9,4,1,341,0
+1,1,1,1,1,1,1,9,2,3,1,9,178,0
+5,1,1,5,5,2,3,6,7,4,3,6,207,0
+25,1,1,23,23,2,8,1,5,8,8,1,337,0
+33,1,1,29,29,6,9,1,8,17,9,1,379,0
+4,1,1,4,4,1,8,1,7,3,8,1,202,0
+16,1,1,14,14,14,9,1,9,14,9,1,289,0
+20,1,1,18,18,5,4,1,8,14,4,1,317,0
+28,1,1,26,26,3,9,1,11,4,9,1,358,0
+3,1,1,3,3,6,6,1,3,7,6,1,192,0
+15,1,1,13,13,15,10,6,9,13,10,6,285,0
+2,1,1,2,2,2,3,6,2,4,3,6,183,0
+
+Supertype
+DiagramId,ModelId,SupertypeId,Supertype_ID,Entity_ID,EntityId,Type,Discriminator,CompareFlags,Global_User_ID,Row_Time_Stamp
+
+Subtype
+DiagramId,ModelId,SupertypeId,SubtypeId,Subtype_ID,Supertype_ID,ForeignKey_ID,EntityId,RelationshipId,Global_User_ID,Row_Time_Stamp
+
+DbView
+DbView_ID,Model_ID,Inter_Model_View_ID,NameId,Is_User_Defined,DefinitionId,NotesId,OwnerId,NSTFlag,CompareFlags,Global_User_ID,Row_Time_Stamp
+
+View_Field
+View_Field_ID,DbView_ID,Alias,Inter_Model_View_Field_ID,Column_Expression,SequenceNo,Global_User_ID,Row_Time_Stamp
+
+View_Component
+View_Component_ID,DbView_ID,Component_Type,bIsCurrent,SQL,Global_User_ID,Row_Time_Stamp
+
+View_Table
+View_Table_ID,DbView_ID,Entity_ID,Parent_View_ID,Alias,Inter_Model_View_Table_ID,Type,SequenceNo,Global_User_ID,Row_Time_Stamp
+
+Field_Column
+Field_Column_ID,View_Column_ID,View_Field_ID,Global_User_ID,Row_Time_Stamp
+
+View_Column
+View_Column_ID,View_Table_ID,Attribute_ID,Parent_View_Field_ID,Inter_Model_View_Column_ID,Global_User_ID,Row_Time_Stamp
+
+Column_Usage
+Column_Usage_ID,View_Column_ID,Usage_Type,SequenceNo,Global_User_ID,Row_Time_Stamp
+
+EntityDisplay
+DiagramId,ModelId,SubmodelId,EntityId,EntityDisplay_ID,Submodel_ID,Entity_ID,HorizontalPosition,VerticalPosition,cxEntity,cyEntity,cxEntityNode,cyEntityNode,xEntityNode,yEntityNode,DisplayBkgColor,BackgroundColor,Global_User_ID,Row_Time_Stamp
+1,1,1,1,1,1,1,-167,-14,-1,-1,0,0,0,0,0,0,120,0
+1,1,1,2,2,1,2,389,-60,-1,-1,0,0,0,0,0,0,125,0
+1,1,1,3,3,1,3,930,-46,-1,-1,0,0,0,0,0,0,141,0
+1,1,1,4,4,1,4,-146,-275,-1,-1,0,0,0,0,0,0,146,0
+1,1,1,5,5,1,5,-126,-600,-1,-1,0,0,0,0,0,0,151,0
+1,1,1,6,6,1,6,925,152,-1,-1,0,0,0,0,0,0,156,0
+1,1,1,7,7,1,7,912,-332,-1,-1,0,0,0,0,0,0,161,0
+1,1,1,8,8,1,8,380,-317,-1,-1,0,0,0,0,0,0,166,0
+1,1,1,9,9,1,9,500,-664,-1,-1,0,0,0,0,0,0,253,0
+1,1,1,10,10,1,10,928,-570,-1,-1,0,0,0,0,0,0,274,0
+1,1,1,11,11,1,11,-152,-773,-1,-1,0,0,0,0,0,0,346,0
+
+AttributeDisplayOverride
+AttributeDisplayOverride_ID,Attribute_ID,Submodel_ID,Flags,Global_User_ID
+
+View_Display
+View_Display_ID,Submodel_ID,DbView_ID,DisplayBkgColor,View_Background_Color,Default_Horz_Position,Default_Vert_Position,cxView,cyView,cxViewNode,cyViewNode,xViewNode,yViewNode,Global_User_ID,Row_Time_Stamp
+
+Submodel_SchemaObj_Link
+Submodel_SchemaObj_Link_ID,Submodel_ID,MetaTable_ID,Table_Row_ID,cxNode,cyNode,xNode,yNode,cxNodeBackup,cyNodeBackup,xNodeBackup,yNodeBackup,Flags,Global_User_ID
+
+RelationshipDisplay
+DiagramId,ModelId,SubmodelId,RelationshipId,RelationshipDisplay_ID,ForeignKey_ID,Submodel_ID,ElbowPosition,DisplayVerbs,DisplayCardinality,PhysicalEntityId,VerbOffsetX,VerbOffsetY,InverseVerbOffsetX,InverseVerbOffsetY,DesiredRoutingStyle,ParentConnectorFlags,ParentConnectorOffsetX,ParentConnectorOffsetY,ParentConnectorPerMils,ChildConnectorFlags,ChildConnectorOffsetX,ChildConnectorOffsetY,ChildConnectorPerMils,cxName,cyName,cxLogicalName,cyLogicalName,cxVerbPhrase,cyVerbPhrase,cxInverseVerbPhrase,cyInverseVerbPhrase,NameOffsetX,NameOffsetY,LogicalNameOffsetX,LogicalNameOffsetY,NameOrientation,LogicalNameOrientation,VerbPhraseOrientation,InverseVerbPhraseOrientation,Global_User_ID,Row_Time_Stamp
+1,1,1,1,1,1,1,5000,N,N,0,0,0,0,0,3,0,193,0,0,0,-200,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,176,0
+1,1,1,2,2,2,1,5000,N,N,0,0,0,0,0,3,0,-179,0,0,0,200,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,181,0
+1,1,1,3,3,3,1,5000,N,N,0,0,0,0,0,3,0,0,-42,0,0,-9,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,190,0
+1,1,1,4,4,4,1,5000,N,N,0,0,0,0,0,3,0,208,11,0,0,-197,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,200,0
+1,1,1,5,5,5,1,5000,N,N,0,0,0,0,0,3,0,0,-68,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,205,0
+1,1,1,12,12,12,1,5000,N,N,0,0,0,0,0,3,0,19,145,0,0,162,-76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,267,0
+1,1,1,13,13,13,1,5000,N,N,0,0,0,0,0,3,0,8,-85,0,0,178,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,283,0
+1,1,1,14,14,14,1,5000,N,N,0,0,0,0,0,3,0,-178,-83,0,0,-98,-144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,287,0
+1,1,1,18,18,18,1,5000,N,N,0,0,0,0,0,3,0,171,0,0,0,-207,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,315,0
+1,1,1,23,23,23,1,5000,N,N,0,0,0,0,0,3,0,-154,-76,0,0,149,-20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,335,0
+1,1,1,24,24,24,1,5000,N,N,0,0,0,0,0,3,0,0,-119,0,0,2,43,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,339,0
+1,1,1,26,26,26,1,5000,N,N,0,0,0,0,0,3,0,-178,-5,0,0,193,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,356,0
+1,1,1,29,29,29,1,5000,N,N,0,0,0,0,0,3,0,-86,145,0,0,-45,-76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,377,0
+
+Docking_Position
+Docking_Position_ID,View_Relationship_Display_ID,Child_View_Display_ID,Parent_View_Display_ID,RelationshipDisplay_ID,Parent_Entity_Display,Child_Entity_Display,Parent_Supertype_Display,Child_Supertype_Display,Supertype_Display_ID,Docking_Type,Global_User_ID,Row_Time_Stamp
+
+Dock_Pos_Disp_Level
+Dock_Pos_Disp_Level_ID,Docking_Position_ID,Display_Level,Parent_Side,Child_Side,Parent_Relative_Position,Child_Relative_Position,Global_User_ID,Row_Time_Stamp
+
+Path_Node
+Path_Node_ID,RelationshipDisplay_ID,View_Relationship_Display_ID,SupertypeDisplay_ID,SchemaObj_Edge_ID,Shape_Edge_Display_ID,Lineage_Stream_Display_ID,X,Y,SequenceNo
+1,2,0,0,0,0,0,890,-98,1
+2,2,0,0,0,0,0,890,-97,2
+3,3,0,0,0,0,0,1099,18,1
+4,3,0,0,0,0,0,1100,18,2
+5,12,0,0,0,0,0,697,-608,1
+6,12,0,0,0,0,0,749,-608,2
+7,13,0,0,0,0,0,1117,-792,1
+8,14,0,0,0,0,0,422,-876,1
+9,14,0,0,0,0,0,422,-1016,2
+10,14,0,0,0,0,0,580,-1016,3
+11,23,0,0,0,0,0,433,-647,1
+12,29,0,0,0,0,0,592,-608,1
+13,29,0,0,0,0,0,542,-608,2
+
+View_Relationship_Display
+View_Relationship_Display_ID,Entity_ID,Parent_View_ID,Submodel_ID,Child_View_ID,ElbowPosition,Inter_Model_View_Rel_Disp_ID,DesiredRoutingStyle,ParentConnectorFlags,ParentConnectorOffsetX,ParentConnectorOffsetY,ParentConnectorPerMils,ChildConnectorFlags,ChildConnectorOffsetX,ChildConnectorOffsetY,ChildConnectorPerMils,cxName,cyName,NameOffsetX,NameOffsetY,NameOrientation,Global_User_ID,Row_Time_Stamp
+
+SchemaObj_Edge
+SchemaObj_Edge_ID,Parent_Entity_Disp_ID,Parent_View_Disp_ID,Parent_SchemaObj_Link_ID,Child_SchemaObj_Link_ID,Submodel_ID,DesiredRoutingStyle,ParentConnectorFlags,ParentConnectorOffsetX,ParentConnectorOffsetY,ParentConnectorPerMils,ChildConnectorFlags,ChildConnectorOffsetX,ChildConnectorOffsetY,ChildConnectorPerMils,DockingType,Global_User_ID
+
+SupertypeDisplay
+DiagramId,ModelId,SubmodelId,SupertypeId,SupertypeDisplay_ID,Supertype_ID,Submodel_ID,EntityId,HorizontalPosition,VerticalPosition,ElbowPosition,DesiredRoutingStyle,ParentConnectorFlags,ParentConnectorOffsetX,ParentConnectorOffsetY,ParentConnectorPerMils,ChildConnectorFlags,ChildConnectorOffsetX,ChildConnectorOffsetY,ChildConnectorPerMils,xSupertypeSymbolNode,ySupertypeSymbolNode,cxSupertypeSymbolNode,cySupertypeSymbolNode,Global_User_ID,Row_Time_Stamp
+
+GraphicObject
+DiagramId,ModelId,SubmodelId,ObjectId,GraphicObject_ID,Submodel_ID,GraphicsType,LeftPosition,TopPosition,RightPosition,BottomPosition,RawData,xNodeBackup,yNodeBackup,cxNodeBackup,cyNodeBackup,Global_User_ID,Row_Time_Stamp
+1,1,1,1,1,1,2,339,-352,435,-315,28312C2A29,0,0,0,0,387,0
+1,1,1,2,2,1,2,403,-342,499,-327,"",0,0,0,0,388,0
+1,1,1,3,3,1,2,339,-307,435,-292,"",0,0,0,0,389,0
+1,1,1,4,4,1,2,302,-296,398,-281,"",0,0,0,0,390,0
+1,1,1,5,5,1,2,328,-304,424,-288,"",0,0,0,0,391,0
+1,1,1,6,7,1,2,555,-464,651,-427,28302C2A29,0,0,0,0,509,0
+1,1,1,7,9,1,2,762,-462,858,-425,28302C2A29,0,0,0,0,627,0
+1,1,1,8,10,1,2,38,-563,134,-526,28302C2A29,0,0,0,0,628,0
+1,1,1,9,11,1,2,183,-618,279,-581,28302C3129,0,0,0,0,629,0
+1,1,1,10,13,1,2,357,-65,453,-28,28312C2A29,0,0,0,0,747,0
+1,1,1,11,14,1,2,799,-71,895,-34,28312C2A29,0,0,0,0,748,0
+1,1,1,12,15,1,2,879,-337,975,-300,28312C2A29,0,0,0,0,749,0
+1,1,1,13,16,1,2,1122,-287,1218,-251,28302C2A29,0,0,0,0,750,0
+1,1,1,14,17,1,2,1107,11,1203,48,28312C2A29,0,0,0,0,751,0
+1,1,1,15,18,1,2,867,-768,963,-731,28312C2A29,0,0,0,0,752,0
+1,1,1,16,19,1,2,609,-949,705,-912,28312C2A29,0,0,0,0,753,0
+1,1,1,17,20,1,2,244,-769,340,-732,28302C2A29,0,0,0,0,754,0
+
+Shape_Display
+Shape_Display_ID,Submodel_ID,Shape_ID,xNode,yNode,cxNode,cyNode,xNodeBackup,yNodeBackup,cxNodeBackup,cyNodeBackup,zOrder,IsContainer,HorizontalTextJustification,VerticalTextJustification,WrapText,FitShape,Global_User_ID
+
+Shape_Edge_Display
+Shape_Edge_Display_ID,Shape_Edge_ID,Submodel_ID,LineWidth,PenStyle,CurvatureStyle,SourceArrowHeadStyle,TargetArrowHeadStyle,DesiredRoutingStyle,ParentConnectorFlags,ParentConnectorOffsetX,ParentConnectorOffsetY,ParentConnectorPerMils,ChildConnectorFlags,ChildConnectorOffsetX,ChildConnectorOffsetY,ChildConnectorPerMils,DockingType,cxName,cyName,cxVerbPhrase,cyVerbPhrase,cxInverseVerbPhrase,cyInverseVerbPhrase,NameOffsetX,NameOffsetY,VerbOffsetX,VerbOffsetY,InverseVerbOffsetX,InverseVerbOffsetY,NameOrientation,VerbPhraseOrientation,InverseVerbPhraseOrientation,Global_User_ID
+
+Lineage_Component_Display
+Lineage_Component_Display_ID,Lineage_Component_ID,Submodel_ID,xNode,yNode,cxNode,cyNode,xNodeBackup,yNodeBackup,cxNodeBackup,cyNodeBackup,Global_User_ID
+
+Transformation_Display
+Transformation_Display_ID,Transformation_ID,Submodel_ID,xNode,yNode,cxNode,cyNode,xNodeBackup,yNodeBackup,cxNodeBackup,cyNodeBackup,Global_User_ID
+
+Lineage_Stream_Display
+Lineage_Stream_Display_ID,Lineage_Stream_ID,Submodel_ID,DesiredRoutingStyle,ParentConnectorFlags,ParentConnectorOffsetX,ParentConnectorOffsetY,ParentConnectorPerMils,ChildConnectorFlags,ChildConnectorOffsetX,ChildConnectorOffsetY,ChildConnectorPerMils,DockingType,cxName,cyName,NameOffsetX,NameOffsetY,NameOrientation,cxDescription,cyDescription,DescriptionOffsetX,DescriptionOffsetY,DescriptionOrientation,Global_User_ID
+
+SmallString
+String_Id,Data,Overflow,ConstantString,Row_Time_Stamp
+152,MONTO_TOTAL_VENTA,0,0,0
+1,Main,0,0,0
+153,CANTIDAD_TOTAL_ARTICULOS_VENTA,0,0,0
+2,Diagram specific data dictionary.,0,0,0
+3,Logical,0,0,0
+4,Main Model,0,0,0
+5,Data Movement Rules,0,0,0
+157,EMPLEADO_TELEFONO,0,0,0
+158,NUMERO_TELEFONO_EMPLEADO,0,0,0
+7,Y,0,0,0
+159,EMPLEADO_TELEFONO_ID,0,0,0
+160,CANTIDAD_POR_ARTICULO_VENTA,0,0,0
+162,PK11,0,0,0
+12,VAR,0,0,0
+164,NMN,0,0,0
+13,RFC_PROVEDOR,0,0,0
+165,CP_SUCURSAL,0,0,0
+16,CP,0,0,0
+18,CALLE,0,0,0
+170,NUMERO_EMPLEADO_VENDEDOR,0,0,0
+171,NUMERO_EMPLEADO_CAJERO,0,0,0
+181,EMAIL CLIENTE,0,0,0
+182,RAZON SOCIAL CLIENTE,0,0,0
+37,ARTICULO,0,0,0
+38,CODIGO_BARRASA,0,0,0
+191,NUM_EMPLEADO,0,0,0
+40,FOTO,0,0,0
+192,CP_EMPLEADO,0,0,0
+193,EDO_EMPLEADO,0,0,0
+42,STOCK,0,0,0
+194,NUM_DOMICILIO_EMPLEADO,0,0,0
+195,NOM_PILA_EMPLEADO,0,0,0
+44,N,0,0,0
+196,AP_PAT_EMPLEADO,0,0,0
+45,P,0,0,0
+197,AP_MAT_EMPLEADO,0,0,0
+46,I,0,0,0
+198,EDO_SUCURSAL,0,0,0
+47,CATEGORIA,0,0,0
+199,COLONIA_SUCURSAL,0,0,0
+48,CATEGORIA_ID,0,0,0
+201,CALLE_SUCURSAL,0,0,0
+50,M,0,0,0
+202,AÑO_FUNDACION,0,0,0
+51,O,0,0,0
+203,CP_CLIENTE,0,0,0
+52,VENTA,0,0,0
+204,NUM_DOMICILIO_CLIENTE,0,0,0
+53,FOLIO,0,0,0
+205,CALLE_CLIENTE,0,0,0
+54,FECHA,0,0,0
+206,COLONIA_CLIENTE,0,0,0
+207,EDO_CLIENTE,0,0,0
+56,ARTICULO_VENTA,0,0,0
+208,NOM_PILA_CLIENTE,0,0,0
+209,AP_PAT_CLIENTE,0,0,0
+58,MONTO,0,0,0
+210,AP_MAT_CLIENTE,0,0,0
+59,FECHA_VENTA,0,0,0
+211,NUM_ DOMICILIO_SUCURSAL,0,0,0
+213,MR_Proy_BDT_MUEBLERIA_DD,0,0,0
+62,S,0,0,0
+215,EDO_PROVEEDOR,0,0,0
+64,CLIENTE,0,0,0
+216,NUM_DOMICILIO_PROVEEDOR,0,0,0
+65,RFC,0,0,0
+218,PFBDT_MR_MUEBLERIA.DM1,0,0,0
+68,EMAIL,0,0,0
+69,RFC_CLIENTE,0,0,0
+71,FACTURACION/LEALTAD,0,0,0
+72,ID_FACTURA,0,0,0
+73,Z,0,0,0
+76,EMPLEADO,0,0,0
+78,RFC_EMPLEADO,0,0,0
+79,EMAIL_EMPLEADO,0,0,0
+80,TIPO_EMPLEADO,0,0,0
+87,SUCURSAL,0,0,0
+88,TELEFONO_SUCURSAL,0,0,0
+91,SUCURSAL_ID,0,0,0
+92,SUPERVISOR_DIRECTO,0,0,0
+94,Model2.DM1,0,0,0
+95,alejandro,0,0,0
+96,ale,0,0,0
+97,1.0,0,0,0
+98,NameOnly,0,0,0
+99,PK1,0,0,0
+100,PK2,0,0,0
+101,PK3,0,0,0
+102,PK4,0,0,0
+103,PK5,0,0,0
+104,PK6,0,0,0
+105,PK7,0,0,0
+106,PK8,0,0,0
+107,PK9,0,0,0
+108,PK10,0,0,0
+109,PROVEDOR_ARTICULOS,0,0,0
+110,NUM,0,0,0
+111,RAZON_SOCIAL_PROVEEDOR,0,0,0
+113,CP_PROVEEDOR,0,0,0
+115,CALLE_PROVEEDOR,0,0,0
+116,COLONIA_PROVEEDOR,0,0,0
+117,TELEFONO_PROVEEDOR,0,0,0
+118,CUENTA_DE_PAGO_PROVEEDOR,0,0,0
+119,SURTIDO_ARTICULO_PROVEEDOR,0,0,0
+121,BIN,0,0,0
+122,NOMBRE_CATEGORIA,0,0,0
+123,DESCRIPCION_CATEGORIA,0,0,0
+124,CODIGO_BARRAS_ARTICULO,0,0,0
+125,NOMBRE_ARTICULO,0,0,0
+126,FOTOGRAFIA_ARTICULO,0,0,0
+127,STOCK_ARTICULO,0,0,0
+128,NUMERO_EMPLEADO,0,0,0
+130,COLONIA_EMPLEADO,0,0,0
+131,CALLE_EMPLEADO,0,0,0
+136,CURP_EMPLEADO,0,0,0
+141,TELEFONO_CLIENTE,0,0,0
+142,D,0,0,0
+146,FECHA_INICIO_SURTIDO_ARTICULO,0,0,0
+147,PRECIO_COMPRA_ARTICULO,0,0,0
+148,PRECIO_VENTA_ARTICULO,0,0,0
+150,MONTO_POR_ARTICULO_VENTA,0,0,0
+151,FOLIO_VENTA,0,0,0
+
+LargeString
+String_Id,Data,Row_Time_Stamp
+
+StringUsage
+StringUsage_Id,UniqueObject_Id,StringUsageType_Id,String_Id,Row_Time_Stamp
+301,381,14,203,0
+1,2,99,213,0
+302,381,15,203,0
+2,2,100,2,0
+303,382,14,206,0
+3,3,37,3,0
+304,382,15,206,0
+4,22,38,4,0
+305,383,14,204,0
+5,111,112,5,0
+306,383,15,204,0
+6,111,113,5,0
+307,384,14,207,0
+7,116,1,109,0
+308,384,15,207,0
+8,116,2,109,0
+309,385,14,209,0
+9,121,1,119,0
+310,385,15,209,0
+10,121,2,119,0
+311,386,14,210,0
+11,126,14,13,0
+312,386,15,210,0
+12,126,15,13,0
+13,127,14,111,0
+14,127,15,111,0
+15,128,14,215,0
+16,128,15,215,0
+17,129,14,113,0
+18,129,15,113,0
+319,1,58,218,0
+19,130,14,216,0
+20,130,15,216,0
+21,131,14,115,0
+22,131,15,115,0
+23,132,14,116,0
+24,132,15,116,0
+25,133,14,117,0
+26,133,15,117,0
+27,134,14,118,0
+28,134,15,118,0
+29,136,14,146,0
+30,136,15,146,0
+31,137,1,37,0
+32,137,2,37,0
+33,142,1,64,0
+34,142,2,64,0
+35,147,1,71,0
+36,147,2,71,0
+37,152,1,47,0
+38,152,2,47,0
+39,157,1,56,0
+40,157,2,56,0
+41,162,1,52,0
+42,162,2,52,0
+43,167,14,147,0
+44,167,15,147,0
+45,168,14,124,0
+46,168,15,124,0
+47,169,14,125,0
+48,169,15,125,0
+51,171,14,126,0
+52,171,15,126,0
+53,172,14,127,0
+54,172,15,127,0
+57,177,15,13,0
+58,177,14,13,0
+59,177,11,13,0
+60,177,95,13,0
+61,182,15,124,0
+62,182,14,124,0
+63,182,11,38,0
+64,182,95,38,0
+65,185,14,48,0
+66,185,15,48,0
+67,186,14,122,0
+68,186,15,122,0
+69,187,14,123,0
+70,187,15,123,0
+71,191,15,48,0
+72,191,14,48,0
+75,193,14,151,0
+76,193,15,151,0
+77,194,14,59,0
+78,194,15,59,0
+79,195,14,153,0
+80,195,15,153,0
+81,197,14,160,0
+82,197,15,160,0
+83,198,14,150,0
+84,198,15,150,0
+85,201,15,151,0
+86,201,14,151,0
+87,201,11,53,0
+88,201,95,53,0
+89,206,15,124,0
+90,206,14,124,0
+91,206,11,38,0
+92,206,95,38,0
+101,215,14,152,0
+102,215,15,152,0
+103,218,15,38,0
+104,218,14,38,0
+105,218,11,38,0
+107,221,15,38,0
+108,221,14,38,0
+109,221,11,38,0
+111,225,15,38,0
+112,225,14,38,0
+113,225,11,38,0
+117,228,14,69,0
+118,228,15,69,0
+119,229,14,208,0
+120,229,15,208,0
+121,230,14,182,0
+122,230,15,182,0
+123,231,14,205,0
+124,231,15,205,0
+125,232,14,181,0
+126,232,15,181,0
+127,233,14,141,0
+128,233,15,141,0
+129,235,14,72,0
+130,235,15,72,0
+143,249,1,76,0
+144,249,2,76,0
+145,254,14,191,0
+146,254,15,191,0
+147,255,14,78,0
+148,255,15,78,0
+149,257,14,79,0
+150,257,15,79,0
+151,258,14,80,0
+152,258,15,80,0
+153,259,14,192,0
+154,259,15,192,0
+155,260,14,130,0
+156,260,15,130,0
+157,261,14,131,0
+158,261,15,131,0
+159,262,14,194,0
+160,262,15,194,0
+161,263,14,195,0
+162,263,15,195,0
+163,264,14,196,0
+164,264,15,196,0
+165,265,14,197,0
+166,265,15,197,0
+167,268,15,171,0
+168,268,14,191,0
+169,268,11,171,0
+170,268,95,171,0
+171,270,1,87,0
+172,270,2,87,0
+173,275,14,88,0
+174,275,15,88,0
+175,276,14,202,0
+176,276,15,202,0
+177,277,14,165,0
+178,277,15,165,0
+183,280,14,91,0
+184,280,15,91,0
+185,284,15,91,0
+186,284,14,91,0
+189,288,15,92,0
+190,288,14,191,0
+191,288,11,92,0
+192,288,95,92,0
+194,1,51,94,0
+195,1,52,95,0
+196,1,53,96,0
+197,1,54,97,0
+198,1,55,96,0
+199,1,57,98,0
+200,118,39,99,0
+201,123,39,100,0
+202,139,39,101,0
+203,144,39,102,0
+204,149,39,103,0
+205,154,39,104,0
+206,159,39,105,0
+207,164,39,106,0
+208,251,39,107,0
+209,272,39,108,0
+210,298,14,136,0
+211,298,15,136,0
+212,299,14,201,0
+213,299,15,201,0
+216,301,14,148,0
+217,301,15,148,0
+222,308,15,69,0
+223,308,14,69,0
+224,308,11,69,0
+226,312,15,69,0
+227,312,14,69,0
+228,312,11,69,0
+230,316,15,69,0
+231,316,14,69,0
+234,320,15,151,0
+235,320,14,151,0
+236,320,11,151,0
+238,324,15,151,0
+239,324,14,151,0
+240,324,11,151,0
+242,328,15,151,0
+243,328,14,151,0
+244,328,11,151,0
+250,336,15,151,0
+251,336,14,151,0
+252,336,11,151,0
+253,336,95,151,0
+254,340,15,69,0
+255,340,14,69,0
+256,340,11,69,0
+257,340,95,69,0
+258,342,1,157,0
+259,342,2,157,0
+260,347,14,159,0
+261,347,15,159,0
+266,354,14,158,0
+267,354,15,158,0
+268,357,15,191,0
+269,357,14,191,0
+270,357,11,128,0
+271,357,95,128,0
+272,344,39,162,0
+273,359,14,199,0
+274,359,15,199,0
+275,360,14,211,0
+276,360,15,211,0
+277,361,14,198,0
+278,361,15,198,0
+291,374,15,128,0
+292,374,14,128,0
+293,374,11,128,0
+295,378,15,170,0
+296,378,14,191,0
+297,378,11,170,0
+298,378,95,170,0
+299,380,14,193,0
+300,380,15,193,0
+
+StringUsageType
+StringUsageType_Id,UsageName,Description,Global_User_ID,Row_Time_Stamp
+1,Entity Name,"",0,0
+2,Table Name,"",0,0
+3,Entity Definition,"",0,0
+4,Entity Note,"",0,0
+5,Entity Owner,"",0,0
+6,Display Label Singular,"",0,0
+7,Display Label Plural,"",0,0
+8,Row Value Expression,"",0,0
+9,Entity Type,"",0,0
+10,Unique Rolename,"",0,0
+11,Rolename,"",0,0
+12,Attribute Note,"",0,0
+13,Attribute Definition,"",0,0
+14,Attribute Name,"",0,0
+15,Column Name,"",0,0
+16,Full Rolename,"",0,0
+17,Unique Column Name,"",0,0
+18,Relationship Name,"",0,0
+19,Verb Phrase,"",0,0
+20,Inverse Phrase,"",0,0
+21,Relationship Definition,"",0,0
+22,Relationship Note,"",0,0
+23,Relationship Type,"",0,0
+24,Parent Constraint Type,"",0,0
+25,Parent Cardinality,"",0,0
+26,Child Cardinality,"",0,0
+27,Parent Optionality,"",0,0
+28,Child Optionality,"",0,0
+29,Parent Insert,"",0,0
+30,Parent Update,"",0,0
+31,Parent Delete,"",0,0
+32,Child Insert,"",0,0
+33,Child Update,"",0,0
+34,Child Delete,"",0,0
+35,Insert Child Form Type,"",0,0
+36,Update Child Form Type,"",0,0
+37,Model Name,"",0,0
+38,View Model Name,"",0,0
+39,Index Name,"",0,0
+40,Index Default Name,"",0,0
+41,Is Unique,"",0,0
+42,Index Type,"",0,0
+43,Key Type,"",0,0
+44,Hash Size Type,"",0,0
+45,Ignore Duplicate Key,"",0,0
+46,Duplicate Row,"",0,0
+47,No Sort,"",0,0
+48,Sort Ordering,"",0,0
+49,Domain Name,"",0,0
+50,Domain Column Name,"",0,0
+51,Diagram Name,"",0,0
+52,Author,"",0,0
+53,Company,"",0,0
+54,Version No,"",0,0
+55,Copyright,"",0,0
+56,Diagram Definition,"",0,0
+57,Unification Option,"",0,0
+58,File Name,"",0,0
+59,Check Constraint Name,"",0,0
+60,Check Constraint Text,"",0,0
+61,User Data Type,"",0,0
+62,Data Type Id,"",0,0
+63,Default,"",0,0
+64,Rule,"",0,0
+65,Default Name,"",0,0
+66,Rule Name,"",0,0
+67,Default Base Name,"",0,0
+68,Default Base Text,"",0,0
+69,Rule Base Name,"",0,0
+70,Rule Base Text,"",0,0
+71,Copyright Year,"",0,0
+72,View Definition,"",0,0
+73,View Name,"",0,0
+74,View Note,"",0,0
+75,View Owner,"",0,0
+76,DbTrigger Name,"",0,0
+77,DbTrigger Owner,"",0,0
+78,DbTrigger Description,"",0,0
+79,DbTrigger Value,"",0,0
+80,Proc Name,"",0,0
+81,Proc Owner,"",0,0
+82,Proc Description,"",0,0
+83,Proc Value,"",0,0
+84,DbPackage Name,"",0,0
+85,DbPackage Owner,"",0,0
+86,DbPackage Description,"",0,0
+87,DbPackage Header Value,"",0,0
+88,DbPackage Body Value,"",0,0
+89,Dictionary Trigger Name,"",0,0
+90,Dictionary Trigger Description,"",0,0
+91,Dictionary Trigger Value,"",0,0
+92,Dictionary Library Name,"",0,0
+93,Dictionary Library Description,"",0,0
+94,Dictionary Library Value,"",0,0
+95,Logical Rolename,"",0,0
+96,Reusable Procedure Name,"",0,0
+97,Reusable Procedure Description,"",0,0
+98,Reusable Procedure Value,"",0,0
+99,Data Dictionary Name,"",0,0
+100,Data Dictionary Description,"",0,0
+101,Storage Object Name,"",0,0
+102,Storage Object Owner,"",0,0
+103,Storage Object Description,"",0,0
+104,Storage Object Value,"",0,0
+105,Domain Description,"",0,0
+106,Reference Value Name,"",0,0
+107,Reference Value Description,"",0,0
+108,Reference Value Value,"",0,0
+109,Reference Value Value Description,"",0,0
+110,Reference Value Min Value,"",0,0
+111,Reference Value Max Value,"",0,0
+112,Attachment Type Name,"",0,0
+113,Attachment Type Description,"",0,0
+114,Attachment Name,"",0,0
+115,Attachment Description,"",0,0
+116,Attachment Value Default,"",0,0
+117,Bound Dictionary Object Value Override,"",0,0
+118,Domain Note,"",0,0
+119,Domain Attribute Name,"",0,0
+120,Dictionary Object Link Node Name,"",0,0
+121,Default Constraint Name,"",0,0
+122,Object Transform Name,"",0,0
+123,Object Transform Description,"",0,0
+124,Logical Relationship Name,"",0,0
+125,Shape Name,"",0,0
+126,Shape Value,"",0,0
+127,Shape Edge Name,"",0,0
+128,DatabaseRole Name,"",0,0
+129,DatabaseRole Description,"",0,0
+130,DatabaseUser Name,"",0,0
+131,DatabaseUser Description,"",0,0
+132,DatabaseUser External Name,"",0,0
+133,Naming Standards Template Name,"",0,0
+134,Naming Standards Template Description,"",0,0
+135,Naming Standards Template Data,"",0,0
+136,Shape Verb Phrase,"",0,0
+137,Shape Inverse Verb Phrase,"",0,0
+138,Attribute Attachment Override,"",0,0
+139,Domain Attachment Override,"",0,0
+140,Index Attachment Override,"",0,0
+141,Model Attachment Override,"",0,0
+142,Relationship Attachment Override,"",0,0
+143,Entity Attachment Override,"",0,0
+144,View Attachment Override,"",0,0
+145,User Data Type Attachment Override,"",0,0
+146,Rule Base Attachment Override,"",0,0
+147,Default Base Attachment Override,"",0,0
+148,Proc Attachment Override,"",0,0
+149,DbTrigger Attachment Override,"",0,0
+150,DbPackage Attachment Override,"",0,0
+151,Reference Value Attachment Override,"",0,0
+152,Shape Attachment Override,"",0,0
+153,SubModel Definition,"",0,0
+154,SubModel Note,"",0,0
+155,UDM Definition Override,"",0,0
+156,Data Lineage Transformation Name,"",0,0
+157,Data Lineage Transformation Definition,"",0,0
+158,Data Lineage Transformation Code,"",0,0
+159,Created By ID,"",0,0
+160,Last Updated By ID,"",0,0
+161,Create Timestamp ID,"",0,0
+162,Last Update Timestamp ID,"",0,0
+163,Lineage Stream Name,"",0,0
+164,Lineage Stream Description,"",0,0
+165,User Object Match Definition,"",0,0
+166,Attribute Security Override,"",0,0
+167,Model Security Override,"",0,0
+168,Entity Security Override,"",0,0
+169,View Security Override,"",0,0
+170,Data Lineage Transformation Attachment Override,"",0,0
+171,SubModel Attachment Override,"",0,0
+172,SubModel Security Override,"",0,0
+
+Object_Color_Override
+Object_Color_Override_ID,ColorProperty_ID,MetaTable_ID,Table_Row_ID,Red,Green,Blue,Global_User_ID
+
+Object_Font_Override
+Object_Font_Override_ID,FontProperty_ID,MetaTable_ID,Table_Row_ID,Face,Size,Bold,Italic,Underline,Strikeout,Escapement,Orientation,CharacterSet,OutputPrecision,ClipPrecision,Quality,Pitch,Family,Global_User_ID
+
+Layout_Algorithm
+Layout_Algorithm_ID,Name,Description,Global_User_ID,Row_Time_Stamp
+1,Force,Force-Directed Layout Algorithm,0,0
+2,Layered,Layered Layout Algorithm,0,0
+3,Circle,Circle Layout Algorithm,0,0
+4,Random,Random Layout Algorithm,0,0
+
+Data_Type
+Data_Type_ID,Name,Description,Row_Time_Stamp
+1,Integer,Integer Data Type,0
+2,Float,Floating-Point Data Type,0
+
+Layout_Property_Name
+Layout_Property_Name_ID,Name,Description,Row_Time_Stamp
+1,FORCE_ALGORITHM,Force-Directed Layout Parameter,0
+2,FORCE_FLAGS,Force-Directed Layout Parameter,0
+3,FORCE_START_V_MIN,Force-Directed Layout Parameter,0
+4,FORCE_START_V_MAX,Force-Directed Layout Parameter,0
+5,FORCE_START_V,Force-Directed Layout Parameter,0
+6,FORCE_START_H_MIN,Force-Directed Layout Parameter,0
+7,FORCE_START_H_MAX,Force-Directed Layout Parameter,0
+8,FORCE_START_H,Force-Directed Layout Parameter,0
+9,FORCE_GRAPH_H_SEP_MIN,Force-Directed Layout Parameter,0
+10,FORCE_GRAPH_H_SEP_MAX,Force-Directed Layout Parameter,0
+11,FORCE_GRAPH_H_SEP,Force-Directed Layout Parameter,0
+12,FORCE_NODE_DIST_MIN,Force-Directed Layout Parameter,0
+13,FORCE_NODE_DIST_MAX,Force-Directed Layout Parameter,0
+14,FORCE_NODE_DIST,Force-Directed Layout Parameter,0
+15,FORCE_ARG1,Force-Directed Layout Parameter,0
+16,FORCE_ARG2,Force-Directed Layout Parameter,0
+17,LAYERED_ALGORITHM,Layered Layout Parameter,0
+18,LAYERED_TECHNIQUE,Layered Layout Parameter,0
+19,LAYERED_FLAGS,Layered Layout Parameter,0
+20,LAYERED_START_V_MIN,Layered Layout Parameter,0
+21,LAYERED_START_V_MAX,Layered Layout Parameter,0
+22,LAYERED_START_V,Layered Layout Parameter,0
+23,LAYERED_STEP_V_MIN,Layered Layout Parameter,0
+24,LAYERED_STEP_V_MAX,Layered Layout Parameter,0
+25,LAYERED_STEP_V,Layered Layout Parameter,0
+26,LAYERED_START_H_MIN,Layered Layout Parameter,0
+27,LAYERED_START_H_MAX,Layered Layout Parameter,0
+28,LAYERED_START_H,Layered Layout Parameter,0
+29,LAYERED_STEP_H_MIN,Layered Layout Parameter,0
+30,LAYERED_STEP_H_MAX,Layered Layout Parameter,0
+31,LAYERED_STEP_H,Layered Layout Parameter,0
+32,LAYERED_GRAPH_H_SEP_MIN,Layered Layout Parameter,0
+33,LAYERED_GRAPH_H_SEP_MAX,Layered Layout Parameter,0
+34,LAYERED_GRAPH_H_SEP,Layered Layout Parameter,0
+35,LAYERED_ARG1_MIN,Layered Layout Parameter,0
+36,LAYERED_ARG1_MAX,Layered Layout Parameter,0
+37,LAYERED_ARG1,Layered Layout Parameter,0
+38,LAYERED_ARG2,Layered Layout Parameter,0
+39,CIRCLE_FLAGS,Circle Layout Parameter,0
+40,CIRCLE_DENSITY_MIN,Circle Layout Parameter,0
+41,CIRCLE_DENSITY_MAX,Circle Layout Parameter,0
+42,CIRCLE_DENSITY,Circle Layout Parameter,0
+43,CIRCLE_GRAPH_H_SEP_MIN,Circle Layout Parameter,0
+44,CIRCLE_GRAPH_H_SEP_MAX,Circle Layout Parameter,0
+45,CIRCLE_GRAPH_H_SEP,Circle Layout Parameter,0
+46,RANDOM_FLAGS,Random Layout Parameter,0
+47,RANDOM_MAX_H_MIN,Random Layout Parameter,0
+48,RANDOM_MAX_H_MAX,Random Layout Parameter,0
+49,RANDOM_MAX_H,Random Layout Parameter,0
+50,RANDOM_MAX_V_MIN,Random Layout Parameter,0
+51,RANDOM_MAX_V_MAX,Random Layout Parameter,0
+52,RANDOM_MAX_V,Random Layout Parameter,0
+53,RANDOM_GRAPH_H_SEP_MIN,Random Layout Parameter,0
+54,RANDOM_GRAPH_H_SEP_MAX,Random Layout Parameter,0
+55,RANDOM_GRAPH_H_SEP,Random Layout Parameter,0
+
+Submodel_Algorithm
+Submodel_Algorithm_ID,Layout_Algorithm_ID,Submodel_ID,Global_User_ID,Row_Time_Stamp
+
+Algorithm_Property
+Algorithm_Property_ID,Layout_Property_Name_ID,Data_Type_ID,Submodel_Algorithm_ID,Value,Global_User_ID,Row_Time_Stamp
+
+Identity_Value
+Identity_Value_ID,Table_Name,Column_Name,Next_Valid_Value,Global_User_ID,Row_Time_Stamp
+1,Algorithm_Property,Algorithm_Property_ID,1,0,0
+2,AppGenAttribute,AppGenAttribute_ID,1,0,0
+3,AppGenEntity,AppGenEntity_ID,1,0,0
+4,AppGenField,AppGenField_ID,1,0,0
+5,AppGenFormField,AppGenFormField_ID,1,0,0
+6,AppGenFormLink,AppGenFormLink_ID,1,0,0
+7,AppGenModel,AppGenModel_ID,1,0,0
+8,AppGenRelationship,AppGenRelationship_ID,1,0,0
+9,AppGenSearchColumn,AppGenSearchColumn_ID,1,0,0
+10,Attachment,Attachment_ID,1,0,0
+11,Attachment_Type,Attachment_Type_ID,2,0,0
+12,Attribute,Attribute_ID,101,0,0
+13,AttributeDisplayOverride,AttributeDisplayOverride_ID,1,0,0
+14,Bound_Dictionary_Object,Bound_Dictionary_Object_ID,1,0,0
+15,CheckConstraints,CheckConstraints_ID,1,0,0
+16,Circular_Layout,Circular_Layout_ID,5,0,0
+17,ColorDefault,ColorDefault_ID,228,0,0
+18,Column_Usage,Column_Usage_ID,1,0,0
+19,Components_Layout,Components_Layout_ID,5,0,0
+20,Configuration_Option,Configuration_Option_ID,1,0,0
+21,Data_Dictionary,Data_Dictionary_ID,2,0,0
+22,Data_Flow,Data_Flow_ID,1,0,0
+23,Data_Flow_Property,Data_Flow_Property_ID,1,0,0
+24,Data_Type,Data_Type_ID,1,0,0
+25,DbTrigger,DbTrigger_ID,1,0,0
+26,DbPackage,DbPackage_ID,1,0,0
+27,DbView,DbView_ID,1,0,0
+28,Delayed_Checkout,Delayed_Checkout_ID,1,0,0
+29,DF_Component,DF_Component_ID,1,0,0
+30,DF_Component_Type,DF_Component_Type_ID,1,0,0
+31,DF_IO_Record_Set,DF_IO_Record_Set_ID,1,0,0
+32,DF_IO_Property,DF_IO_Property_ID,1,0,0
+33,DF_IO_Property_Data,DF_IO_Property_Data_ID,1,0,0
+34,DF_Property,DF_Property_ID,1,0,0
+35,DF_Property_Data,DF_Property_Data_ID,1,0,0
+36,DiagramDisplay,DiagramDisplay_ID,5,0,0
+37,Dictionary_Library,Dictionary_Library_ID,1,0,0
+38,Dictionary_Object,Dictionary_Object_ID,6,0,0
+39,Dictionary_Object_Link,Dictionary_Object_Link_ID,1,0,0
+40,Dictionary_Object_Type,Dictionary_Object_Type_ID,14,0,0
+41,Dictionary_Trigger,Dictionary_Trigger_ID,1,0,0
+42,Disconnected_Nodes_Layout,Disconnected_Nodes_Layout_ID,5,0,0
+43,Dock_Pos_Disp_Level,Dock_Pos_Disp_Level_ID,1,0,0
+44,Docking_Position,Docking_Position_ID,1,0,0
+45,Entity,Entity_ID,12,0,0
+46,Entity_Size_and_Position,Entity_Size_and_Position_ID,1,0,0
+47,EntityDisplay,EntityDisplay_ID,12,0,0
+48,Field,Field_ID,1,0,0
+49,Field_Column,Field_Column_ID,1,0,0
+50,Field_Data_Type,Field_Data_Type_ID,1,0,0
+51,FontDefault,FontDefault_ID,112,0,0
+52,ForeignKey,ForeignKey_ID,30,0,0
+53,ForeignKeyColumn,ForeignKeyColumn_Id,34,0,0
+54,Graph_Geometry,Graph_Geometry_ID,5,0,0
+55,GraphicObject,GraphicObject_ID,21,0,0
+56,GridDisplay,GridDisplay_ID,5,0,0
+57,Group,Group_ID,1,0,0
+58,Group_Member,Group_Member_ID,1,0,0
+59,Group_Meta_Table,Group_Meta_Table_ID,1,0,0
+60,Group_Type,Group_Type_ID,1,0,0
+61,Hierarchical_Layout,Hierarchical_Layout_ID,5,0,0
+62,IndexColumn,IndexColumn_ID,18,0,0
+63,Indexes,Indexes_ID,12,0,0
+64,IndexStorage,IndexStorage_ID,12,0,0
+65,InterModelObjectLink,InterModelObjectLink_ID,1,0,0
+66,InterModelRelationship,InterModelRelationship_ID,1,0,0
+67,Layout_Algorithm,Layout_Algorithm_ID,1,0,0
+68,Layout_Property_Name,Layout_Property_Name_ID,1,0,0
+69,Lineage_Component,Lineage_Component_ID,1,0,0
+70,Lineage_Component_Display,Lineage_Component_Display_ID,1,0,0
+71,Lineage_Stream,Lineage_Stream_ID,1,0,0
+72,Lineage_Stream_Display,Lineage_Stream_Display_ID,1,0,0
+73,Lineage_Stream_Member,Lineage_Stream_Member_ID,1,0,0
+74,Log_File,Log_File_ID,1,0,0
+75,Machine,Machine_ID,1,0,0
+76,MetaClass,MetaClass_ID,4,0,0
+77,MetaClass_Member,MetaClass_Member_ID,1,0,0
+78,MetaTable,MetaTable_ID,63,0,0
+79,MetaTableConfiguration,MetaTableConfiguration_ID,1,0,0
+80,Model,Model_ID,5,0,0
+81,ModelOption,ModelOption_ID,69,0,0
+82,Naming_Standards_Template,Naming_Standards_Template_ID,1,0,0
+83,Object_Color_Override,Object_Color_Override_ID,1,0,0
+84,Object_Domain,Object_Domain_ID,3,0,0
+85,Object_Font_Override,Object_Font_Override_ID,1,0,0
+86,Object_Tracking,Object_Tracking_ID,1,0,0
+87,Object_Transform,Object_Transform_ID,1,0,0
+88,ObjectModification,ObjectModification_ID,1,0,0
+89,Orthogonal_Layout,Orthogonal_Layout_ID,5,0,0
+90,PasteInfo,PasteInfo_ID,1,0,0
+91,Path_Node,Path_Node_ID,14,0,0
+92,Pipeline,Pipeline_ID,1,0,0
+93,Pipeline_Member,Pipeline_Member_ID,1,0,0
+94,Pipeline_Member_Property,Pipeline_Member_Property_ID,1,0,0
+95,PrimaryKey,PrimaryKey_ID,14,0,0
+96,Proc,Proc_ID,1,0,0
+97,Project,Project_ID,1,0,0
+98,Project_Link,Project_Link_ID,1,0,0
+99,Project_Member,Project_Member_ID,1,0,0
+100,Project_Property,Project_Property_ID,1,0,0
+101,Property,Property_ID,266,0,0
+102,Property_Type,Property_Type_ID,12,0,0
+103,Property_Usage,Property_Usage_ID,1,0,0
+104,Property_Value,Property_Value_ID,301,0,0
+105,Property_Value_Usage,Property_Value_Usage_ID,1,0,0
+106,Record_Set_Type,Record_Set_Type_ID,1,0,0
+107,Rejected_Record_File,Rejected_Record_File_ID,1,0,0
+108,Referenced_Object,Referenced_Object_ID,1,0,0
+109,Reference_Value,Reference_Value_ID,1,0,0
+110,RelationshipDisplay,RelationshipDisplay_ID,30,0,0
+111,Repository_User_Info,Repository_User_Info_ID,1,0,0
+112,Reusable_Procedure,Reusable_Procedure_ID,1,0,0
+113,SchemaObj_Edge,SchemaObj_Edge_ID,1,0,0
+114,Shape,Shape_ID,1,0,0
+115,Shape_Display,Shape_Display_ID,1,0,0
+116,Shape_Edge,Shape_Edge_ID,1,0,0
+117,Shape_Edge_Display,Shape_Edge_Display_ID,1,0,0
+118,Storage_Object,Storage_Object_ID,1,0,0
+119,Submodel,Submodel_ID,5,0,0
+120,Submodel_SchemaObj_Link,Submodel_SchemaObj_Link_ID,1,0,0
+121,SubmodelLink,SubmodelLink_ID,1,0,0
+122,Submodel_Algorithm,Submodel_Algorithm_ID,1,0,0
+123,Subproject,Subproject_ID,1,0,0
+124,Subtype,Subtype_ID,1,0,0
+125,Supertype,Supertype_ID,1,0,0
+126,SupertypeDisplay,SupertypeDisplay_ID,1,0,0
+127,Symmetric_Layout,Symmetric_Layout_ID,5,0,0
+128,TableStorage,TableStorage_ID,12,0,0
+129,TaskChain,TaskChain_ID,1,0,0
+130,TaskChainComponent,TaskChainComponent_ID,1,0,0
+131,TaskChainComponentDisplay,TaskChainComponentDisplay_ID,1,0,0
+132,TaskChainDisplay,TaskChainDisplay_ID,1,0,0
+133,TaskFlow,TASkFlow_ID,1,0,0
+134,Templated_Proc,Templated_Proc_ID,1,0,0
+135,Transformation,Transformation_ID,1,0,0
+136,Transformation_Display,Transformation_Display_ID,1,0,0
+137,Transform_Member,Transform_Member_ID,1,0,0
+138,Tree_Layout,Tree_Layout_ID,5,0,0
+139,User_Object_Match,User_Object_Match_ID,1,0,0
+140,Valid_Attachment_Type,Valid_Attachment_Type_ID,5,0,0
+141,Valid_Group,Valid_Group_ID,1,0,0
+142,Valid_MetaClass,Valid_MetaClass_ID,13,0,0
+143,Valid_Property,Valid_Property_ID,315,0,0
+144,Valid_Property_Value,Valid_Property_Value_ID,375,0,0
+145,View_Column,View_Column_ID,1,0,0
+146,View_Component,View_Component_ID,1,0,0
+147,View_Display,View_Display_ID,1,0,0
+148,View_Field,View_Field_ID,1,0,0
+149,View_Relationship_Display,View_Relationship_Display_ID,1,0,0
+150,View_Table,View_Table_ID,1,0,0
+151,Database_Role,Database_Role_ID,1,0,0
+152,Database_User,Database_User_ID,1,0,0
+153,Object_Permission,Object_Permission_ID,1,0,0
+154,User_Role_Member,User_Role_Member_ID,1,0,0
+
+MetaTable
+MetaTable_ID,Owner,Name,Description,Global_User_ID,Row_Time_Stamp
+1,NULL,Entity,NULL,0,0
+2,NULL,Indexes,NULL,0,0
+3,NULL,Attribute,NULL,0,0
+4,NULL,View,NULL,0,0
+5,NULL,Procedure,NULL,0,0
+6,NULL,Trigger,NULL,0,0
+7,NULL,Package,NULL,0,0
+8,NULL,Dictionary Trigger,NULL,0,0
+9,NULL,Storage Object,NULL,0,0
+10,NULL,Model,NULL,0,0
+11,NULL,Foreign Key,NULL,0,0
+12,NULL,Diagram,NULL,0,0
+13,NULL,Submodel,NULL,0,0
+14,NULL,Supertype,NULL,0,0
+15,NULL,Templated Procedure,NULL,0,0
+16,NULL,Default,NULL,0,0
+17,NULL,Rule,NULL,0,0
+18,NULL,User Datatype,NULL,0,0
+19,NULL,Domain,NULL,0,0
+20,NULL,Reference Value,NULL,0,0
+21,NULL,Data Dictionary,NULL,0,0
+22,NULL,Entity Display,NULL,0,0
+23,NULL,View Display,NULL,0,0
+24,NULL,View Field,NULL,0,0
+25,NULL,Relationship Display,NULL,0,0
+26,NULL,View Relationship Display,NULL,0,0
+27,NULL,Supertype Display,NULL,0,0
+28,NULL,Graphic Object,NULL,0,0
+29,NULL,Sto Group,NULL,0,0
+30,NULL,Node Group,NULL,0,0
+31,NULL,Materialized View,NULL,0,0
+32,NULL,Table Space,NULL,0,0
+33,NULL,Buffer Pool,NULL,0,0
+34,NULL,Database,NULL,0,0
+35,NULL,Auxiliary Table,NULL,0,0
+36,NULL,Synonym,NULL,0,0
+37,NULL,Sequence,NULL,0,0
+38,NULL,Rollback Segment,NULL,0,0
+39,NULL,Function,NULL,0,0
+40,NULL,SchemaObj Display,NULL,0,0
+41,NULL,SchemaObj Edge,NULL,0,0
+42,NULL,Object Type,NULL,0,0
+43,NULL,Alias,NULL,0,0
+44,NULL,Summary Table,NULL,0,0
+45,NULL,Bound Dictionary Object,NULL,0,0
+46,NULL,Shape,NULL,0,0
+47,NULL,Shape Edge,NULL,0,0
+48,NULL,Shape Display,NULL,0,0
+49,NULL,Shape Edge Display,NULL,0,0
+50,NULL,View Table,NULL,0,0
+51,NULL,Referenced Object,NULL,0,0
+52,NULL,Database User,NULL,0,0
+53,NULL,Database Role,NULL,0,0
+54,NULL,Naming Standards Template,NULL,0,0
+55,NULL,User Object Match,NULL,0,0
+56,NULL,User Defined Mapping,NULL,0,0
+57,NULL,Transformers,NULL,0,0
+58,NULL,Transformation Display,NULL,0,0
+59,NULL,Object Tracking,NULL,0,0
+60,NULL,Lineage Stream Display,NULL,0,0
+61,NULL,Lineage Component Display,NULL,0,0
+62,NULL,Attribute Display Override,NULL,0,0
+
+MetaClass
+MetaClass_ID,MetaClass_Name,Description,Global_User_ID,Row_Time_Stamp
+1,Property,NULL,0,0
+2,Partition,NULL,0,0
+3,DBConnection,NULL,0,0
+
+Property
+Property_ID,Name,Description,IsSystemRequired,Global_User_ID,Row_Time_Stamp
+1,Index Scope,NULL,0,0,0
+2,Index Type,NULL,0,0,0
+3,Byte Order,NULL,0,0,0
+4,Logged,NULL,0,0,0
+5,Parallel,NULL,0,0,0
+6,Degree,NULL,0,0,0
+7,Instances,NULL,0,0,0
+8,Partition Column Name,NULL,0,0,0
+9,Column Literal,NULL,0,0,0
+10,TableSpace Name,NULL,0,0,0
+11,Percent Free,NULL,0,0,0
+12,Percent Used,NULL,0,0,0
+13,Initial Extent,NULL,0,0,0
+14,Next Extent,NULL,0,0,0
+15,Percent Increase,NULL,0,0,0
+16,Min Extents,NULL,0,0,0
+17,Max Extents,NULL,0,0,0
+18,Organization,NULL,0,0,0
+19,Pct Threshold,NULL,0,0,0
+20,Include Column Name,NULL,0,0,0
+21,Initial Trans,NULL,0,0,0
+22,Max Trans,NULL,0,0,0
+23,FreeLists,NULL,0,0,0
+24,FreeList Groups,NULL,0,0,0
+25,Buffer Pool,NULL,0,0,0
+26,Cache,NULL,0,0,0
+27,Connect String,NULL,0,0,0
+28,Linked Table,NULL,0,0,0
+29,Use Hashing,NULL,0,0,0
+30,Data Capture,NULL,0,0,0
+31,Index TableSpace,NULL,0,0,0
+32,LONG TableSpace,NULL,0,0,0
+33,View Encrypted,NULL,0,0,0
+34,View Check Option,NULL,0,0,0
+35,For Bit Data,NULL,0,0,0
+36,System Default,NULL,0,0,0
+37,Compacted,NULL,0,0,0
+38,Pre SQL,NULL,0,0,0
+39,Post SQL,NULL,0,0,0
+40,Disable Pre SQL,NULL,0,0,0
+41,Disable Post SQL,NULL,0,0,0
+42,Row GUID Column,NULL,0,0,0
+43,ERX Logical-Physical,NULL,0,0,0
+44,Group BufPool Cache,NULL,0,0,0
+45,Erase DataSet,NULL,0,0,0
+46,No Close DataSet,NULL,0,0,0
+47,Allow Concurrent Copy,NULL,0,0,0
+48,ERX Physical Definition,NULL,0,0,0
+49,Generate Column,NULL,0,0,0
+50,Identity Cache Size,NULL,0,0,0
+51,Index Storage Type,NULL,0,0,0
+52,Table Storage Type,NULL,0,0,0
+53,PCTFREE String,NULL,0,0,0
+54,Unbalanced Split,NULL,0,0,0
+55,Empty Index,NULL,0,0,0
+56,Fix Table,NULL,0,0,0
+57,Auditing,NULL,0,0,0
+58,Encoding Scheme,NULL,0,0,0
+59,Drop Restriction,NULL,0,0,0
+60,Unique Qualifier,NULL,0,0,0
+61,Index Defer,NULL,0,0,0
+62,Object ID,NULL,0,0,0
+63,Collate,NULL,0,0,0
+64,Column Label,NULL,0,0,0
+65,Column Text,NULL,0,0,0
+66,System Name,NULL,0,0,0
+67,Hide Attribute,NULL,0,0,0
+68,Show Object Owner,NULL,0,0,0
+69,HiRDB Table Storage,NULL,0,0,0
+70,HiRDB Lob Storage,NULL,0,0,0
+71,Oracle 9i char used,NULL,0,0,0
+72,Oracle 9i timezone,NULL,0,0,0
+73,Oracle 9i interval,NULL,0,0,0
+74,DDLWizard_Settings,NULL,0,0,0
+75,Pad Index,NULL,0,0,0
+76,Sort In TempDb,NULL,0,0,0
+77,MSSQL IsComputed string,NULL,0,0,0
+78,Sybase Locking Scheme,NULL,0,0,0
+79,Sybase Reserve Page Gap,NULL,0,0,0
+80,Sybase Replacement Strategy,NULL,0,0,0
+81,Sybase Prefetch Strategy,NULL,0,0,0
+82,Sybase Identity Gap,NULL,0,0,0
+83,Teradata Journal Before,NULL,0,0,0
+84,Teradata Journal After,NULL,0,0,0
+85,Teradata Journal Name,NULL,0,0,0
+86,Teradata Fallback Protection,NULL,0,0,0
+87,Oracle Index Column Function,NULL,0,0,0
+88,Oracle Partition Type,NULL,0,0,0
+89,Teradata Datablock Size,NULL,0,0,0
+90,Teradata Compression,NULL,0,0,0
+91,Teradata Format,NULL,0,0,0
+92,Teradata Title,NULL,0,0,0
+93,Oracle Object Type,NULL,0,0,0
+94,Teradata Duplicate Row Control,NULL,0,0,0
+95,Cycle,NULL,0,0,0
+96,Minvalue,NULL,0,0,0
+97,Maxvalue,NULL,0,0,0
+98,Index Owner,NULL,0,0,0
+99,Include,NULL,0,0,0
+100,Reverse Scans,NULL,0,0,0
+101,PK Constraint Name,NULL,0,0,0
+102,MySQL Table Type,NULL,0,0,0
+103,LOB Unit,NULL,0,0,0
+104,Subparition Column Name,NULL,0,0,0
+105,Default Hash Subpartition Count,NULL,0,0,0
+106,Default Hash Subpartition Tablespaces,NULL,0,0,0
+107,Subpartition Template,NULL,0,0,0
+108,Parition Hash Subpartition Count,NULL,0,0,0
+109,Parition Hash Subpartition Tablespaces,NULL,0,0,0
+110,Generate Physical Model Table Suffix,NULL,0,0,0
+111,Generate Physical Model View Prefix,NULL,0,0,0
+112,Generate Physical Model View Suffix,NULL,0,0,0
+113,Generate Physical Model Table Owner,NULL,0,0,0
+114,Generate Physical Model View Owner,NULL,0,0,0
+115,Generate Physical Model Index Owner,NULL,0,0,0
+116,Gennerate Physical Wizard Settings,NULL,0,0,0
+117,Report Wizard Settings,NULL,0,0,0
+118,Compare Merge Wizard Settings,NULL,0,0,0
+119,LOB Segment,NULL,0,0,0
+120,Unsigned,NULL,0,0,0
+121,Sort View Columns Alphabetically,NULL,0,0,0
+122,Oracle Temporary Table,NULL,0,0,0
+123,Oracle Temporary Table Type,NULL,0,0,0
+124,Teradata Index Partitioning Expression,NULL,0,0,0
+125,Model Property Tech Key Conversion,NULL,0,0,0
+126,DB Name,NULL,0,0,0
+127,DB User ID,NULL,0,0,0
+128,DB User Password,NULL,0,0,0
+129,DB Owner Name,NULL,0,0,0
+130,DB Server Name,NULL,0,0,0
+131,DB Connection String,NULL,0,0,0
+132,Table Connection Info ID,NULL,0,0,0
+133,Connection Info Count,NULL,0,0,0
+134,FFTable file name,NULL,0,0,0
+135,FFTable Encode Type,NULL,0,0,0
+136,FFTable File Format Type,NULL,0,0,0
+137,FFTable Is Single Delimited,NULL,0,0,0
+138,FFTable Escape charactor,NULL,0,0,0
+139,FFTable Column Delimiter,NULL,0,0,0
+140,FFTable Null Value,NULL,0,0,0
+141,FFTable Is Using Null Value,NULL,0,0,0
+142,FFTable Text Delimiter Type,NULL,0,0,0
+143,FFTable Row Delimiter Type,NULL,0,0,0
+144,FFTable Is First Row Column Name,NULL,0,0,0
+145,FFColumn ID,NULL,0,0,0
+146,FFColumn Is Nullable,NULL,0,0,0
+147,FFColumn Is Skip Import,NULL,0,0,0
+148,FFColumn Is Using Default Value,NULL,0,0,0
+149,FFColumn Is Using Null Replace,NULL,0,0,0
+150,FFColumn Null Value,NULL,0,0,0
+151,FFColumn Null Replace String,NULL,0,0,0
+152,FFTable Domain Name,NULL,0,0,0
+153,FFTable Machine Name,NULL,0,0,0
+154,FFTable Edited,NULL,0,0,0
+155,FFTable TruncateData,NULL,0,0,0
+156,Oracle service name,NULL,0,0,0
+157,DBMS Port Number,NULL,0,0,0
+158,FFColumn DateFormat,NULL,0,0,0
+159,JMSTable Source Name,NULL,0,0,0
+160,JMSTable Destination name,NULL,0,0,0
+161,JMSTable Destination Type,NULL,0,0,0
+162,JMSTable Selector,NULL,0,0,0
+163,JMSTable Timeout,NULL,0,0,0
+164,JMSTable Msg Ack Mode,NULL,0,0,0
+165,JMSTable Target Destination name,NULL,0,0,0
+166,JMSTable Target Destination Type,NULL,0,0,0
+167,JMSTable Target Priority,NULL,0,0,0
+168,JMSTable Target Expiretime,NULL,0,0,0
+169,JMSTable Target Persistence,NULL,0,0,0
+170,JMSTable Target Generate ID,NULL,0,0,0
+171,JMSTable Target Generate Timestamp,NULL,0,0,0
+172,JMSColumn Msg Field Name,NULL,0,0,0
+173,JMSColumn Msg Field Type,NULL,0,0,0
+174,Table Type,NULL,0,0,0
+175,JMSColumn Column Format,NULL,0,0,0
+176,JMSTable Msg Type,NULL,0,0,0
+177,JMSTable Target Msg Type,NULL,0,0,0
+178,JMSTable Target Source name,NULL,0,0,0
+179,JMSTable XMLFORMAT,NULL,0,0,0
+180,JMSTable XML WITHDTD,NULL,0,0,0
+181,Attach Local File,NULL,0,0,0
+182,XML Column Recursive,NULL,0,0,0
+183,SAP BAPI Name,NULL,0,0,0
+184,SAP User Name,NULL,0,0,0
+185,SAP Password,NULL,0,0,0
+186,SAP Server,NULL,0,0,0
+187,SAP Sysname,NULL,0,0,0
+188,SAP Client,NULL,0,0,0
+189,SAP Language,NULL,0,0,0
+190,SAP RecordBase,NULL,0,0,0
+191,SAP XML Schema,NULL,0,0,0
+192,SAP Request Schema,NULL,0,0,0
+193,SAP Response Schema,NULL,0,0,0
+194,SAP Conditions,NULL,0,0,0
+195,SAP Catalog Name List,NULL,0,0,0
+196,SAP Category Name List,NULL,0,0,0
+197,SAP Category Name,NULL,0,0,0
+198,XML Schema Type,NULL,0,0,0
+199,Datasource Alias,NULL,0,0,0
+200,FFTable Header Format,NULL,0,0,0
+201,Src Tgt Type,NULL,0,0,0
+202,Src Tgt Description,NULL,0,0,0
+203,Src Tgt Host,NULL,0,0,0
+204,Src Tgt Service,NULL,0,0,0
+205,Src Tgt Port,NULL,0,0,0
+206,Src Tgt File Path,NULL,0,0,0
+207,Src Tgt File Type,NULL,0,0,0
+208,Src Tgt File Encoding,NULL,0,0,0
+209,Src Tgt DS Frequency,NULL,0,0,0
+210,Src Tgt DS LastUpdated,NULL,0,0,0
+211,Src Tgt Enabled,NULL,0,0,0
+212,Ora Password Expire,NULL,0,0,0
+213,Ora Password Lock,NULL,0,0,0
+214,Ora User-Role Identify,NULL,0,0,0
+215,Ora User Def Tbs,NULL,0,0,0
+216,Ora User Temp Tbs,NULL,0,0,0
+217,Ora User Profile,NULL,0,0,0
+218,Ora User Quota Clause,NULL,0,0,0
+219,Column Source Direct Translation Logic,NULL,0,0,0
+220,Column Source Direct Translation Description,NULL,0,0,0
+221,Column Source Secondary Translation Logic,NULL,0,0,0
+222,Column Source Secondary Translation Description,NULL,0,0,0
+223,Column Target Direct Translation Logic,NULL,0,0,0
+224,Column Target Direct Translation Description,NULL,0,0,0
+225,Column Target Secondary Translation Logic,NULL,0,0,0
+226,Column Target Secondary Translation Description,NULL,0,0,0
+227,Submodel Synchronization Utility Settings,NULL,0,0,0
+228,Sybase Table Partition Number,NULL,0,0,0
+229,Oracle Hash Partition Count,NULL,0,0,0
+230,Oracle Hash Partition Tablespace,NULL,0,0,0
+231,SQL Server Text Image File Group,NULL,0,0,0
+232,Sybase Col Encryption Key,NULL,0,0,0
+233,Oracle Col Encryption Algorithm,NULL,0,0,0
+234,Oracle Col Encryption With SALT,NULL,0,0,0
+235,DB2 OS/390 Volatile Table,NULL,0,0,0
+236,Sybase Col Encrypted,NULL,0,0,0
+237,EntityEditor DDL Options,NULL,0,0,0
+238,DB2 OS/390 Table Partition Inclusive,NULL,0,0,0
+239,Model Validation Utility Settings,NULL,0,0,0
+240,SQL Server 2005 Collection Name,NULL,0,0,0
+241,AS400 Table System Name,NULL,0,0,0
+242,AS400 Table Label,NULL,0,0,0
+243,MSSQL Is Persisted,NULL,0,0,0
+244,XML Schema Generation Wizard Settings,NULL,0,0,0
+245,DT Mapping XML,NULL,0,0,0
+246,Naming Standards Utility Settings,NULL,0,0,0
+247,DT Mapping Name,NULL,0,0,0
+248,Teradata LOB Char Set,NULL,0,0,0
+249,DB2 UDB Partition Inclusive,NULL,0,0,0
+250,DB2 UDB Partition Column Literal,NULL,0,0,0
+251,DB2 UDB Partition Duration,NULL,0,0,0
+252,DB2 UDB Partition Duration Label,NULL,0,0,0
+253,DB2 UDB Partition Tablespace,NULL,0,0,0
+254,DB2 UDB Partition Lob Tablespace,NULL,0,0,0
+255,Column Nulls Order,NULL,0,0,0
+256,Oracle Table Compression,NULL,0,0,0
+257,Oracle Index Compression,NULL,0,0,0
+258,Oracle Index Compression Prefix_Length,NULL,0,0,0
+259,Partition Column Nulls Order,NULL,0,0,0
+260,SQL Server 2008 Col SPARSE,NULL,0,0,0
+261,Sybase IQ Index Type,NULL,0,0,0
+262,Sybase IQ Delimited By,NULL,0,0,0
+263,Sybase ID Limit,NULL,0,0,0
+264,Import New Source Settings,NULL,0,0,0
+265,CASESPECIFIC,NULL,0,0,0
+
+Property_Type
+Property_Type_ID,Name,Description,IsSystemRequired,Global_User_ID,Row_Time_Stamp
+1,Table,NULL,0,0,0
+2,Index,NULL,0,0,0
+3,Partition,NULL,0,0,0
+4,Overflow Segment,NULL,0,0,0
+5,Database View,NULL,0,0,0
+6,Attribute,NULL,0,0,0
+7,Storage Object,NULL,0,0,0
+8,Model,NULL,0,0,0
+9,Foreign Key,NULL,0,0,0
+10,Database User,NULL,0,0,0
+11,Database Role,NULL,0,0,0
+
+Property_Value
+Property_Value_ID,Name,Description,Value,IsSystemRequired,Global_User_ID,Row_Time_Stamp
+1,Local,NULL,Local,0,0,0
+2,Global,NULL,Global,0,0,0
+3,Normal,NULL,Normal,0,0,0
+4,Bitmap,NULL,Bitmap,0,0,0
+5,Forward,NULL,Forward,0,0,0
+6,Reverse,NULL,Reverse,0,0,0
+7,Logged,NULL,Logged,0,0,0
+8,NotLogged,NULL,NotLogged,0,0,0
+9,NoParallel,NULL,NoParallel,0,0,0
+10,Parallel,NULL,Parallel,0,0,0
+11,Parallel Degree,NULL,Parallel Degree,0,0,0
+12,Parallel Instances,NULL,Parallel Instances,0,0,0
+13,Partition Column,NULL,Partition Column,0,0,0
+14,Column Literal,NULL,Column Literal,0,0,0
+15,Tablespace Name,NULL,Tablespace Name,0,0,0
+16,Pct Free,NULL,Pct Free,0,0,0
+17,Pct Used,NULL,Pct Used,0,0,0
+18,Init Extent,NULL,Init Extent,0,0,0
+19,Next Extent,NULL,Next Extent,0,0,0
+20,Pct Increase,NULL,Pct Increase,0,0,0
+21,Min Extents,NULL,Min Extents,0,0,0
+22,Max Extents,NULL,Max Extents,0,0,0
+23,Heap,NULL,Heap,0,0,0
+24,Cluster,NULL,Cluster,0,0,0
+25,Index-Organized,NULL,Index-Organized,0,0,0
+26,Pct Threshold,NULL,Pct Threshold,0,0,0
+27,Include Column,NULL,Include Column,0,0,0
+28,Initial Trans,NULL,Initial Trans,0,0,0
+29,Max Trans,NULL,Max Trans,0,0,0
+30,FreeLists,NULL,FreeLists,0,0,0
+31,FreeList Groups,NULL,FreeList Groups,0,0,0
+32,DEFAULT,NULL,DEFAULT,0,0,0
+33,KEEP,NULL,KEEP,0,0,0
+34,RECYCLE,NULL,RECYCLE,0,0,0
+35,CACHE,NULL,CACHE,0,0,0
+36,NOCACHE,NULL,NOCACHE,0,0,0
+37,Connect String,NULL,Connect String,0,0,0
+38,Linked Table,NULL,Linked Table,0,0,0
+39,USING HASHING,NULL,USING HASHING,0,0,0
+40,DATA CAPTURE CHANGES,NULL,DATA CAPTURE CHANGES,0,0,0
+41,DATA CAPTURE NONE,NULL,DATA CAPTURE NONE,0,0,0
+42,Index Tablespace,NULL,Index Tablespace,0,0,0
+43,LONG Tablespace,NULL,LONG Tablespace,0,0,0
+44,WITH ENCRYPTION,NULL,WITH ENCRYPTION,0,0,0
+45,WITH CHECK OPTION,NULL,WITH CHECK OPTION,0,0,0
+46,FOR BIT DATA,NULL,FOR BIT DATA,0,0,0
+47,WITH DEFAULT,NULL,WITH DEFAULT,0,0,0
+48,COMPACT,NULL,COMPACT,0,0,0
+49,PRE SQL,NULL,PRE SQL,0,0,0
+50,POST SQL,NULL,POST SQL,0,0,0
+51,DISABLE PRE SQL,NULL,DISABLE PRE SQL,0,0,0
+52,DISABLE POST SQL,NULL,DISABLE POST SQL,0,0,0
+53,ROWGUIDCOL,NULL,ROWGUIDCOL,0,0,0
+54,LOGICAL ONLY,NULL,LOGICAL ONLY,0,0,0
+55,PHYSICAL ONLY,NULL,PHYSICAL ONLY,0,0,0
+56,GBPCACHE ALL,NULL,GBPCACHE ALL,0,0,0
+57,GBPCACHE CHANGE,NULL,GBPCACHE CHANGE,0,0,0
+58,GBPCACHE NONE,NULL,GBPCACHE NONE,0,0,0
+59,ERASE YES,NULL,ERASE YES,0,0,0
+60,CLOSE NO,NULL,CLOSE NO,0,0,0
+61,COPY YES,NULL,COPY YES,0,0,0
+62,Physical Definition,NULL,Physical Definition,0,0,0
+63,GENERATED ALWAYS,NULL,GENERATED ALWAYS,0,0,0
+64,GENERATED BY DEFAULT,NULL,GENERATED BY DEFAULT,0,0,0
+65,IDENTITY CACHE,NULL,IDENTITY CACHE,0,0,0
+66,VCAT,NULL,VCAT,0,0,0
+67,STOGROUP,NULL,STOGROUP,0,0,0
+68,DATABASE,NULL,DATABASE,0,0,0
+69,PCTFREE String Value,NULL,PCTFREE String Value,0,0,0
+70,UNBALANCED SPLIT,NULL,UNBALANCED SPLIT,0,0,0
+71,EMPTY,NULL,EMPTY,0,0,0
+72,FIX,NULL,FIX,0,0,0
+73,Auditing Type,NULL,Auditing Type,0,0,0
+74,Encoding Type,NULL,Encoding Type,0,0,0
+75,WITH RESTRICT ON DROP,NULL,WITH RESTRICT ON DROP,0,0,0
+76,WHERE NOT NULL,NULL,WHERE NOT NULL,0,0,0
+77,Defer Value,NULL,Defer Value,0,0,0
+78,OBID,NULL,OBID,0,0,0
+79,Collate String,NULL,Collate String,0,0,0
+80,Column Label,NULL,Column Label,0,0,0
+81,Column Text,NULL,Column Text,0,0,0
+82,System Name,NULL,System Name,0,0,0
+83,Hidden,NULL,Hidden,0,0,0
+84,Show Object Owner,NULL,Show Object Owner,0,0,0
+85,NOFIX,NULL,NOFIX,0,0,0
+86,"",NULL,"",0,0,0
+87,IN,NULL,IN,0,0,0
+88,PARTITIONED BY,NULL,PARTITIONED BY,0,0,0
+89,CHAR,NULL,CHAR,0,0,0
+90,WITH TIME ZONE,NULL,WITH TIME ZONE,0,0,0
+91,WITH LOCAL TIME ZONE,NULL,WITH LOCAL TIME ZONE,0,0,0
+92,YEAR TO MONTH,NULL,YEAR TO MONTH,0,0,0
+93,DDL Wizard Settings,NULL,DDL Wizard Settings,0,0,0
+94,PAD_INDEX,NULL,PAD_INDEX,0,0,0
+95,SORT_IN_TEMPDB,NULL,SORT_IN_TEMPDB,0,0,0
+96,COMPUTED,NULL,COMPUTED,0,0,0
+97,ALLPAGES,NULL,ALLPAGES,0,0,0
+98,DATAPAGES,NULL,DATAPAGES,0,0,0
+99,DATAROWS,NULL,DATAROWS,0,0,0
+100,Page Gap,NULL,Page Gap,0,0,0
+101,LRU,NULL,LRU,0,0,0
+102,off,NULL,off,0,0,0
+103,Identity Gap,NULL,Identity Gap,0,0,0
+104,NO,NULL,NO,0,0,0
+105,-- --,NULL,-- --,0,0,0
+106,DUAL,NULL,DUAL,0,0,0
+107,LOCAL,NULL,LOCAL,0,0,0
+108,Teradata Journal Name,NULL,Teradata Journal Name,0,0,0
+109,Fallback Protection,NULL,Fallback Protection,0,0,0
+110,Function Value,NULL,Function Value,0,0,0
+111,Partition Type String,NULL,Partition Type String,0,0,0
+112,MINIMUM,NULL,MINIMUM,0,0,0
+113,MAXIMUM,NULL,MAXIMUM,0,0,0
+114,"NULL",NULL,"NULL",0,0,0
+115,Format,NULL,Format,0,0,0
+116,Title,NULL,Title,0,0,0
+117,Object Type,NULL,Object Type,0,0,0
+118,SET,NULL,SET,0,0,0
+119,MULTISET,NULL,MULTISET,0,0,0
+120,NOT LOCAL,NULL,NOT LOCAL,0,0,0
+121,Cycle,NULL,Cycle,0,0,0
+122,Minvalue,NULL,Minvalue,0,0,0
+123,Maxvalue,NULL,Maxvalue,0,0,0
+124,Owner,NULL,Owner,0,0,0
+125,Include,NULL,Include,0,0,0
+126,ALLOW REVERSE SCANS,NULL,ALLOW REVERSE SCANS,0,0,0
+127,PK Name Constraint,NULL,PK Name Constraint,0,0,0
+128,Table Type,NULL,Table Type,0,0,0
+129,K,NULL,K,0,0,0
+130,G,NULL,G,0,0,0
+131,M,NULL,M,0,0,0
+132,Subpartition Column Name,NULL,Subpartition Column Name,0,0,0
+133,Default Hash Subpartition Count,NULL,Default Hash Subpartition Count,0,0,0
+134,Default Hash Subpartition Tablespaces,NULL,Default Hash Subpartition Tablespaces,0,0,0
+135,Subpartition Template,NULL,Subpartition Template,0,0,0
+136,Parition Hash Subpartition Count,NULL,Parition Hash Subpartition Count,0,0,0
+137,Parition Hash Subpartition Count Tablespaces,NULL,Parition Hash Subpartition Count Tablespaces,0,0,0
+138,Table Suffix,NULL,Table Suffix,0,0,0
+139,View Prefix,NULL,View Prefix,0,0,0
+140,View Suffix,NULL,View Suffix,0,0,0
+141,Table Owner,NULL,Table Owner,0,0,0
+142,View Owner,NULL,View Owner,0,0,0
+143,Index Owner,NULL,Index Owner,0,0,0
+144,GPM Wizard Settings,NULL,GPM Wizard Settings,0,0,0
+145,Report Wizard Settings,NULL,Report Wizard Settings,0,0,0
+146,Compare Merge Wizard Settings,NULL,Compare Merge Wizard Settings,0,0,0
+147,LOB Segment,NULL,LOB Segment,0,0,0
+148,Unsigned,NULL,Unsigned,0,0,0
+149,Sort View Columns Alphabetically,NULL,Sort View Columns Alphabetically,0,0,0
+150,Temporary Table Yes,NULL,Temporary Table Yes,0,0,0
+151,Temporary Table No,NULL,Temporary Table No,0,0,0
+152,Transaction Specific,NULL,Transaction Specific,0,0,0
+153,Session Specific,NULL,Session Specific,0,0,0
+154,Conversion Complete,NULL,Conversion Complete,0,0,0
+155,DB NAME,NULL,DB NAME,0,0,0
+156,DB USER ID,NULL,DB USER ID,0,0,0
+157,DB User Password,NULL,DB User Password,0,0,0
+158,DB Owner Name,NULL,DB Owner Name,0,0,0
+159,DB Server Name,NULL,DB Server Name,0,0,0
+160,DB Connection String,NULL,DB Connection String,0,0,0
+161,Table Connection Info ID,NULL,Table Connection Info ID,0,0,0
+162,Connection Info Count,NULL,Connection Info Count,0,0,0
+163,FFTable file name,NULL,FFTable file name,0,0,0
+164,FFTable Encode Type,NULL,FFTable Encode Type,0,0,0
+165,FFTable File Format Type,NULL,FFTable File Format Type,0,0,0
+166,FFTable Is Single Delimited,NULL,FFTable Is Single Delimited,0,0,0
+167,FFTable Escape charactor,NULL,FFTable Escape charactor,0,0,0
+168,FFTable Column Delimiter,NULL,FFTable Column Delimiter,0,0,0
+169,FFTable Null Value,NULL,FFTable Null Value,0,0,0
+170,FFTable Is Using Null Value,NULL,FFTable Is Using Null Value,0,0,0
+171,FFTable Text Delimiter Type,NULL,FFTable Text Delimiter Type,0,0,0
+172,FFTable Row Delimiter Type,NULL,FFTable Row Delimiter Type,0,0,0
+173,FFTable Is First Row Column Name,NULL,FFTable Is First Row Column Name,0,0,0
+174,FFColumn ID,NULL,FFColumn ID,0,0,0
+175,FFColumn Is Nullable,NULL,FFColumn Is Nullable,0,0,0
+176,FFColumn Is Skip Import,NULL,FFColumn Is Skip Import,0,0,0
+177,FFColumn Is Using Default Value,NULL,FFColumn Is Using Default Value,0,0,0
+178,FFColumn Is Using Null Replace,NULL,FFColumn Is Using Null Replace,0,0,0
+179,FFColumn Null Value,NULL,FFColumn Null Value,0,0,0
+180,FFColumn Null Replace String,NULL,FFColumn Null Replace String,0,0,0
+181,FFTable Domain Name,NULL,FFTable Domain Name,0,0,0
+182,FFTable Machine Name,NULL,FFTable Machine Name,0,0,0
+183,FFTable Edited,NULL,FFTable Edited,0,0,0
+184,FFTable TruncateData,NULL,FFTable TruncateData,0,0,0
+185,Oracle service name,NULL,Oracle service name,0,0,0
+186,DBMS Port Number,NULL,DBMS Port Number,0,0,0
+187,FFColumn DateFormat,NULL,FFColumn DateFormat,0,0,0
+188,JMSTable Source Name,NULL,JMSTable Source Name,0,0,0
+189,JMSTable Destination name,NULL,JMSTable Destination name,0,0,0
+190,JMSTable Destination Type,NULL,JMSTable Destination Type,0,0,0
+191,JMSTable Selector,NULL,JMSTable Selector,0,0,0
+192,JMSTable Timeout,NULL,JMSTable Timeout,0,0,0
+193,JMSTable Msg Ack Mode,NULL,JMSTable Msg Ack Mode,0,0,0
+194,JMSTable Target Destination name,NULL,JMSTable Target Destination name,0,0,0
+195,JMSTable Target Destination Type,NULL,JMSTable Target Destination Type,0,0,0
+196,JMSTable Target Priority,NULL,JMSTable Target Priority,0,0,0
+197,JMSTable Target Expiretime,NULL,JMSTable Target Expiretime,0,0,0
+198,JMSTable Target Persistence,NULL,JMSTable Target Persistence,0,0,0
+199,JMSTable Target Generate ID,NULL,JMSTable Target Generate ID,0,0,0
+200,JMSTable Target Generate Timestamp,NULL,JMSTable Target Generate Timestamp,0,0,0
+201,JMSColumn Msg Field Name,NULL,JMSColumn Msg Field Name,0,0,0
+202,JMSColumn Msg Field Type,NULL,JMSColumn Msg Field Type,0,0,0
+203,JMSColumn Column Format,NULL,JMSColumn Column Format,0,0,0
+204,JMSTable Msg Type,NULL,JMSTable Msg Type,0,0,0
+205,JMSTable Target Msg Type,NULL,JMSTable Target Msg Type,0,0,0
+206,JMSTable Target Source name,NULL,JMSTable Target Source name,0,0,0
+207,JMSTable XMLFORMAT,NULL,JMSTable XMLFORMAT,0,0,0
+208,JMSTable XML WITHDTD,NULL,JMSTable XML WITHDTD,0,0,0
+209,Attach Local File,NULL,Attach Local File,0,0,0
+210,XML Column Recursive,NULL,XML Column Recursive,0,0,0
+211,SAP BAPI Name,NULL,SAP BAPI Name,0,0,0
+212,SAP User Name,NULL,SAP User Name,0,0,0
+213,SAP Password,NULL,SAP Password,0,0,0
+214,SAP Server,NULL,SAP Server,0,0,0
+215,SAP Sysname,NULL,SAP Sysname,0,0,0
+216,SAP Client,NULL,SAP Client,0,0,0
+217,SAP Language,NULL,SAP Language,0,0,0
+218,SAP RecordBase,NULL,SAP RecordBase,0,0,0
+219,SAP XML Schema,NULL,SAP XML Schema,0,0,0
+220,SAP Request Schema,NULL,SAP Request Schema,0,0,0
+221,SAP Response Schema,NULL,SAP Response Schema,0,0,0
+222,SAP Conditions,NULL,SAP Conditions,0,0,0
+223,SAP Catalog Name List,NULL,SAP Catalog Name List,0,0,0
+224,SAP Category Name List,NULL,SAP Category Name List,0,0,0
+225,SAP Category Name,NULL,SAP Category Name,0,0,0
+226,XML Schema Type,NULL,XML Schema Type,0,0,0
+227,Datasource Alias,NULL,Datasource Alias,0,0,0
+228,FFTable Header Format,NULL,FFTable Header Format,0,0,0
+229,Src Tgt Type,NULL,Src Tgt Type,0,0,0
+230,Src Tgt Description,NULL,Src Tgt Description,0,0,0
+231,Src Tgt Host,NULL,Src Tgt Host,0,0,0
+232,Src Tgt Service,NULL,Src Tgt Service,0,0,0
+233,Src Tgt Port,NULL,Src Tgt Port,0,0,0
+234,Src Tgt File Path,NULL,Src Tgt File Path,0,0,0
+235,Src Tgt File Type,NULL,Src Tgt File Type,0,0,0
+236,Src Tgt File Encoding,NULL,Src Tgt File Encoding,0,0,0
+237,Src Tgt DS Frequency,NULL,Src Tgt DS Frequency,0,0,0
+238,Src Tgt DS LastUpdated,NULL,Src Tgt DS LastUpdated,0,0,0
+239,Src Tgt Enabled,NULL,Src Tgt Enabled,0,0,0
+240,Ora Password Expire,NULL,Ora Password Expire,0,0,0
+241,Ora Password Lock,NULL,Ora Password Lock,0,0,0
+242,Ora User-Role Identify,NULL,Ora User-Role Identify,0,0,0
+243,Ora User Def Tbs,NULL,Ora User Def Tbs,0,0,0
+244,Ora User Temp Tbs,NULL,Ora User Temp Tbs,0,0,0
+245,Ora User Profile,NULL,Ora User Profile,0,0,0
+246,Ora User Quota Clause,NULL,Ora User Quota Clause,0,0,0
+247,Column Source Direct Translation Logic,NULL,Column Source Direct Translation Logic,0,0,0
+248,Column Source Direct Translation Description,NULL,Column Source Direct Translation Description,0,0,0
+249,Column Source Secondary Translation Logic,NULL,Column Source Secondary Translation Logic,0,0,0
+250,Column Source Secondary Translation Description,NULL,Column Source Secondary Translation Description,0,0,0
+251,Column Target Direct Translation Logic,NULL,Column Target Direct Translation Logic,0,0,0
+252,Column Target Direct Translation Description,NULL,Column Target Direct Translation Description,0,0,0
+253,Column Target Secondary Translation Logic,NULL,Column Target Secondary Translation Logic,0,0,0
+254,Column Target Secondary Translation Description,NULL,Column Target Secondary Translation Description,0,0,0
+255,Submodel Synchronization Utility Settings,NULL,Submodel Synchronization Utility Settings,0,0,0
+256,Sybase Table Partition Number,NULL,Sybase Table Partition Number,0,0,0
+257,Oracle Hash Partition Count,NULL,Oracle Hash Partition Count,0,0,0
+258,Oracle Hash Partition Tablespace,NULL,Oracle Hash Partition Tablespace,0,0,0
+259,SQL Server Text Image File Group,NULL,SQL Server Text Image File Group,0,0,0
+260,Sybase Col Encryption Key,NULL,Sybase Col Encryption Key,0,0,0
+261,Oracle Col Encryption Algorithm,NULL,Oracle Col Encryption Algorithm,0,0,0
+262,Oracle Col Encryption With SALT,NULL,Oracle Col Encryption With SALT,0,0,0
+263,VOLATILE,NULL,VOLATILE,0,0,0
+264,Sybase Col Encrypted,NULL,Sybase Col Encrypted,0,0,0
+265,EntityEditor DDL Options,NULL,EntityEditor DDL Options,0,0,0
+266,INCLUSIVE,NULL,INCLUSIVE,0,0,0
+267,Model Validation Utility Settings,NULL,Model Validation Utility Settings,0,0,0
+268,SQL Server 2005 Collection Name,NULL,SQL Server 2005 Collection Name,0,0,0
+269,AS400 Table System Name,NULL,AS400 Table System Name,0,0,0
+270,AS400 Table Label,NULL,AS400 Table Label,0,0,0
+271,MSSQL Is Persisted,NULL,MSSQL Is Persisted,0,0,0
+272,XML Schema Generation Wizard Settings,NULL,XML Schema Generation Wizard Settings,0,0,0
+273,DT Mapping XML,NULL,DT Mapping XML,0,0,0
+274,Naming Standards Utility Settings,NULL,Naming Standards Utility Settings,0,0,0
+275,DT Mapping Name,NULL,DT Mapping Name,0,0,0
+276,DB2 UDB Partition Column Literal,NULL,DB2 UDB Partition Column Literal,0,0,0
+277,DB2 UDB Partition Duration,NULL,DB2 UDB Partition Duration,0,0,0
+278,DB2 UDB Partition Duration Label,NULL,DB2 UDB Partition Duration Label,0,0,0
+279,DB2 UDB Partition Tablesapce,NULL,DB2 UDB Partition Tablesapce,0,0,0
+280,DB2 UDB Partition Lob Tablespace,NULL,DB2 UDB Partition Lob Tablespace,0,0,0
+281,NULLS FIRST,NULL,NULLS FIRST,0,0,0
+282,NULLS LAST,NULL,NULLS LAST,0,0,0
+283,Table Compression Yes,NULL,Table Compression Yes,0,0,0
+284,Table Compression No,NULL,Table Compression No,0,0,0
+285,Index Compression Yes,NULL,Index Compression Yes,0,0,0
+286,Index Compression No,NULL,Index Compression No,0,0,0
+287,Index Compression Prefix Length,NULL,Index Compression Prefix Length,0,0,0
+288,SQL Server 2008 Col SPARSE,NULL,SQL Server 2008 Col SPARSE,0,0,0
+289,HG,NULL,HG,0,0,0
+290,LF,NULL,LF,0,0,0
+291,HNG,NULL,HNG,0,0,0
+292,CMP,NULL,CMP,0,0,0
+293,DATE,NULL,DATE,0,0,0
+294,TIME,NULL,TIME,0,0,0
+295,DTTM,NULL,DTTM,0,0,0
+296,WD,NULL,WD,0,0,0
+297,Sybase IQ Delimited By,NULL,Sybase IQ Delimited By,0,0,0
+298,Sybase IQ Limit,NULL,Sybase IQ Limit,0,0,0
+299,Import New Source Settings,NULL,Import New Source Settings,0,0,0
+300,CASESPECIFIC,NULL,CASESPECIFIC,0,0,0
+
+Valid_MetaClass
+Valid_MetaClass_ID,MetaClass_ID,MetaTable_ID,Global_User_ID,Row_Time_Stamp
+1,1,1,0,0
+2,1,2,0,0
+3,2,1,0,0
+4,2,2,0,0
+5,1,3,0,0
+6,1,9,0,0
+7,1,10,0,0
+8,1,11,0,0
+9,1,4,0,0
+10,3,10,0,0
+11,1,52,0,0
+12,1,53,0,0
+
+Valid_Property
+Valid_Property_ID,Property_Type_ID,Property_ID,Label,IsMandatory,Global_User_ID,Row_Time_Stamp
+1,2,1,NULL,0,0,0
+2,2,2,NULL,0,0,0
+3,2,3,NULL,0,0,0
+4,2,4,NULL,0,0,0
+5,2,5,NULL,0,0,0
+6,2,6,NULL,0,0,0
+7,2,7,NULL,0,0,0
+8,2,8,NULL,0,0,0
+9,1,4,NULL,0,0,0
+10,1,5,NULL,0,0,0
+11,1,6,NULL,0,0,0
+12,1,7,NULL,0,0,0
+13,1,8,NULL,0,0,0
+14,1,18,NULL,0,0,0
+15,1,19,NULL,0,0,0
+16,1,20,NULL,0,0,0
+17,3,4,NULL,0,0,0
+18,3,9,NULL,0,0,0
+19,3,10,NULL,0,0,0
+20,3,11,NULL,0,0,0
+21,3,12,NULL,0,0,0
+22,3,13,NULL,0,0,0
+23,3,14,NULL,0,0,0
+24,3,15,NULL,0,0,0
+25,3,16,NULL,0,0,0
+26,3,17,NULL,0,0,0
+27,1,23,NULL,0,0,0
+28,1,24,NULL,0,0,0
+29,1,25,NULL,0,0,0
+30,1,26,NULL,0,0,0
+31,3,21,NULL,0,0,0
+32,3,22,NULL,0,0,0
+33,3,23,NULL,0,0,0
+34,3,24,NULL,0,0,0
+35,3,25,NULL,0,0,0
+36,2,23,NULL,0,0,0
+37,2,24,NULL,0,0,0
+38,2,25,NULL,0,0,0
+39,4,10,NULL,0,0,0
+40,4,11,NULL,0,0,0
+41,4,12,NULL,0,0,0
+42,4,13,NULL,0,0,0
+43,4,14,NULL,0,0,0
+44,4,15,NULL,0,0,0
+45,4,16,NULL,0,0,0
+46,4,17,NULL,0,0,0
+47,4,21,NULL,0,0,0
+48,4,22,NULL,0,0,0
+49,4,23,NULL,0,0,0
+50,4,24,NULL,0,0,0
+51,4,25,NULL,0,0,0
+52,4,4,NULL,0,0,0
+53,1,27,NULL,0,0,0
+54,1,28,NULL,0,0,0
+55,1,29,NULL,0,0,0
+56,1,30,NULL,0,0,0
+57,1,31,NULL,0,0,0
+58,1,32,NULL,0,0,0
+59,5,33,NULL,0,0,0
+60,5,34,NULL,0,0,0
+61,6,35,NULL,0,0,0
+62,6,36,NULL,0,0,0
+63,6,37,NULL,0,0,0
+64,6,4,NULL,0,0,0
+65,1,38,NULL,0,0,0
+66,1,39,NULL,0,0,0
+67,5,38,NULL,0,0,0
+68,5,39,NULL,0,0,0
+69,1,40,NULL,0,0,0
+70,1,41,NULL,0,0,0
+71,5,40,NULL,0,0,0
+72,5,41,NULL,0,0,0
+73,6,42,NULL,0,0,0
+74,1,43,NULL,0,0,0
+75,6,43,NULL,0,0,0
+76,2,44,NULL,0,0,0
+77,2,45,NULL,0,0,0
+78,2,46,NULL,0,0,0
+79,2,47,NULL,0,0,0
+80,6,48,NULL,0,0,0
+81,1,48,NULL,0,0,0
+82,6,49,NULL,0,0,0
+83,6,50,NULL,0,0,0
+84,3,51,NULL,0,0,0
+85,3,44,NULL,0,0,0
+86,1,52,NULL,0,0,0
+87,1,53,NULL,0,0,0
+88,2,54,NULL,0,0,0
+89,2,55,NULL,0,0,0
+90,1,56,NULL,0,0,0
+91,1,57,NULL,0,0,0
+92,1,58,NULL,0,0,0
+93,1,59,NULL,0,0,0
+94,2,60,NULL,0,0,0
+95,2,61,NULL,0,0,0
+96,8,38,NULL,0,0,0
+97,8,39,NULL,0,0,0
+98,8,40,NULL,0,0,0
+99,8,41,NULL,0,0,0
+100,1,62,NULL,0,0,0
+101,6,63,NULL,0,0,0
+102,6,64,NULL,0,0,0
+103,6,65,NULL,0,0,0
+104,6,66,NULL,0,0,0
+105,6,67,NULL,0,0,0
+106,8,68,NULL,0,0,0
+107,1,69,NULL,0,0,0
+108,6,70,NULL,0,0,0
+109,6,71,NULL,0,0,0
+110,6,72,NULL,0,0,0
+111,6,73,NULL,0,0,0
+112,8,74,NULL,0,0,0
+113,2,75,NULL,0,0,0
+114,2,76,NULL,0,0,0
+115,6,77,NULL,0,0,0
+116,1,78,NULL,0,0,0
+117,1,79,NULL,0,0,0
+118,1,80,NULL,0,0,0
+119,1,81,NULL,0,0,0
+120,1,82,NULL,0,0,0
+121,1,83,NULL,0,0,0
+122,1,84,NULL,0,0,0
+123,1,85,NULL,0,0,0
+124,1,86,NULL,0,0,0
+125,2,87,NULL,0,0,0
+126,1,88,NULL,0,0,0
+127,1,89,NULL,0,0,0
+128,6,90,NULL,0,0,0
+129,6,91,NULL,0,0,0
+130,6,92,NULL,0,0,0
+131,6,93,NULL,0,0,0
+132,1,94,NULL,0,0,0
+133,6,95,NULL,0,0,0
+134,6,96,NULL,0,0,0
+135,6,97,NULL,0,0,0
+136,2,98,NULL,0,0,0
+137,2,99,NULL,0,0,0
+138,2,100,NULL,0,0,0
+139,1,101,NULL,0,0,0
+140,1,102,NULL,0,0,0
+141,6,103,NULL,0,0,0
+142,1,104,NULL,0,0,0
+143,1,105,NULL,0,0,0
+144,1,106,NULL,0,0,0
+145,1,107,NULL,0,0,0
+146,3,107,NULL,0,0,0
+147,3,108,NULL,0,0,0
+148,3,109,NULL,0,0,0
+149,8,110,NULL,0,0,0
+150,8,111,NULL,0,0,0
+151,8,112,NULL,0,0,0
+152,8,113,NULL,0,0,0
+153,8,114,NULL,0,0,0
+154,8,115,NULL,0,0,0
+155,8,116,NULL,0,0,0
+156,8,117,NULL,0,0,0
+157,8,118,NULL,0,0,0
+158,7,38,NULL,0,0,0
+159,7,39,NULL,0,0,0
+160,7,40,NULL,0,0,0
+161,7,41,NULL,0,0,0
+162,6,119,NULL,0,0,0
+163,6,120,NULL,0,0,0
+164,5,121,NULL,0,0,0
+165,1,122,NULL,0,0,0
+166,1,123,NULL,0,0,0
+167,2,124,NULL,0,0,0
+168,8,125,NULL,0,0,0
+169,8,126,NULL,0,0,0
+170,8,127,NULL,0,0,0
+171,8,128,NULL,0,0,0
+172,8,129,NULL,0,0,0
+173,8,130,NULL,0,0,0
+174,8,131,NULL,0,0,0
+175,1,132,NULL,0,0,0
+176,8,133,NULL,0,0,0
+177,1,134,NULL,0,0,0
+178,1,135,NULL,0,0,0
+179,1,136,NULL,0,0,0
+180,1,137,NULL,0,0,0
+181,1,138,NULL,0,0,0
+182,1,139,NULL,0,0,0
+183,1,140,NULL,0,0,0
+184,1,141,NULL,0,0,0
+185,1,142,NULL,0,0,0
+186,1,143,NULL,0,0,0
+187,1,144,NULL,0,0,0
+188,6,145,NULL,0,0,0
+189,6,146,NULL,0,0,0
+190,6,147,NULL,0,0,0
+191,6,148,NULL,0,0,0
+192,6,149,NULL,0,0,0
+193,6,150,NULL,0,0,0
+194,6,151,NULL,0,0,0
+195,1,152,NULL,0,0,0
+196,1,153,NULL,0,0,0
+197,1,154,NULL,0,0,0
+198,1,155,NULL,0,0,0
+199,8,156,NULL,0,0,0
+200,8,157,NULL,0,0,0
+201,6,158,NULL,0,0,0
+202,1,159,NULL,0,0,0
+203,1,160,NULL,0,0,0
+204,1,161,NULL,0,0,0
+205,1,162,NULL,0,0,0
+206,1,163,NULL,0,0,0
+207,1,164,NULL,0,0,0
+208,1,165,NULL,0,0,0
+209,1,166,NULL,0,0,0
+210,1,167,NULL,0,0,0
+211,1,168,NULL,0,0,0
+212,1,169,NULL,0,0,0
+213,1,170,NULL,0,0,0
+214,1,171,NULL,0,0,0
+215,6,172,NULL,0,0,0
+216,6,173,NULL,0,0,0
+217,1,174,NULL,0,0,0
+218,6,175,NULL,0,0,0
+219,1,176,NULL,0,0,0
+220,1,177,NULL,0,0,0
+221,1,178,NULL,0,0,0
+222,1,179,NULL,0,0,0
+223,1,180,NULL,0,0,0
+224,1,181,NULL,0,0,0
+225,6,182,NULL,0,0,0
+226,1,183,NULL,0,0,0
+227,1,184,NULL,0,0,0
+228,1,185,NULL,0,0,0
+229,1,186,NULL,0,0,0
+230,1,187,NULL,0,0,0
+231,1,188,NULL,0,0,0
+232,1,189,NULL,0,0,0
+233,1,190,NULL,0,0,0
+234,1,191,NULL,0,0,0
+235,1,192,NULL,0,0,0
+236,1,193,NULL,0,0,0
+237,1,194,NULL,0,0,0
+238,1,195,NULL,0,0,0
+239,1,196,NULL,0,0,0
+240,1,197,NULL,0,0,0
+241,1,198,NULL,0,0,0
+242,8,199,NULL,0,0,0
+243,1,200,NULL,0,0,0
+244,8,201,NULL,0,0,0
+245,8,202,NULL,0,0,0
+246,8,203,NULL,0,0,0
+247,8,204,NULL,0,0,0
+248,8,205,NULL,0,0,0
+249,8,206,NULL,0,0,0
+250,8,207,NULL,0,0,0
+251,8,208,NULL,0,0,0
+252,1,209,NULL,0,0,0
+253,1,210,NULL,0,0,0
+254,8,211,NULL,0,0,0
+255,10,212,NULL,0,0,0
+256,10,213,NULL,0,0,0
+257,10,214,NULL,0,0,0
+258,10,215,NULL,0,0,0
+259,10,216,NULL,0,0,0
+260,10,217,NULL,0,0,0
+261,10,218,NULL,0,0,0
+262,11,214,NULL,0,0,0
+263,6,219,NULL,0,0,0
+264,6,220,NULL,0,0,0
+265,6,221,NULL,0,0,0
+266,6,222,NULL,0,0,0
+267,6,223,NULL,0,0,0
+268,6,224,NULL,0,0,0
+269,6,225,NULL,0,0,0
+270,6,226,NULL,0,0,0
+271,8,227,NULL,0,0,0
+272,1,228,NULL,0,0,0
+273,1,229,NULL,0,0,0
+274,1,230,NULL,0,0,0
+275,1,231,NULL,0,0,0
+276,6,232,NULL,0,0,0
+277,6,233,NULL,0,0,0
+278,6,234,NULL,0,0,0
+279,1,235,NULL,0,0,0
+280,6,236,NULL,0,0,0
+281,8,237,NULL,0,0,0
+282,3,238,NULL,0,0,0
+283,2,101,NULL,0,0,0
+284,8,239,NULL,0,0,0
+285,6,240,NULL,0,0,0
+286,1,241,NULL,0,0,0
+287,1,242,NULL,0,0,0
+288,9,43,NULL,0,0,0
+289,6,243,NULL,0,0,0
+290,2,88,NULL,0,0,0
+291,2,229,NULL,0,0,0
+292,2,230,NULL,0,0,0
+293,8,244,NULL,0,0,0
+294,8,245,NULL,0,0,0
+295,8,246,NULL,0,0,0
+296,8,247,NULL,0,0,0
+297,6,248,NULL,0,0,0
+298,3,249,NULL,0,0,0
+299,3,250,NULL,0,0,0
+300,3,251,NULL,0,0,0
+301,3,252,NULL,0,0,0
+302,3,253,NULL,0,0,0
+303,3,254,NULL,0,0,0
+304,3,255,NULL,0,0,0
+305,1,256,NULL,0,0,0
+306,2,257,NULL,0,0,0
+307,2,258,NULL,0,0,0
+308,1,259,NULL,0,0,0
+309,6,260,NULL,0,0,0
+310,2,261,NULL,0,0,0
+311,2,262,NULL,0,0,0
+312,2,263,NULL,0,0,0
+313,8,264,NULL,0,0,0
+314,6,265,NULL,0,0,0
+
+Valid_Property_Value
+Valid_Property_Value_ID,Property_Value_ID,Valid_Property_ID,Label,IsDefault,Global_User_ID,Row_Time_Stamp
+1,1,1,NULL,0,0,0
+2,2,1,NULL,0,0,0
+3,3,2,NULL,0,0,0
+4,4,2,NULL,0,0,0
+5,5,3,NULL,0,0,0
+6,6,3,NULL,0,0,0
+7,7,4,NULL,0,0,0
+8,8,4,NULL,0,0,0
+9,9,5,NULL,0,0,0
+10,10,5,NULL,0,0,0
+11,11,6,NULL,0,0,0
+12,12,7,NULL,0,0,0
+13,13,8,NULL,0,0,0
+14,7,9,NULL,0,0,0
+15,8,9,NULL,0,0,0
+16,9,10,NULL,0,0,0
+17,10,10,NULL,0,0,0
+18,11,11,NULL,0,0,0
+19,12,12,NULL,0,0,0
+20,13,13,NULL,0,0,0
+21,23,14,NULL,0,0,0
+22,24,14,NULL,0,0,0
+23,25,14,NULL,0,0,0
+24,26,15,NULL,0,0,0
+25,27,16,NULL,0,0,0
+26,7,17,NULL,0,0,0
+27,8,17,NULL,0,0,0
+28,14,18,NULL,0,0,0
+29,15,19,NULL,0,0,0
+30,16,20,NULL,0,0,0
+31,17,21,NULL,0,0,0
+32,18,22,NULL,0,0,0
+33,19,23,NULL,0,0,0
+34,20,24,NULL,0,0,0
+35,21,25,NULL,0,0,0
+36,22,26,NULL,0,0,0
+37,30,27,NULL,0,0,0
+38,31,28,NULL,0,0,0
+39,32,29,NULL,0,0,0
+40,33,29,NULL,0,0,0
+41,34,29,NULL,0,0,0
+42,35,30,NULL,0,0,0
+43,36,30,NULL,0,0,0
+44,28,31,NULL,0,0,0
+45,29,32,NULL,0,0,0
+46,30,33,NULL,0,0,0
+47,31,34,NULL,0,0,0
+48,32,35,NULL,0,0,0
+49,33,35,NULL,0,0,0
+50,34,35,NULL,0,0,0
+51,30,36,NULL,0,0,0
+52,31,37,NULL,0,0,0
+53,32,38,NULL,0,0,0
+54,33,38,NULL,0,0,0
+55,34,38,NULL,0,0,0
+56,15,39,NULL,0,0,0
+57,16,40,NULL,0,0,0
+58,17,41,NULL,0,0,0
+59,18,42,NULL,0,0,0
+60,19,43,NULL,0,0,0
+61,20,44,NULL,0,0,0
+62,21,45,NULL,0,0,0
+63,22,46,NULL,0,0,0
+64,28,47,NULL,0,0,0
+65,29,48,NULL,0,0,0
+66,30,49,NULL,0,0,0
+67,31,50,NULL,0,0,0
+68,32,51,NULL,0,0,0
+69,33,51,NULL,0,0,0
+70,34,51,NULL,0,0,0
+71,7,52,NULL,0,0,0
+72,8,52,NULL,0,0,0
+73,37,53,NULL,0,0,0
+74,38,54,NULL,0,0,0
+75,39,55,NULL,0,0,0
+76,40,56,NULL,0,0,0
+77,41,56,NULL,0,0,0
+78,42,57,NULL,0,0,0
+79,43,58,NULL,0,0,0
+80,44,59,NULL,0,0,0
+81,45,60,NULL,0,0,0
+82,46,61,NULL,0,0,0
+83,47,62,NULL,0,0,0
+84,48,63,NULL,0,0,0
+85,8,64,NULL,0,0,0
+86,49,65,NULL,0,0,0
+87,50,66,NULL,0,0,0
+88,49,67,NULL,0,0,0
+89,50,68,NULL,0,0,0
+90,51,69,NULL,0,0,0
+91,52,70,NULL,0,0,0
+92,51,71,NULL,0,0,0
+93,52,72,NULL,0,0,0
+94,53,73,NULL,0,0,0
+95,54,74,NULL,0,0,0
+96,55,74,NULL,0,0,0
+97,54,75,NULL,0,0,0
+98,55,75,NULL,0,0,0
+99,56,76,NULL,0,0,0
+100,57,76,NULL,0,0,0
+101,58,76,NULL,0,0,0
+102,59,77,NULL,0,0,0
+103,60,78,NULL,0,0,0
+104,61,79,NULL,0,0,0
+105,62,80,NULL,0,0,0
+106,62,81,NULL,0,0,0
+107,63,82,NULL,0,0,0
+108,64,82,NULL,0,0,0
+109,65,83,NULL,0,0,0
+110,66,84,NULL,0,0,0
+111,67,84,NULL,0,0,0
+112,56,85,NULL,0,0,0
+113,57,85,NULL,0,0,0
+114,58,85,NULL,0,0,0
+115,68,86,NULL,0,0,0
+116,69,87,NULL,0,0,0
+117,70,88,NULL,0,0,0
+118,71,89,NULL,0,0,0
+119,72,90,NULL,0,0,0
+120,73,91,NULL,0,0,0
+121,74,92,NULL,0,0,0
+122,75,93,NULL,0,0,0
+123,76,94,NULL,0,0,0
+124,77,95,NULL,0,0,0
+125,49,96,NULL,0,0,0
+126,50,97,NULL,0,0,0
+127,51,98,NULL,0,0,0
+128,52,99,NULL,0,0,0
+129,78,100,NULL,0,0,0
+130,79,101,NULL,0,0,0
+131,80,102,NULL,0,0,0
+132,81,103,NULL,0,0,0
+133,82,104,NULL,0,0,0
+134,83,105,NULL,0,0,0
+135,84,106,NULL,0,0,0
+136,85,90,NULL,0,0,0
+137,86,88,NULL,0,0,0
+138,86,107,NULL,0,0,0
+139,87,107,NULL,0,0,0
+140,88,107,NULL,0,0,0
+141,86,108,NULL,0,0,0
+142,89,109,NULL,0,0,0
+143,90,110,NULL,0,0,0
+144,91,110,NULL,0,0,0
+145,92,111,NULL,0,0,0
+146,93,112,NULL,0,0,0
+147,94,113,NULL,0,0,0
+148,95,114,NULL,0,0,0
+149,96,115,NULL,0,0,0
+150,97,116,NULL,0,0,0
+151,98,116,NULL,0,0,0
+152,99,116,NULL,0,0,0
+153,100,117,NULL,0,0,0
+154,101,118,NULL,0,0,0
+155,102,119,NULL,0,0,0
+156,103,120,NULL,0,0,0
+157,104,121,NULL,0,0,0
+158,105,121,NULL,0,0,0
+159,106,121,NULL,0,0,0
+160,104,122,NULL,0,0,0
+161,105,122,NULL,0,0,0
+162,106,122,NULL,0,0,0
+163,107,122,NULL,0,0,0
+164,108,123,NULL,0,0,0
+165,109,124,NULL,0,0,0
+166,110,125,NULL,0,0,0
+167,111,126,NULL,0,0,0
+168,112,127,NULL,0,0,0
+169,113,127,NULL,0,0,0
+170,114,128,NULL,0,0,0
+171,115,129,NULL,0,0,0
+172,116,130,NULL,0,0,0
+173,117,131,NULL,0,0,0
+174,118,132,NULL,0,0,0
+175,119,132,NULL,0,0,0
+176,120,122,NULL,0,0,0
+177,121,133,NULL,0,0,0
+178,122,134,NULL,0,0,0
+179,123,135,NULL,0,0,0
+180,124,136,NULL,0,0,0
+181,125,137,NULL,0,0,0
+182,126,138,NULL,0,0,0
+183,127,139,NULL,0,0,0
+184,128,140,NULL,0,0,0
+185,129,141,NULL,0,0,0
+186,130,141,NULL,0,0,0
+187,131,141,NULL,0,0,0
+188,132,142,NULL,0,0,0
+189,133,143,NULL,0,0,0
+190,134,144,NULL,0,0,0
+191,135,145,NULL,0,0,0
+192,135,146,NULL,0,0,0
+193,136,147,NULL,0,0,0
+194,137,148,NULL,0,0,0
+195,138,149,NULL,0,0,0
+196,139,150,NULL,0,0,0
+197,140,151,NULL,0,0,0
+198,141,152,NULL,0,0,0
+199,142,153,NULL,0,0,0
+200,143,154,NULL,0,0,0
+201,144,155,NULL,0,0,0
+202,145,156,NULL,0,0,0
+203,146,157,NULL,0,0,0
+204,49,158,NULL,0,0,0
+205,50,159,NULL,0,0,0
+206,51,160,NULL,0,0,0
+207,52,161,NULL,0,0,0
+208,147,162,NULL,0,0,0
+209,148,163,NULL,0,0,0
+210,149,164,NULL,0,0,0
+211,150,165,NULL,0,0,0
+212,151,165,NULL,0,0,0
+213,152,166,NULL,0,0,0
+214,153,166,NULL,0,0,0
+215,114,167,NULL,0,0,0
+216,154,168,NULL,0,0,0
+217,155,169,NULL,0,0,0
+218,156,170,NULL,0,0,0
+219,157,171,NULL,0,0,0
+220,158,172,NULL,0,0,0
+221,159,173,NULL,0,0,0
+222,160,174,NULL,0,0,0
+223,161,175,NULL,0,0,0
+224,162,176,NULL,0,0,0
+225,163,177,NULL,0,0,0
+226,164,178,NULL,0,0,0
+227,165,179,NULL,0,0,0
+228,166,180,NULL,0,0,0
+229,167,181,NULL,0,0,0
+230,168,182,NULL,0,0,0
+231,169,183,NULL,0,0,0
+232,170,184,NULL,0,0,0
+233,171,185,NULL,0,0,0
+234,172,186,NULL,0,0,0
+235,173,187,NULL,0,0,0
+236,174,188,NULL,0,0,0
+237,175,189,NULL,0,0,0
+238,176,190,NULL,0,0,0
+239,177,191,NULL,0,0,0
+240,178,192,NULL,0,0,0
+241,179,193,NULL,0,0,0
+242,180,194,NULL,0,0,0
+243,181,195,NULL,0,0,0
+244,182,196,NULL,0,0,0
+245,183,197,NULL,0,0,0
+246,184,198,NULL,0,0,0
+247,185,199,NULL,0,0,0
+248,186,200,NULL,0,0,0
+249,187,201,NULL,0,0,0
+250,188,202,NULL,0,0,0
+251,189,203,NULL,0,0,0
+252,190,204,NULL,0,0,0
+253,191,205,NULL,0,0,0
+254,192,206,NULL,0,0,0
+255,193,207,NULL,0,0,0
+256,194,208,NULL,0,0,0
+257,195,209,NULL,0,0,0
+258,196,210,NULL,0,0,0
+259,197,211,NULL,0,0,0
+260,198,212,NULL,0,0,0
+261,199,213,NULL,0,0,0
+262,200,214,NULL,0,0,0
+263,201,215,NULL,0,0,0
+264,202,216,NULL,0,0,0
+265,128,217,NULL,0,0,0
+266,203,218,NULL,0,0,0
+267,204,219,NULL,0,0,0
+268,205,220,NULL,0,0,0
+269,206,221,NULL,0,0,0
+270,207,222,NULL,0,0,0
+271,208,223,NULL,0,0,0
+272,209,224,NULL,0,0,0
+273,210,225,NULL,0,0,0
+274,211,226,NULL,0,0,0
+275,212,227,NULL,0,0,0
+276,213,228,NULL,0,0,0
+277,214,229,NULL,0,0,0
+278,215,230,NULL,0,0,0
+279,216,231,NULL,0,0,0
+280,217,232,NULL,0,0,0
+281,218,233,NULL,0,0,0
+282,219,234,NULL,0,0,0
+283,220,235,NULL,0,0,0
+284,221,236,NULL,0,0,0
+285,222,237,NULL,0,0,0
+286,223,238,NULL,0,0,0
+287,224,239,NULL,0,0,0
+288,225,240,NULL,0,0,0
+289,226,241,NULL,0,0,0
+290,227,242,NULL,0,0,0
+291,228,243,NULL,0,0,0
+292,229,244,NULL,0,0,0
+293,230,245,NULL,0,0,0
+294,231,246,NULL,0,0,0
+295,232,247,NULL,0,0,0
+296,233,248,NULL,0,0,0
+297,234,249,NULL,0,0,0
+298,235,250,NULL,0,0,0
+299,236,251,NULL,0,0,0
+300,237,252,NULL,0,0,0
+301,238,253,NULL,0,0,0
+302,239,254,NULL,0,0,0
+303,240,255,NULL,0,0,0
+304,241,256,NULL,0,0,0
+305,242,257,NULL,0,0,0
+306,243,258,NULL,0,0,0
+307,244,259,NULL,0,0,0
+308,245,260,NULL,0,0,0
+309,246,261,NULL,0,0,0
+310,242,262,NULL,0,0,0
+311,247,263,NULL,0,0,0
+312,248,264,NULL,0,0,0
+313,249,265,NULL,0,0,0
+314,250,266,NULL,0,0,0
+315,251,267,NULL,0,0,0
+316,252,268,NULL,0,0,0
+317,253,269,NULL,0,0,0
+318,254,270,NULL,0,0,0
+319,255,271,NULL,0,0,0
+320,256,272,NULL,0,0,0
+321,257,273,NULL,0,0,0
+322,258,274,NULL,0,0,0
+323,259,275,NULL,0,0,0
+324,260,276,NULL,0,0,0
+325,261,277,NULL,0,0,0
+326,262,278,NULL,0,0,0
+327,263,279,NULL,0,0,0
+328,264,280,NULL,0,0,0
+329,265,281,NULL,0,0,0
+330,266,282,NULL,0,0,0
+331,127,283,NULL,0,0,0
+332,267,284,NULL,0,0,0
+333,268,285,NULL,0,0,0
+334,269,286,NULL,0,0,0
+335,270,287,NULL,0,0,0
+336,54,288,NULL,0,0,0
+337,55,288,NULL,0,0,0
+338,271,289,NULL,0,0,0
+339,111,290,NULL,0,0,0
+340,257,291,NULL,0,0,0
+341,258,292,NULL,0,0,0
+342,272,293,NULL,0,0,0
+343,273,294,NULL,0,0,0
+344,274,295,NULL,0,0,0
+345,275,296,NULL,0,0,0
+346,32,297,NULL,0,0,0
+347,266,298,NULL,0,0,0
+348,276,299,NULL,0,0,0
+349,277,300,NULL,0,0,0
+350,278,301,NULL,0,0,0
+351,279,302,NULL,0,0,0
+352,280,303,NULL,0,0,0
+353,281,304,NULL,0,0,0
+354,282,304,NULL,0,0,0
+355,283,305,NULL,0,0,0
+356,284,305,NULL,0,0,0
+357,285,306,NULL,0,0,0
+358,286,306,NULL,0,0,0
+359,287,307,NULL,0,0,0
+360,281,308,NULL,0,0,0
+361,282,308,NULL,0,0,0
+362,288,309,NULL,0,0,0
+363,289,310,NULL,0,0,0
+364,290,310,NULL,0,0,0
+365,291,310,NULL,0,0,0
+366,292,310,NULL,0,0,0
+367,293,310,NULL,0,0,0
+368,294,310,NULL,0,0,0
+369,295,310,NULL,0,0,0
+370,296,310,NULL,0,0,0
+371,297,311,NULL,0,0,0
+372,298,312,NULL,0,0,0
+373,299,313,NULL,0,0,0
+374,300,314,NULL,0,0,0
+
+MetaClass_Member
+MetaClass_Member_ID,Valid_MetaClass_ID,Name,Label,Table_Row_ID,SequenceNo,Global_User_ID,Row_Time_Stamp
+
+Property_Usage
+Property_Usage_ID,MetaClass_Member_ID,Valid_Property_ID,Label,Min_Rows,Max_Rows,Enforce_Maximum,IsMandatory,Global_User_ID,Row_Time_Stamp
+
+Property_Value_Usage
+Property_Value_Usage_ID,Valid_Property_Value_ID,Property_Usage_ID,Value_Override,SequenceNo,Label,Global_User_ID,Row_Time_Stamp
+
+DbPackage
+DbPackage_ID,Model_ID,Owner_ID,Name_ID,Description_ID,Flags,Header_Value_ID,Body_Value_ID,NSTFlag,CompareFlags,Global_User_ID
+
+DbTrigger
+DbTrigger_ID,Entity_ID,Owner_ID,Name_ID,Description_ID,Type,Flags,Trigger_Action,Value_ID,NSTFlag,Global_User_ID
+
+Proc
+Proc_ID,Model_ID,Owner_ID,Name_ID,Description_ID,Type,Flags,Value_ID,NSTFlag,CompareFlags,Global_User_ID
+
+Templated_Proc
+Templated_Proc_ID,Entity_ID,Name_ID,Description_ID,Flags,Value_ID,NSTFlag,Global_User_ID
+
+Storage_Object
+Storage_Object_ID,Model_ID,Owner_ID,Name_ID,Description_ID,Value_ID,Type,NSTFlag,CompareFlags,Global_User_ID
+
+Shape
+Shape_ID,Model_ID,Name_ID,Value_ID,Type,NSTFlag,CompareFlags,Global_User_ID
+
+Shape_Edge
+Shape_Edge_ID,Model_ID,Parent_MetaTable_ID,Parent_Table_Row_ID,Child_MetaTable_ID,Child_Table_Row_ID,Name_ID,VerbPhraseId,InversePhraseId,NSTFlag,Global_User_ID
+
+Referenced_Object
+Referenced_Object_ID,Proc_ID,DbTrigger_ID,DbPackage_ID,Storage_Object_ID,MetaTable_ID,Table_Row_ID,Global_User_ID
+
+Bound_Dictionary_Object
+Bound_Dictionary_Object_ID,Dictionary_Object_ID,MetaTable_ID,Table_Row_ID,Flags,Value_Override_ID,Sequence_No,Global_User_ID
+
+Object_Tracking
+Object_Tracking_ID,MetaTable_ID,Table_Row_ID,Created_By_ID,Create_Timestamp_ID,Last_Updated_By_ID,Last_Update_Timestamp_ID,Global_User_ID
+
+Data_Dictionary
+Data_Dictionary_ID,Name_ID,Description_ID,Flags,SignatureGUID,Global_User_ID
+1,213,2,1,NULL,2
+
+Dictionary_Object_Type
+Dictionary_Object_Type_ID,Name,Dictionary_Object_Type,Data_Type
+1,Trigger,1,0
+2,Library,2,0
+3,Procedure,3,0
+4,Default,4,0
+5,Rule,5,0
+6,UserDatatype,6,0
+7,Domain,7,0
+8,Reference Value,8,0
+9,Attachment Type,9,0
+10,Valid Attachment Type,10,0
+11,Attachment,11,0
+12,Dictionary Object Link,12,0
+13,Naming Standards Template,13,0
+
+Dictionary_Object
+Dictionary_Object_ID,Data_Dictionary_ID,Dictionary_Object_Type_ID,Property_Value_Data_Type,Global_User_ID
+1,1,9,0,111
+2,1,10,0,112
+3,1,10,0,113
+4,1,10,0,114
+5,1,10,0,115
+
+Dictionary_Library
+Dictionary_Library_ID,Dictionary_Object_ID,Name_ID,Description_ID,Is_System,Value_ID,Global_User_ID
+
+Dictionary_Trigger
+Dictionary_Trigger_ID,Dictionary_Object_ID,Name_ID,Description_ID,Is_System,Trigger_Type,Trigger_Action,Value_ID,DBMS_Type,Global_User_ID
+
+Reusable_Procedure
+Reusable_Procedure_ID,Dictionary_Object_ID,Name_ID,Description_ID,Value_ID,DBMS_Type,Global_User_ID
+
+Reference_Value
+Reference_Value_ID,Dictionary_Object_ID,Name_ID,Description_ID,Value_ID,Value_Description_ID,Min_Value_ID,Max_Value_ID,Is_Not_Between,Is_Range,Global_User_ID
+
+Attachment_Type
+Attachment_Type_ID,Dictionary_Object_ID,Name_ID,Description_ID,Is_User_Defined,Global_User_ID
+1,1,5,5,0,111
+
+Valid_Attachment_Type
+Valid_Attachment_Type_ID,Dictionary_Object_ID,MetaTable_ID,Attachment_Type_ID,Min_Rows,Max_Rows,Global_User_ID
+1,2,12,1,0,0,112
+2,3,1,1,0,0,113
+3,4,3,1,0,0,114
+4,5,57,1,0,0,115
+
+Attachment
+Attachment_ID,Dictionary_Object_ID,Attachment_Type_ID,Name_ID,Description_ID,Value_Default_ID,Attachment_Data_Type,Global_User_ID
+
+Dictionary_Object_Link
+Dictionary_Object_Link_ID,Dictionary_Object_ID,Ultimate_Parent_ID,Parent_ID,Child_ID,NodeNameID,NodeLevel,IsBottomLevel,Global_User_ID
+
+Naming_Standards_Template
+Naming_Standards_Template_ID,Dictionary_Object_ID,Name_ID,Description_ID,Data_ID,Global_User_ID,Row_Time_Stamp
+
+Object_Transform
+Object_Transform_ID,Model_ID,Transform_Type,Name_ID,Description_ID,CompareFlags,Global_User_ID
+
+Transform_Member
+Transform_Member_ID,Object_Transform_ID,MetaTable_ID,Source_Table_Row_ID,Target_Table_Row_ID,Transform_Action,Global_User_ID
+
+Database_Role
+Database_Role_ID,Model_ID,Name_ID,Identification_Type,Password,Description_ID,Flags,NSTFlag,CompareFlags,Global_User_ID
+
+Database_User
+Database_User_ID,Model_ID,Name_ID,External_Name_ID,Password,Description_ID,Flags,NSTFlag,CompareFlags,Global_User_ID
+
+Object_Permission
+Object_Permission_ID,Model_ID,Object_MetaTable_ID,Object_Table_Row_ID,Attribute_ID,Object_Name_ID,Object_Owner_ID,Grantee_MetaTable_ID,Grantee_Table_Row_ID,Grantee_Name_ID,Action_Type,Permission_Type,Flags,Global_User_ID
+
+User_Role_Member
+User_Role_Member_ID,Model_ID,Database_Role_ID,Database_User_ID,Global_User_ID
+
+User_Object_Match
+User_Object_Match_ID,A_Model_ID,B_Model_ID,A_MetaTable_ID,B_MetaTable_ID,A_Table_Row_ID,B_Table_Row_ID,Flags,DefinitionId,Global_User_ID
+
+Lineage_Component
+Lineage_Component_ID,Model_ID,MetaTable_ID,Table_Row_ID,DisplayName_ID,Global_User_ID
+
+Lineage_Stream
+Lineage_Stream_ID,Model_ID,Transformation_ID,Lineage_Component_ID,Flags,Name_ID,Description_ID,Global_User_ID
+
+Lineage_Stream_Member
+Lineage_Stream_Member_ID,Lineage_Stream_ID,MetaTable_ID,Table_Row_ID,Global_User_ID
+
+Transformation
+Transformation_ID,Model_ID,Name_ID,DefinitionId,Code_ID,Type_ID,Global_User_ID
+
+InterModelObjectLink
+InterModelObjectLink_ID,UniqueObject_ID,InterModelRelationship_ID
+
+InterModelRelationship
+InterModelRelationship_ID,Global_User_ID
+
+ObjectModification
+ObjectModification_ID,UniqueObject_ID,Modification_Type
+
+Delayed_Checkout
+Delayed_Checkout_ID,ObjectTechKey,DependencyType,DependencyTechKey,UniqueObject_Id,ObjectType,Flags
+
+UniqueObject
+UniqueObject_Id,ObjectType_Id,Model_ID,Object_Domain_ID,InterModel_Id,IntraModelObject_Id,GUID,VersionGUID,CreationDate,CreateDate,RepositoryStatus,LastUpdateDate,Row_Time_Stamp
+572,37,3,1,0,0,22d189bdd38847c6a928a72a2a6c927f,01d8bb633e084e3b909e657c25f973f9,05/11/2025 23:03:12G,1747004448,1,0,0
+1,4,0,1,1,0,308b946bae2c4bdc8ed91b966bc11ceb,1dd6f2e315274db2baf583361753289e,04/26/2025 09:37:50G,1745645040,1,0,0
+573,38,3,1,0,0,2d78b3561f7b472ca2e54ea646e670c8,38cfe904581b494796bddbae0640c6d6,05/11/2025 23:03:12G,1747004448,1,0,0
+2,55,0,2,1,0,372298c3de524ee2bf691d9aa1388e31,357e3f7546ec4eec8217b136b3b89187,04/26/2025 09:37:50G,1745645040,1,0,0
+574,38,3,1,0,0,42e24ae4709c42118ff525a495d8f71d,eeb71da31ffb498c9cb30fc5016360da,05/11/2025 23:03:12G,1747004448,1,0,0
+3,7,1,1,0,0,e05f50192fb74b348c4134f5504af622,6577c04862fb4fdab7f3ef43fcd455d9,04/26/2025 09:37:50G,1745645040,1,0,0
+575,38,3,1,0,0,85d98b6efeb24078b9e3e9af105bc380,f71e1841b23d40c7929ef8e4c163a2ba,05/11/2025 23:03:12G,1747004448,1,0,0
+4,53,0,1,0,0,59e72bba56c7489eaf694d8e6389ae91,c8f4c370f7794cc2a5e1a8c13d59bdf5,04/26/2025 09:37:50G,1745645040,1,0,0
+5,53,0,1,0,0,4a996a931237457fac6db8f0ac796fe5,3035cd9ead6345afb2361edff727804d,04/26/2025 09:37:50G,1745645040,1,0,0
+6,53,0,1,0,0,eb680b05343e4ef69a62fd4f4f506e1f,4896e022f68e4c3fa5d84182b91df12c,04/26/2025 09:37:50G,1745645040,1,0,0
+7,53,0,1,0,0,3eb0859a21c547dc97367e96cca3ee1f,29af1564b27a4e4cbe909a54077c4f5e,04/26/2025 09:37:50G,1745645040,1,0,0
+8,53,0,1,0,0,cec57a37e66d4c3aac244cd1e3fde063,99924aa1c08f44c2a947d25c43b7534d,04/26/2025 09:37:50G,1745645040,1,0,0
+9,53,0,1,0,0,d1c318f0f0144dd38ea326b935961ddb,4dd857047360467490439bf325afdc95,04/26/2025 09:37:50G,1745645040,1,0,0
+10,53,0,1,0,0,6e185fbfe8bb40c480f2a7e074c49244,1b750898dbb64924be318ad0e43c1669,04/26/2025 09:37:50G,1745645040,1,0,0
+11,53,0,1,0,0,7b816931ba4d45de828d15d8086a991e,5cd2781b4ca143e1895bfcba57afa267,04/26/2025 09:37:50G,1745645040,1,0,0
+12,53,0,1,0,0,c6d621e744f7477f9245175ed6fbbafa,1f4c6d25678042f287d12bdfed933968,04/26/2025 09:37:50G,1745645040,1,0,0
+584,38,3,1,0,0,552a049d4efd4865963b8e0e1e55a172,0e01e345b37e4ff8a80b51d9f03c899e,05/11/2025 23:03:12G,1747004448,1,0,0
+13,53,0,1,0,0,5929041821414201a79dbc6623957177,070ddc33b50f494ebb494c73753da952,04/26/2025 09:37:50G,1745645040,1,0,0
+14,53,0,1,0,0,b68406950fb349e2a197d510fe57f9fb,e9f55b34fde54a7c8cf9e56e24bbef8d,04/26/2025 09:37:50G,1745645040,1,0,0
+15,53,0,1,0,0,cd9d458e5b1c4436baeab14882e34827,e8eaad9e42594e5cad8fdb115e9805c3,04/26/2025 09:37:50G,1745645040,1,0,0
+16,53,0,1,0,0,e92ffb3dabe34486821f04e281aea2e8,accf8706ffa34a9b91b5cf1a04e3bb6f,04/26/2025 09:37:50G,1745645040,1,0,0
+17,53,0,1,0,0,77008cca505541c58d0c99c4741fe844,d1bcb68207b4430cb3d11f169a8a2960,04/26/2025 09:37:50G,1745645040,1,0,0
+18,53,0,1,0,0,61b1ed4ae39f4929954d97d11148b23b,0cabed31843f4e698a1b4f21d75e38d6,04/26/2025 09:37:50G,1745645040,1,0,0
+19,53,0,1,0,0,4ec016f3acd74c6f9e750a45d0ab936d,ec6c2276733847529dcea05d2817c060,04/26/2025 09:37:50G,1745645040,1,0,0
+20,53,0,1,0,0,01a8334827d1442893e6db830f347730,7e4341458edf4ae2bb707def38f554e7,04/26/2025 09:37:50G,1745645040,1,0,0
+21,53,0,1,0,0,08fc5f0bf718489c8f44ccda313016a8,0a5f908c146c463895e067b7701fe720,04/26/2025 09:37:50G,1745645040,1,0,0
+22,25,1,1,1,0,3f6ffe6556a64d99b63fd6c5abdbad20,ea2bd9b56bd2491bbe74fc299a72ef68,04/26/2025 09:37:50G,1745645040,1,0,0
+23,36,1,1,0,0,f50dc3babfb54ef4be7bf0e055fc6142,da478705554548269937505091f32d42,04/26/2025 09:37:50G,1745645040,1,0,0
+24,39,1,1,0,0,3f0d6c8afee64e4abb438d9c828b2ad5,332da84d52f647ae9732c80d67ac385c,04/26/2025 09:37:50G,1745645040,1,0,0
+25,37,1,1,0,0,79fe2dfe45514b9d80166dc4dfee7208,d822a51ceef84fb48806b1d77fb3a9c0,04/26/2025 09:37:50G,1745645040,1,0,0
+26,37,1,1,0,0,2fe38111393b4ea9a7cf2b765d430a59,29d530a9ab9c4ceda4d8f7840596d717,04/26/2025 09:37:50G,1745645040,1,0,0
+598,38,3,1,0,0,3fc2c7c9ca2b40778f91cb7508a08259,b71243258cff409c88616b648560d15a,05/11/2025 23:03:12G,1747004448,1,0,0
+27,37,1,1,0,0,34f03744511b4526bde744ed9c562f49,601eec9f6b3c453381d82e99ecf0eddd,04/26/2025 09:37:50G,1745645040,1,0,0
+599,38,3,1,0,0,193c088ee5d5402ea37470bda619a530,c6f09eeee2f6447ab24ef4505b2bc107,05/11/2025 23:03:12G,1747004448,1,0,0
+28,37,1,1,0,0,eae5952837224d8f9347bed17a9d33f1,6ad257536e134778bd9b39116c476d31,04/26/2025 09:37:50G,1745645040,1,0,0
+600,38,3,1,0,0,cf09db948baa4cbcb5dea689af0a240c,fed1ed7293044df2b7f756cb40618361,05/11/2025 23:03:12G,1747004448,1,0,0
+29,37,1,1,0,0,3d436fce0a6e4107953b9d1d230f60cc,63b86019d4084aad9a9eba4066aec7fc,04/26/2025 09:37:50G,1745645040,1,0,0
+601,38,3,1,0,0,72bfdb7b0f964ed4984bb9787a3ae798,b483f535d91549fbabeec1e26adbfec9,05/11/2025 23:03:12G,1747004448,1,0,0
+30,37,1,1,0,0,74e57c2ed5354541bbc6948d9b4884d8,3b608d3de52349759c3ffe6873e7274b,04/26/2025 09:37:50G,1745645040,1,0,0
+602,38,3,1,0,0,35478b8c7ee742dab79054a3f88db505,9f3c0aaa2ffb4ae5b527cc4356619598,05/11/2025 23:03:12G,1747004448,1,0,0
+31,37,1,1,0,0,8d5d84c1a78b4e07a7553fcc5606c609,26dffbc8a44c417eb3b9228ccc8c2d47,04/26/2025 09:37:50G,1745645040,1,0,0
+603,37,3,1,0,0,0e02873d0c1644299805138dfbaf756f,1081612c241a46508e6b15fef3855ce2,05/11/2025 23:03:12G,1747004448,1,0,0
+32,37,1,1,0,0,31f9aa57b66040ae9bb2dde721203715,a9b9200baed840bda182cb097037a553,04/26/2025 09:37:50G,1745645040,1,0,0
+604,37,3,1,0,0,8caec0af401e41ecaccf554b98aa3118,01b4dcb8aece47c8b242685e93a07125,05/11/2025 23:03:12G,1747004448,1,0,0
+33,37,1,1,0,0,44bc250f38a449ffb22396f47f447fba,58c798b947114f64a08914d71ed57174,04/26/2025 09:37:50G,1745645040,1,0,0
+605,38,3,1,0,0,7320116fd5304f52ab6b3674db72e637,931660bb231d4bc8b6b4c31bb6ae31c9,05/11/2025 23:03:12G,1747004448,1,0,0
+34,37,1,1,0,0,08c398de434242dfa571da15d7a61de5,f9f789a1392d49e085d711668019a313,04/26/2025 09:37:50G,1745645040,1,0,0
+606,38,3,1,0,0,242f7f60701049bbad4d80fffe641577,115cc9fb61f5488194a9ce801b7c49a2,05/11/2025 23:03:12G,1747004448,1,0,0
+35,37,1,1,0,0,45d9d847652c45c5b6359439cd6ee688,32f5a390c34b4cea83e65f4864306011,04/26/2025 09:37:50G,1745645040,1,0,0
+607,38,3,1,0,0,ade67a5569c64237ac94547581a3e8a1,13c6c349343648f58e087f8cd35949f5,05/11/2025 23:03:12G,1747004448,1,0,0
+36,37,1,1,0,0,86bd6b5a1b9a43718b87c15ba2cddcfb,61b65791329f4cd8998b49b89edaebff,04/26/2025 09:37:50G,1745645040,1,0,0
+608,38,3,1,0,0,da9c50ee222c4b89892f7be13bec6b27,9659999949ae4be5a656eb5acb279553,05/11/2025 23:03:12G,1747004448,1,0,0
+37,37,1,1,0,0,79eadd33bb1f4e509e6895df227d752e,f0ce6b05d30844c08a25f6ef15efc052,04/26/2025 09:37:50G,1745645040,1,0,0
+609,38,3,1,0,0,4bae7f0612d64c43a25da6da3a6f830c,13e028b131864cd8abb989bd2c8d6deb,05/11/2025 23:03:12G,1747004448,1,0,0
+38,37,1,1,0,0,cf797a1d33e1433aab998c76712f1a7f,18346f8816c0425baec9482c918226e0,04/26/2025 09:37:50G,1745645040,1,0,0
+610,38,3,1,0,0,6bcf7bdc1d0b49d6a8a22474cfc88164,0c954a12665b46f899dc877d4c324b40,05/11/2025 23:03:12G,1747004448,1,0,0
+39,37,1,1,0,0,5d0159e1ef2d43febd8901c95695db9b,7e506cc52cfe42a09abe37d72b76c163,04/26/2025 09:37:50G,1745645040,1,0,0
+611,38,3,1,0,0,23d1fbf91f6942d583514d749c977b06,8a7d777c5db5415fa3d5a935d5b57da5,05/11/2025 23:03:12G,1747004448,1,0,0
+40,37,1,1,0,0,49a10babeae644499582e2b90a449da0,722f1b302a1a40caa14ffaad1ab5b0c0,04/26/2025 09:37:50G,1745645040,1,0,0
+612,38,3,1,0,0,c9525fa69939476bb7c949ff71c62d78,521745c41f344afb894fdbc97d869995,05/11/2025 23:03:12G,1747004448,1,0,0
+41,37,1,1,0,0,aa34f93caea54aa6be328bb814c2fac7,962a857393864aeebf8b893acc13c2b4,04/26/2025 09:37:50G,1745645040,1,0,0
+613,37,3,1,0,0,6efadfdd181f4f89a7d68c382b57dee9,e8b13fd729314b51b0c16745e1abaede,05/11/2025 23:03:12G,1747004448,1,0,0
+42,37,1,1,0,0,4d47999338224ef896bc03d4cdfc6b13,092fa2dacc674e1f84944f56d3c5071d,04/26/2025 09:37:50G,1745645040,1,0,0
+614,37,3,1,0,0,a55048b9a72e42d6a5b5fa524dc342a8,623e6700a2ef46a3a35bd9e96d74ae5a,05/11/2025 23:03:12G,1747004448,1,0,0
+43,37,1,1,0,0,d087eac7c27e44e4994bd9299ed04c0c,f6efda834b0b43fda6d6bd21eb6c0729,04/26/2025 09:37:50G,1745645040,1,0,0
+615,37,3,1,0,0,950426c43e0144a8aa4e9dc17825933c,e9a9127e78e44bc0b160d71e576e6686,05/11/2025 23:03:12G,1747004448,1,0,0
+44,37,1,1,0,0,c20e87719f5d45d38742962381cc793c,f7148659f36a4c8bb8f8054c73c95b8d,04/26/2025 09:37:50G,1745645040,1,0,0
+616,37,3,1,0,0,657909106f474888af178a5b557e8caa,2cbaa92f4c2d4ee1bbd464f2fcef6ee3,05/11/2025 23:03:12G,1747004448,1,0,0
+45,37,1,1,0,0,34f4173e566445c8afe712cdb77b1586,fb2a9e700510433a8891fe655904924f,04/26/2025 09:37:50G,1745645040,1,0,0
+617,37,3,1,0,0,82a5bd21c6454eecbb153af5505c20f3,c704e3767d52408b940cb12089d30f07,05/11/2025 23:03:12G,1747004448,1,0,0
+46,37,1,1,0,0,9dd19cc7a1784f8d874fe57bc0ededcd,cff41b2f03ed479c9610f67f457306bf,04/26/2025 09:37:50G,1745645040,1,0,0
+47,38,1,1,0,0,b94b9579d73549489a1ef11a3a0c66ae,0c67839fe8fc4ce2a98efd4a71f4938f,04/26/2025 09:37:50G,1745645040,1,0,0
+48,38,1,1,0,0,b0111f68865940f1bfd4246f0d04cedc,4036acfbe9f8403dbc1542917af41852,04/26/2025 09:37:50G,1745645040,1,0,0
+49,38,1,1,0,0,3515cc85fee342f594c759023c6e1f48,61a73e78c6c947cca5aeed562fe1cba8,04/26/2025 09:37:50G,1745645040,1,0,0
+50,38,1,1,0,0,0eabbfb1fba244d1b56d9482bd591b59,f9e8015177984f7d8866545e5fc653ec,04/26/2025 09:37:50G,1745645040,1,0,0
+51,38,1,1,0,0,0c7bda1947264399b71e61a72db57dc0,c5ce5bd0173841768e5d183d7edc0775,04/26/2025 09:37:50G,1745645040,1,0,0
+52,38,1,1,0,0,019f568f334f4a6d8b7c707b0cf8496f,2c2d59543f0d4c658d0ee932f3f7c446,04/26/2025 09:37:50G,1745645040,1,0,0
+53,38,1,1,0,0,e9ea2404c3194e85ab7c5765b24ec84d,c0dad6ec997c4000ba5055988ec0204c,04/26/2025 09:37:50G,1745645040,1,0,0
+54,38,1,1,0,0,2d5119160f8648bab12a7f82992e25e6,633b7e7b20b64836b5ab6f98b9af3ca9,04/26/2025 09:37:50G,1745645040,1,0,0
+55,38,1,1,0,0,a9cf9f20b6db4fb09bee40324b201470,cdd2223cf3a846ebbc73e9f929a74c78,04/26/2025 09:37:50G,1745645040,1,0,0
+627,30,1,1,0,0,309ce2b671b44492b455c3c13870b387,16888557c1f7424c9a7260c2437ac674,05/11/2025 23:03:12G,1747004448,1,0,0
+56,38,1,1,0,0,57d2fcb6128944908a9af09600e62836,bcb08d886191441b9750071132c23c71,04/26/2025 09:37:50G,1745645040,1,0,0
+628,30,1,1,0,0,763ef69278e04751931ebd099d9d5337,1ea6d6cc3bd44f26921d3e83a8766146,05/11/2025 23:03:12G,1747004454,1,0,0
+57,38,1,1,0,0,2d5fcf19b5a6412983f093f8048b165e,3286d235e8934e63b9f9ae782c8ad5c0,04/26/2025 09:37:50G,1745645040,1,0,0
+629,30,1,1,0,0,7f321d6549d043259e5e1993aef35688,23fd8e730e8a4195b03ec133d1cdccfd,05/11/2025 23:03:12G,1747004460,1,0,0
+58,38,1,1,0,0,0809c74cd1fa4f7f886e68911458bb3e,5d9b449f04324bd0a3cb30891874cafc,04/26/2025 09:37:50G,1745645040,1,0,0
+59,38,1,1,0,0,67b3f90c598245f1be0407a57cfc6beb,58dd419b656e4c7db53e3f1ac2e7a5fa,04/26/2025 09:37:50G,1745645040,1,0,0
+60,38,1,1,0,0,c37587fae8a24db985c3704a9e74278c,189e0b03c9704a36a1338c880c43a63c,04/26/2025 09:37:50G,1745645040,1,0,0
+61,38,1,1,0,0,e8bb8ded1c0a415893e3ab554e13869f,2fffa11c10ae40ab9f058c730d9d28ce,04/26/2025 09:37:50G,1745645040,1,0,0
+62,38,1,1,0,0,7dd8ba04d42947978135194982468a53,b41a0932f24f4b40a4490b6cfde11ed2,04/26/2025 09:37:50G,1745645040,1,0,0
+63,38,1,1,0,0,77b87f9ef7b442c094ea4cade6d13077,884dc6ecfb0145aeadaa3c1057f12e02,04/26/2025 09:37:50G,1745645040,1,0,0
+64,38,1,1,0,0,8099d88c644544d09f37349da02e4a96,07a162540cc043289e58f125a3eab9f7,04/26/2025 09:37:50G,1745645040,1,0,0
+65,37,1,1,0,0,bb03693606854e8c8e025b7363ae5f73,28037b085f9c4634a3b10b7fe604a546,04/26/2025 09:37:50G,1745645040,1,0,0
+66,38,1,1,0,0,bc0df15852124e28a79103d6b3d54296,751e422119ce4256b0caaafc39a3876f,04/26/2025 09:37:50G,1745645040,1,0,0
+67,38,1,1,0,0,bf930745190543408435c4898a044c48,d6c55b1467b24e41bbc90aaa3a6a4a6b,04/26/2025 09:37:50G,1745645040,1,0,0
+68,38,1,1,0,0,009f76bd6e48444bafcb076525a3a7df,15e277a9c53843a59d3c0fa535eae43a,04/26/2025 09:37:50G,1745645040,1,0,0
+69,38,1,1,0,0,6022ccdfd68f4996b8d0947fe91370dc,ef01bbebfb004d009121f64c9311fa09,04/26/2025 09:37:50G,1745645040,1,0,0
+70,38,1,1,0,0,88aeb08e90024f6da12789f7e808b7f7,daa9eb1ca92c4be490cf2c9e53e1de00,04/26/2025 09:37:50G,1745645040,1,0,0
+71,38,1,1,0,0,c6f9a94b89e1437186c4ace49bf5d348,de0d498c3ef247c9ad72d03dbe7dd679,04/26/2025 09:37:50G,1745645040,1,0,0
+72,38,1,1,0,0,cd3174d83bd7411cb1f996cc98bf0702,3ca09b28e9a0408d8968849dc55ed0a3,04/26/2025 09:37:50G,1745645040,1,0,0
+73,38,1,1,0,0,1e3238e5e16a436fb515d3466f10c13b,34ae9e0b35c3489b823a21e1d103a6a3,04/26/2025 09:37:50G,1745645040,1,0,0
+74,38,1,1,0,0,76a8a815f9e7426bb42098fccf090d49,2d13fa42b2e54dd4a1a63170a808a281,04/26/2025 09:37:50G,1745645040,1,0,0
+75,38,1,1,0,0,0ad1ebed152e4c489b6a5b348ac44825,f72fd9fb118a440f94ab1822116776a2,04/26/2025 09:37:50G,1745645040,1,0,0
+76,38,1,1,0,0,3e7fdc82f6194be1b4da5106bb62962a,1c05a4d267074bb8826e18107aa501da,04/26/2025 09:37:50G,1745645040,1,0,0
+77,38,1,1,0,0,4b7310b2ff37422caf33d327bdb10b03,0a85f8e2d1e74ed7b0d499737d289918,04/26/2025 09:37:50G,1745645040,1,0,0
+78,38,1,1,0,0,91590eb610f44c1a95167a29acfc0b5e,bc235a83d913443dba503c532c6692ac,04/26/2025 09:37:50G,1745645040,1,0,0
+79,38,1,1,0,0,79a73f5fabe9442f8544163e1458dd91,83481bf1d9b0440eb247fe6eaf18cb47,04/26/2025 09:37:50G,1745645040,1,0,0
+80,38,1,1,0,0,d32b6db221e14735b45ec077591afc65,983cd5cdeb9644e3b0190c8707d6914c,04/26/2025 09:37:50G,1745645040,1,0,0
+81,38,1,1,0,0,7b59411db8cd412c992ad5a6ba2e4b79,2cc48efd675a4159a8a8f6bf78d29f1c,04/26/2025 09:37:50G,1745645040,1,0,0
+82,38,1,1,0,0,f190e492778f423baadffc2a60a15ead,66389b83b19d4f639ff2fe35d8b707a9,04/26/2025 09:37:50G,1745645040,1,0,0
+83,38,1,1,0,0,aba826053d6a4712a6150817b8a9c9dc,b7551510d9b84de19443e013323a6d0c,04/26/2025 09:37:50G,1745645040,1,0,0
+84,38,1,1,0,0,4e3df7d27cc341859fb1bc1483e6a661,1cfe581f0f4e43b5885d034352dd44c6,04/26/2025 09:37:50G,1745645040,1,0,0
+85,38,1,1,0,0,0329a9d1ccff4da094676d6d41334e0d,03808ad4128a4d5598416f5bf4daee1e,04/26/2025 09:37:50G,1745645040,1,0,0
+86,38,1,1,0,0,491c8559a4db4dc39b31c7fc99e10093,1ee68f35327c4d538eb6b613ef3367ab,04/26/2025 09:37:50G,1745645040,1,0,0
+87,38,1,1,0,0,78d7ed1cbc48476ca27ff175ad7ad5eb,b6f9ded1580a4904bb114d55f75ab4d8,04/26/2025 09:37:50G,1745645040,1,0,0
+659,37,4,1,0,0,0918127980f34b0d84aeb6852434e5aa,e9ccad7d4e8b45978723588adc895b68,05/11/2025 23:03:12G,1747004476,1,0,0
+88,38,1,1,0,0,904d92985a1e4ea39337d287a761b7ce,5bf8757b54c34a49b36f59b0c7dae0f6,04/26/2025 09:37:50G,1745645040,1,0,0
+660,37,4,1,0,0,4001c1be80924e9bb953275d8a913b48,70c9dd1d517d47d88db0906125b4b72f,05/11/2025 23:03:12G,1747004476,1,0,0
+89,38,1,1,0,0,14d0d58b73df4541aa123fe18e4b9bfa,2b8c7b27c1cb4dddaef863bda3af3698,04/26/2025 09:37:50G,1745645040,1,0,0
+661,37,4,1,0,0,905a885af97c4102a52bc64986a3658f,6ed19ec06e984bf9839ad62a3cfca524,05/11/2025 23:03:12G,1747004476,1,0,0
+90,38,1,1,0,0,7fc0817e3a0248dc85e036c5834246eb,7fc005b7eb1547d7b299eae0e0089fb4,04/26/2025 09:37:50G,1745645040,1,0,0
+662,37,4,1,0,0,c30d2b7ffe814b90bdb40d24e3bec05b,a4a7be9b811c41bdb029f90c965d80e8,05/11/2025 23:03:12G,1747004476,1,0,0
+91,38,1,1,0,0,9b303dde616b455ebb9eba81490ac51b,44e1e966f7ae41079307a9cc34a538dd,04/26/2025 09:37:50G,1745645040,1,0,0
+663,37,4,1,0,0,c1ed387ef5524ef2bb58e5de36928322,6762807851214a2d8982d4f5a896ee28,05/11/2025 23:03:12G,1747004476,1,0,0
+92,38,1,1,0,0,09141cb7fb2a43de948dd3bfa365a43a,1b2932366760495aae33d473a1835eb5,04/26/2025 09:37:50G,1745645040,1,0,0
+664,37,4,1,0,0,6dd7e08a7e2d4f8f822fae11cdd4fec1,b181c5e63d9c45798b42e2274cf6e17d,05/11/2025 23:03:12G,1747004476,1,0,0
+93,38,1,1,0,0,096ae8109fd14bb6abbc0598950cd022,ce2768ff825047919a563b0befe083b5,04/26/2025 09:37:50G,1745645040,1,0,0
+665,37,4,1,0,0,9b2c751bd53c4631a0de4ee661bfd64b,088b445139374ff4869aeead0b348e73,05/11/2025 23:03:12G,1747004476,1,0,0
+94,38,1,1,0,0,cdbc8606efb649e7a14b784ba6559f6d,cfa04acec8044567b7d9177dba3e4ce2,04/26/2025 09:37:50G,1745645040,1,0,0
+666,37,4,1,0,0,761fd73728c549b9a59a8d2189422777,d7de66c2fd874f84949455329e8decac,05/11/2025 23:03:12G,1747004476,1,0,0
+95,38,1,1,0,0,174c1d99eab645b3b6b6b1258d344c72,74307373da2a407780fb0da03bf8d7a0,04/26/2025 09:37:50G,1745645040,1,0,0
+96,37,1,1,0,0,8fc348f199474032bb75bb0b6d321df7,88c2a6478b1c4e10b7df70c092e67970,04/26/2025 09:37:50G,1745645040,1,0,0
+97,37,1,1,0,0,1574878b557f4e5a980d58545618fcc4,df6eb8a757e34f6d94d651cd189401ab,04/26/2025 09:37:50G,1745645040,1,0,0
+98,38,1,1,0,0,371af63c4638405897a2d9f24629feb6,22274c548440449fbcec50b682accd3f,04/26/2025 09:37:50G,1745645040,1,0,0
+670,37,4,1,0,0,5ac8eb3eb530454fa3fe532d60a1fe00,bd9d62d703ba4074aed903cd40b4de93,05/11/2025 23:03:12G,1747004476,1,0,0
+99,38,1,1,0,0,9bbd24c6010e49f6a8c27a576e975e21,1a0accee79c74c7c8df92789c2becb07,04/26/2025 09:37:50G,1745645040,1,0,0
+671,37,4,1,0,0,20d93a1cfab2437aaea4c3770bead51d,9db6a7b82aae4c5f98a3e904ef1fe0eb,05/11/2025 23:03:12G,1747004476,1,0,0
+100,38,1,1,0,0,405c6f08061d42fca34d4e27848ac97f,4a3a436cfda64bf4aec7c73096075cb4,04/26/2025 09:37:50G,1745645040,1,0,0
+101,38,1,1,0,0,2277682e85be4466b2a03d0360257de0,3f0b0e91c5ac4bab8049f1479c5c713a,04/26/2025 09:37:50G,1745645040,1,0,0
+102,38,1,1,0,0,bb3fdb76cb7d4c7ba7b1ce7dec9a05f0,2e1aa8faf4274ae6874025cd0b8e5b81,04/26/2025 09:37:50G,1745645040,1,0,0
+103,38,1,1,0,0,8e90824281dd40b3bbe7cf4f30147919,99723f2e1d1f4e0ab434affda50c5b33,04/26/2025 09:37:50G,1745645040,1,0,0
+104,38,1,1,0,0,a4ad5e93ab7b473bb6700305fe0fc6b7,fe1c523e15464c1099798ecdf622cbe1,04/26/2025 09:37:50G,1745645040,1,0,0
+105,38,1,1,0,0,bc7eb2b5a425400bbbcd947bdec76a29,444489fbbfbd47d7b83558e503bc081b,04/26/2025 09:37:50G,1745645040,1,0,0
+106,37,1,1,0,0,6ae606071fb649e0a48842dc44dc3526,df80caef8cdb45e4ab98ec5172f6b690,04/26/2025 09:37:50G,1745645040,1,0,0
+107,37,1,1,0,0,23bfa6a906144935933f61b6caeba1ae,315ad2fe70a246ed83e823b9a39dd2e4,04/26/2025 09:37:50G,1745645040,1,0,0
+108,37,1,1,0,0,c607c1afb46b45fd9ad0858c3f2e62d8,03d518749ff14981950c3e406a60c1e9,04/26/2025 09:37:50G,1745645040,1,0,0
+109,37,1,1,0,0,01b138122e8e48068ed205ba5d66c0d3,d69110c030a1470083277a695da56f0b,04/26/2025 09:37:50G,1745645040,1,0,0
+681,38,4,1,0,0,ef41f3e4b46e497bb8ad7b5cc6ed2120,680bcb476af24d778d0b2a424bbb3fc1,05/11/2025 23:03:12G,1747004476,1,0,0
+110,37,1,1,0,0,fb25bed074024bd2abb4601af38d0719,294a1defbd6b4145bf43cd58d0ebfa38,04/26/2025 09:37:50G,1745645040,1,0,0
+682,38,4,1,0,0,08e854e7ba80457695c6a0743411fefe,94429a939ad34c49acccacc9672034ad,05/11/2025 23:03:12G,1747004476,1,0,0
+111,58,0,2,1,0,07eb7c48843149a38924eff487465113,0bba24f21e2e4a0b8755f194cf6985c0,04/26/2025 09:37:50G,1745645040,1,0,0
+683,38,4,1,0,0,165d338f90684db1bbdac82f0cf8042a,046135f9acb147439566d6c1007a0545,05/11/2025 23:03:12G,1747004476,1,0,0
+112,59,0,2,2,0,2a05843466f34570985cb34d70624cc5,01357d630a1341c0a598305c70e62145,04/26/2025 09:37:50G,1745645040,1,0,0
+684,38,4,1,0,0,3385129b95814f1a96f5332fdcc5d9a6,f90ed6ca3dc748ab9f40158573e0c65c,05/11/2025 23:03:12G,1747004476,1,0,0
+113,59,0,2,3,0,1b04f2d6456e47b9adc432fe4f662b41,5c9b50eaafa249e0b6618bffda3fae73,04/26/2025 09:37:50G,1745645040,1,0,0
+685,38,4,1,0,0,7e9ef48725f145fdbd5b1f8a572d3364,b03914d7ed664d6eb99bfe2cddb1da7e,05/11/2025 23:03:12G,1747004476,1,0,0
+114,59,0,2,4,0,25a5b7eacc76493ebfe28abb14d30693,639bf989824341c2886df44946e58952,04/26/2025 09:37:50G,1745645040,1,0,0
+686,38,4,1,0,0,5df6eb76356a4ac795823a6e2d122d0f,a6fcd423e3014940be40c91b045be487,05/11/2025 23:03:12G,1747004476,1,0,0
+115,59,0,2,5,0,6f1c0d8e07b44e25a41c9c6bdd28d16b,a1e5ebdf822e4580aeb1644e7e7b9329,04/26/2025 09:37:50G,1745645040,1,0,0
+687,38,4,1,0,0,b0f73e3a8e924180b7a4548165e6c2cc,feeb95b19e74443f98fc76878fc7e6f2,05/11/2025 23:03:12G,1747004476,1,0,0
+116,5,1,1,1,0,3e1bfa67839842a681c852ecfe08d161,42f9896b099d4b60bb19ffa2426ca921,04/26/2025 09:37:50G,1745645044,1,0,0
+688,38,4,1,0,0,d24add4222c846be999427ac2ad16b38,fea1742e42c74389bd41f8120e42817f,05/11/2025 23:03:12G,1747004476,1,0,0
+117,41,1,1,0,0,8fa8778dfcc14d0d8664ebcd124112e3,c3729974021f426190e719339d121fba,04/26/2025 09:37:50G,1745645044,1,0,0
+118,6,1,1,1,1,2d15e35c940749bbb654034086dcc4d6,4d09a88358e24d2786dc44915a381490,04/26/2025 09:37:50G,1745645044,1,0,0
+119,40,1,1,0,0,ba9c897674314f51beb738564fc46e2b,afbca1b38b574854bad4d2dedfe11e7b,04/26/2025 09:37:50G,1745645044,1,0,0
+120,27,0,1,1,0,8732a70d1c49485db0edbcf14cfb4784,58ad1610624f4b719fc25ee4c79a3cad,04/26/2025 09:37:50G,1745645044,1,0,0
+692,37,4,1,0,0,3d4adcb68cbd4bf2a9822159bc579d27,ac445c199cbd414e9db0fd3b0eaf52bb,05/11/2025 23:03:12G,1747004476,1,0,0
+121,5,1,1,2,0,69cec55bc38646ccafcd6c911c2f798f,1f332f8d9b484b3d94013239da81de79,04/26/2025 09:37:50G,1745645045,1,0,0
+693,38,4,1,0,0,34dfc884b0eb4842b55d871847928bd4,c0e9aa3b54174a3aa78697b68cf6da71,05/11/2025 23:03:12G,1747004476,1,0,0
+122,41,1,1,0,0,db9acf2b05ba438b8ec4845794534ed0,782f7d38d0b04c139b4285f9a5955216,04/26/2025 09:37:50G,1745645045,1,0,0
+694,38,4,1,0,0,b9a06e61a91840f59b286397ab471bf5,f33050353ab040d886a5494d0b41c5f6,05/11/2025 23:03:12G,1747004476,1,0,0
+123,6,1,1,1,2,2650b2792b8c4e90b5ddafdff905ec21,e83d9040fee7483fb3518ea8f667d65a,04/26/2025 09:37:50G,1745645045,1,0,0
+695,38,4,1,0,0,7437bb545b3c4bd0bcbb7a16ca4d4c64,e0fec4c421e541f891caa567d7f61e97,05/11/2025 23:03:12G,1747004476,1,0,0
+124,40,1,1,0,0,a18fb627f2ff41daa49ba349a6f3169f,d3db7b73ac4d474fb521dd26b567221d,04/26/2025 09:37:50G,1745645045,1,0,0
+125,27,0,1,2,0,c125a99e133c4bb2a515faee722d9bb4,cbf157ffed9046eb98333dbc1baa4412,04/26/2025 09:37:50G,1745645045,1,0,0
+126,1,1,1,9,1,60268e2231854c788fedfa4b7bd1be23,3b074284327c4a91819a21cf672b69c7,04/26/2025 09:37:50G,1745645255,1,0,0
+127,1,1,1,1,1,bede085a6e0b4a29b84f38375903defc,1cb166af4500459ea5e601e746bc1dd6,04/26/2025 09:37:50G,1745645255,1,0,0
+128,1,1,1,2,1,c9cd500a3f334ac9862eba611857a438,87acf9d23b0f462aaa6a57fbb91ee072,04/26/2025 09:37:50G,1745645255,1,0,0
+129,1,1,1,3,1,35c8709c35984d6ebdde72356648e1f5,139d8916befe4298b08d73798ca0087c,04/26/2025 09:37:50G,1745645255,1,0,0
+130,1,1,1,4,1,4ef13c0924734b4392942d3331171684,7ccf1fee23af4fa0aff7eecc4ff5f053,04/26/2025 09:37:50G,1745645255,1,0,0
+131,1,1,1,5,1,263f2412167f4869a73831291ee1aa4f,6e3c0c7db8304e04b6d3dbd7d4596842,04/26/2025 09:37:50G,1745645255,1,0,0
+132,1,1,1,6,1,7dde9a9d906543c7a46be697cbc0ee3f,128ac15fcfbb49189fa528c5578bded4,04/26/2025 09:37:50G,1745645255,1,0,0
+704,38,4,1,0,0,5f457af89dc04ef0858ccd4f79c971b6,fbe4c7c4981645cda13fd86338372997,05/11/2025 23:03:12G,1747004476,1,0,0
+133,1,1,1,7,1,dfd19431faeb4186b5f0707a98a8ba17,67432a33e4c94affb5a5db544cd9ca2b,04/26/2025 09:37:50G,1745645255,1,0,0
+134,1,1,1,8,1,8c5473e684254d5b862e8e63682f2476,77a71cb9c156488ca011991832da6d81,04/26/2025 09:37:50G,1745645255,1,0,0
+135,28,1,1,0,0,8cb12cb61f924e0aaf119e986b3f74aa,57d8bee742024fdb95652f8c72e74f89,04/26/2025 09:37:50G,1745645255,1,0,0
+136,1,1,1,1,2,d483bdb5ba0e4f658a61668aa32008a1,3b6f74107c124394ae4ea8d31640964f,04/26/2025 09:37:50G,1745645384,1,0,0
+137,5,1,1,3,0,a50195cb23404cf98326f3b1d6a501a6,297c447450e24c08895485da2c795e8d,04/26/2025 09:37:50G,1745645386,1,0,0
+138,41,1,1,0,0,3658417433804f068fe319966fd15642,7d81ac5f239e43ec90b57e6f8b86b58a,04/26/2025 09:37:50G,1745645386,1,0,0
+139,6,1,1,1,3,2d0176d5a9494afb924e40bae2bfcd30,62556ec879dc47bd86a67960b597c17b,04/26/2025 09:37:50G,1745645386,1,0,0
+140,40,1,1,0,0,3d1c3c6100f2416dbefbe36caab7bb14,b4ea906c26b04f8c996331d0351679e6,04/26/2025 09:37:50G,1745645386,1,0,0
+141,27,0,1,3,0,24051eb9277c44b9aba1b3132c3b879f,c227c9dbafb1412886d476f6633e8a00,04/26/2025 09:37:50G,1745645386,1,0,0
+142,5,1,1,4,0,2fb0897950db40b19d84e9f35de3d026,d4ae4e43a616417595a4acb3f7303435,04/26/2025 09:37:50G,1745645388,1,0,0
+143,41,1,1,0,0,7a39da2bc68c464283dbe11d9da8397a,99efaee8dd5141d8837b1dce2633d2e5,04/26/2025 09:37:50G,1745645388,1,0,0
+144,6,1,1,1,4,a734c810ff004fe28abfeaf05c3b787c,27154dc50bc845eeaec1b88aaca43c93,04/26/2025 09:37:50G,1745645388,1,0,0
+145,40,1,1,0,0,2f6e57116489449a83d631e9ff322422,790af590ac96469ab113d508d833a316,04/26/2025 09:37:50G,1745645388,1,0,0
+146,27,0,1,4,0,dea9ed0282f14b6eb55f507d544ed283,886569be9f4244f588895eafb184ef56,04/26/2025 09:37:50G,1745645388,1,0,0
+718,38,4,1,0,0,cb0441051ad14d4988bd614bc8dd68a2,c925ffc3a07c47da94aaf91bf2631820,05/11/2025 23:03:12G,1747004476,1,0,0
+147,5,1,1,5,0,e6f18019cb5a47fdb1b7410a1d98d63a,e1663cdd87c54f469cd79785daf2fa13,04/26/2025 09:37:50G,1745645388,1,0,0
+719,38,4,1,0,0,d77fe1a3f90840f0a10aafeea42485de,edd923098685460c880ff0af6706d150,05/11/2025 23:03:12G,1747004476,1,0,0
+148,41,1,1,0,0,8d62665699ff4754bd5dde0950209c9b,0214b2911b3544ec8e47f32116bdfeef,04/26/2025 09:37:50G,1745645388,1,0,0
+720,38,4,1,0,0,5ee9414824d84175b3736e10a54d816a,6931f88dd52c469b8c38cc4d6ccc3a18,05/11/2025 23:03:12G,1747004476,1,0,0
+149,6,1,1,1,5,b70b848cef2c4e19b407bddba4b0cf92,228d609733f54abcbf93cb81ef7e7572,04/26/2025 09:37:50G,1745645388,1,0,0
+721,38,4,1,0,0,4328f1df7d7a4c158a73e7832ddb63c8,987bc6518eff4d208ba5bfd01e986c8e,05/11/2025 23:03:12G,1747004476,1,0,0
+150,40,1,1,0,0,99825a774e6a4c4081c49a6045171503,1664d20e659947389d63bc722e9c3b26,04/26/2025 09:37:50G,1745645388,1,0,0
+722,38,4,1,0,0,264631e0319b4db9a016a8dce17f75ce,30a91cc9c2b84953b20042ef6dbc5a17,05/11/2025 23:03:12G,1747004476,1,0,0
+151,27,0,1,5,0,ff24acd4e39144e7b82f6cdc0b926725,73ca10e7827c48ac805ceab6486d8590,04/26/2025 09:37:50G,1745645388,1,0,0
+723,37,4,1,0,0,b5b340ef9cbf448f80fc043616f7e26c,21060541d9ae48a6994015f4a6e216ce,05/11/2025 23:03:12G,1747004476,1,0,0
+152,5,1,1,6,0,6c584fec1fda4e44a2f004f888426e23,cbe4ba74e3544c74bd719ecb52ab5834,04/26/2025 09:37:50G,1745645389,1,0,0
+724,37,4,1,0,0,20a19dee40d64c87b581f24b9102fe67,f6bba6065b9144eabebdde9d20899670,05/11/2025 23:03:12G,1747004476,1,0,0
+153,41,1,1,0,0,1202833873334e789d9eaf7b087ed78c,de02353469024697908c2b4ca2e06b99,04/26/2025 09:37:50G,1745645389,1,0,0
+725,38,4,1,0,0,19836e262eb742ad89b286517e6398fd,0cc5207ce2654f9ca20d6258deb5abd7,05/11/2025 23:03:12G,1747004476,1,0,0
+154,6,1,1,1,6,b5293287daad43be934fa20c17d8bf70,cb089f612b7e4b9babe223fa2e8a6006,04/26/2025 09:37:50G,1745645389,1,0,0
+726,38,4,1,0,0,e493532464ed44dea0222b27108c903a,42d42186619341cb8d09fc935f161fef,05/11/2025 23:03:12G,1747004476,1,0,0
+155,40,1,1,0,0,3b2d75ef6b6141d1abc064ba1b7ad840,fcd9cf64da444343b3146818366dc9a5,04/26/2025 09:37:50G,1745645389,1,0,0
+727,38,4,1,0,0,db1a0d9762ab4e0e84fa3229d7b8a9ac,77b265d48e724624a5ddd72743496dcb,05/11/2025 23:03:12G,1747004476,1,0,0
+156,27,0,1,6,0,3d67bb5be6f64ac2ba2c83b3e054affa,9dba9ba4e261408d9452a50af09b8c8a,04/26/2025 09:37:50G,1745645389,1,0,0
+728,38,4,1,0,0,022ab8aeaa834f179dc5ed56cb166e7c,58a0889f91074657a82b3243a78c2995,05/11/2025 23:03:12G,1747004476,1,0,0
+157,5,1,1,7,0,b945fc8cc2254148a48da23ff6a12ed6,8a78a12c16aa4c478d23f9e1de5340eb,04/26/2025 09:37:50G,1745645390,1,0,0
+729,38,4,1,0,0,d573d5067e384c238f5d621a758cf7e9,88899631ab49433e97ff7862c40eb98b,05/11/2025 23:03:12G,1747004476,1,0,0
+158,41,1,1,0,0,0dad628d8abb44a59d86fcc5bab19c27,e566c4e0e15f4ee687864db1b17192dd,04/26/2025 09:37:50G,1745645390,1,0,0
+730,38,4,1,0,0,88ae247696c446a6b0a131fae4bea9aa,1da93185acd446bd9987817c0618cbfa,05/11/2025 23:03:12G,1747004476,1,0,0
+159,6,1,1,1,7,e81e449c5b57432eaa63f0befb7a962e,06607debe10b410b9b27d3acb27f68dd,04/26/2025 09:37:50G,1745645390,1,0,0
+731,38,4,1,0,0,d89aa8908af746b8af686c7020a69699,30d8ec9e3d1c4eacad83c7dddfc5439a,05/11/2025 23:03:12G,1747004476,1,0,0
+160,40,1,1,0,0,f9b94e021e63475d8c348f468c68e1dd,bd9d9a99d5ea4b4e9b013731b5799369,04/26/2025 09:37:50G,1745645390,1,0,0
+732,38,4,1,0,0,02a082d8d82e4d468d1844156dba4973,2fd50ff17b294a59854635ec823ae079,05/11/2025 23:03:12G,1747004476,1,0,0
+161,27,0,1,7,0,f3fbde664f744084802dce754ab39a06,cc1869642038454abe6c6113d3128709,04/26/2025 09:37:50G,1745645390,1,0,0
+733,37,4,1,0,0,8c73431ee93140f4a2b0af41f5c83554,ffbe0a04fb7c4696b1cf249c4319a119,05/11/2025 23:03:12G,1747004476,1,0,0
+162,5,1,1,8,0,01ff6e8d4fc546a280163c80897f120f,b1d6029cd6f0458cbb150bb796e8788a,04/26/2025 09:37:50G,1745645391,1,0,0
+734,37,4,1,0,0,4242d07f2a1d4abbaff4b5d29b1292b9,3780148823d54a78a922dd93da10d9c9,05/11/2025 23:03:12G,1747004476,1,0,0
+163,41,1,1,0,0,c496b3f4abc24853be54ce1b036d4712,e2e44d60ef5c48a48e2dac0a7c46e70e,04/26/2025 09:37:50G,1745645391,1,0,0
+735,37,4,1,0,0,018b68243c3f48c28b5ba4ce44c8a6b8,5bb1c62261ec42cb87952eb816b37cb5,05/11/2025 23:03:12G,1747004476,1,0,0
+164,6,1,1,1,8,075ac7ac829d42acb04c0890133c1af5,19ce62321dc54be0b260c3fae75d7c0a,04/26/2025 09:37:50G,1745645391,1,0,0
+736,37,4,1,0,0,e15eec8ad6714e3b8c20ec2453b78061,a549bfb7a3f748b4ad5d36df1259272a,05/11/2025 23:03:12G,1747004476,1,0,0
+165,40,1,1,0,0,9848489a3c7b4003bd11931665f5c9d3,5a75a03d79a14f7c89b859201926f6c8,04/26/2025 09:37:50G,1745645391,1,0,0
+737,37,4,1,0,0,222655e70847410d9da2d88fa67c1aae,50a9e4dc97f544f58208ee160c8ecde5,05/11/2025 23:03:12G,1747004476,1,0,0
+166,27,0,1,8,0,3f3a3cf1107e4c8792a9b0a08cb52863,65ddbbff8aca45548497574d074b181a,04/26/2025 09:37:50G,1745645391,1,0,0
+167,1,1,1,2,2,dc3f5ba5d89f44b08007221d9e594892,4a2ff9feb0324e3aaca38462c5f636b5,04/26/2025 09:37:50G,1745645466,1,0,0
+168,1,1,1,6,3,e1c19c4655c44b8eb8e61376623d42c8,4f7d0c29a77044b8b47f47621d6713c4,04/26/2025 09:37:50G,1745645583,1,0,0
+169,1,1,1,1,3,765bf57dc55f44489e1ae11df9760bba,37230b3921db4bb7b2aab3765335a6e6,04/26/2025 09:37:50G,1745645583,1,0,0
+171,1,1,1,3,3,71d8eac8e1dc49ffa28ba936629589e8,80742068e2d64e248278c65c1883a11d,04/26/2025 09:37:50G,1745645583,1,0,0
+172,1,1,1,4,3,78e100a714914013aa093285ef6d794b,e8846fbeae764ceda88cd0daadbec34c,04/26/2025 09:37:50G,1745645583,1,0,0
+174,28,1,1,0,0,2fcfe2cc6cb24bc9b1f089ac54828a29,f5068161b6ec4555ba41ca8ba52c4417,04/26/2025 09:37:50G,1745645583,1,0,0
+175,8,1,1,1,0,004ab9b88c844301bb47fb618ff72a34,fa9a47bfd4174843a7ca8ee0d73ced0b,04/26/2025 09:37:50G,1745645611,1,0,0
+747,30,1,1,0,0,e615552a7cf84adb88e2f44a996dbc9d,40ac790c30b64a1a93ce41bd2068ebff,05/11/2025 23:03:12G,1747004476,1,0,0
+176,29,1,1,1,0,6ae2ce8de56a47dd80d2ec6883136d64,46869b2dfa2d41669c2942a74cc589fe,04/26/2025 09:37:50G,1745645611,1,0,0
+748,30,1,1,0,0,b5a0e099564c468c953fc06152c7cb87,bcc7fadde1b24aac938e9d700f4682b2,05/11/2025 23:03:12G,1747004481,1,0,0
+177,1,1,1,3,2,5f006c283f14441e88ef1c3227187d71,a34917fde4fd4b9aa3a5ef5fde05b291,04/26/2025 09:37:50G,1745645611,1,0,0
+749,30,1,1,0,0,e27feda5db4947419a382b80e54a4974,ee40e058fad2420d80a2c0f812c8de06,05/11/2025 23:03:12G,1747004486,1,0,0
+178,26,1,1,1,0,bb5f81a7c2864109a5fe194e7963e32f,3a5b220ac61a4faea1b1c55eba30d5c3,04/26/2025 09:37:50G,1745645611,1,0,0
+750,30,1,1,0,0,8e77944820684468bb27b5f2cb2169c9,691ba1c781374908b5f10d3e91085d7a,05/11/2025 23:03:12G,1747004493,1,0,0
+179,28,1,1,0,0,200344304c844560a21e9616d36815db,8ce938140ec74abba3672bc2125ab7fa,04/26/2025 09:37:50G,1745645611,1,0,0
+751,30,1,1,0,0,6e3ff62f8032481db4d902887d6013fa,b8827ceabb024848b278d48a88dff138,05/11/2025 23:03:12G,1747004502,1,0,0
+180,8,1,1,2,0,79eb7c27a1e44b82bcf6a3cc2d17acd4,52d95cab8b91403a9f7c50c840806ad7,04/26/2025 09:37:50G,1745645613,1,0,0
+752,30,1,1,0,0,efec8bbea93f4eebbd65ced0d8d40a6c,0a9aaba729b940d99d0be5e9afe078b4,05/11/2025 23:03:12G,1747004535,1,0,0
+181,29,1,1,2,0,fc1ec7e8e08b45d9b58d82a2b6cc5f9a,67debedf648d4a42bb8aef223f1bfc8a,04/26/2025 09:37:50G,1745645613,1,0,0
+753,30,1,1,0,0,83f0ca86c5ae4578a586b2aa46272ba8,a44f1606ce134692b0748e7195d9a8f5,05/11/2025 23:03:12G,1747004539,1,0,0
+182,1,1,1,4,2,a759d366fae64b36a8b17e1b29332d66,61bee7668ec243fbbbc20657155d340b,04/26/2025 09:37:50G,1745645613,1,0,0
+754,30,1,1,0,0,103657d4fb4b4572993a14279eaff5cb,7646ef9791074385b015ad751b3addd1,05/11/2025 23:03:12G,1747004569,1,0,0
+183,26,1,1,2,0,6d46c5ac20294324a1e1ac17625f7441,3b99b285896147f98a6c98ebff6d9d45,04/26/2025 09:37:50G,1745645613,1,0,0
+184,28,1,1,0,0,d13e6d00717c4a8e85369c00f1395550,1ac928bfbc784c89bd6fe000ff38ea41,04/26/2025 09:37:50G,1745645613,1,0,0
+185,1,1,1,1,6,d4b0868192d44a1f8a56dcc8aaa289a3,8c7d301b002d4e25a7711765f61735ee,04/26/2025 09:37:50G,1745645880,1,0,0
+186,1,1,1,2,6,16e5842385c243c2a0741a93635b8e55,411d0553455a4b3f86edfbff07af1b5f,04/26/2025 09:37:50G,1745645880,1,0,0
+187,1,1,1,3,6,09da3cc6c446445ea28ab586a7c16619,6aab474eea3f47e48b374a81085e5189,04/26/2025 09:37:50G,1745645880,1,0,0
+188,28,1,1,0,0,1f70bc86e75f454d90589f0631ac6ff7,219286e9bd2144cf9eb6d20bde85a9b1,04/26/2025 09:37:50G,1745645880,1,0,0
+189,8,1,1,3,0,78df6ccb79c442fa8acae792b24cd401,bbb8b7550b534e3da06684054f2f9d47,04/26/2025 09:37:50G,1745645962,1,0,0
+190,29,1,1,3,0,e06d2d291d344b40bb999f98b6ec2cde,08f09df04a7244e1a444b97968df8f35,04/26/2025 09:37:50G,1745645962,1,0,0
+191,1,1,1,7,3,4ce20774b8fc490f8307ec194f6988d8,523ec9c195114d368a21ea3e4ce4fcde,04/26/2025 09:37:50G,1745645962,1,0,0
+192,26,1,1,3,0,a1156621584e44ccba5a038f8312682a,5fc967216db84ca29d968a9b4df178cd,04/26/2025 09:37:50G,1745645962,1,0,0
+193,1,1,1,1,8,286cac159ba4488fa62ea19a25b12bd9,fec88363804a4c9b84d97714fe605824,04/26/2025 09:37:50G,1745646125,1,0,0
+194,1,1,1,2,8,e3fdeafc8ca1401b8375d8d5c8f99ea6,0e7d5079785c46348342b907163ab5bd,04/26/2025 09:37:50G,1745646125,1,0,0
+195,1,1,1,3,8,8c07680826f34f9987def9a7463f1e8a,1b78786be380497fae47d7599689939f,04/26/2025 09:37:50G,1745646125,1,0,0
+196,28,1,1,0,0,ab95591337f34c12a49156a1c68846c2,067e4e7070c7412893a089a63a5e91d3,04/26/2025 09:37:50G,1745646125,1,0,0
+197,1,1,1,1,7,c1febe693ce34931a0b953749d5b504b,9a1947a4657c43d4bdba9ccfc32107f2,04/26/2025 09:37:50G,1745646202,1,0,0
+198,1,1,1,2,7,9fb9df2abef74b759623a8bcc95006a2,03ea08eb0cf64505891516d51121af55,04/26/2025 09:37:50G,1745646372,1,0,0
+199,8,1,1,4,0,ea36a1d072cc4dbe8baf631186fc4ab2,929bbb4c28924519b0cba9276b607f28,04/26/2025 09:37:50G,1745646378,1,0,0
+200,29,1,1,4,0,c7471610ab5a47d3ae7134942fdcd6f0,a830f2c4929c46ea8a3beb7979f08856,04/26/2025 09:37:50G,1745646378,1,0,0
+201,1,1,1,3,7,712d3d1dea3b41ff83787c9c45295532,63c7b6c6a536476d946f189863befe18,04/26/2025 09:37:50G,1745646378,1,0,0
+202,26,1,1,4,0,010e36292266492f9c7abe5506593833,0300e31726dd480689fa252a5c288172,04/26/2025 09:37:50G,1745646378,1,0,0
+203,28,1,1,0,0,46c3aca04783408eb024bf256f8f8b84,b56b30bdb54645a383a5ef5b9d9aa141,04/26/2025 09:37:50G,1745646378,1,0,0
+204,8,1,1,5,0,f4dd3943b374472a89176f574eadcd47,3d8566a38399464d878d6509966ddb2c,04/26/2025 09:37:50G,1745646381,1,0,0
+205,29,1,1,5,0,d1ba6d8de6a14a0e80e948d3b2964072,124e72e4e9454fc3901d8964822570cf,04/26/2025 09:37:50G,1745646381,1,0,0
+206,1,1,1,4,7,b8ceb1a66a6e4cb4b8bea0a0f25a3035,8c49447f56864e7f872cc66b3e5754d6,04/26/2025 09:37:50G,1745646381,1,0,0
+207,26,1,1,5,0,a39f553fc1444cc1b49eee7aa11d5295,617cd681069e4f578cdd592af48380a8,04/26/2025 09:37:50G,1745646381,1,0,0
+208,28,1,1,0,0,d38c031562174c05b483f63cb8123f83,c412529918c54191a2f42bff1bc25c2f,04/26/2025 09:37:50G,1745646381,1,0,0
+215,1,1,1,6,8,7224d33b8ec34be4a8fedf056e72c899,0f7f0fc8a6a045f1a44b57efd5ee7fee,04/26/2025 09:37:50G,1745651348,1,0,0
+216,8,1,1,7,0,c140d1a8558b4a4fb35740535173cfa6,033995346b0b4056807237660a41df50,04/26/2025 09:37:50G,1745652782,1,0,0
+223,8,1,1,8,0,6165e07fe94341f7a14823ad55ddd126,b63e48fea9cc4e3e921512d7867b9af6,04/26/2025 09:37:50G,1745652788,1,0,0
+228,1,1,1,1,4,436bde5f81494310ad5339c5e79e1a6d,d80a44d33d7242d4b3bd9df250476e29,04/26/2025 09:37:50G,1745654673,1,0,0
+229,1,1,1,2,4,1736cdd0737d4bd999d790d3e3081b81,e90dd8a142f34d75947dd865a89cacce,04/26/2025 09:37:50G,1745654673,1,0,0
+230,1,1,1,3,4,c2fc55169362427aa20976d0effb3947,ef7b5ff02eac4abe8540c3ef792f0fdf,04/26/2025 09:37:50G,1745654673,1,0,0
+231,1,1,1,4,4,55c410f421ac4efd8f65428a3464d109,779426de1dc94129ada8870e2636ebe8,04/26/2025 09:37:50G,1745654673,1,0,0
+232,1,1,1,5,4,def6686ae6824a54be01b1c8c4204c45,2805e6b26974450b88e24a6e9b60bcb6,04/26/2025 09:37:50G,1745654673,1,0,0
+233,1,1,1,6,4,6c9eccfe54144c78bcbbab88088983e7,7e7058bab8ce4951a81496171ef67409,04/26/2025 09:37:50G,1745654673,1,0,0
+234,28,1,1,0,0,c16991756a6f42a1b89d3049a04f5d0d,175e78ba56fa4917ae6a523386e543b8,04/26/2025 09:37:50G,1745654673,1,0,0
+235,1,1,1,1,5,69d4d3a269ae4b0f9fc25b6d38c3f9b7,6c709daea26b42879a0144f533a20e76,04/26/2025 09:37:50G,1745654970,1,0,0
+240,28,1,1,0,0,155dd4ac19d145cda586622b2e1676fa,37cb67836eed4e2a94652887406fd674,04/26/2025 09:37:50G,1745655076,1,0,0
+249,5,1,1,9,0,74e04dd798c04340b113e82f10653c63,78d5901fd2c945beb0148a4eff256961,04/26/2025 09:37:50G,1745658696,1,0,0
+250,41,1,1,0,0,b19244d6b4f542a59fbfa83a7e762273,88b1957c59f749a08917818d9bb48fee,04/26/2025 09:37:50G,1745658696,1,0,0
+251,6,1,1,1,9,e7eac329cb5946f4bf7e2ca865dfda74,2b9e82d903084e81962c523387a7615c,04/26/2025 09:37:50G,1745658696,1,0,0
+252,40,1,1,0,0,0e88893a38e94a4e9f6ff5a041821509,4162659fe31c454da7e727b2117ec5d3,04/26/2025 09:37:50G,1745658696,1,0,0
+253,27,0,1,9,0,b446a975c0904eca8d55fc769f87ac99,bc29a848bf424414b73e06703b2b7f9d,04/26/2025 09:37:50G,1745658696,1,0,0
+254,1,1,1,1,9,74c508cb56e843fb8db7661200533ff6,767d06c38ec74664836538f23dd1ee07,04/26/2025 09:37:50G,1745658957,1,0,0
+255,1,1,1,2,9,85d7e532c15443a88f4bc65bd0aa0381,8d203083dcb44dbea62b75ee00a401d4,04/26/2025 09:37:50G,1745658957,1,0,0
+256,28,1,1,0,0,360ec348052743fcb69a7631d6b525d3,29111f67c98b45d4bf7f1be2f20b9dd3,04/26/2025 09:37:50G,1745658957,1,0,0
+257,1,1,1,4,9,5dde6df2aefc4e7392b203c674aa6cd8,8ad45529b4464472a4b2c6519fb9d429,04/26/2025 09:37:50G,1745659002,1,0,0
+258,1,1,1,5,9,340f9899e7884e0cbaa65103614fe379,b7a01b8533634a7ca3932bc60a2ab81c,04/26/2025 09:37:50G,1745659162,1,0,0
+259,1,1,1,6,9,8d014af81196498aa204afd31be46394,d34836e44c684501b6b1477f74f134f2,04/26/2025 09:37:50G,1745659162,1,0,0
+260,1,1,1,7,9,4af58b8ea9cf497882058d9a4f4124cb,96f3226d288d49b8ab57bbee4ab90f41,04/26/2025 09:37:50G,1745659162,1,0,0
+261,1,1,1,8,9,233c5d2f6d90468eab97df7f671e69de,81545c91a62a4e1f93a80c83cee8595e,04/26/2025 09:37:50G,1745659162,1,0,0
+262,1,1,1,9,9,220819641b6a43a48e7cffdc18dd7068,605748fff0b541fdba37c20a05b1b8e2,04/26/2025 09:37:50G,1745659162,1,0,0
+263,1,1,1,10,9,62a6f4973e3c47c39ebb5fd6cbaf1602,56780f7733ee44bab7e8e14be74038f7,04/26/2025 09:37:50G,1745659162,1,0,0
+264,1,1,1,11,9,48dc4a67028b474fa1d4bd55f5106743,1eb0082e34dc47228fcfdf7f9d082a1f,04/26/2025 09:37:50G,1745659162,1,0,0
+265,1,1,1,12,9,0dc42856066542dca828e010acdd892c,745df90224434519ba95e2aff5ee7a67,04/26/2025 09:37:50G,1745659162,1,0,0
+266,8,1,1,12,0,04856c29629a4037a66195726436fc28,b25d94ca50134959b20d9692534219f6,04/26/2025 09:37:50G,1745659222,1,0,0
+267,29,1,1,12,0,4c393513fe484fd79e1eab12d7bf5c7d,5b5b28d915fd456eb319499a49caec7e,04/26/2025 09:37:50G,1745659222,1,0,0
+268,1,1,1,10,8,2b9991a44150459080f89e1b1054e113,e6935c448ded44deb7c49cce76c29226,04/26/2025 09:37:50G,1745659222,1,0,0
+269,26,1,1,14,0,a8192576aaca48eebca178e1f6c24159,ee69bb4c2a524bb5a6324180a3358de8,04/26/2025 09:37:50G,1745659222,1,0,0
+270,5,1,1,10,0,470fbc0f257244aeb2312ef902f05724,9f33514e7ed9408d8cca0125bbd57974,04/26/2025 09:37:50G,1745659245,1,0,0
+271,41,1,1,0,0,ec372398523d49c9a20f7f7867c2b825,59984efd6a3847e3b37b5ffe231f9326,04/26/2025 09:37:50G,1745659245,1,0,0
+272,6,1,1,1,10,c3015fa9cca34c0395638da8e4bfc3f6,10c83e4d491d43b7b4c790f5e2d5a7fa,04/26/2025 09:37:50G,1745659245,1,0,0
+273,40,1,1,0,0,515ef3d23aa649d19b2b654d140da45a,cbfd03fe3d3f4927993869e266657f2b,04/26/2025 09:37:50G,1745659245,1,0,0
+274,27,0,1,10,0,c45583478b2f4353938053b7c4c8863c,1591e525ccf04d62acf195dd5030378f,04/26/2025 09:37:50G,1745659245,1,0,0
+275,1,1,1,1,10,cc1a3ecbed164b428964c9ea3df05709,17c35d3ce1bb4a239294aaa43cccd5f1,04/26/2025 09:37:50G,1745659468,1,0,0
+276,1,1,1,2,10,074b8e3cc546400986dc8f0fe7d3876f,fc89f3eede2b4a078732c482afa71f9b,04/26/2025 09:37:50G,1745659468,1,0,0
+277,1,1,1,3,10,00d5bf883be048f7a052ea9f113b1b3f,0143c87190ae42dd98b928468b437d9c,04/26/2025 09:37:50G,1745659468,1,0,0
+280,1,1,1,6,10,4c9343cf7b414b27a3293dafc8875519,64b8dd7ab86c4c618ecd79e9309b5173,04/26/2025 09:37:50G,1745659494,1,0,0
+281,28,1,1,0,0,5d90c97a7e70405d884c628f1ce0c108,dbb919d08ead4384b48737d453615798,04/26/2025 09:37:50G,1745659494,1,0,0
+282,8,1,1,13,0,6b847828c6ff48d7ad2d46d64c34aaca,1dc4ce1bc48a48f6be7febc30310af14,04/26/2025 09:37:50G,1745659502,1,0,0
+283,29,1,1,13,0,60bd2cd775aa446ea021d08f52d08773,17d984c0da1d48f78609d5dfa91ecc3f,04/26/2025 09:37:50G,1745659502,1,0,0
+284,1,1,1,13,9,a253677e79d4416abec9708a942da24f,d9ea21265875466d87db7a46003b5ee3,04/26/2025 09:37:50G,1745659502,1,0,0
+285,26,1,1,15,0,68d52254d70c4b45b6a4925c137bad7f,13907a31fb0a489d958a47ad6a66f87c,04/26/2025 09:37:50G,1745659502,1,0,0
+286,8,1,1,14,0,1cb29b34610646b5a23cc95fe0cfb89d,15b8ba2b09614e59abfc4fef8d59ef31,04/26/2025 09:37:50G,1745659653,1,0,0
+287,29,1,1,14,0,e508138dbbd94284adc92a5013ebbaf4,e98922a3fab54acc988a8f24a0db0b36,04/26/2025 09:37:50G,1745659653,1,0,0
+288,1,1,1,14,9,0636aaf20a89486d881e0c94b776edb7,ce28420d8be245acb73b1a076e76cd08,04/26/2025 09:37:50G,1745659653,1,0,0
+289,26,1,1,16,0,92b459fc68a941f3b4861cfee79448a3,2ea88f868655461dba82fc375a98295d,04/26/2025 09:37:50G,1745659653,1,0,0
+290,67,1,1,1,0,7c274c53d6ee4cafb90e216a971ca8dc,a50388e1d28a4181aeb93210874f4ea3,04/26/2025 09:37:50G,1745660270,1,0,0
+291,68,1,1,1,0,b0d2f3223aa3474f8df9acf7efcfedfd,35a20688b10a417e8ecbaa71038ea3e2,04/26/2025 09:37:50G,1745660270,1,0,0
+292,69,1,1,1,0,8950a6a70be44219a80202094f63f3f1,947f191aacb54d47baa2a136f1e741af,04/26/2025 09:37:50G,1745660270,1,0,0
+293,70,1,1,1,0,a2636f06e9b14a5eae330fc988b09971,aca009fe5dc44c518e2c504874ef7583,04/26/2025 09:37:50G,1745660270,1,0,0
+294,71,1,1,1,0,fed74afcd92f449491725b91794b7e23,1e51b75d964345a694a0b7e1307457ee,04/26/2025 09:37:50G,1745660270,1,0,0
+295,72,1,1,1,0,1dd89c07e7264205a33bc2e32f32d548,ea4ddd09a4454ba29b784740b5dae0e9,04/26/2025 09:37:50G,1745660270,1,0,0
+296,73,1,1,1,0,b5e8ef5207a344988764df58a4090c2b,447dccebe24a4c80a067c02d12586f94,04/26/2025 09:37:50G,1745660270,1,0,0
+297,74,1,1,1,0,fcd9af14cc2046f3836ae7cf85fa73cd,d65df98e43e44c279b4c4486ebfec549,04/26/2025 09:37:50G,1745660270,1,0,0
+298,1,1,1,15,9,c56816455fe84654b3cc4208fd4f6188,4515581ce17449dfb1dad48939092474,04/27/2025 19:00:54G,1745778350,1,0,0
+299,1,1,1,7,10,d0a3698225fd4ac18da277ff986896df,7c17f779101b4be3bf1d143d76e1722d,04/27/2025 19:00:54G,1745778790,1,0,0
+301,1,1,1,9,3,49c10c51cb9748f5bc8a6c8e9304ccb9,17d166da15ff49b4964b99023fc2ae05,04/27/2025 19:00:54G,1745779846,1,0,0
+306,8,1,1,16,0,ba9de6615a7f41f3be384edc0a20247d,b1616078e541428c9260dbf97191eeda,04/27/2025 19:00:54G,1745780293,1,0,0
+310,8,1,1,17,0,5b772e90d38141e6b605194a64347c4e,2cb91d6023284627814a56d68667492b,04/27/2025 19:00:54G,1745780302,1,0,0
+314,8,1,1,18,0,02633b52afab45cb9293f45d2ed87240,41357aa5424144eb9cdedcd1bf033883,04/27/2025 19:00:54G,1745780309,1,0,0
+315,29,1,1,18,0,a21551dea3ae40a2996e07e6907181d0,bccde84a820c4f60a1a498ad125555c7,04/27/2025 19:00:54G,1745780309,1,0,0
+316,1,1,1,14,8,0a5099a9b54d4da1bf236acaefabef86,83331f9d9c2c42b79848a02edf6b62d6,04/27/2025 19:00:54G,1745780309,1,0,0
+317,26,1,1,20,0,28ccca53f6e8499ea81eb08e8dd687a0,6ad72adc3fdb491da4f88d7aeb74c0b8,04/27/2025 19:00:54G,1745780309,1,0,0
+318,8,1,1,19,0,fd96b530c8694a7a95deefa4738b765a,a007eb0f279f43a8bea4af493088cd48,04/27/2025 19:13:21G,1745780852,1,0,0
+322,8,1,1,20,0,613d80511fd54f0abae69ae52d7bbfc9,f44ac83bbf814a878745bc1d1416a441,04/27/2025 19:13:21G,1745780858,1,0,0
+326,8,1,1,21,0,d86c5570a0e2436b8ef75bfa4eb844ef,8a7e5d6b3f954961acce987f0fb46ba9,04/27/2025 19:13:21G,1745780864,1,0,0
+334,8,1,1,23,0,85bf153bc8c64e9a953ee1b3cfd6be1a,9f12b2f440d14605ac4075b27c8359e1,04/27/2025 19:13:21G,1745780921,1,0,0
+335,29,1,1,23,0,77c3a51eb6ad42208d2ad01eda3a54e7,bac977c480f847e0979a60e4adecc467,04/27/2025 19:13:21G,1745780921,1,0,0
+336,1,1,1,8,5,b21e34cf7a0946ddbbdab6cccd2e19e4,122d30953cab4a43a260d40b2b017c29,04/27/2025 19:13:21G,1745780921,1,0,0
+337,26,1,1,25,0,10a4cf2c426d4fd4b34277de5d3e5a08,245ab72ee4be48f49d0e0deb9b7670ed,04/27/2025 19:13:21G,1745780921,1,0,0
+338,8,1,1,24,0,bc77f8653834469197fc1610d6cef827,023a347dc54741dab04a92a9c6b86ddb,04/27/2025 19:13:21G,1745781142,1,0,0
+339,29,1,1,24,0,65276e1e15e2492390410a9c21f3e606,d6b8b4e5a410451b9b00f4a92d80569f,04/27/2025 19:13:21G,1745781142,1,0,0
+340,1,1,1,9,5,d9b12fb92b0b46ffb5004e091b29ebee,a559a9f7e21e441fb487cf9601240cfe,04/27/2025 19:13:21G,1745781142,1,0,0
+341,26,1,1,26,0,365ca568ea9a44f5b0b95ac9f2f0728a,30df10025c914938b0da2bdd598b7e09,04/27/2025 19:13:21G,1745781142,1,0,0
+342,5,1,1,11,0,87cbcb4882014e728793e00d5aad59cd,6a2e3c44e6f642ee9f787f9c89acd465,04/28/2025 18:23:20G,1745863463,1,0,0
+343,41,1,1,0,0,b5e511cd6db240f99ca282013e524f67,2188abdb3d674ff09c8b7dde84ad3013,04/28/2025 18:23:20G,1745863463,1,0,0
+344,6,1,1,1,11,c77859e3f61842b4a76167c073f6974b,9654a789e92a497ea6249c930ba6df23,04/28/2025 18:23:20G,1745863463,1,0,0
+345,40,1,1,0,0,2dda16e8352944a68d41d0142c2eb98a,14a71ecf3349453883cc350dd0372aec,04/28/2025 18:23:20G,1745863463,1,0,0
+346,27,0,1,11,0,192bd5d653ac405086acfd148876f0be,25c2913c45cf4ab8a7e38e18681d6ef3,04/28/2025 18:23:20G,1745863463,1,0,0
+347,1,1,1,1,11,3925f698062a4b2daeb904c2bc6c1389,f535213842af4a6cbcfc4e375b677c17,04/28/2025 18:23:20G,1745863624,1,0,0
+348,28,1,1,0,0,664b3a5ff6ba4c17a66db94554f5f77c,477ece98674b4009a04346c375bbc9e0,04/28/2025 18:23:20G,1745863624,1,0,0
+354,1,1,1,3,11,1ab4f9a57dc5474d91f5b1cf596275d9,8c00a43e19174d56bf45b35f0f17593f,04/28/2025 18:23:20G,1745863838,1,0,0
+355,8,1,1,26,0,5587ef01c1cf48689ed8c217fc0e41ee,975e74430939492b8564921a70b3cbf8,04/28/2025 18:23:20G,1745863847,1,0,0
+356,29,1,1,26,0,4a915f6fc544483daf6e36d622b3ca83,a805db9ad2a94a9591af410c8e461546,04/28/2025 18:23:20G,1745863847,1,0,0
+357,1,1,1,4,11,ee3066ea12ba4000b98afb850ac37ff8,99fd3ad86a2b40f1a38054ff90d545c0,04/28/2025 18:23:20G,1745863847,1,0,0
+358,26,1,1,28,0,f31a8467a6cb45dfbc7d5da8ea7e702f,6e07b8dddcfb4aa58cc1479800058e52,04/28/2025 18:23:20G,1745863847,1,0,0
+359,1,1,1,8,10,7b1024e601c2450ba07a069a5304c2c3,fa4d03efcf8c43768fd05225e05d11e9,05/11/2025 22:05:08G,1746999265,1,0,0
+360,1,1,1,9,10,7c2d030908b24c818b80ddcc4ddd1065,749f99066fef402e818a78d80a4c3d3c,05/11/2025 22:05:08G,1746999265,1,0,0
+361,1,1,1,10,10,e3fc5a367e3f4608b45bdd4888f195d7,b05e55494e8548068bd99c111408faf5,05/11/2025 22:05:08G,1746999405,1,0,0
+372,8,1,1,28,0,282c30958d604875afdfad7d7577f5e2,c88dc6c60efd4eaeafb5bb6fe3fd7dce,05/11/2025 22:05:08G,1746999442,1,0,0
+376,8,1,1,29,0,cbbd4364c69c4c9b9197853ac8020ff2,7c6e1c6e9e9e42da9092254d1020c6cf,05/11/2025 22:05:08G,1746999460,1,0,0
+377,29,1,1,29,0,4ac34b3a9ba04f47b6ca2eb58f0fd472,6ab8ea7459764e10a311794f57a0edbf,05/11/2025 22:05:08G,1746999460,1,0,0
+378,1,1,1,17,8,53f9eb1eeec6431cb74f66ea470a536d,39171ec897bf4630ba157f375b7c293f,05/11/2025 22:05:08G,1746999460,1,0,0
+379,26,1,1,33,0,66a38d09426b40febdc93d84b958058c,91c9737ed7994153890d6a3518266500,05/11/2025 22:05:08G,1746999460,1,0,0
+380,1,1,1,16,9,4885b8a9f4584b79a2a9f9cd2c255f9e,dfd72efcbc1e4c5d9716d6309611d672,05/11/2025 22:05:08G,1746999628,1,0,0
+381,1,1,1,7,4,aa6395914c4a4a6e80901879cdb7a486,af6b9da0fbd84c42a452fb4c5b2741c4,05/11/2025 22:05:08G,1746999716,1,0,0
+382,1,1,1,8,4,229fd421f6ef4ea9ae84dd460ae13b1b,0adfa912581042f8a59548e2c0e9f4ed,05/11/2025 22:05:08G,1746999776,1,0,0
+383,1,1,1,9,4,f394daf08e67406aae519bf3ef885e62,8373c84d8451479f9c60071e123d2bad,05/11/2025 22:05:08G,1746999832,1,0,0
+384,1,1,1,10,4,70568593caec4b08927d4d76e4e8a61a,781de1a729dc4659b6fa48c6522675b4,05/11/2025 22:05:08G,1746999870,1,0,0
+385,1,1,1,11,4,1c77b36a3915471d9bc5cbd0c6f14627,def0ad4bb10e4812bc08bcb61ef6a3bb,05/11/2025 22:05:08G,1747000003,1,0,0
+386,1,1,1,12,4,41c4314c49624d4b92e0900422a58740,e0e344e7d2fa41f5840ccdfb7daf6ce0,05/11/2025 22:05:08G,1747000017,1,0,0
+387,30,1,1,0,0,c679c601126c4886a1132c2462ce6bdd,0fc8ce5ae4e041269d620a82e0c91407,05/11/2025 23:03:12G,1747004354,1,0,0
+388,30,1,1,0,0,55618e89bd4a4afcbcf64cf261c9a92d,c80c2a4baa974856af11ba666191d956,05/11/2025 23:03:12G,1747004364,1,0,0
+389,30,1,1,0,0,9b137af990304514ad07fc2f15715e7d,59c1990f986641eb82360205d546d7e3,05/11/2025 23:03:12G,1747004365,1,0,0
+390,30,1,1,0,0,381734bb0886498e8ec27629ae5c580a,129f576c089b4d7aab912d519b0afc5d,05/11/2025 23:03:12G,1747004365,1,0,0
+391,30,1,1,0,0,2a5597c908ee4346b28a7dc8362e0c02,11bdbc630d5e4a6ba69a5723c65cc225,05/11/2025 23:03:12G,1747004366,1,0,0
+421,37,2,1,0,0,76517f56aab5402689b616ad1915edcc,15ed993536bf4a21871a946ba5d67fa0,05/11/2025 23:03:12G,1747004438,1,0,0
+422,37,2,1,0,0,1b9151cd13244920be17c13cb7848d5b,add63285c2ac4cf7abd71087b8290315,05/11/2025 23:03:12G,1747004438,1,0,0
+423,37,2,1,0,0,5c30d69f2f154869a259589f4459569a,611286ad8c4e475cbc8f7e7bf89624cd,05/11/2025 23:03:12G,1747004438,1,0,0
+424,37,2,1,0,0,2348aedbb1ba47d1915f2e1e2d3cf544,e2f21d2aa6094e6591cce67bf7396375,05/11/2025 23:03:12G,1747004438,1,0,0
+425,37,2,1,0,0,c2f683e3448140e79f7e0e82ef13a765,e093329f3fd44347b4863d7185c7ed56,05/11/2025 23:03:12G,1747004438,1,0,0
+426,37,2,1,0,0,0c6080dd329f4652be57eaedac8503cc,381446e8f5264916aa35dea16e9bafea,05/11/2025 23:03:12G,1747004438,1,0,0
+427,37,2,1,0,0,430bda44e98c42668a83490cb519390d,7408232378314a74ada6496876ae02e2,05/11/2025 23:03:12G,1747004438,1,0,0
+428,37,2,1,0,0,c435e39f965b49b6b1f7ee8ac0ab153c,1a54723a3c0c41709838dfbd6abd0eaf,05/11/2025 23:03:12G,1747004438,1,0,0
+432,37,2,1,0,0,93a5ea9fb1714d53befea84f1607c8d2,ef47136f397d4677a4f160806abde2dc,05/11/2025 23:03:12G,1747004438,1,0,0
+433,37,2,1,0,0,3fcabfda79504eb6870ccea109239231,430fe41770004c5caece728ab3f66ee5,05/11/2025 23:03:12G,1747004438,1,0,0
+443,38,2,1,0,0,c83c9c13ae74471a99271694e8b61f4a,9733b4d27f5140ff96b81ba5d6579894,05/11/2025 23:03:12G,1747004438,1,0,0
+444,38,2,1,0,0,852f921a34294e4d9f006e7d6793b714,b90061dd67f1455a8bf7b46ad720de39,05/11/2025 23:03:12G,1747004438,1,0,0
+445,38,2,1,0,0,75052e7655c942b4b0f6dc214e369941,a33dd42505f24392bc0ccf58448133fd,05/11/2025 23:03:12G,1747004438,1,0,0
+446,38,2,1,0,0,7fd51c077bb44223bc75489d73fec1eb,0bbe06759bcb48908b371469389451d2,05/11/2025 23:03:12G,1747004438,1,0,0
+447,38,2,1,0,0,277f8c7335594521a78618ce3faeb20d,2bcf64f963444bcab00f6683d5e72b0f,05/11/2025 23:03:12G,1747004438,1,0,0
+448,38,2,1,0,0,e63e512a95784f5896f759181bb14006,b93359b8df8a41778c70153f9624a1e3,05/11/2025 23:03:12G,1747004438,1,0,0
+449,38,2,1,0,0,3fef55c858724ee8b17a523985a969fb,bd862e6275a242039bfeff755f5879a4,05/11/2025 23:03:12G,1747004438,1,0,0
+450,38,2,1,0,0,b7fdc907e95342c481acb624511484e9,3428241762174e50a4bb669134a6b113,05/11/2025 23:03:12G,1747004438,1,0,0
+454,37,2,1,0,0,c539ec1d59694441af48b44c559ff8be,b2a7cb40dcaa41fab06c79af2daa3dd8,05/11/2025 23:03:12G,1747004438,1,0,0
+455,38,2,1,0,0,10c5997d46654e7b80fa35bd8a3b4ba1,38921131f3f9428587f0dd023b98231b,05/11/2025 23:03:12G,1747004438,1,0,0
+456,38,2,1,0,0,b3e2e6ad93c3463f8f7f6eb59563cff5,146450a3388f459ebc2df0ffdceea698,05/11/2025 23:03:12G,1747004438,1,0,0
+457,38,2,1,0,0,ede4686f636349cd98f51d60e44cd8c1,9bd834ca8a654e73b79fa23dbba95e0a,05/11/2025 23:03:12G,1747004438,1,0,0
+466,38,2,1,0,0,389a9cb74d974f4abfe3c6d04c0844ed,c62a6a6370ab4204814d5f0e1a70db3f,05/11/2025 23:03:12G,1747004438,1,0,0
+480,38,2,1,0,0,1c887bdae49f4a249c26d9597a76158f,753d024101ad4f80974638dd4bddd285,05/11/2025 23:03:12G,1747004438,1,0,0
+481,38,2,1,0,0,09c4d5b2225947ac9fe8930cbc68fa8f,9adb3cc7507f49538859817d987b0a89,05/11/2025 23:03:12G,1747004438,1,0,0
+482,38,2,1,0,0,e2b263f079854bafb77fa268d6733808,322e42f8c49a4505afb5ca712640463d,05/11/2025 23:03:12G,1747004438,1,0,0
+483,38,2,1,0,0,68644be32c7d4c84a63c00490b06aad8,b8d99a311e6f4950877311074bbd03c5,05/11/2025 23:03:12G,1747004438,1,0,0
+484,38,2,1,0,0,4aea2ffdc567424da81bf3bc9c103d9e,d886e536464942148311baccafc65c89,05/11/2025 23:03:12G,1747004438,1,0,0
+485,37,2,1,0,0,fef2de070ff044e9a9f96000dd779028,67448268e88c441cb763660ee5f6d315,05/11/2025 23:03:12G,1747004438,1,0,0
+486,37,2,1,0,0,840721b5771140848108f1186997d949,de94505e31e94e37b01d0b14291e7f1d,05/11/2025 23:03:12G,1747004438,1,0,0
+487,38,2,1,0,0,d67045f0713c4445aa516993e52f9dde,c934349822cf40eaa1e26654e51281c4,05/11/2025 23:03:12G,1747004438,1,0,0
+488,38,2,1,0,0,9bb26e0f84b34fab8a99b7b2b23c7352,af4c92c77d42458cac19ff9b4f9bc2b6,05/11/2025 23:03:12G,1747004438,1,0,0
+489,38,2,1,0,0,c0f6950d38b745e2843666661201e3b9,e9981fb69d004c8d8656316c5d8dc1d6,05/11/2025 23:03:12G,1747004438,1,0,0
+490,38,2,1,0,0,042a1463719a425a960ff4441f05c93b,ad3903c94fb349f4b0136f1518981e10,05/11/2025 23:03:12G,1747004438,1,0,0
+491,38,2,1,0,0,4248d45966214a8c96eb0738309e7e57,1b4fe6c4be1d4a7b89bd135dc42787f1,05/11/2025 23:03:12G,1747004438,1,0,0
+492,38,2,1,0,0,7d04b4872223453aaad5b2b2f9995625,93c803d67dd44dc79d7b7a52e9a40733,05/11/2025 23:03:12G,1747004438,1,0,0
+493,38,2,1,0,0,998f7568934645b8be3e331a8816ae80,ff5cbe85c80a4bdca6549f5e7d7eec81,05/11/2025 23:03:12G,1747004438,1,0,0
+494,38,2,1,0,0,09de37152cc64d37a6190d9a0472142a,590ee1c6ff67482d82e1cc5aff3e95b4,05/11/2025 23:03:12G,1747004438,1,0,0
+495,37,2,1,0,0,a6b18672a5624f8d8bf94b55ef60f322,28a68d752db84d71a63f31fa3dda36f2,05/11/2025 23:03:12G,1747004438,1,0,0
+496,37,2,1,0,0,76e0f98f98df4b8f86377be2c58f1b8c,9322e3dab7b541cbaab5723656d7c102,05/11/2025 23:03:12G,1747004438,1,0,0
+497,37,2,1,0,0,b855e6cc83c94cec85b9662053f0fe26,bba3339185b6448ea2583ee3952d3527,05/11/2025 23:03:12G,1747004438,1,0,0
+498,37,2,1,0,0,a9589480bcf44ed089db53429b5b1aeb,22ce2d4316ed41ba87cfd643989a9da9,05/11/2025 23:03:12G,1747004438,1,0,0
+499,37,2,1,0,0,7fec545612e2484ab6025a37cb050eb3,1bf92a999c914cda855faad2bbddf041,05/11/2025 23:03:12G,1747004438,1,0,0
+509,30,1,1,0,0,0865f56ac702466aa6c6f9dd356b4a18,6c9b211bf3f04e2796254859db6bd6b6,05/11/2025 23:03:12G,1747004438,1,0,0
+539,37,3,1,0,0,5a518f50f3124d72ba3419f7c8875678,7eb2f0178a4940d2ae67b9cbaa976dd3,05/11/2025 23:03:12G,1747004448,1,0,0
+540,37,3,1,0,0,90008fccd1bf4086aa3dd37c9de38db2,fc8d8a6a31ef453dbfc9f1c4c80a0521,05/11/2025 23:03:12G,1747004448,1,0,0
+541,37,3,1,0,0,9d4fcb29cc334436984998ccec33dc00,1ae3a0eb0c68439583603a795fd686ca,05/11/2025 23:03:12G,1747004448,1,0,0
+542,37,3,1,0,0,9f915f1395d34d46912f2e769ccfbd8d,8d94206b945b44e78b1bb165336d7e6b,05/11/2025 23:03:12G,1747004448,1,0,0
+543,37,3,1,0,0,5c850c42375f4820b3926dd04e3a8ecd,c80cc7a91984454e9d6b18b467c5878c,05/11/2025 23:03:12G,1747004448,1,0,0
+544,37,3,1,0,0,ceb3d39a864f444bbc5c509f6164eddb,2d6fb39c9eaf4d5fb64a37c2b66d7c5d,05/11/2025 23:03:12G,1747004448,1,0,0
+545,37,3,1,0,0,e10071b5f97e4dd581d7066d1b4988ce,5d335b595c3c4ecb90ed3f758cb58848,05/11/2025 23:03:12G,1747004448,1,0,0
+546,37,3,1,0,0,36c9c1d35b814d8b8af134345ef6998c,a85490862db14bafa4a1dc0cbf0931f4,05/11/2025 23:03:12G,1747004448,1,0,0
+550,37,3,1,0,0,661763cd6de34ad286a344d72311c7c7,83629837281145fca90ae5b6b7a953eb,05/11/2025 23:03:12G,1747004448,1,0,0
+551,37,3,1,0,0,ac442ee8e91c45469c8f3e31feb3426d,6bfc83215f6c41849fe0aeba4263170b,05/11/2025 23:03:12G,1747004448,1,0,0
+561,38,3,1,0,0,925f923433574baebec7a62abc4987d6,9730ab307e4641b4bb154b7164334468,05/11/2025 23:03:12G,1747004448,1,0,0
+562,38,3,1,0,0,60512defb35d4eca95d587b0d83228f5,d5cbe039998a40b9b089b5d675741960,05/11/2025 23:03:12G,1747004448,1,0,0
+563,38,3,1,0,0,a6a023bcedd44809952950694f0066ed,63eb9fda9ddd41229eadc9454d8564f0,05/11/2025 23:03:12G,1747004448,1,0,0
+564,38,3,1,0,0,288df274982d4fd6a3bf977d80f72e46,da99cfc732d04515ab9c2c3f89ed36f7,05/11/2025 23:03:12G,1747004448,1,0,0
+565,38,3,1,0,0,ef01c34152f843248a0ac62b58827474,58666511920a4d66acc62280e0006a2c,05/11/2025 23:03:12G,1747004448,1,0,0
+566,38,3,1,0,0,1df77df37d764dcdb82b76a1c7a50cdc,049a73e7d649457d8b5e72de4d3518f8,05/11/2025 23:03:12G,1747004448,1,0,0
+567,38,3,1,0,0,2d49d5ca97c94e7693c759dca5410779,ea5558d74e25458c9daf636014a3094b,05/11/2025 23:03:12G,1747004448,1,0,0
+568,38,3,1,0,0,fb29570a07c6433db1f51765fd4a18f2,fa8609d59c7d457c9ae7f48d7d919d31,05/11/2025 23:03:12G,1747004448,1,0,0
+
+ObjectDefinition
+ObjectType_Id,Description,ObjectName,Global_User_ID,Row_Time_Stamp
+1,"",Attribute,0,0
+2,"",Check Constraint,0,0
+3,"",Domain,0,0
+4,"",Diagram,0,0
+5,"",Entity,0,0
+6,"",Index,0,0
+7,"",Model,0,0
+8,"",Relationship,0,0
+9,"",User Data Type,0,0
+10,"",Default,0,0
+11,"",Rule,0,0
+12,"",View,0,0
+13,"",View Table,0,0
+14,"",View Field,0,0
+15,"",Parent Field Column,0,0
+16,"",View Column,0,0
+17,"",Column Usage,0,0
+18,"",View Component,0,0
+19,"",Trigger,0,0
+20,"",Procedure,0,0
+21,"",Package,0,0
+22,"",Dictionary Object,0,0
+23,"",Reusable Procedure,0,0
+24,"",Templated Procedure,0,0
+25,"",SubModel,0,0
+26,"",ParentChildPair,0,0
+27,"",Entity Display,0,0
+28,"",IndexColumn,0,0
+29,"",Relation Display,0,0
+30,"",Graphic Display,0,0
+31,"",View Display,0,0
+32,"",View Relation Display,0,0
+33,"",Supertype,0,0
+34,"",Supertype Display,0,0
+35,"",Subtype,0,0
+36,"",Diagram Display,0,0
+37,"",Font Default,0,0
+38,"",Color Default,0,0
+39,"",Grid Display,0,0
+40,"",Index Storage,0,0
+41,"",Table Storage,0,0
+42,"",Algorithm Property,0,0
+43,"",Docking Position,0,0
+44,"",Dock Pos Disp Level,0,0
+45,"",Submodel Algorithm,0,0
+46,"",Dictionary Trigger,0,0
+47,"",Dictionary Library,0,0
+48,"",Bound Dictionary Object,0,0
+49,"",Referenced Object,0,0
+50,"",MetaClass Member,0,0
+51,"",Property Usage,0,0
+52,"",Property Value Usage,0,0
+53,"",Model Option,0,0
+54,"",InterModelRelationship,0,0
+55,"",Data Dictionary,0,0
+56,"",Storage Object,0,0
+57,"",Reference Value,0,0
+58,"",Attachment Type,0,0
+59,"",Valid Attachment Type,0,0
+60,"",Attachment,0,0
+61,"",Submodel Link,0,0
+62,"",Dictionary Object Link,0,0
+63,"",Object Font Override,0,0
+64,"",Object Color Override,0,0
+65,"",Connector,0,0
+66,"",Path Node,0,0
+67,"",Graph Geometry,0,0
+68,"",Disconnected Nodes Layout,0,0
+69,"",Components Layout,0,0
+70,"",Circular Layout,0,0
+71,"",Hierarchical Layout,0,0
+72,"",Orthogonal Layout,0,0
+73,"",Symmetric Layout,0,0
+74,"",Tree Layout,0,0
+75,"",Default Constraint,0,0
+76,"",Submodel Schema Obj Link,0,0
+77,"",Schema Obj Edge,0,0
+78,"",Transform Member,0,0
+79,"",Object Transform,0,0
+80,"",Shape,0,0
+81,"",Shape Edge,0,0
+82,"",Shape Display,0,0
+83,"",Shape Edge Display,0,0
+84,"",User Object Match,0,0
+85,"",Database User,0,0
+86,"",Database Role,0,0
+87,"",Object Permission,0,0
+88,"",User Role Member,0,0
+89,"",Naming Standards Template,0,0
+90,"",Transformation,0,0
+91,"",Transformation Display,0,0
+92,"",Lineage Component,0,0
+93,"",Lineage Component Display,0,0
+94,"",Lineage Stream,0,0
+95,"",Lineage Stream Display,0,0
+96,"",Lineage Stream Member,0,0
+97,"",Object Tracking,0,0
+98,"",Attribute Display Override,0,0
+
+Object_Domain
+Object_Domain_ID,Name,Type,GUID
+1,Model2.DM1,DIAGRAM,308b946bae2c4bdc8ed91b966bc11ceb
+2,MR_Proy_BDT_MUEBLERIA_DD,DATA_DICTIONARY,372298c3de524ee2bf691d9aa1388e31
+
