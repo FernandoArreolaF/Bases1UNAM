@@ -1,0 +1,1372 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 17.5
+-- Dumped by pg_dump version 17.5
+
+-- Started on 2025-05-25 23:38:26
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 5 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO pg_database_owner;
+
+--
+-- TOC entry 4065 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+--
+-- TOC entry 246 (class 1255 OID 16571)
+-- Name: actualizar_razon_social(); Type: FUNCTION; Schema: public; Owner: oscar
+--
+
+CREATE FUNCTION public.actualizar_razon_social() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+    -- Concatenar nombre completo y eliminar espacios redundantes
+    NEW.RAZON_SOCIAL_CLIENTE := TRIM(
+        NEW.NOM_PILA_CLIENTE || ' ' ||
+        NEW.AP_PAT_CLIENTE || ' ' ||
+        COALESCE(NEW.AP_MAT_CLIENTE, '')
+    );
+    RETURN NEW;
+END;
+$$;
+
+
+ALTER FUNCTION public.actualizar_razon_social() OWNER TO oscar;
+
+--
+-- TOC entry 248 (class 1255 OID 17201)
+-- Name: actualizar_venta_y_stock(); Type: FUNCTION; Schema: public; Owner: oscar
+--
+
+CREATE FUNCTION public.actualizar_venta_y_stock() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+--Verificar que haya stock
+IF (SELECT stock_articulo FROM articulo WHERE codigo_barras_articulo = NEW.codigo_barras_articulo) > 0 THEN	
+	
+	-- Verifica si ya existe el mismo artículo en la misma venta
+	IF (SELECT COUNT(*) FROM articulo_venta 
+    		WHERE folio_venta = NEW.folio_venta 
+      		AND codigo_barras_articulo = NEW.codigo_barras_articulo) > 0
+	THEN
+        	-- Actualiza la cantidad del artículo ya existente
+        	UPDATE articulo_venta
+        	SET cantidad_por_articulo_venta = cantidad_por_articulo_venta + NEW.cantidad_por_articulo_venta
+		WHERE folio_venta = NEW.folio_venta
+        	AND codigo_barras_articulo = NEW.codigo_barras_articulo;
+
+		--Se debe modificar el stock y la cantidad total de articulos
+		UPDATE articulo
+        	SET stock_articulo = stock_articulo - NEW.cantidad_por_articulo_venta
+        	WHERE codigo_barras_articulo = NEW.codigo_barras_articulo;
+
+		 -- Sumar a la cantidad total de la venta
+        	UPDATE venta
+        	SET cantidad_total_articulos_venta = cantidad_total_articulos_venta + NEW.cantidad_por_articulo_venta
+        	WHERE folio_venta = NEW.folio_venta;
+
+		--Se debe modificar el monto total de la venta al agregar nuevos articulos
+		UPDATE venta
+        	SET monto_total_venta = monto_total_venta + (NEW.cantidad_por_articulo_venta * NEW.monto_por_articulo_venta)
+        	WHERE folio_venta = NEW.folio_venta;
+
+		RETURN NULL;
+	
+	ELSE
+		-- Insert nuevo: actualizacion normales
+		
+        	-- Restar del stock
+        	UPDATE articulo
+        	SET stock_articulo = stock_articulo - NEW.cantidad_por_articulo_venta
+        	WHERE codigo_barras_articulo = NEW.codigo_barras_articulo;
+
+        	-- Sumar a la cantidad total de la venta
+        	UPDATE venta
+        	SET cantidad_total_articulos_venta = cantidad_total_articulos_venta + NEW.cantidad_por_articulo_venta
+        	WHERE folio_venta = NEW.folio_venta;
+		
+
+		--Se debe modificar el monto total de la venta al agregar nuevos articulos
+			UPDATE venta
+	        SET monto_total_venta = monto_total_venta + (NEW.cantidad_por_articulo_venta * NEW.monto_por_articulo_venta)
+	        WHERE folio_venta = NEW.folio_venta;
+		RETURN NEW;
+
+	END IF;
+
+ELSE 	
+    RAISE EXCEPTION 'No hay stock disponible para el artículo con código de barras %', NEW.codigo_barras_articulo;
+END IF;
+
+END; $$;
+
+
+ALTER FUNCTION public.actualizar_venta_y_stock() OWNER TO oscar;
+
+--
+-- TOC entry 245 (class 1255 OID 16998)
+-- Name: generar_factura_auto(); Type: FUNCTION; Schema: public; Owner: oscar
+--
+
+CREATE FUNCTION public.generar_factura_auto() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+    folio_factura_generado VARCHAR(40);
+BEGIN
+    IF NEW.rfc_cliente IS NOT NULL THEN
+        folio_factura_generado := 'FACT-' || UPPER(SUBSTRING(md5(random()::text), 1, 6));
+        INSERT INTO facturacionrealizada (id_factura, folio_venta, rfc_cliente)
+        VALUES (folio_factura_generado, NEW.folio_venta, NEW.rfc_cliente);
+    END IF;
+    RETURN NEW;
+END;
+$$;
+
+
+ALTER FUNCTION public.generar_factura_auto() OWNER TO oscar;
+
+--
+-- TOC entry 249 (class 1255 OID 17107)
+-- Name: generar_folio_venta(); Type: FUNCTION; Schema: public; Owner: oscar
+--
+
+CREATE FUNCTION public.generar_folio_venta() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+    NEW.folio_venta := 'MBL-' || LPAD(NEXTVAL('secuencia_folio_venta')::TEXT, 3, '0');
+    RETURN NEW;
+END;
+$$;
+
+
+ALTER FUNCTION public.generar_folio_venta() OWNER TO oscar;
+
+--
+-- TOC entry 250 (class 1255 OID 17217)
+-- Name: jerarquia_organizacional(character varying, character varying); Type: FUNCTION; Schema: public; Owner: eduardo
+--
+
+CREATE FUNCTION public.jerarquia_organizacional(nom_pila_empleado character varying, ap_pat_empleado character varying) RETURNS TABLE(nivel_jerarquia integer, tipo_relacion character varying, num_empleado bigint, nombre_completo_empleado character varying, email_empleado character varying, supervisor_directo_id bigint, nombre_supervisor_directo character varying)
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+    v_empleado_inicial_id BIGINT;
+BEGIN
+    SELECT e.num_empleado
+    INTO v_empleado_inicial_id
+    FROM public.empleado e
+    WHERE e.nom_pila_empleado = jerarquia_organizacional.nom_pila_empleado
+      AND e.ap_pat_empleado = jerarquia_organizacional.ap_pat_empleado
+    LIMIT 1;
+
+    IF v_empleado_inicial_id IS NULL THEN
+        RAISE EXCEPTION 'Empleado con nombre "% %" no encontrado.', jerarquia_organizacional.nom_pila_empleado, jerarquia_organizacional.ap_pat_empleado;
+    END IF;
+
+    RETURN QUERY
+    WITH RECURSIVE jerarquia_ascendente AS (
+        SELECT
+            0 AS nivel,
+            'Empleado Buscado'::VARCHAR(50) AS relacion,
+            e.num_empleado,
+            (e.nom_pila_empleado || ' ' || e.ap_pat_empleado || COALESCE(' ' || e.ap_mat_empleado, ''))::VARCHAR(120) AS nombre_completo,
+            e.email_empleado,
+            e.supervisor_directo,
+            (sup.nom_pila_empleado || ' ' || sup.ap_pat_empleado || COALESCE(' ' || sup.ap_mat_empleado, ''))::VARCHAR(120) AS nombre_supervisor
+        FROM
+            public.empleado e
+        LEFT JOIN
+            public.empleado sup ON e.supervisor_directo = sup.num_empleado
+        WHERE
+            e.num_empleado = v_empleado_inicial_id
+
+        UNION ALL
+
+        SELECT
+            ja.nivel - 1,
+            'Supervisor Directo'::VARCHAR(50) AS relacion,
+            sup_rec.num_empleado,
+            -- Asegúrate de que esta expresión también tenga el CAST
+            (sup_rec.nom_pila_empleado || ' ' || sup_rec.ap_pat_empleado || COALESCE(' ' || sup_rec.ap_mat_empleado, ''))::VARCHAR(120),
+            sup_rec.email_empleado,
+            sup_rec.supervisor_directo,
+            -- Y esta expresión también
+            (sup_superior.nom_pila_empleado || ' ' || sup_superior.ap_pat_empleado || COALESCE(' ' || sup_superior.ap_mat_empleado, ''))::VARCHAR(120)
+        FROM
+            public.empleado sup_rec
+        INNER JOIN
+            jerarquia_ascendente ja ON sup_rec.num_empleado = ja.supervisor_directo
+        LEFT JOIN
+            public.empleado sup_superior ON sup_rec.supervisor_directo = sup_superior.num_empleado
+        WHERE
+            ja.supervisor_directo IS NOT NULL
+    ),
+    jerarquia_descendente AS (
+        SELECT
+            0 AS nivel,
+            'Empleado Buscado'::VARCHAR(50) AS relacion,
+            e.num_empleado,
+            (e.nom_pila_empleado || ' ' || e.ap_pat_empleado || COALESCE(' ' || e.ap_mat_empleado, ''))::VARCHAR(120) AS nombre_completo,
+            e.email_empleado,
+            e.supervisor_directo,
+            (sup.nom_pila_empleado || ' ' || sup.ap_pat_empleado || COALESCE(' ' || sup.ap_mat_empleado, ''))::VARCHAR(120) AS nombre_supervisor
+        FROM
+            public.empleado e
+        LEFT JOIN
+            public.empleado sup ON e.supervisor_directo = sup.num_empleado
+        WHERE
+            e.num_empleado = v_empleado_inicial_id
+
+        UNION ALL
+
+        SELECT
+            jd.nivel + 1,
+            'Reporte Directo'::VARCHAR(50) AS relacion,
+            sub.num_empleado,
+            -- Asegúrate de que esta expresión también tenga el CAST
+            (sub.nom_pila_empleado || ' ' || sub.ap_pat_empleado || COALESCE(' ' || sub.ap_mat_empleado, ''))::VARCHAR(120),
+            sub.email_empleado,
+            sub.supervisor_directo,
+            -- Y esta expresión también
+            (sup_sub.nom_pila_empleado || ' ' || sup_sub.ap_pat_empleado || COALESCE(' ' || sup_sub.ap_mat_empleado, ''))::VARCHAR(120)
+        FROM
+            public.empleado sub
+        INNER JOIN
+            jerarquia_descendente jd ON sub.supervisor_directo = jd.num_empleado
+        LEFT JOIN
+            public.empleado sup_sub ON sub.supervisor_directo = sup_sub.num_empleado
+    )
+    SELECT
+        ja.nivel AS nivel_jerarquia,
+        ja.relacion AS tipo_relacion,
+        ja.num_empleado,
+        ja.nombre_completo AS nombre_completo_empleado,
+        ja.email_empleado,
+        ja.supervisor_directo AS supervisor_directo_id,
+        ja.nombre_supervisor AS nombre_supervisor_directo
+    FROM
+        jerarquia_ascendente ja
+    WHERE ja.nivel <= 0
+
+    UNION ALL
+
+    SELECT
+        jd.nivel AS nivel_jerarquia,
+        jd.relacion AS tipo_relacion,
+        jd.num_empleado,
+        jd.nombre_completo AS nombre_completo_empleado,
+        jd.email_empleado,
+        jd.supervisor_directo AS supervisor_directo_id,
+        jd.nombre_supervisor AS nombre_supervisor_directo
+    FROM
+        jerarquia_descendente jd
+    WHERE jd.nivel > 0
+
+    ORDER BY
+        nivel_jerarquia;
+
+END;
+$$;
+
+
+ALTER FUNCTION public.jerarquia_organizacional(nom_pila_empleado character varying, ap_pat_empleado character varying) OWNER TO eduardo;
+
+--
+-- TOC entry 252 (class 1255 OID 17231)
+-- Name: obtener_ingresos_por_mes(integer, integer); Type: FUNCTION; Schema: public; Owner: oscar
+--
+
+CREATE FUNCTION public.obtener_ingresos_por_mes(anio_consulta integer, id_suc integer) RETURNS TABLE(sucursal_id numeric, "año" integer, mes integer, ingresos_mensuales numeric)
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+  RETURN QUERY
+  SELECT 
+    su.sucursal_id,
+    EXTRACT(YEAR FROM ve.fecha_venta)::INT AS año,
+    EXTRACT(MONTH FROM ve.fecha_venta)::INT AS mes,
+    SUM(ve.monto_total_venta) AS ingresos_mensuales
+
+  FROM sucursal su
+  INNER JOIN empleado em
+    ON su.sucursal_id = em.sucursal_id
+  INNER JOIN venta ve
+    ON em.num_empleado = ve.numero_empleado_vendedor
+
+  WHERE EXTRACT(YEAR FROM ve.fecha_venta)::INT = anio_consulta
+  AND su.sucursal_id = id_suc
+
+  GROUP BY 
+    su.sucursal_id,
+    EXTRACT(YEAR FROM ve.fecha_venta),
+    EXTRACT(MONTH FROM ve.fecha_venta)
+
+  ORDER BY 
+    su.sucursal_id,
+    año,
+    mes;
+END;
+$$;
+
+
+ALTER FUNCTION public.obtener_ingresos_por_mes(anio_consulta integer, id_suc integer) OWNER TO oscar;
+
+--
+-- TOC entry 251 (class 1255 OID 17221)
+-- Name: toparticulos(date, date); Type: FUNCTION; Schema: public; Owner: oscar
+--
+
+CREATE FUNCTION public.toparticulos(fecha_inicio date, fecha_fin date) RETURNS TABLE(nombre_articulo character varying, total_vendido bigint)
+    LANGUAGE plpgsql
+    AS $$
+BEGIN 
+	RETURN QUERY
+	select
+	ar.nombre_articulo,
+	sum(av.cantidad_articulo_venta)::bigint as total_vendido
+	from articulo ar
+  	natural join articulo_venta av 
+  	natural join venta v 
+	where
+  		v.fecha_venta between fecha_inicio and fecha_fin
+	group by
+  		ar.nombre_articulo
+	order by
+  		total_vendido desc
+	limit 5;
+END;
+$$;
+
+
+ALTER FUNCTION public.toparticulos(fecha_inicio date, fecha_fin date) OWNER TO oscar;
+
+--
+-- TOC entry 247 (class 1255 OID 17000)
+-- Name: validar_sucursal_venta(); Type: FUNCTION; Schema: public; Owner: oscar
+--
+
+CREATE FUNCTION public.validar_sucursal_venta() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+  sucursal_vendedor BIGINT; sucursal_cajero BIGINT;
+BEGIN
+  -- Obtener sucursal del vendedor
+SELECT
+  "sucursal_id" INTO sucursal_vendedor
+FROM
+  "empleado"
+WHERE
+  "num_empleado" = NEW."numero_empleado_vendedor";
+  -- Obtener sucursal del cajero
+SELECT
+  "sucursal_id" INTO sucursal_cajero
+FROM
+  "empleado"
+WHERE
+  "num_empleado" = NEW."numero_empleado_cajero";
+  -- Validar coincidencia
+IF
+  sucursal_vendedor != sucursal_cajero THEN RAISE EXCEPTION 'Error: El vendedor y el cajero son de distintas sucursales';
+END IF
+  ; RETURN NEW;
+END
+  ; $$;
+
+
+ALTER FUNCTION public.validar_sucursal_venta() OWNER TO oscar;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 223 (class 1259 OID 16912)
+-- Name: articulo; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.articulo (
+    codigo_barras_articulo bigint NOT NULL,
+    nombre_articulo character varying(40) NOT NULL,
+    precio_venta_articulo bigint NOT NULL,
+    stock_articulo bigint NOT NULL,
+    categoria_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.articulo OWNER TO oscar;
+
+--
+-- TOC entry 226 (class 1259 OID 16960)
+-- Name: articulo_venta; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.articulo_venta (
+    folio_venta character varying(10) NOT NULL,
+    codigo_barras_articulo bigint NOT NULL,
+    cantidad_por_articulo_venta bigint NOT NULL,
+    monto_por_articulo_venta numeric(12,2) NOT NULL
+);
+
+
+ALTER TABLE public.articulo_venta OWNER TO oscar;
+
+--
+-- TOC entry 233 (class 1259 OID 17232)
+-- Name: articulos_poco_stock; Type: VIEW; Schema: public; Owner: ale
+--
+
+CREATE VIEW public.articulos_poco_stock AS
+ SELECT codigo_barras_articulo,
+    nombre_articulo,
+    stock_articulo AS stock,
+        CASE
+            WHEN (stock_articulo = 0) THEN 'No disponible'::text
+            ELSE 'Muy poco Stock'::text
+        END AS estado_articulo
+   FROM public.articulo
+  WHERE (stock_articulo <= 3);
+
+
+ALTER VIEW public.articulos_poco_stock OWNER TO ale;
+
+--
+-- TOC entry 222 (class 1259 OID 16905)
+-- Name: categoria; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.categoria (
+    categoria_id bigint NOT NULL,
+    nombre_categoria character varying(50) NOT NULL,
+    descripcion_categoria text NOT NULL
+);
+
+
+ALTER TABLE public.categoria OWNER TO oscar;
+
+--
+-- TOC entry 217 (class 1259 OID 16861)
+-- Name: cliente; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.cliente (
+    rfc_cliente character varying(13) NOT NULL,
+    razon_social_cliente character varying(200) NOT NULL,
+    email_cliente character varying(120) NOT NULL,
+    telefono_cliente numeric(12,0) NOT NULL,
+    cp_cliente numeric(5,0) NOT NULL,
+    nom_pila_cliente character varying(100) NOT NULL,
+    ap_pat_cliente character varying(40) NOT NULL,
+    ap_mat_cliente character varying(40),
+    num_domicilio_cliente character varying(4) NOT NULL,
+    calle_cliente character varying(40) NOT NULL,
+    colonia_cliente character varying(40) NOT NULL,
+    edo_cliente character varying(40) NOT NULL
+);
+
+
+ALTER TABLE public.cliente OWNER TO oscar;
+
+--
+-- TOC entry 228 (class 1259 OID 17149)
+-- Name: empleado; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.empleado (
+    num_empleado bigint NOT NULL,
+    tipo_empleado character varying(40) NOT NULL,
+    cp_empleado bigint NOT NULL,
+    colonia_empleado character varying(40) NOT NULL,
+    calle_empleado character varying(40) NOT NULL,
+    edo_empleado character varying(40) NOT NULL,
+    num_domicilio_empleado bigint NOT NULL,
+    nom_pila_empleado character varying(40) NOT NULL,
+    ap_pat_empleado character varying(40) NOT NULL,
+    ap_mat_empleado character varying(40),
+    rfc_empleado character varying(13) NOT NULL,
+    curp_empleado character varying(18) NOT NULL,
+    email_empleado character varying(120) NOT NULL,
+    supervisor_directo bigint,
+    sucursal_id bigint NOT NULL,
+    CONSTRAINT chk_tipo_empleado CHECK (((tipo_empleado)::text = ANY ((ARRAY['cajero'::character varying, 'vendedor'::character varying, 'administrativo'::character varying, 'seguridad'::character varying, 'limpieza'::character varying])::text[])))
+);
+
+
+ALTER TABLE public.empleado OWNER TO oscar;
+
+--
+-- TOC entry 229 (class 1259 OID 17207)
+-- Name: secuencia_empleado_telefono_id; Type: SEQUENCE; Schema: public; Owner: oscar
+--
+
+CREATE SEQUENCE public.secuencia_empleado_telefono_id
+    START WITH 31
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.secuencia_empleado_telefono_id OWNER TO oscar;
+
+--
+-- TOC entry 220 (class 1259 OID 16890)
+-- Name: empleado_telefono; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.empleado_telefono (
+    empleado_telefono_id bigint DEFAULT nextval('public.secuencia_empleado_telefono_id'::regclass) NOT NULL,
+    numero_telefono_empleado bigint NOT NULL,
+    num_empleado bigint NOT NULL
+);
+
+
+ALTER TABLE public.empleado_telefono OWNER TO oscar;
+
+--
+-- TOC entry 227 (class 1259 OID 16975)
+-- Name: facturacionrealizada; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.facturacionrealizada (
+    id_factura character varying(40) NOT NULL,
+    folio_venta character varying(10) NOT NULL,
+    rfc_cliente character varying(13) NOT NULL
+);
+
+
+ALTER TABLE public.facturacionrealizada OWNER TO oscar;
+
+--
+-- TOC entry 232 (class 1259 OID 17226)
+-- Name: ingresos_mensuales; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.ingresos_mensuales (
+    sucursal_id numeric(15,0),
+    "año" integer,
+    mes integer,
+    ingresos_mensuales numeric
+);
+
+
+ALTER TABLE public.ingresos_mensuales OWNER TO oscar;
+
+--
+-- TOC entry 221 (class 1259 OID 16900)
+-- Name: proveedor_articulos; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.proveedor_articulos (
+    rfc_proveedor character varying(13) NOT NULL,
+    razon_social_proveedor character varying(200) NOT NULL,
+    cp_proveedor bigint NOT NULL,
+    num_domicilio_proveedor bigint NOT NULL,
+    calle_proveedor character varying(40) NOT NULL,
+    colonia_proveedor character varying(40) NOT NULL,
+    edo_proveedor character varying(30) NOT NULL,
+    telefono_proveedor bigint NOT NULL,
+    cuenta_de_pago_proveedor bigint NOT NULL
+);
+
+
+ALTER TABLE public.proveedor_articulos OWNER TO oscar;
+
+--
+-- TOC entry 218 (class 1259 OID 16868)
+-- Name: secuencia_folio_venta; Type: SEQUENCE; Schema: public; Owner: oscar
+--
+
+CREATE SEQUENCE public.secuencia_folio_venta
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.secuencia_folio_venta OWNER TO oscar;
+
+--
+-- TOC entry 219 (class 1259 OID 16869)
+-- Name: sucursal; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.sucursal (
+    sucursal_id bigint NOT NULL,
+    anio_fundacion date NOT NULL,
+    telefono_sucursal bigint NOT NULL,
+    cp_sucursal bigint NOT NULL,
+    num_domicilio_sucursal numeric(4,0) NOT NULL,
+    calle_sucursal character varying(40) NOT NULL,
+    colonia_sucursal character varying(40) NOT NULL,
+    edo_sucursal character varying(40) NOT NULL
+);
+
+
+ALTER TABLE public.sucursal OWNER TO oscar;
+
+--
+-- TOC entry 224 (class 1259 OID 16924)
+-- Name: surtido_articulo_proveedor; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.surtido_articulo_proveedor (
+    rfc_proveedor character varying(13) NOT NULL,
+    codigo_barras_articulo bigint NOT NULL,
+    fecha_inicio_surtido_articulo date NOT NULL,
+    precio_compra_articulo numeric(10,0) NOT NULL
+);
+
+
+ALTER TABLE public.surtido_articulo_proveedor OWNER TO oscar;
+
+--
+-- TOC entry 231 (class 1259 OID 17218)
+-- Name: toparticulos; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.toparticulos (
+    nombre_articulo character varying(40),
+    total_vendido bigint
+);
+
+
+ALTER TABLE public.toparticulos OWNER TO oscar;
+
+--
+-- TOC entry 225 (class 1259 OID 16939)
+-- Name: venta; Type: TABLE; Schema: public; Owner: oscar
+--
+
+CREATE TABLE public.venta (
+    folio_venta character varying(10) NOT NULL,
+    fecha_venta date NOT NULL,
+    monto_total_venta bigint NOT NULL,
+    cantidad_total_articulos_venta bigint NOT NULL,
+    rfc_cliente character varying(13),
+    numero_empleado_vendedor bigint NOT NULL,
+    numero_empleado_cajero bigint NOT NULL
+);
+
+
+ALTER TABLE public.venta OWNER TO oscar;
+
+--
+-- TOC entry 230 (class 1259 OID 17210)
+-- Name: vista_ticket_facturado; Type: VIEW; Schema: public; Owner: oscar
+--
+
+CREATE VIEW public.vista_ticket_facturado AS
+ SELECT f.id_factura AS folio_factura,
+    v.folio_venta,
+    v.fecha_venta,
+    c.rfc_cliente,
+    c.razon_social_cliente,
+    concat(e_v.nom_pila_empleado, ' ', e_v.ap_pat_empleado) AS vendedor_nombre,
+    concat(e_c.nom_pila_empleado, ' ', e_c.ap_pat_empleado) AS cajero_nombre,
+    a.nombre_articulo,
+    av.codigo_barras_articulo,
+    av.cantidad_por_articulo_venta,
+    av.monto_por_articulo_venta,
+    (av.cantidad_por_articulo_venta * a.precio_venta_articulo) AS subtotal_articulo,
+    sum((av.cantidad_por_articulo_venta * a.precio_venta_articulo)) OVER (PARTITION BY v.folio_venta) AS monto_total_venta_calculado
+   FROM ((((((public.facturacionrealizada f
+     JOIN public.venta v ON (((f.folio_venta)::text = (v.folio_venta)::text)))
+     JOIN public.cliente c ON (((f.rfc_cliente)::text = (c.rfc_cliente)::text)))
+     JOIN public.empleado e_v ON ((v.numero_empleado_vendedor = e_v.num_empleado)))
+     JOIN public.empleado e_c ON ((v.numero_empleado_cajero = e_c.num_empleado)))
+     JOIN public.articulo_venta av ON (((v.folio_venta)::text = (av.folio_venta)::text)))
+     JOIN public.articulo a ON ((av.codigo_barras_articulo = a.codigo_barras_articulo)));
+
+
+ALTER VIEW public.vista_ticket_facturado OWNER TO oscar;
+
+--
+-- TOC entry 4051 (class 0 OID 16912)
+-- Dependencies: 223
+-- Data for Name: articulo; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.articulo (codigo_barras_articulo, nombre_articulo, precio_venta_articulo, stock_articulo, categoria_id) FROM stdin;
+4455667788980	Sillón	5500	0	101
+4355667788980	love sofa	8500	1	101
+3456789012345	Juego de comedor 6 puestos	9800	6	103
+1122334455667	Cuna bebé con barandas	275	5	115
+2233445566778	Cocina integral acero	89000	3	130
+5566778899001	Jarrón decorativo cerámica	45	58	125
+6677889900112	Armario guardarropa grande	4100	12	121
+7788990011223	Set de cojines decorativos	650	33	125
+9900111223345	Set cubiertos acero inoxidable	1200	48	103
+1002003004005	Hamaca exterior resistente	1750	10	118
+2003004005006	Estante para plantas balcón	900	26	118
+6789012345678	Escritorio ejecutivo	2100	23	110
+7890123456789	Silla ergonómica oficina	1800	38	110
+8901234567890	Columpio jardín resistente	3200	8	118
+2345678901234	Mesa de centro roble	1500	26	101
+3344556677889	Mesa rectangular extensible	300	11	135
+9012345678901	Estantería modular 5 niveles	1350	15	121
+8899001122334	Mesa de noche doble cajón	850	19	107
+4455667788990	Sillón reclinable piel	5500	6	101
+4567890123456	Lámpara colgante cristal	7500	45	125
+1234567890123	Sofá de cuero moderno	4500	6	101
+5678901234567	Cama queen size madera	6200	8	107
+\.
+
+
+--
+-- TOC entry 4054 (class 0 OID 16960)
+-- Dependencies: 226
+-- Data for Name: articulo_venta; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.articulo_venta (folio_venta, codigo_barras_articulo, cantidad_por_articulo_venta, monto_por_articulo_venta) FROM stdin;
+MBL-001	1234567890123	1	4500.00
+MBL-001	2345678901234	1	1500.00
+MBL-002	3456789012345	1	9800.00
+MBL-003	4567890123456	1	7500.00
+MBL-003	5678901234567	1	6200.00
+MBL-004	6789012345678	1	2100.00
+MBL-004	7890123456789	1	1800.00
+MBL-005	8901234567890	1	3200.00
+MBL-005	9012345678901	1	1350.00
+MBL-006	1122334455667	1	275.00
+MBL-006	2233445566778	1	89000.00
+MBL-007	3344556677889	1	300.00
+MBL-007	4455667788990	1	5500.00
+MBL-008	5566778899001	1	45.00
+MBL-008	6677889900112	1	4100.00
+MBL-009	7788990011223	1	650.00
+MBL-009	8899001122334	1	850.00
+MBL-010	1002003004005	1	1750.00
+MBL-010	2003004005006	1	900.00
+MBL-010	9900111223345	1	1200.00
+MBL-020	1234567890123	1	4500.00
+MBL-020	5678901234567	1	6200.00
+MBL-021	2345678901234	1	1500.00
+MBL-021	3456789012345	1	9800.00
+MBL-022	4567890123456	1	7500.00
+MBL-022	1122334455667	1	275.00
+MBL-023	2233445566778	1	89000.00
+MBL-023	5566778899001	1	45.00
+MBL-024	6677889900112	1	4100.00
+MBL-024	7788990011223	1	650.00
+MBL-025	8899001122334	1	850.00
+MBL-025	9900111223345	1	1200.00
+MBL-026	1002003004005	1	1750.00
+MBL-026	2003004005006	1	900.00
+MBL-027	6789012345678	1	2100.00
+MBL-027	7890123456789	1	1800.00
+MBL-027	8901234567890	1	3200.00
+MBL-001	3344556677889	1	300.00
+MBL-030	2345678901234	2	1500.00
+MBL-030	3344556677889	6	300.00
+MBL-031	9012345678901	2	1350.00
+MBL-031	8899001122334	1	850.00
+MBL-031	4455667788990	1	5500.00
+MBL-032	4455667788990	1	5500.00
+MBL-033	4567890123456	3	7500.00
+MBL-035	1234567890123	2	4500.00
+MBL-035	5678901234567	2	6200.00
+\.
+
+
+--
+-- TOC entry 4050 (class 0 OID 16905)
+-- Dependencies: 222
+-- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.categoria (categoria_id, nombre_categoria, descripcion_categoria) FROM stdin;
+101	Salas	Conjuntos de sofás, sillones y mesas de centro para salas de estar.
+103	Comedores	Mesas y sillas para comedor en diferentes estilos y tamaños.
+107	Dormitorios	Camas, burós, tocadores y muebles para habitaciones.
+110	Oficinas	Muebles para oficinas como escritorios, sillas ergonómicas y archivadores.
+115	Infantil	Mobiliario diseñado especialmente para niños, como cunas, camas y escritorios.
+118	Exterior	Muebles resistentes para jardín, terrazas y patios.
+121	Almacenamiento	Estanterías, armarios, cómodas y soluciones para organización.
+125	Decoración	Accesorios decorativos como espejos, cuadros, floreros y lámparas.
+130	Cocinas	Muebles modulares, alacenas y barras para cocina.
+135	Reclinables	Sillones y sofás reclinables para mayor confort en el hogar.
+\.
+
+
+--
+-- TOC entry 4045 (class 0 OID 16861)
+-- Dependencies: 217
+-- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.cliente (rfc_cliente, razon_social_cliente, email_cliente, telefono_cliente, cp_cliente, nom_pila_cliente, ap_pat_cliente, ap_mat_cliente, num_domicilio_cliente, calle_cliente, colonia_cliente, edo_cliente) FROM stdin;
+1234567890123	Ana López Ramírez	ana.lopez@example.com	552345678901	3100	Ana	López	Ramírez	45	Av. Revolución	Mixcoac	Ciudad de México
+9876543210987	Jorge Pérez	jorge.perez@example.com	558765432109	44110	Jorge	Pérez	\N	120B	Calle Juárez	Centro	Jalisco
+WAKF321738H7T	Örjan Cawthery	fcawthery0@posterous.com	4362528988	1645	Örjan	Cawthery	\N	6890	Calle C	Colonia Roma	Chihuahua
+ABC123456DEF1	Luis Martínez Gómez	luis.mg@email.com	5512345678	1234	Luis	Martínez	Gómez	101	Av. Reforma	Centro	CDMX
+DEF234567GHI2	Ana López Pérez	ana.lp@email.com	5523456789	54321	Ana	López	Pérez	202	Insurgentes	Roma Norte	CDMX
+GHI345678JKL3	Carlos Díaz Ruiz	carlos.dr@email.com	5534567890	67890	Carlos	Díaz	Ruiz	303	Tlalpan	Del Valle	CDMX
+JKL456789MNO4	María Torres Ramírez	maria.tr@email.com	5545678901	11111	María	Torres	Ramírez	404	Tacuba	Polanco	CDMX
+MNO567890PQR5	Pedro Hernández Soto	pedro.hs@email.com	5556789012	22222	Pedro	Hernández	Soto	505	Constituyentes	San Ángel	CDMX
+PQR678901STU6	Lucía Romero Mejía	lucia.rm@email.com	5567890123	33333	Lucía	Romero	Mejía	606	Patriotismo	Narvarte	CDMX
+STU789012VWX7	Miguel Vargas Ortega	miguel.vo@email.com	5578901234	44444	Miguel	Vargas	Ortega	707	Viaducto	Escandón	CDMX
+VWX890123YZA8	Fernanda Ríos Salas	fernanda.rs@email.com	5589012345	55555	Fernanda	Ríos	Salas	808	Periférico	Mixcoac	CDMX
+YZA901234BCD9	Sofía Castillo Nieto	sofia.cn@email.com	5590123456	66666	Sofía	Castillo	Nieto	909	Universidad	Coyoacán	CDMX
+BCD012345CDE0	Jorge Peña Aguilar	jorge.pa@email.com	5501234567	77777	Jorge	Peña	Aguilar	010	Xola	Portales	CDMX
+CDE123456DEF1	Adriana Sánchez León	adriana.sl@email.com	5511122233	88888	Adriana	Sánchez	León	111	Revolución	Tacubaya	CDMX
+DEF234567EFG2	Diego Medina Bravo	diego.mb@email.com	5522233344	99999	Diego	Medina	Bravo	222	Sur 20	Iztapalapa	CDMX
+EFG345678FGH3	Valeria Paredes Lara	valeria.pl@email.com	5533344455	13579	Valeria	Paredes	Lara	333	Eje 6	Tláhuac	CDMX
+FGH456789GHI4	Ricardo Navarro Luna	ricardo.nl@email.com	5544455566	24680	Ricardo	Navarro	Luna	444	Churubusco	La Viga	CDMX
+GHI567890HIJ5	Paola Espinoza Cruz	paola.ec@email.com	5555566677	13513	Paola	Espinoza	Cruz	555	Lomas Verdes	Bosques	CDMX
+\.
+
+
+--
+-- TOC entry 4056 (class 0 OID 17149)
+-- Dependencies: 228
+-- Data for Name: empleado; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.empleado (num_empleado, tipo_empleado, cp_empleado, colonia_empleado, calle_empleado, edo_empleado, num_domicilio_empleado, nom_pila_empleado, ap_pat_empleado, ap_mat_empleado, rfc_empleado, curp_empleado, email_empleado, supervisor_directo, sucursal_id) FROM stdin;
+1	seguridad	4909	Roma	Calle del Bosque	Naucalpan	8745	Pedro Infante	Rodriguez	Garcia	ROAV8697102PV	LNUM549396T46BVBHP	ascannell0@shop-pro.jp	\N	1
+2	cajero	7221	Condesa	Avenida del Sol	Naucalpan	6081	Cantinflas	Garcia	Garcia	GCFR78158849V	ZUOK260323EGH7Q680	vhazeman1@miibeian.gov.cn	\N	1
+3	administrativo	2741	Condesa	Avenida del Sol	Nezahualcoyotl	8027	Jorge Negrete	Rodriguez	Rodriguez	DLET73513008P	IXMZ072562KGVFO25Y	respley2@google.com.br	\N	1
+4	vendedor	3536	Roma	Avenida del Sol	Ecatepec	9275	Dolores del Río	Garcia	Rodriguez	MLUQ23993043D	CLAL147545FIKPX27U	dternott3@vistaprint.com	\N	1
+5	limpieza	5108	Santa Fe	Calle del Bosque	Chimalhuacan	9424	Dolores del Río	Rodriguez	Martinez	CIGF2014217L0	SKUF643616M60340A6	swillmetts4@umn.edu	\N	1
+6	seguridad	5415	Polanco	Avenida del Sol	Naucalpan	1312	Pedro Infante	Garcia	\N	PRVH443387H36	RPEA014106A89B9119	epegler3@toplist.cz	5	1
+7	administrativo	4564	Santa Fe	Calle de la Rosa	Naucalpan	4450	Cantinflas	Martinez	Rodriguez	TVLH729995A11	RCVJ2378022O73441F	tmacias4@e-recht24.de	2	1
+8	limpieza	9151	Roma	Avenida del Sol	Toluca	5911	Cantinflas	Martinez	Martinez	PSVA901233CPS	IZRF742139T3671I4U	nduly5@washington.edu	5	1
+9	limpieza	4810	Condesa	Paseo de las Flores	Naucalpan	1888	Pedro Infante	Rodriguez	\N	ZNUD317516JTI	SMXO58971557B03602	mchadney6@slate.com	5	1
+10	limpieza	6579	Condesa	Calle de la Luna	Toluca	6769	María Félix	Martinez	\N	FQIF299574XE0	CPLK150874O79SAI03	bbidewell7@dropbox.com	2	1
+11	seguridad	248	Venustiano Carranza	Chapultepec	Chihuahua	5362	Juan	Hernández	López	HEHJ920101ABC	HEHJ920101HCHZRNA9	j.hernandez@suc2.com	\N	2
+12	cajero	248	Venustiano Carranza	Chapultepec	Chihuahua	5363	Ana	García	Martínez	GAMA930202XYZ	GAMA930202MCHZNS0	a.garcia@suc2.com	11	2
+13	administrativo	248	Venustiano Carranza	Chapultepec	Chihuahua	5364	Carlos	López	Díaz	LODC940303MNO	LODC940303HCHZNR1	c.lopez@suc2.com	11	2
+14	vendedor	248	Venustiano Carranza	Chapultepec	Chihuahua	5365	Laura	Martínez	Pérez	MALP950404QWE	MALP950404MCHZNL2	l.martinez@suc2.com	11	2
+15	limpieza	248	Venustiano Carranza	Chapultepec	Chihuahua	5366	Miguel	Sánchez	Ramírez	SAMR960505RTY	SAMR960505HCHZNM3	m.sanchez@suc2.com	11	2
+16	seguridad	3394	Iztacalco	Reforma	San Luis Potosi	2846	Francisco	Gómez	Vázquez	GOFV970606ASD	GOFV970606HSLPS4	f.gomez@suc3.com	\N	3
+17	cajero	3394	Iztacalco	Reforma	San Luis Potosi	2847	Sofía	Díaz	Ortega	DIOS980707FGH	DIOS980707MSLPS5	s.diaz@suc3.com	16	3
+18	administrativo	3394	Iztacalco	Reforma	San Luis Potosi	2848	Diego	Flores	Morales	FLMD990808JKL	FLMD990808HSLPS6	d.flores@suc3.com	16	3
+19	vendedor	3394	Iztacalco	Reforma	San Luis Potosi	2849	Valeria	Ruiz	Castro	RUCV000909ÑÑÑ	RUCV000909MSLPS7	v.ruiz@suc3.com	16	3
+20	limpieza	3394	Iztacalco	Reforma	San Luis Potosi	2850	Oscar	Mendoza	Santos	MESO011010UIO	MESO011010HSLPS8	o.mendoza@suc3.com	16	3
+21	seguridad	2234	Iztapalapa	Revolution	Chihuahua	2162	Fernando	Castillo	Ríos	CAFR011112ABC	CAFR011112HCHZRNA0	f.castillo@suc4.com	\N	4
+22	cajero	2234	Iztapalapa	Revolution	Chihuahua	2163	Mariana	Ortega	Soto	ORSM021213XYZ	ORSM021213MCHZNS1	m.ortega@suc4.com	21	4
+23	administrativo	2234	Iztapalapa	Revolution	Chihuahua	2164	Javier	Mendoza	Luna	MELJ031314MNO	MELJ031314HCHZNR2	j.mendoza@suc4.com	21	4
+24	vendedor	2234	Iztapalapa	Revolution	Chihuahua	2165	Gabriela	Vega	Paredes	VEPG041415QWE	VEPG041415MCHZNL3	g.vega@suc4.com	21	4
+25	limpieza	2234	Iztapalapa	Revolution	Chihuahua	2166	Roberto	Navarro	Miranda	NAMR051516RTY	NAMR051516HCHZNM4	r.navarro@suc4.com	21	4
+26	seguridad	7516	Gustavo A. Madero	Chapultepec	Baja California	164	Luis	Espinoza	Cervantes	ESCL061617ASD	ESCL061617HBCSRNA5	l.espinoza@suc5.com	\N	5
+27	cajero	7516	Gustavo A. Madero	Chapultepec	Baja California	165	Carmen	Ríos	Delgado	RIDC071718FGH	RIDC071718MBCSNS6	c.rios@suc5.com	26	5
+28	administrativo	7516	Gustavo A. Madero	Chapultepec	Baja California	166	Ricardo	Guerrero	Orozco	GUOR081819JKL	GUOR081819HBCSNR7	r.guerrero@suc5.com	26	5
+29	vendedor	7516	Gustavo A. Madero	Chapultepec	Baja California	167	Diana	Mejía	Campos	MECD091920WÑÑ	MECD091920MBCSNL8	d.mejia@suc5.com	26	5
+30	limpieza	7516	Gustavo A. Madero	Chapultepec	Baja California	168	Sergio	Fuentes	Rojas	FURS102021UIO	FURS102021HBCSNM9	s.fuentes@suc5.com	26	5
+\.
+
+
+--
+-- TOC entry 4048 (class 0 OID 16890)
+-- Dependencies: 220
+-- Data for Name: empleado_telefono; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.empleado_telefono (empleado_telefono_id, numero_telefono_empleado, num_empleado) FROM stdin;
+1	5501000001	1
+2	5501000002	2
+3	5501000003	3
+4	5501000004	4
+5	5501000005	5
+6	5501000006	6
+7	5501000007	7
+8	5501000008	8
+9	5501000009	9
+10	5501000010	10
+11	5501000011	11
+12	5501000012	12
+13	5501000013	13
+14	5501000014	14
+15	5501000015	15
+16	5501000016	16
+17	5501000017	17
+18	5501000018	18
+19	5501000019	19
+20	5501000020	20
+21	5501000021	21
+22	5501000022	22
+23	5501000023	23
+24	5501000024	24
+25	5501000025	25
+26	5501000026	26
+27	5501000027	27
+28	5501000028	28
+29	5501000029	29
+30	5501000030	30
+\.
+
+
+--
+-- TOC entry 4055 (class 0 OID 16975)
+-- Dependencies: 227
+-- Data for Name: facturacionrealizada; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.facturacionrealizada (id_factura, folio_venta, rfc_cliente) FROM stdin;
+FACT-E0515D	MBL-001	1234567890123
+FACT-9594E5	MBL-002	9876543210987
+FACT-3DF005	MBL-003	WAKF321738H7T
+FACT-91FDCF	MBL-004	ABC123456DEF1
+FACT-62F432	MBL-005	DEF234567GHI2
+FACT-E5CF05	MBL-006	GHI345678JKL3
+FACT-FA002F	MBL-007	JKL456789MNO4
+FACT-D8FC94	MBL-008	MNO567890PQR5
+FACT-BF3165	MBL-009	PQR678901STU6
+FACT-136735	MBL-010	STU789012VWX7
+FACT-D819E0	MBL-020	VWX890123YZA8
+FACT-452973	MBL-021	YZA901234BCD9
+FACT-323DF6	MBL-022	BCD012345CDE0
+FACT-2618F7	MBL-023	CDE123456DEF1
+FACT-729F32	MBL-024	DEF234567EFG2
+FACT-4F6471	MBL-025	EFG345678FGH3
+FACT-4E421C	MBL-026	FGH456789GHI4
+FACT-09E017	MBL-027	GHI567890HIJ5
+FACT-D09147	MBL-028	ABC123456DEF1
+FACT-90D71A	MBL-030	1234567890123
+FACT-F8EFA1	MBL-031	1234567890123
+FACT-855745	MBL-032	1234567890123
+FACT-5F9056	MBL-033	1234567890123
+FACT-012699	MBL-035	1234567890123
+\.
+
+
+--
+-- TOC entry 4059 (class 0 OID 17226)
+-- Dependencies: 232
+-- Data for Name: ingresos_mensuales; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.ingresos_mensuales (sucursal_id, "año", mes, ingresos_mensuales) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4049 (class 0 OID 16900)
+-- Dependencies: 221
+-- Data for Name: proveedor_articulos; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.proveedor_articulos (rfc_proveedor, razon_social_proveedor, cp_proveedor, num_domicilio_proveedor, calle_proveedor, colonia_proveedor, edo_proveedor, telefono_proveedor, cuenta_de_pago_proveedor) FROM stdin;
+MEL830101ABC	Muebles Elegantes SRL	11520	150	Av. Reforma	Juárez	Ciudad de México	5551234567	1234567890123456
+IND950505XYZ	Industrias del Norte SA	64000	2200	Blvd. Díaz Ordaz	Mitras Centro	Nuevo León	8187654321	2345678901234567
+TEC000202MNO	Tecnomuebles SC	44100	45	Calz. Lázaro Cárdenas	Las Flores	Jalisco	3339876543	3456789012345678
+DEC851212QWE	Decoraciones Modernas	83240	789	Calle Sonora	Centro	Sonora	6625432198	4567890123456789
+FAB720707RTY	Fábrica de Muebles	20200	12	Av. Hidalgo	La Estación	Aguascalientes	4498765432	5678901234567890
+CON990909UIOP	Confort Hogar SAPI	37200	340	Av. Universidad	San Juanito	Guanajuato	4771234567	6789012345678901
+LUX010101ASD	Luxury Designs	77500	1500	Av. Bonampak	Supermanzana 200	Quintana Roo	9986543210	7890123456789012
+ART121212FGH	Artesanías Mexicanas	68000	67	Calle Porfirio Díaz	Xochimilco	Oaxaca	9512345678	8901234567890123
+EKO030303JKL	Ekomuebles Sustentables	44600	900	Av. Vallarta	Americana	Jalisco	3332109876	9012345678901234
+HOG080808ÑÑÑ	Hogar Express	83140	22	Blvd. Kino	Campestre	Sonora	6628765432	1122334455667788
+\.
+
+
+--
+-- TOC entry 4047 (class 0 OID 16869)
+-- Dependencies: 219
+-- Data for Name: sucursal; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.sucursal (sucursal_id, anio_fundacion, telefono_sucursal, cp_sucursal, num_domicilio_sucursal, calle_sucursal, colonia_sucursal, edo_sucursal) FROM stdin;
+1	2021-04-10	4537268945	6421	2218	Constitution	Miguel Hidalgo	Jalisco
+2	2021-05-20	1786111188	248	5362	Chapultepec	Venustiano Carranza	Chihuahua
+3	2021-02-15	9399483571	3394	2846	Reforma	Iztacalco	San Luis Potosi
+4	2021-04-10	7195393429	2234	2162	Revolution	Iztapalapa	Chihuahua
+5	2021-02-15	3443584966	7516	164	Chapultepec	Gustavo A. Madero	Baja California
+\.
+
+
+--
+-- TOC entry 4052 (class 0 OID 16924)
+-- Dependencies: 224
+-- Data for Name: surtido_articulo_proveedor; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.surtido_articulo_proveedor (rfc_proveedor, codigo_barras_articulo, fecha_inicio_surtido_articulo, precio_compra_articulo) FROM stdin;
+MEL830101ABC	1234567890123	2024-01-10	3150
+MEL830101ABC	2345678901234	2024-02-15	1050
+IND950505XYZ	3456789012345	2023-11-01	6860
+IND950505XYZ	4567890123456	2024-03-20	5250
+TEC000202MNO	5678901234567	2024-04-05	4340
+TEC000202MNO	6789012345678	2023-12-12	1470
+DEC851212QWE	7788990011223	2024-01-22	455
+DEC851212QWE	5566778899001	2024-05-01	31
+FAB720707RTY	8899001122334	2023-10-10	595
+FAB720707RTY	9900111223345	2024-02-28	840
+CON990909UIOP	1002003004005	2024-03-15	1225
+CON990909UIOP	2003004005006	2024-04-18	630
+LUX010101ASD	2233445566778	2023-09-05	62300
+LUX010101ASD	4455667788990	2024-01-30	3850
+ART121212FGH	1122334455667	2024-02-10	192
+ART121212FGH	3344556677889	2024-03-25	210
+EKO030303JKL	6677889900112	2023-12-01	2870
+EKO030303JKL	9012345678901	2024-04-10	945
+HOG080808ÑÑÑ	7788990011223	2024-05-05	455
+HOG080808ÑÑÑ	5566778899001	2024-06-01	31
+\.
+
+
+--
+-- TOC entry 4058 (class 0 OID 17218)
+-- Dependencies: 231
+-- Data for Name: toparticulos; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.toparticulos (nombre_articulo, total_vendido) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4053 (class 0 OID 16939)
+-- Dependencies: 225
+-- Data for Name: venta; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+COPY public.venta (folio_venta, fecha_venta, monto_total_venta, cantidad_total_articulos_venta, rfc_cliente, numero_empleado_vendedor, numero_empleado_cajero) FROM stdin;
+MBL-030	2025-05-20	2700	8	1234567890123	24	22
+MBL-031	2025-05-20	1350	4	1234567890123	24	22
+MBL-032	2025-05-20	0	1	1234567890123	24	22
+MBL-002	2024-04-02	19600	2	9876543210987	19	17
+MBL-003	2024-05-10	27400	4	WAKF321738H7T	24	22
+MBL-004	2024-02-28	7800	4	ABC123456DEF1	14	12
+MBL-033	2025-05-20	22500	3	1234567890123	14	12
+MBL-005	2024-06-01	9100	4	DEF234567GHI2	29	27
+MBL-006	2024-01-20	178550	4	GHI345678JKL3	4	2
+MBL-007	2024-03-30	11600	4	JKL456789MNO4	19	17
+MBL-008	2024-04-15	8290	4	MNO567890PQR5	24	22
+MBL-009	2024-05-05	3000	4	PQR678901STU6	14	12
+MBL-010	2024-02-14	7700	6	STU789012VWX7	29	27
+MBL-020	2024-07-12	21400	4	VWX890123YZA8	4	2
+MBL-035	2025-02-20	21500	5	1234567890123	19	17
+MBL-021	2024-08-05	22600	4	YZA901234BCD9	14	12
+MBL-022	2024-09-18	15550	4	BCD012345CDE0	19	17
+MBL-023	2024-10-01	178090	4	CDE123456DEF1	24	22
+MBL-024	2024-11-11	9500	4	DEF234567EFG2	29	27
+MBL-025	2024-12-25	4100	4	EFG345678FGH3	4	2
+MBL-026	2025-01-06	5300	4	FGH456789GHI4	14	12
+MBL-027	2025-02-14	14200	6	GHI567890HIJ5	19	17
+MBL-028	2025-05-25	500	3	ABC123456DEF1	4	2
+MBL-001	2024-03-15	12600	6	1234567890123	4	2
+\.
+
+
+--
+-- TOC entry 4066 (class 0 OID 0)
+-- Dependencies: 229
+-- Name: secuencia_empleado_telefono_id; Type: SEQUENCE SET; Schema: public; Owner: oscar
+--
+
+SELECT pg_catalog.setval('public.secuencia_empleado_telefono_id', 31, false);
+
+
+--
+-- TOC entry 4067 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: secuencia_folio_venta; Type: SEQUENCE SET; Schema: public; Owner: oscar
+--
+
+SELECT pg_catalog.setval('public.secuencia_folio_venta', 35, true);
+
+
+--
+-- TOC entry 3868 (class 2606 OID 16918)
+-- Name: articulo pk_articulo; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.articulo
+    ADD CONSTRAINT pk_articulo PRIMARY KEY (codigo_barras_articulo);
+
+
+--
+-- TOC entry 3874 (class 2606 OID 16964)
+-- Name: articulo_venta pk_articulo_venta; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.articulo_venta
+    ADD CONSTRAINT pk_articulo_venta PRIMARY KEY (folio_venta, codigo_barras_articulo);
+
+
+--
+-- TOC entry 3866 (class 2606 OID 16911)
+-- Name: categoria pk_categoria; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.categoria
+    ADD CONSTRAINT pk_categoria PRIMARY KEY (categoria_id);
+
+
+--
+-- TOC entry 3858 (class 2606 OID 17051)
+-- Name: cliente pk_cliente; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.cliente
+    ADD CONSTRAINT pk_cliente PRIMARY KEY (rfc_cliente);
+
+
+--
+-- TOC entry 3879 (class 2606 OID 17154)
+-- Name: empleado pk_empleado; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.empleado
+    ADD CONSTRAINT pk_empleado PRIMARY KEY (num_empleado);
+
+
+--
+-- TOC entry 3862 (class 2606 OID 16894)
+-- Name: empleado_telefono pk_empleado_telefono; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.empleado_telefono
+    ADD CONSTRAINT pk_empleado_telefono PRIMARY KEY (empleado_telefono_id);
+
+
+--
+-- TOC entry 3876 (class 2606 OID 16979)
+-- Name: facturacionrealizada pk_factura; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.facturacionrealizada
+    ADD CONSTRAINT pk_factura PRIMARY KEY (id_factura);
+
+
+--
+-- TOC entry 3864 (class 2606 OID 17041)
+-- Name: proveedor_articulos pk_proveedor; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.proveedor_articulos
+    ADD CONSTRAINT pk_proveedor PRIMARY KEY (rfc_proveedor);
+
+
+--
+-- TOC entry 3860 (class 2606 OID 16873)
+-- Name: sucursal pk_sucursal; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.sucursal
+    ADD CONSTRAINT pk_sucursal PRIMARY KEY (sucursal_id);
+
+
+--
+-- TOC entry 3870 (class 2606 OID 17043)
+-- Name: surtido_articulo_proveedor pk_surtido; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.surtido_articulo_proveedor
+    ADD CONSTRAINT pk_surtido PRIMARY KEY (rfc_proveedor, codigo_barras_articulo);
+
+
+--
+-- TOC entry 3872 (class 2606 OID 16944)
+-- Name: venta pk_venta; Type: CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.venta
+    ADD CONSTRAINT pk_venta PRIMARY KEY (folio_venta);
+
+
+--
+-- TOC entry 3877 (class 1259 OID 17196)
+-- Name: idx_tipo_empleado; Type: INDEX; Schema: public; Owner: oscar
+--
+
+CREATE INDEX idx_tipo_empleado ON public.empleado USING btree (tipo_empleado);
+
+
+--
+-- TOC entry 3897 (class 2620 OID 17202)
+-- Name: articulo_venta tr_actualizar_venta_y_stock; Type: TRIGGER; Schema: public; Owner: oscar
+--
+
+CREATE TRIGGER tr_actualizar_venta_y_stock BEFORE INSERT ON public.articulo_venta FOR EACH ROW EXECUTE FUNCTION public.actualizar_venta_y_stock();
+
+
+--
+-- TOC entry 3894 (class 2620 OID 17108)
+-- Name: venta tr_generar_folio_venta; Type: TRIGGER; Schema: public; Owner: oscar
+--
+
+CREATE TRIGGER tr_generar_folio_venta BEFORE INSERT ON public.venta FOR EACH ROW EXECUTE FUNCTION public.generar_folio_venta();
+
+
+--
+-- TOC entry 3895 (class 2620 OID 16999)
+-- Name: venta trg_factura_automatica; Type: TRIGGER; Schema: public; Owner: oscar
+--
+
+CREATE TRIGGER trg_factura_automatica AFTER INSERT ON public.venta FOR EACH ROW EXECUTE FUNCTION public.generar_factura_auto();
+
+
+--
+-- TOC entry 3893 (class 2620 OID 16990)
+-- Name: cliente trigger_generar_razon_social; Type: TRIGGER; Schema: public; Owner: oscar
+--
+
+CREATE TRIGGER trigger_generar_razon_social BEFORE INSERT OR UPDATE ON public.cliente FOR EACH ROW EXECUTE FUNCTION public.actualizar_razon_social();
+
+
+--
+-- TOC entry 3896 (class 2620 OID 17001)
+-- Name: venta trigger_validar_sucursal; Type: TRIGGER; Schema: public; Owner: oscar
+--
+
+CREATE TRIGGER trigger_validar_sucursal BEFORE INSERT OR UPDATE ON public.venta FOR EACH ROW EXECUTE FUNCTION public.validar_sucursal_venta();
+
+
+--
+-- TOC entry 3881 (class 2606 OID 16919)
+-- Name: articulo fk_articulo_categoria; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.articulo
+    ADD CONSTRAINT fk_articulo_categoria FOREIGN KEY (categoria_id) REFERENCES public.categoria(categoria_id);
+
+
+--
+-- TOC entry 3887 (class 2606 OID 16970)
+-- Name: articulo_venta fk_articulo_venta_articulo; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.articulo_venta
+    ADD CONSTRAINT fk_articulo_venta_articulo FOREIGN KEY (codigo_barras_articulo) REFERENCES public.articulo(codigo_barras_articulo);
+
+
+--
+-- TOC entry 3888 (class 2606 OID 16965)
+-- Name: articulo_venta fk_articulo_venta_venta; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.articulo_venta
+    ADD CONSTRAINT fk_articulo_venta_venta FOREIGN KEY (folio_venta) REFERENCES public.venta(folio_venta);
+
+
+--
+-- TOC entry 3891 (class 2606 OID 17160)
+-- Name: empleado fk_empleado_sucursal; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.empleado
+    ADD CONSTRAINT fk_empleado_sucursal FOREIGN KEY (sucursal_id) REFERENCES public.sucursal(sucursal_id);
+
+
+--
+-- TOC entry 3892 (class 2606 OID 17155)
+-- Name: empleado fk_empleado_supervisor; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.empleado
+    ADD CONSTRAINT fk_empleado_supervisor FOREIGN KEY (supervisor_directo) REFERENCES public.empleado(num_empleado);
+
+
+--
+-- TOC entry 3880 (class 2606 OID 17165)
+-- Name: empleado_telefono fk_empleado_telefono; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.empleado_telefono
+    ADD CONSTRAINT fk_empleado_telefono FOREIGN KEY (num_empleado) REFERENCES public.empleado(num_empleado);
+
+
+--
+-- TOC entry 3889 (class 2606 OID 17071)
+-- Name: facturacionrealizada fk_factura_cliente; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.facturacionrealizada
+    ADD CONSTRAINT fk_factura_cliente FOREIGN KEY (rfc_cliente) REFERENCES public.cliente(rfc_cliente);
+
+
+--
+-- TOC entry 3890 (class 2606 OID 16980)
+-- Name: facturacionrealizada fk_factura_venta; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.facturacionrealizada
+    ADD CONSTRAINT fk_factura_venta FOREIGN KEY (folio_venta) REFERENCES public.venta(folio_venta);
+
+
+--
+-- TOC entry 3882 (class 2606 OID 16934)
+-- Name: surtido_articulo_proveedor fk_surtido_articulo; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.surtido_articulo_proveedor
+    ADD CONSTRAINT fk_surtido_articulo FOREIGN KEY (codigo_barras_articulo) REFERENCES public.articulo(codigo_barras_articulo);
+
+
+--
+-- TOC entry 3883 (class 2606 OID 17044)
+-- Name: surtido_articulo_proveedor fk_surtido_proveedor; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.surtido_articulo_proveedor
+    ADD CONSTRAINT fk_surtido_proveedor FOREIGN KEY (rfc_proveedor) REFERENCES public.proveedor_articulos(rfc_proveedor);
+
+
+--
+-- TOC entry 3884 (class 2606 OID 17175)
+-- Name: venta fk_venta_cajero; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.venta
+    ADD CONSTRAINT fk_venta_cajero FOREIGN KEY (numero_empleado_cajero) REFERENCES public.empleado(num_empleado);
+
+
+--
+-- TOC entry 3885 (class 2606 OID 17066)
+-- Name: venta fk_venta_cliente; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.venta
+    ADD CONSTRAINT fk_venta_cliente FOREIGN KEY (rfc_cliente) REFERENCES public.cliente(rfc_cliente);
+
+
+--
+-- TOC entry 3886 (class 2606 OID 17170)
+-- Name: venta fk_venta_vendedor; Type: FK CONSTRAINT; Schema: public; Owner: oscar
+--
+
+ALTER TABLE ONLY public.venta
+    ADD CONSTRAINT fk_venta_vendedor FOREIGN KEY (numero_empleado_vendedor) REFERENCES public.empleado(num_empleado);
+
+
+-- Completed on 2025-05-25 23:38:27
+
+--
+-- PostgreSQL database dump complete
+--
+

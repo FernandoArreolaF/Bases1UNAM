@@ -1,0 +1,443 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 17.5
+-- Dumped by pg_dump version 17.5
+
+-- Started on 2025-05-25 23:40:29
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 4048 (class 0 OID 16905)
+-- Dependencies: 222
+-- Data for Name: categoria; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+SET SESSION AUTHORIZATION DEFAULT;
+
+ALTER TABLE public.categoria DISABLE TRIGGER ALL;
+
+INSERT INTO public.categoria VALUES (101, 'Salas', 'Conjuntos de sofás, sillones y mesas de centro para salas de estar.');
+INSERT INTO public.categoria VALUES (103, 'Comedores', 'Mesas y sillas para comedor en diferentes estilos y tamaños.');
+INSERT INTO public.categoria VALUES (107, 'Dormitorios', 'Camas, burós, tocadores y muebles para habitaciones.');
+INSERT INTO public.categoria VALUES (110, 'Oficinas', 'Muebles para oficinas como escritorios, sillas ergonómicas y archivadores.');
+INSERT INTO public.categoria VALUES (115, 'Infantil', 'Mobiliario diseñado especialmente para niños, como cunas, camas y escritorios.');
+INSERT INTO public.categoria VALUES (118, 'Exterior', 'Muebles resistentes para jardín, terrazas y patios.');
+INSERT INTO public.categoria VALUES (121, 'Almacenamiento', 'Estanterías, armarios, cómodas y soluciones para organización.');
+INSERT INTO public.categoria VALUES (125, 'Decoración', 'Accesorios decorativos como espejos, cuadros, floreros y lámparas.');
+INSERT INTO public.categoria VALUES (130, 'Cocinas', 'Muebles modulares, alacenas y barras para cocina.');
+INSERT INTO public.categoria VALUES (135, 'Reclinables', 'Sillones y sofás reclinables para mayor confort en el hogar.');
+
+
+ALTER TABLE public.categoria ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4049 (class 0 OID 16912)
+-- Dependencies: 223
+-- Data for Name: articulo; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.articulo DISABLE TRIGGER ALL;
+
+INSERT INTO public.articulo VALUES (4455667788980, 'Sillón', 5500, 0, 101);
+INSERT INTO public.articulo VALUES (4355667788980, 'love sofa', 8500, 1, 101);
+INSERT INTO public.articulo VALUES (3456789012345, 'Juego de comedor 6 puestos', 9800, 6, 103);
+INSERT INTO public.articulo VALUES (1122334455667, 'Cuna bebé con barandas', 275, 5, 115);
+INSERT INTO public.articulo VALUES (2233445566778, 'Cocina integral acero', 89000, 3, 130);
+INSERT INTO public.articulo VALUES (5566778899001, 'Jarrón decorativo cerámica', 45, 58, 125);
+INSERT INTO public.articulo VALUES (6677889900112, 'Armario guardarropa grande', 4100, 12, 121);
+INSERT INTO public.articulo VALUES (7788990011223, 'Set de cojines decorativos', 650, 33, 125);
+INSERT INTO public.articulo VALUES (9900111223345, 'Set cubiertos acero inoxidable', 1200, 48, 103);
+INSERT INTO public.articulo VALUES (1002003004005, 'Hamaca exterior resistente', 1750, 10, 118);
+INSERT INTO public.articulo VALUES (2003004005006, 'Estante para plantas balcón', 900, 26, 118);
+INSERT INTO public.articulo VALUES (6789012345678, 'Escritorio ejecutivo', 2100, 23, 110);
+INSERT INTO public.articulo VALUES (7890123456789, 'Silla ergonómica oficina', 1800, 38, 110);
+INSERT INTO public.articulo VALUES (8901234567890, 'Columpio jardín resistente', 3200, 8, 118);
+INSERT INTO public.articulo VALUES (2345678901234, 'Mesa de centro roble', 1500, 26, 101);
+INSERT INTO public.articulo VALUES (3344556677889, 'Mesa rectangular extensible', 300, 11, 135);
+INSERT INTO public.articulo VALUES (9012345678901, 'Estantería modular 5 niveles', 1350, 15, 121);
+INSERT INTO public.articulo VALUES (8899001122334, 'Mesa de noche doble cajón', 850, 19, 107);
+INSERT INTO public.articulo VALUES (4455667788990, 'Sillón reclinable piel', 5500, 6, 101);
+INSERT INTO public.articulo VALUES (4567890123456, 'Lámpara colgante cristal', 7500, 45, 125);
+INSERT INTO public.articulo VALUES (1234567890123, 'Sofá de cuero moderno', 4500, 6, 101);
+INSERT INTO public.articulo VALUES (5678901234567, 'Cama queen size madera', 6200, 8, 107);
+
+
+ALTER TABLE public.articulo ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4043 (class 0 OID 16861)
+-- Dependencies: 217
+-- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.cliente DISABLE TRIGGER ALL;
+
+INSERT INTO public.cliente VALUES ('1234567890123', 'Ana López Ramírez', 'ana.lopez@example.com', 552345678901, 3100, 'Ana', 'López', 'Ramírez', '45', 'Av. Revolución', 'Mixcoac', 'Ciudad de México');
+INSERT INTO public.cliente VALUES ('9876543210987', 'Jorge Pérez', 'jorge.perez@example.com', 558765432109, 44110, 'Jorge', 'Pérez', NULL, '120B', 'Calle Juárez', 'Centro', 'Jalisco');
+INSERT INTO public.cliente VALUES ('WAKF321738H7T', 'Örjan Cawthery', 'fcawthery0@posterous.com', 4362528988, 1645, 'Örjan', 'Cawthery', NULL, '6890', 'Calle C', 'Colonia Roma', 'Chihuahua');
+INSERT INTO public.cliente VALUES ('ABC123456DEF1', 'Luis Martínez Gómez', 'luis.mg@email.com', 5512345678, 1234, 'Luis', 'Martínez', 'Gómez', '101', 'Av. Reforma', 'Centro', 'CDMX');
+INSERT INTO public.cliente VALUES ('DEF234567GHI2', 'Ana López Pérez', 'ana.lp@email.com', 5523456789, 54321, 'Ana', 'López', 'Pérez', '202', 'Insurgentes', 'Roma Norte', 'CDMX');
+INSERT INTO public.cliente VALUES ('GHI345678JKL3', 'Carlos Díaz Ruiz', 'carlos.dr@email.com', 5534567890, 67890, 'Carlos', 'Díaz', 'Ruiz', '303', 'Tlalpan', 'Del Valle', 'CDMX');
+INSERT INTO public.cliente VALUES ('JKL456789MNO4', 'María Torres Ramírez', 'maria.tr@email.com', 5545678901, 11111, 'María', 'Torres', 'Ramírez', '404', 'Tacuba', 'Polanco', 'CDMX');
+INSERT INTO public.cliente VALUES ('MNO567890PQR5', 'Pedro Hernández Soto', 'pedro.hs@email.com', 5556789012, 22222, 'Pedro', 'Hernández', 'Soto', '505', 'Constituyentes', 'San Ángel', 'CDMX');
+INSERT INTO public.cliente VALUES ('PQR678901STU6', 'Lucía Romero Mejía', 'lucia.rm@email.com', 5567890123, 33333, 'Lucía', 'Romero', 'Mejía', '606', 'Patriotismo', 'Narvarte', 'CDMX');
+INSERT INTO public.cliente VALUES ('STU789012VWX7', 'Miguel Vargas Ortega', 'miguel.vo@email.com', 5578901234, 44444, 'Miguel', 'Vargas', 'Ortega', '707', 'Viaducto', 'Escandón', 'CDMX');
+INSERT INTO public.cliente VALUES ('VWX890123YZA8', 'Fernanda Ríos Salas', 'fernanda.rs@email.com', 5589012345, 55555, 'Fernanda', 'Ríos', 'Salas', '808', 'Periférico', 'Mixcoac', 'CDMX');
+INSERT INTO public.cliente VALUES ('YZA901234BCD9', 'Sofía Castillo Nieto', 'sofia.cn@email.com', 5590123456, 66666, 'Sofía', 'Castillo', 'Nieto', '909', 'Universidad', 'Coyoacán', 'CDMX');
+INSERT INTO public.cliente VALUES ('BCD012345CDE0', 'Jorge Peña Aguilar', 'jorge.pa@email.com', 5501234567, 77777, 'Jorge', 'Peña', 'Aguilar', '010', 'Xola', 'Portales', 'CDMX');
+INSERT INTO public.cliente VALUES ('CDE123456DEF1', 'Adriana Sánchez León', 'adriana.sl@email.com', 5511122233, 88888, 'Adriana', 'Sánchez', 'León', '111', 'Revolución', 'Tacubaya', 'CDMX');
+INSERT INTO public.cliente VALUES ('DEF234567EFG2', 'Diego Medina Bravo', 'diego.mb@email.com', 5522233344, 99999, 'Diego', 'Medina', 'Bravo', '222', 'Sur 20', 'Iztapalapa', 'CDMX');
+INSERT INTO public.cliente VALUES ('EFG345678FGH3', 'Valeria Paredes Lara', 'valeria.pl@email.com', 5533344455, 13579, 'Valeria', 'Paredes', 'Lara', '333', 'Eje 6', 'Tláhuac', 'CDMX');
+INSERT INTO public.cliente VALUES ('FGH456789GHI4', 'Ricardo Navarro Luna', 'ricardo.nl@email.com', 5544455566, 24680, 'Ricardo', 'Navarro', 'Luna', '444', 'Churubusco', 'La Viga', 'CDMX');
+INSERT INTO public.cliente VALUES ('GHI567890HIJ5', 'Paola Espinoza Cruz', 'paola.ec@email.com', 5555566677, 13513, 'Paola', 'Espinoza', 'Cruz', '555', 'Lomas Verdes', 'Bosques', 'CDMX');
+
+
+ALTER TABLE public.cliente ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4045 (class 0 OID 16869)
+-- Dependencies: 219
+-- Data for Name: sucursal; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.sucursal DISABLE TRIGGER ALL;
+
+INSERT INTO public.sucursal VALUES (1, '2021-04-10', 4537268945, 6421, 2218, 'Constitution', 'Miguel Hidalgo', 'Jalisco');
+INSERT INTO public.sucursal VALUES (2, '2021-05-20', 1786111188, 248, 5362, 'Chapultepec', 'Venustiano Carranza', 'Chihuahua');
+INSERT INTO public.sucursal VALUES (3, '2021-02-15', 9399483571, 3394, 2846, 'Reforma', 'Iztacalco', 'San Luis Potosi');
+INSERT INTO public.sucursal VALUES (4, '2021-04-10', 7195393429, 2234, 2162, 'Revolution', 'Iztapalapa', 'Chihuahua');
+INSERT INTO public.sucursal VALUES (5, '2021-02-15', 3443584966, 7516, 164, 'Chapultepec', 'Gustavo A. Madero', 'Baja California');
+
+
+ALTER TABLE public.sucursal ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4054 (class 0 OID 17149)
+-- Dependencies: 228
+-- Data for Name: empleado; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.empleado DISABLE TRIGGER ALL;
+
+INSERT INTO public.empleado VALUES (1, 'seguridad', 4909, 'Roma', 'Calle del Bosque', 'Naucalpan', 8745, 'Pedro Infante', 'Rodriguez', 'Garcia', 'ROAV8697102PV', 'LNUM549396T46BVBHP', 'ascannell0@shop-pro.jp', NULL, 1);
+INSERT INTO public.empleado VALUES (2, 'cajero', 7221, 'Condesa', 'Avenida del Sol', 'Naucalpan', 6081, 'Cantinflas', 'Garcia', 'Garcia', 'GCFR78158849V', 'ZUOK260323EGH7Q680', 'vhazeman1@miibeian.gov.cn', NULL, 1);
+INSERT INTO public.empleado VALUES (3, 'administrativo', 2741, 'Condesa', 'Avenida del Sol', 'Nezahualcoyotl', 8027, 'Jorge Negrete', 'Rodriguez', 'Rodriguez', 'DLET73513008P', 'IXMZ072562KGVFO25Y', 'respley2@google.com.br', NULL, 1);
+INSERT INTO public.empleado VALUES (4, 'vendedor', 3536, 'Roma', 'Avenida del Sol', 'Ecatepec', 9275, 'Dolores del Río', 'Garcia', 'Rodriguez', 'MLUQ23993043D', 'CLAL147545FIKPX27U', 'dternott3@vistaprint.com', NULL, 1);
+INSERT INTO public.empleado VALUES (5, 'limpieza', 5108, 'Santa Fe', 'Calle del Bosque', 'Chimalhuacan', 9424, 'Dolores del Río', 'Rodriguez', 'Martinez', 'CIGF2014217L0', 'SKUF643616M60340A6', 'swillmetts4@umn.edu', NULL, 1);
+INSERT INTO public.empleado VALUES (6, 'seguridad', 5415, 'Polanco', 'Avenida del Sol', 'Naucalpan', 1312, 'Pedro Infante', 'Garcia', NULL, 'PRVH443387H36', 'RPEA014106A89B9119', 'epegler3@toplist.cz', 5, 1);
+INSERT INTO public.empleado VALUES (7, 'administrativo', 4564, 'Santa Fe', 'Calle de la Rosa', 'Naucalpan', 4450, 'Cantinflas', 'Martinez', 'Rodriguez', 'TVLH729995A11', 'RCVJ2378022O73441F', 'tmacias4@e-recht24.de', 2, 1);
+INSERT INTO public.empleado VALUES (8, 'limpieza', 9151, 'Roma', 'Avenida del Sol', 'Toluca', 5911, 'Cantinflas', 'Martinez', 'Martinez', 'PSVA901233CPS', 'IZRF742139T3671I4U', 'nduly5@washington.edu', 5, 1);
+INSERT INTO public.empleado VALUES (9, 'limpieza', 4810, 'Condesa', 'Paseo de las Flores', 'Naucalpan', 1888, 'Pedro Infante', 'Rodriguez', NULL, 'ZNUD317516JTI', 'SMXO58971557B03602', 'mchadney6@slate.com', 5, 1);
+INSERT INTO public.empleado VALUES (10, 'limpieza', 6579, 'Condesa', 'Calle de la Luna', 'Toluca', 6769, 'María Félix', 'Martinez', NULL, 'FQIF299574XE0', 'CPLK150874O79SAI03', 'bbidewell7@dropbox.com', 2, 1);
+INSERT INTO public.empleado VALUES (11, 'seguridad', 248, 'Venustiano Carranza', 'Chapultepec', 'Chihuahua', 5362, 'Juan', 'Hernández', 'López', 'HEHJ920101ABC', 'HEHJ920101HCHZRNA9', 'j.hernandez@suc2.com', NULL, 2);
+INSERT INTO public.empleado VALUES (12, 'cajero', 248, 'Venustiano Carranza', 'Chapultepec', 'Chihuahua', 5363, 'Ana', 'García', 'Martínez', 'GAMA930202XYZ', 'GAMA930202MCHZNS0', 'a.garcia@suc2.com', 11, 2);
+INSERT INTO public.empleado VALUES (13, 'administrativo', 248, 'Venustiano Carranza', 'Chapultepec', 'Chihuahua', 5364, 'Carlos', 'López', 'Díaz', 'LODC940303MNO', 'LODC940303HCHZNR1', 'c.lopez@suc2.com', 11, 2);
+INSERT INTO public.empleado VALUES (14, 'vendedor', 248, 'Venustiano Carranza', 'Chapultepec', 'Chihuahua', 5365, 'Laura', 'Martínez', 'Pérez', 'MALP950404QWE', 'MALP950404MCHZNL2', 'l.martinez@suc2.com', 11, 2);
+INSERT INTO public.empleado VALUES (15, 'limpieza', 248, 'Venustiano Carranza', 'Chapultepec', 'Chihuahua', 5366, 'Miguel', 'Sánchez', 'Ramírez', 'SAMR960505RTY', 'SAMR960505HCHZNM3', 'm.sanchez@suc2.com', 11, 2);
+INSERT INTO public.empleado VALUES (16, 'seguridad', 3394, 'Iztacalco', 'Reforma', 'San Luis Potosi', 2846, 'Francisco', 'Gómez', 'Vázquez', 'GOFV970606ASD', 'GOFV970606HSLPS4', 'f.gomez@suc3.com', NULL, 3);
+INSERT INTO public.empleado VALUES (17, 'cajero', 3394, 'Iztacalco', 'Reforma', 'San Luis Potosi', 2847, 'Sofía', 'Díaz', 'Ortega', 'DIOS980707FGH', 'DIOS980707MSLPS5', 's.diaz@suc3.com', 16, 3);
+INSERT INTO public.empleado VALUES (18, 'administrativo', 3394, 'Iztacalco', 'Reforma', 'San Luis Potosi', 2848, 'Diego', 'Flores', 'Morales', 'FLMD990808JKL', 'FLMD990808HSLPS6', 'd.flores@suc3.com', 16, 3);
+INSERT INTO public.empleado VALUES (19, 'vendedor', 3394, 'Iztacalco', 'Reforma', 'San Luis Potosi', 2849, 'Valeria', 'Ruiz', 'Castro', 'RUCV000909ÑÑÑ', 'RUCV000909MSLPS7', 'v.ruiz@suc3.com', 16, 3);
+INSERT INTO public.empleado VALUES (20, 'limpieza', 3394, 'Iztacalco', 'Reforma', 'San Luis Potosi', 2850, 'Oscar', 'Mendoza', 'Santos', 'MESO011010UIO', 'MESO011010HSLPS8', 'o.mendoza@suc3.com', 16, 3);
+INSERT INTO public.empleado VALUES (21, 'seguridad', 2234, 'Iztapalapa', 'Revolution', 'Chihuahua', 2162, 'Fernando', 'Castillo', 'Ríos', 'CAFR011112ABC', 'CAFR011112HCHZRNA0', 'f.castillo@suc4.com', NULL, 4);
+INSERT INTO public.empleado VALUES (22, 'cajero', 2234, 'Iztapalapa', 'Revolution', 'Chihuahua', 2163, 'Mariana', 'Ortega', 'Soto', 'ORSM021213XYZ', 'ORSM021213MCHZNS1', 'm.ortega@suc4.com', 21, 4);
+INSERT INTO public.empleado VALUES (23, 'administrativo', 2234, 'Iztapalapa', 'Revolution', 'Chihuahua', 2164, 'Javier', 'Mendoza', 'Luna', 'MELJ031314MNO', 'MELJ031314HCHZNR2', 'j.mendoza@suc4.com', 21, 4);
+INSERT INTO public.empleado VALUES (24, 'vendedor', 2234, 'Iztapalapa', 'Revolution', 'Chihuahua', 2165, 'Gabriela', 'Vega', 'Paredes', 'VEPG041415QWE', 'VEPG041415MCHZNL3', 'g.vega@suc4.com', 21, 4);
+INSERT INTO public.empleado VALUES (25, 'limpieza', 2234, 'Iztapalapa', 'Revolution', 'Chihuahua', 2166, 'Roberto', 'Navarro', 'Miranda', 'NAMR051516RTY', 'NAMR051516HCHZNM4', 'r.navarro@suc4.com', 21, 4);
+INSERT INTO public.empleado VALUES (26, 'seguridad', 7516, 'Gustavo A. Madero', 'Chapultepec', 'Baja California', 164, 'Luis', 'Espinoza', 'Cervantes', 'ESCL061617ASD', 'ESCL061617HBCSRNA5', 'l.espinoza@suc5.com', NULL, 5);
+INSERT INTO public.empleado VALUES (27, 'cajero', 7516, 'Gustavo A. Madero', 'Chapultepec', 'Baja California', 165, 'Carmen', 'Ríos', 'Delgado', 'RIDC071718FGH', 'RIDC071718MBCSNS6', 'c.rios@suc5.com', 26, 5);
+INSERT INTO public.empleado VALUES (28, 'administrativo', 7516, 'Gustavo A. Madero', 'Chapultepec', 'Baja California', 166, 'Ricardo', 'Guerrero', 'Orozco', 'GUOR081819JKL', 'GUOR081819HBCSNR7', 'r.guerrero@suc5.com', 26, 5);
+INSERT INTO public.empleado VALUES (29, 'vendedor', 7516, 'Gustavo A. Madero', 'Chapultepec', 'Baja California', 167, 'Diana', 'Mejía', 'Campos', 'MECD091920WÑÑ', 'MECD091920MBCSNL8', 'd.mejia@suc5.com', 26, 5);
+INSERT INTO public.empleado VALUES (30, 'limpieza', 7516, 'Gustavo A. Madero', 'Chapultepec', 'Baja California', 168, 'Sergio', 'Fuentes', 'Rojas', 'FURS102021UIO', 'FURS102021HBCSNM9', 's.fuentes@suc5.com', 26, 5);
+
+
+ALTER TABLE public.empleado ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4051 (class 0 OID 16939)
+-- Dependencies: 225
+-- Data for Name: venta; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.venta DISABLE TRIGGER ALL;
+
+INSERT INTO public.venta VALUES ('MBL-030', '2025-05-20', 2700, 8, '1234567890123', 24, 22);
+INSERT INTO public.venta VALUES ('MBL-031', '2025-05-20', 1350, 4, '1234567890123', 24, 22);
+INSERT INTO public.venta VALUES ('MBL-032', '2025-05-20', 0, 1, '1234567890123', 24, 22);
+INSERT INTO public.venta VALUES ('MBL-002', '2024-04-02', 19600, 2, '9876543210987', 19, 17);
+INSERT INTO public.venta VALUES ('MBL-003', '2024-05-10', 27400, 4, 'WAKF321738H7T', 24, 22);
+INSERT INTO public.venta VALUES ('MBL-004', '2024-02-28', 7800, 4, 'ABC123456DEF1', 14, 12);
+INSERT INTO public.venta VALUES ('MBL-033', '2025-05-20', 22500, 3, '1234567890123', 14, 12);
+INSERT INTO public.venta VALUES ('MBL-005', '2024-06-01', 9100, 4, 'DEF234567GHI2', 29, 27);
+INSERT INTO public.venta VALUES ('MBL-006', '2024-01-20', 178550, 4, 'GHI345678JKL3', 4, 2);
+INSERT INTO public.venta VALUES ('MBL-007', '2024-03-30', 11600, 4, 'JKL456789MNO4', 19, 17);
+INSERT INTO public.venta VALUES ('MBL-008', '2024-04-15', 8290, 4, 'MNO567890PQR5', 24, 22);
+INSERT INTO public.venta VALUES ('MBL-009', '2024-05-05', 3000, 4, 'PQR678901STU6', 14, 12);
+INSERT INTO public.venta VALUES ('MBL-010', '2024-02-14', 7700, 6, 'STU789012VWX7', 29, 27);
+INSERT INTO public.venta VALUES ('MBL-020', '2024-07-12', 21400, 4, 'VWX890123YZA8', 4, 2);
+INSERT INTO public.venta VALUES ('MBL-035', '2025-02-20', 21500, 5, '1234567890123', 19, 17);
+INSERT INTO public.venta VALUES ('MBL-021', '2024-08-05', 22600, 4, 'YZA901234BCD9', 14, 12);
+INSERT INTO public.venta VALUES ('MBL-022', '2024-09-18', 15550, 4, 'BCD012345CDE0', 19, 17);
+INSERT INTO public.venta VALUES ('MBL-023', '2024-10-01', 178090, 4, 'CDE123456DEF1', 24, 22);
+INSERT INTO public.venta VALUES ('MBL-024', '2024-11-11', 9500, 4, 'DEF234567EFG2', 29, 27);
+INSERT INTO public.venta VALUES ('MBL-025', '2024-12-25', 4100, 4, 'EFG345678FGH3', 4, 2);
+INSERT INTO public.venta VALUES ('MBL-026', '2025-01-06', 5300, 4, 'FGH456789GHI4', 14, 12);
+INSERT INTO public.venta VALUES ('MBL-027', '2025-02-14', 14200, 6, 'GHI567890HIJ5', 19, 17);
+INSERT INTO public.venta VALUES ('MBL-028', '2025-05-25', 500, 3, 'ABC123456DEF1', 4, 2);
+INSERT INTO public.venta VALUES ('MBL-001', '2024-03-15', 12600, 6, '1234567890123', 4, 2);
+
+
+ALTER TABLE public.venta ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4052 (class 0 OID 16960)
+-- Dependencies: 226
+-- Data for Name: articulo_venta; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.articulo_venta DISABLE TRIGGER ALL;
+
+INSERT INTO public.articulo_venta VALUES ('MBL-001', 1234567890123, 1, 4500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-001', 2345678901234, 1, 1500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-002', 3456789012345, 1, 9800.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-003', 4567890123456, 1, 7500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-003', 5678901234567, 1, 6200.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-004', 6789012345678, 1, 2100.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-004', 7890123456789, 1, 1800.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-005', 8901234567890, 1, 3200.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-005', 9012345678901, 1, 1350.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-006', 1122334455667, 1, 275.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-006', 2233445566778, 1, 89000.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-007', 3344556677889, 1, 300.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-007', 4455667788990, 1, 5500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-008', 5566778899001, 1, 45.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-008', 6677889900112, 1, 4100.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-009', 7788990011223, 1, 650.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-009', 8899001122334, 1, 850.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-010', 1002003004005, 1, 1750.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-010', 2003004005006, 1, 900.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-010', 9900111223345, 1, 1200.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-020', 1234567890123, 1, 4500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-020', 5678901234567, 1, 6200.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-021', 2345678901234, 1, 1500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-021', 3456789012345, 1, 9800.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-022', 4567890123456, 1, 7500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-022', 1122334455667, 1, 275.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-023', 2233445566778, 1, 89000.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-023', 5566778899001, 1, 45.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-024', 6677889900112, 1, 4100.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-024', 7788990011223, 1, 650.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-025', 8899001122334, 1, 850.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-025', 9900111223345, 1, 1200.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-026', 1002003004005, 1, 1750.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-026', 2003004005006, 1, 900.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-027', 6789012345678, 1, 2100.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-027', 7890123456789, 1, 1800.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-027', 8901234567890, 1, 3200.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-001', 3344556677889, 1, 300.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-030', 2345678901234, 2, 1500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-030', 3344556677889, 6, 300.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-031', 9012345678901, 2, 1350.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-031', 8899001122334, 1, 850.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-031', 4455667788990, 1, 5500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-032', 4455667788990, 1, 5500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-033', 4567890123456, 3, 7500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-035', 1234567890123, 2, 4500.00);
+INSERT INTO public.articulo_venta VALUES ('MBL-035', 5678901234567, 2, 6200.00);
+
+
+ALTER TABLE public.articulo_venta ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4046 (class 0 OID 16890)
+-- Dependencies: 220
+-- Data for Name: empleado_telefono; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.empleado_telefono DISABLE TRIGGER ALL;
+
+INSERT INTO public.empleado_telefono VALUES (1, 5501000001, 1);
+INSERT INTO public.empleado_telefono VALUES (2, 5501000002, 2);
+INSERT INTO public.empleado_telefono VALUES (3, 5501000003, 3);
+INSERT INTO public.empleado_telefono VALUES (4, 5501000004, 4);
+INSERT INTO public.empleado_telefono VALUES (5, 5501000005, 5);
+INSERT INTO public.empleado_telefono VALUES (6, 5501000006, 6);
+INSERT INTO public.empleado_telefono VALUES (7, 5501000007, 7);
+INSERT INTO public.empleado_telefono VALUES (8, 5501000008, 8);
+INSERT INTO public.empleado_telefono VALUES (9, 5501000009, 9);
+INSERT INTO public.empleado_telefono VALUES (10, 5501000010, 10);
+INSERT INTO public.empleado_telefono VALUES (11, 5501000011, 11);
+INSERT INTO public.empleado_telefono VALUES (12, 5501000012, 12);
+INSERT INTO public.empleado_telefono VALUES (13, 5501000013, 13);
+INSERT INTO public.empleado_telefono VALUES (14, 5501000014, 14);
+INSERT INTO public.empleado_telefono VALUES (15, 5501000015, 15);
+INSERT INTO public.empleado_telefono VALUES (16, 5501000016, 16);
+INSERT INTO public.empleado_telefono VALUES (17, 5501000017, 17);
+INSERT INTO public.empleado_telefono VALUES (18, 5501000018, 18);
+INSERT INTO public.empleado_telefono VALUES (19, 5501000019, 19);
+INSERT INTO public.empleado_telefono VALUES (20, 5501000020, 20);
+INSERT INTO public.empleado_telefono VALUES (21, 5501000021, 21);
+INSERT INTO public.empleado_telefono VALUES (22, 5501000022, 22);
+INSERT INTO public.empleado_telefono VALUES (23, 5501000023, 23);
+INSERT INTO public.empleado_telefono VALUES (24, 5501000024, 24);
+INSERT INTO public.empleado_telefono VALUES (25, 5501000025, 25);
+INSERT INTO public.empleado_telefono VALUES (26, 5501000026, 26);
+INSERT INTO public.empleado_telefono VALUES (27, 5501000027, 27);
+INSERT INTO public.empleado_telefono VALUES (28, 5501000028, 28);
+INSERT INTO public.empleado_telefono VALUES (29, 5501000029, 29);
+INSERT INTO public.empleado_telefono VALUES (30, 5501000030, 30);
+
+
+ALTER TABLE public.empleado_telefono ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4053 (class 0 OID 16975)
+-- Dependencies: 227
+-- Data for Name: facturacionrealizada; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.facturacionrealizada DISABLE TRIGGER ALL;
+
+INSERT INTO public.facturacionrealizada VALUES ('FACT-E0515D', 'MBL-001', '1234567890123');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-9594E5', 'MBL-002', '9876543210987');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-3DF005', 'MBL-003', 'WAKF321738H7T');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-91FDCF', 'MBL-004', 'ABC123456DEF1');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-62F432', 'MBL-005', 'DEF234567GHI2');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-E5CF05', 'MBL-006', 'GHI345678JKL3');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-FA002F', 'MBL-007', 'JKL456789MNO4');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-D8FC94', 'MBL-008', 'MNO567890PQR5');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-BF3165', 'MBL-009', 'PQR678901STU6');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-136735', 'MBL-010', 'STU789012VWX7');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-D819E0', 'MBL-020', 'VWX890123YZA8');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-452973', 'MBL-021', 'YZA901234BCD9');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-323DF6', 'MBL-022', 'BCD012345CDE0');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-2618F7', 'MBL-023', 'CDE123456DEF1');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-729F32', 'MBL-024', 'DEF234567EFG2');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-4F6471', 'MBL-025', 'EFG345678FGH3');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-4E421C', 'MBL-026', 'FGH456789GHI4');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-09E017', 'MBL-027', 'GHI567890HIJ5');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-D09147', 'MBL-028', 'ABC123456DEF1');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-90D71A', 'MBL-030', '1234567890123');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-F8EFA1', 'MBL-031', '1234567890123');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-855745', 'MBL-032', '1234567890123');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-5F9056', 'MBL-033', '1234567890123');
+INSERT INTO public.facturacionrealizada VALUES ('FACT-012699', 'MBL-035', '1234567890123');
+
+
+ALTER TABLE public.facturacionrealizada ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4057 (class 0 OID 17226)
+-- Dependencies: 232
+-- Data for Name: ingresos_mensuales; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.ingresos_mensuales DISABLE TRIGGER ALL;
+
+
+
+ALTER TABLE public.ingresos_mensuales ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4047 (class 0 OID 16900)
+-- Dependencies: 221
+-- Data for Name: proveedor_articulos; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.proveedor_articulos DISABLE TRIGGER ALL;
+
+INSERT INTO public.proveedor_articulos VALUES ('MEL830101ABC', 'Muebles Elegantes SRL', 11520, 150, 'Av. Reforma', 'Juárez', 'Ciudad de México', 5551234567, 1234567890123456);
+INSERT INTO public.proveedor_articulos VALUES ('IND950505XYZ', 'Industrias del Norte SA', 64000, 2200, 'Blvd. Díaz Ordaz', 'Mitras Centro', 'Nuevo León', 8187654321, 2345678901234567);
+INSERT INTO public.proveedor_articulos VALUES ('TEC000202MNO', 'Tecnomuebles SC', 44100, 45, 'Calz. Lázaro Cárdenas', 'Las Flores', 'Jalisco', 3339876543, 3456789012345678);
+INSERT INTO public.proveedor_articulos VALUES ('DEC851212QWE', 'Decoraciones Modernas', 83240, 789, 'Calle Sonora', 'Centro', 'Sonora', 6625432198, 4567890123456789);
+INSERT INTO public.proveedor_articulos VALUES ('FAB720707RTY', 'Fábrica de Muebles', 20200, 12, 'Av. Hidalgo', 'La Estación', 'Aguascalientes', 4498765432, 5678901234567890);
+INSERT INTO public.proveedor_articulos VALUES ('CON990909UIOP', 'Confort Hogar SAPI', 37200, 340, 'Av. Universidad', 'San Juanito', 'Guanajuato', 4771234567, 6789012345678901);
+INSERT INTO public.proveedor_articulos VALUES ('LUX010101ASD', 'Luxury Designs', 77500, 1500, 'Av. Bonampak', 'Supermanzana 200', 'Quintana Roo', 9986543210, 7890123456789012);
+INSERT INTO public.proveedor_articulos VALUES ('ART121212FGH', 'Artesanías Mexicanas', 68000, 67, 'Calle Porfirio Díaz', 'Xochimilco', 'Oaxaca', 9512345678, 8901234567890123);
+INSERT INTO public.proveedor_articulos VALUES ('EKO030303JKL', 'Ekomuebles Sustentables', 44600, 900, 'Av. Vallarta', 'Americana', 'Jalisco', 3332109876, 9012345678901234);
+INSERT INTO public.proveedor_articulos VALUES ('HOG080808ÑÑÑ', 'Hogar Express', 83140, 22, 'Blvd. Kino', 'Campestre', 'Sonora', 6628765432, 1122334455667788);
+
+
+ALTER TABLE public.proveedor_articulos ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4050 (class 0 OID 16924)
+-- Dependencies: 224
+-- Data for Name: surtido_articulo_proveedor; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.surtido_articulo_proveedor DISABLE TRIGGER ALL;
+
+INSERT INTO public.surtido_articulo_proveedor VALUES ('MEL830101ABC', 1234567890123, '2024-01-10', 3150);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('MEL830101ABC', 2345678901234, '2024-02-15', 1050);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('IND950505XYZ', 3456789012345, '2023-11-01', 6860);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('IND950505XYZ', 4567890123456, '2024-03-20', 5250);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('TEC000202MNO', 5678901234567, '2024-04-05', 4340);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('TEC000202MNO', 6789012345678, '2023-12-12', 1470);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('DEC851212QWE', 7788990011223, '2024-01-22', 455);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('DEC851212QWE', 5566778899001, '2024-05-01', 31);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('FAB720707RTY', 8899001122334, '2023-10-10', 595);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('FAB720707RTY', 9900111223345, '2024-02-28', 840);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('CON990909UIOP', 1002003004005, '2024-03-15', 1225);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('CON990909UIOP', 2003004005006, '2024-04-18', 630);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('LUX010101ASD', 2233445566778, '2023-09-05', 62300);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('LUX010101ASD', 4455667788990, '2024-01-30', 3850);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('ART121212FGH', 1122334455667, '2024-02-10', 192);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('ART121212FGH', 3344556677889, '2024-03-25', 210);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('EKO030303JKL', 6677889900112, '2023-12-01', 2870);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('EKO030303JKL', 9012345678901, '2024-04-10', 945);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('HOG080808ÑÑÑ', 7788990011223, '2024-05-05', 455);
+INSERT INTO public.surtido_articulo_proveedor VALUES ('HOG080808ÑÑÑ', 5566778899001, '2024-06-01', 31);
+
+
+ALTER TABLE public.surtido_articulo_proveedor ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4056 (class 0 OID 17218)
+-- Dependencies: 231
+-- Data for Name: toparticulos; Type: TABLE DATA; Schema: public; Owner: oscar
+--
+
+ALTER TABLE public.toparticulos DISABLE TRIGGER ALL;
+
+
+
+ALTER TABLE public.toparticulos ENABLE TRIGGER ALL;
+
+--
+-- TOC entry 4063 (class 0 OID 0)
+-- Dependencies: 229
+-- Name: secuencia_empleado_telefono_id; Type: SEQUENCE SET; Schema: public; Owner: oscar
+--
+
+SELECT pg_catalog.setval('public.secuencia_empleado_telefono_id', 31, false);
+
+
+--
+-- TOC entry 4064 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: secuencia_folio_venta; Type: SEQUENCE SET; Schema: public; Owner: oscar
+--
+
+SELECT pg_catalog.setval('public.secuencia_folio_venta', 35, true);
+
+
+-- Completed on 2025-05-25 23:40:31
+
+--
+-- PostgreSQL database dump complete
+--
+
