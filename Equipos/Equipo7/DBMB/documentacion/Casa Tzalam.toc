@@ -1,0 +1,34 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Contexto y Problema}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Objetivos}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Objetivo General}{3}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Objetivos Específicos}{3}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Alcance}{4}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Plan de Trabajo}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Metodología}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Cronograma}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Distribución de Trabajo}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Diseño de la Base de Datos}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Modelo Entidad-Relación}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Modelo Relacional}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Diccionario de Datos}{7}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Implementación}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Script de Creación}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Restricciones e Integridad}{8}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Índices}{9}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Triggers y Funciones}{9}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Vistas}{10}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Aplicación}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Dashboard}{11}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Manual de Usuario Básico}{11}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Registrar una Venta}{11}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Consultar Stock}{12}{subsubsection.5.2.2}%
+\contentsline {section}{\numberline {6}Resultados}{13}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Resultados Obtenidos}{13}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Dificultades y Soluciones}{14}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Trabajo Futuro}{14}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Conclusiones}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Conclusiones Personales}{15}{subsection.7.1}%
+\contentsline {section}{\numberline {A}Código Completo}{16}{appendix.Alph1}%
+\contentsline {subsection}{\numberline {A.1}Scripts SQL}{16}{subsection.Alph1.1}%

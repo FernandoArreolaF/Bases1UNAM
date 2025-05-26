@@ -1,0 +1,46 @@
+codigo_barras,nom_articulo,precio_venta,precio_compra,stock,id_categoria,id_categoria
+140433330001,"Sofá seccional en L piel sintética",45999.00,32000.00,3,NULL,1
+140433330002,"Mesa de comedor extensible roble 8 pax",18999.00,12500.00,5,NULL,2
+140433330003,"Cama king size con cabecera de tela",27999.00,19500.00,2,NULL,3
+140433330004,"Escritorio ejecutivo vidrio/acero",12999.00,8900.00,7,NULL,4
+140433330005,"Juego de jardín ratán 4 piezas",32999.00,24000.00,4,NULL,5
+140433330006,"Isla de cocina con almacenamiento",24999.00,17500.00,1,NULL,6
+140433330007,"Cuna convertible madera maciza",15999.00,11000.00,6,NULL,7
+140433330008,"Closet modular 3 puertas corredizas",38999.00,28000.00,3,NULL,8
+140433330009,"Lámpara de pie industrial vintage",5999.00,4200.00,10,NULL,9
+140433330010,"Sillón minimalista con base de madera",12999.00,9500.00,0,NULL,10
+140433330011,"Centro de entretenimiento 65'' TV",21999.00,16000.00,2,NULL,11
+140433330012,"Espejo decorativo ovalado 120cm",8999.00,6500.00,8,NULL,12
+140433330013,"Baúl organizador de ratán",7499.00,5200.00,5,NULL,13
+140433330014,"Cama para gatos con rascador",3999.00,2800.00,12,NULL,14
+140433330015,"Banco recibidor con cajón",8999.00,6300.00,4,NULL,15
+140433330016,"Mueble bajo lavabo 60cm",10999.00,7800.00,3,NULL,16
+140433330017,"Silla gamer ergonómica profesional",17999.00,12500.00,2,NULL,17
+140433330018,"Mesa industrial de acero/madera",15999.00,11500.00,3,NULL,18
+140433330019,"Vitrina vintage estilo francés",28999.00,21000.00,1,NULL,19
+140433330020,"Paquete sala+comedor promocional",59999.00,42000.00,0,NULL,20
+140433330021,"Puff minimalista de felpa",3499.00,2500.00,15,NULL,10
+140433330022,"Estantería flotante 3 niveles",4999.00,3500.00,9,NULL,13
+140433330023,"Comedero elevado para mascotas",1999.00,1400.00,20,NULL,14
+140433330024,"Sofá cama juvenil multifuncional",17999.00,13000.00,4,NULL,7
+140433330025,"Barra desayunadora con taburetes",14999.00,10500.00,2,NULL,6
+140433330026,"Sofá modular en U con chaise longue",52999.00,37000.00,2,NULL,1
+140433330027,"Juego de comedor vidrio templado 6 sillas",23999.00,16800.00,4,NULL,2
+140433330028,"Cama queen con almacenamiento inferior",21999.00,15400.00,3,NULL,3
+140433330029,"Silla ejecutiva ergonómica premium",15999.00,11200.00,5,NULL,4
+140433330030,"Mesa exterior extensible aluminio",17999.00,12600.00,1,NULL,5
+140433330031,"Banco de cocina con respaldo",8999.00,6300.00,7,NULL,6
+140433330032,"Cuna colecho con barandal ajustable",13999.00,9800.00,4,NULL,7
+140433330033,"Sistema de closet walk-in 5m lineales",65999.00,46000.00,1,NULL,8
+140433330034,"Lámpara de mesa industrial con USB",4499.00,3150.00,12,NULL,9
+140433330035,"Mesa auxiliar minimalista de mármol",9999.00,7000.00,6,NULL,10
+140433330036,"Modular para TV 75'' con luces LED",28999.00,20300.00,2,NULL,11
+140433330037,"Cuadro abstracto 90x120cm marco negro",7999.00,5600.00,8,NULL,12
+140433330038,"Estantería modular de cubos",6999.00,4900.00,5,NULL,13
+140433330039,"Casa para perro tejida waterproof",5999.00,4200.00,9,NULL,14
+140433330040,"Perchero recibidor 6 ganchos",3999.00,2800.00,10,NULL,15
+140433330041,"Mueble flotante para baño 80cm",11999.00,8400.00,3,NULL,16
+140433330042,"Escritorio gamer con soporte RGB",24999.00,17500.00,2,NULL,17
+140433330043,"Barra de bar industrial metal/madera",18999.00,13300.00,1,NULL,18
+140433330044,"Vitrina display vintage cristal biselado",34999.00,24500.00,1,NULL,19
+140433330045,"Paquete recámara completa (cama+burós)",49999.00,35000.00,0,NULL,20
