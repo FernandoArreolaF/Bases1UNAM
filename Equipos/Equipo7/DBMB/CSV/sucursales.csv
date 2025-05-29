@@ -1,0 +1,17 @@
+nom_sucursal,estado,codigo_postal,colonia,calle,numero,tel_sucursal,año_fundacion
+"Casa Tzalam Centro Histórico","Ciudad de México","06000","Centro","Av. Juárez","45","5551001234",1987
+"Casa Tzalam Satélite","Estado de México","53100","Naucalpan","Av. Lomas Verdes","1200","5512345001",1995
+"Casa Tzalam Coyoacán","Ciudad de México","04800","Del Carmen","Av. Miguel Ángel de Quevedo","87","5552003456",2001
+"Casa Tzalam Guadalajara","Jalisco","44100","Ladrón de Guevara","Av. Vallarta","2500","3334567002",1998
+"Casa Tzalam Angelópolis","Puebla","72190","Reserva Territorial Atlixcáyotl","Av. Oasis","2301","2223456012",2008
+"Casa Tzalam Veracruz","Veracruz","91900","Boca del Río","Blvd. Manuel Ávila Camacho","402","2291234098",2012
+"Casa Tzalam San Pedro","Nuevo León","66220","San Pedro Garza García","Av. Vasconcelos","150","8189876123",2003
+"Casa Tzalam Querétaro","Querétaro","76100","Juriquilla","Blvd. Bernardo Quintana","3880","4424561122",2010
+"Casa Tzalam León","Guanajuato","37128","León","Blvd. Aeropuerto","2104","4777894455",2006
+"Casa Tzalam Santa Fe","Ciudad de México","05348","Santa Fe","Av. Vasco de Quiroga","3800","5557891008",2015
+"Casa Tzalam Mérida","Yucatán","97000","Centro","Calle 60","485","9992345678",2011
+"Casa Tzalam Cancún","Quintana Roo","77500","Zona Hotelera","Blvd. Kukulcán Km 12.5","S/N","9983456789",2016
+"Casa Tzalam Monterrey Centro","Nuevo León","64000","Centro","Av. Pino Suárez","550","8182345678",2000
+"Casa Tzalam Tijuana","Baja California","22000","Zona Río","Blvd. Agua Caliente","1233","6644567890",2009
+"Casa Tzalam San Luis Potosí","San Luis Potosí","78250","Tangamanga","Av. Salvador Nava","3125","4445678901",2007
+"Casa Tzalam Aguascalientes","Aguascalientes","20200","Jardines de la Concepción","Av. José María Chávez","2101","4496789012",2014
