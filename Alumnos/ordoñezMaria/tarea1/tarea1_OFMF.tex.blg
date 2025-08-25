@@ -1,0 +1,5 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[1] Config.pm:311> INFO - Logfile is 'tarea1_OFMF.tex.blg'
+[139] biber:340> INFO - === Fri Aug 15, 2025, 15:31:55
+[316] Utils.pm:410> ERROR - Cannot find 'tarea1_OFMF.tex.bcf'!
+[316] Biber.pm:136> INFO - ERRORS: 1
