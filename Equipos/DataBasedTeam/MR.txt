@@ -1,0 +1,60 @@
+PROOVEDOR: {
+	idProovedor	int		PK,
+	primNombre	varchar(50),
+	segNombre	varchar(50),
+	apPat		varchar(50),
+	apMat		varchar(50)	N,
+	estado		varchar(50),
+	colonia		varchar(50),
+	calle		varchar(50),
+	numero	int,
+	cp		int,
+	razonSocial	varchar(250) }
+
+TELEFONO_PROOVEDOR: {
+	(idProovedor	int		FK,
+	telefono	int		FK) PK }
+
+PRODUCTO: {
+	codigoBarras	varchar(50)	PK,
+	categoria	varchar(50),
+	descripcion	varchar(150),
+	marca		varchar(50),
+	foto		varchar(255),
+	stock		int,
+	fechaCompra	date,
+	precioCompra	float,
+	precioVenta	float}
+
+PROVEE_PRODUCTO: {
+	(idProovedor	int		FK,
+	codigoBarras	varchar(50)	FK) PK }
+
+
+VENTA: {
+	numVenta	int		PK,
+	rfc		varchar(13)	FK,
+	fechaVenta	date,
+	totalPago	float }
+
+CONTIENE_PRODUCTO: {
+	(codigoBarras	varchar(50)	FK,
+	numVenta	int		FK) PK,
+	cantidad	int,
+	importe	float }
+
+CLIENTE: {
+	rfc		varchar(13)	PK,
+	primNombre	varchar(50),
+	segNombre	varchar(50),
+	apPat		varchar(50),
+	apMat		varchar(50)	N,
+	estado		varchar(50),
+	colonia		varchar(50),
+	calle		varchar(50),
+	numero	int,
+	cp		int, }
+
+EMAIL_CLIENTE: {
+	(rfc		varchar(13)	FK,
+	email		varchar(50)	FK) PK }
