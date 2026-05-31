@@ -134,7 +134,7 @@ begin
     into total_ventas, monto_total
     from orden
     where fecha_orden >= p_fecha 
-      and fecha_orden < p_fecha + 1;  -- ← punto y coma agregado
+      and fecha_orden < p_fecha + 1; 
 end;
 $$ language plpgsql;
 
