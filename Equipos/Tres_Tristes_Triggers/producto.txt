@@ -1,0 +1,14 @@
+producto_id|nombre|descripcion|precio|disponibilidad|receta|categoria_id|tipo
+1|Tacos de pastor|Tacos con carne de cerdo al pastor pina cilantro y cebolla|85.00|Y|Marinar cerdo con achiote 24h cocinar en trompo servir en tortilla con pina y cebolla|1|platillo
+2|Enchiladas verdes|Tres enchiladas con pollo deshebrado y salsa verde|95.00|N|Freir tortillas rellenar con pollo cubrir con salsa verde crema y queso|1|platillo
+3|Pozole rojo|Caldo de maiz cacahuazintle con cerdo y chile guajillo|120.00|Y|Cocer maiz cacahuazintle agregar caldo de cerdo con chile guajillo tostado|1|platillo
+4|Quesadillas de flor de calabaza|Quesadillas con flor de calabaza y queso Oaxaca|70.00|Y|Tortilla de maiz azul flor de calabaza salteada con epazote queso Oaxaca derretido|3|platillo
+5|Tostadas de tinga|Tostadas crujientes con tinga de pollo crema y queso|65.00|Y|Deshebraer pollo sofreir con jitomate y chipotle montar sobre tostada con lechuga|3|platillo
+6|Agua de jamaica|Agua fresca de flor de jamaica con hielo|25.00|Y|Hervir flor de jamaica 10 min colar endulzar al gusto servir con hielo|2|bebida
+7|Horchata|Agua fresca de arroz con canela y vainilla|25.00|Y|Remojar arroz con canela 4h licuar con leche evaporada y vainilla colar|2|bebida
+8|Limonada mineral|Limonada con agua mineral y hierbabuena|30.00|Y|Exprimir limones mezclar con agua mineral agregar hierbabuena y servir con hielo|2|bebida
+9|Tepache|Bebida fermentada artesanal de pina con piloncillo y canela|35.00|Y|Fermentar cascara de pina con piloncillo y canela 48h colar y servir frio|2|bebida
+10|Caldo de res|Caldo tradicional de res con verduras|90.00|Y|Cocer res con zanahoria apio y papa servir caliente|4|platillo
+11|Sopa de lima|Sopa yucateca con pollo y lima|85.00|Y|Caldo de pollo con jugo de lima tortilla frita y cilantro|4|platillo
+12|Flan napolitano|Flan cremoso con cajeta y nuez|55.00|Y|Mezclar huevo leche condensada y vainilla hornear en bano maria|5|platillo
+13|Agua de tamarindo|Agua fresca de tamarindo con azucar|25.00|Y|Disolver pulpa de tamarindo en agua endulzar al gusto servir frio|2|bebida
