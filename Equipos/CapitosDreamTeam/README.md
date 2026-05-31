@@ -12,6 +12,5 @@ Equipo para proyecto final
 - Alvarez Salgado Eduardo Antonio
 - Lara Hernández Emmanuel
 - Merida Serralde Francisco Jared
-- Pacheco Pacheco Hannia Ivonne
 - Ponce de León Reyes Bruno
 - Zepeda Aparicio Diego Arturo
