@@ -1,0 +1,210 @@
+INSERT INTO CATEGORIA (nombre_categoria, descripcion_categoria) VALUES
+('Entradas', 'Platillos para compartir antes del plato fuerte'),
+('Sopas', 'Cremas y caldos'),
+('Ensaladas', 'Ensaladas frescas'),
+('Carnes Rojas', 'Cortes de res y cerdo'),
+('Aves', 'Pollo y otras aves'),
+('Pescados y Mariscos', 'Pescados y mariscos frescos'),
+('Pastas', 'Pastas italianas'),
+('Pizzas', 'Pizzas artesanales'),
+('Postres', 'Postres caseros'),
+('Bebidas Calientes', 'Café, té, chocolate'),
+('Bebidas Frías', 'Refrescos, aguas, jugos'),
+('Cervezas', 'Cerveza artesanal e importada'),
+('Vinos', 'Vinos tinto, blanco y espumoso'),
+('Cócteles', 'Coctelería de autor'),
+('Tacos', 'Tacos mexicanos'),
+('Hamburguesas', 'Hamburguesas gourmet'),
+('Desayunos', 'Desayunos y brunch'),
+('Comida Asiática', 'Sushi, ramen, etc.'),
+('Fondue', 'Fondue de queso o chocolate'),
+('Especialidades', 'Platillos únicos de la casa');
+
+INSERT INTO PRODUCTO (nombre_producto, precio_producto, stock_producto, disponibilidad_producto, receta_producto, id_categoria) VALUES
+('Guacamole con totopos', 85.00, 50, TRUE, 'Aguacate, cebolla, cilantro, limón, chile', 1),
+('Sopa de tortilla', 70.00, 40, TRUE, 'Caldo de jitomate, tortilla frita, queso, aguacate', 2),
+('Ensalada César', 95.00, 35, TRUE, 'Lechuga romana, pollo, crutones, aderezo César', 3),
+('Ribeye a la parrilla', 350.00, 20, TRUE, 'Ribeye, sal de mar, acompañado de papas', 4),
+('Pechuga a la plancha', 180.00, 25, TRUE, 'Pechuga de pollo, especias, verduras asadas', 5),
+('Filete de pescado frito', 220.00, 15, TRUE, 'Filete de pescado, ajo, limón, arroz', 6),
+('Spaghetti boloñesa', 130.00, 30, TRUE, 'Pasta, carne molida, salsa de tomate, queso', 7),
+('Pizza margarita', 160.00, 20, TRUE, 'Masa, salsa de tomate, queso mozzarella, albahaca', 8),
+('Pastel de chocolate', 75.00, 20, TRUE, 'Pan de chocolate, betún de chocolate', 9),
+('Café americano', 35.00, 100, TRUE, 'Café filtrado', 10),
+('Limonada natural', 45.00, 80, TRUE, 'Limón, agua, azúcar', 11),
+('Cerveza IPA', 65.00, 60, TRUE, 'Cerveza artesanal IPA', 12),
+('Vino tinto Merlot', 280.00, 30, TRUE, 'Vino tinto chileno', 13),
+('Margarita clásica', 120.00, 40, TRUE, 'Tequila, triple sec, limón, hielo', 14),
+('Tacos al pastor (3 pzas)', 90.00, 50, TRUE, 'Pastor, piña, cebolla, cilantro, tortilla', 15),
+('Hamburguesa clásica', 140.00, 30, TRUE, 'Pan, carne de res, lechuga, tomate, queso', 16),
+('Huevos divorciados', 110.00, 20, TRUE, 'Huevos, frijoles, salsa roja y verde', 17),
+('Ramen de cerdo', 185.00, 15, TRUE, 'Caldo tonkotsu, cerdo, fideos, huevo', 18),
+('Fondue de queso', 250.00, 10, TRUE, 'Queso gruyere, emmental, vino blanco', 19),
+('Chiles en nogada', 210.00, 12, TRUE, 'Chile poblano, picadillo, nogada, granada', 20);
+
+
+INSERT INTO CLIENTE (rfc_cliente, nombre_cliente, apellido_paterno_cliente, apellido_materno_cliente, razon_social, fecha_nacimiento, email, estado_cliente, codigo_postal_cliente, colonia_cliente, calle_cliente, numero_dom_cliente) VALUES
+('GOMJ920315HDF', 'Juan', 'Gómez', 'Martínez', 'Juan Gómez Martínez', '1992-03-15', 'juan.gomez@email.com', 'CDMX', '06100', 'Cuauhtémoc', 'Río Lerma', 45),
+('LOPA881212MDF', 'Ana', 'López', 'Pérez', 'Ana López Pérez', '1988-12-12', 'ana.lopez@email.com', 'CDMX', '06700', 'Roma', 'Insurgentes', 230),
+('RODG950623HDF', 'Carlos', 'Rodríguez', 'García', 'Carlos Rodríguez García', '1995-06-23', 'carlos.rod@email.com', 'CDMX', '03020', 'Del Valle', 'Filadelfia', 12),
+('FERL900101HDF', 'Laura', 'Fernández', 'Luna', 'Laura Fernández Luna', '1990-01-01', 'laura.fl@email.com', 'CDMX', '01000', 'Centro', 'Madero', 8),
+('MART780405HDF', 'Luis', 'Martínez', 'Ruiz', 'Luis Martínez Ruiz', '1978-04-05', 'luis.martinez@email.com', 'CDMX', '07700', 'Lindavista', 'Montevideo', 321),
+('HERN881212HDF', 'Martha', 'Hernández', 'Díaz', 'Martha Hernández Díaz', '1988-12-12', 'martha.hdz@email.com', 'CDMX', '06700', 'Roma', 'Coahuila', 56),
+('GARC950101HDF', 'Roberto', 'García', 'Jiménez', 'Roberto García Jiménez', '1995-01-01', 'roberto.garcia@email.com', 'CDMX', '03810', 'Nápoles', 'Nevado de Toluca', 89),
+('PERE921212HDF', 'Isabel', 'Pérez', 'Cruz', 'Isabel Pérez Cruz', '1992-12-12', 'isabel.perez@email.com', 'CDMX', '04700', 'Mixcoac', 'Río Mixcoac', 120),
+('SANC850505HDF', 'Fernando', 'Sánchez', 'Ramos', 'Fernando Sánchez Ramos', '1985-05-05', 'fernando.sanchez@email.com', 'CDMX', '08000', 'Iztapalapa', 'Ermita', 77),
+('RAMO930303HDF', 'Patricia', 'Ramírez', 'Ortiz', 'Patricia Ramírez Ortiz', '1993-03-03', 'paty.ramirez@email.com', 'CDMX', '08300', 'Portales', 'División del Norte', 321),
+('TORR950707HDF', 'Héctor', 'Torres', 'Vega', 'Héctor Torres Vega', '1995-07-07', 'hector.torres@email.com', 'CDMX', '03100', 'Del Valle', 'Universidad', 45),
+('FLOR880808HDF', 'Gabriela', 'Flores', 'Mendoza', 'Gabriela Flores Mendoza', '1988-08-08', 'gaby.flores@email.com', 'CDMX', '06000', 'Centro', '5 de Mayo', 67),
+('MEND910101HDF', 'Ricardo', 'Mendoza', 'Silva', 'Ricardo Mendoza Silva', '1991-01-01', 'ricardo.mendoza@email.com', 'CDMX', '06400', 'San Rafael', 'Río Pánuco', 89),
+('CRUZ940404HDF', 'Verónica', 'Cruz', 'Ríos', 'Verónica Cruz Ríos', '1994-04-04', 'veronica.cruz@email.com', 'CDMX', '07100', 'Tlalnepantla', 'Av. Central', 123),
+('AGUI960606HDF', 'Jorge', 'Aguilar', 'Núñez', 'Jorge Aguilar Núñez', '1996-06-06', 'jorge.aguilar@email.com', 'CDMX', '03000', 'Del Valle', 'Coyoacán', 456),
+('NAVA880101HDF', 'Cecilia', 'Navarro', 'Reyna', 'Cecilia Navarro Reyna', '1988-01-01', 'ceci.navarro@email.com', 'CDMX', '07700', 'Lindavista', 'Monte Albán', 78),
+('ROJA970707HDF', 'Adrián', 'Rojas', 'Alvarado', 'Adrián Rojas Alvarado', '1997-07-07', 'adrian.rojas@email.com', 'CDMX', '08400', 'Iztacalco', 'Av. 8', 90),
+('REYE930303HDF', 'Daniela', 'Reyes', 'Serrano', 'Daniela Reyes Serrano', '1993-03-03', 'daniela.reyes@email.com', 'CDMX', '06800', 'Obrera', 'Fray Servando', 12),
+('VAZQ890909HDF', 'Mario', 'Vázquez', 'Palacios', 'Mario Vázquez Palacios', '1989-09-09', 'mario.vazquez@email.com', 'CDMX', '06100', 'Escandón', 'Gral. Lázaro Cárdenas', 345),
+('GONZ920202HDF', 'Luisa', 'González', 'Flores', 'Luisa González Flores', '1992-02-02', 'luisa.gonzalez@email.com', 'CDMX', '07500', 'Coacalco', 'Hank González', 23);
+
+
+INSERT INTO EMPLEADO (rfc_empleado, nombre_empleado, apellido_paterno_empleado, apellido_materno_empleado, edad_empleado, fecha_nacimiento_empleado, sueldo, codigo_postal_empleado, colonia, calle, numero_domicilio, foto_empleado, es_mesero, es_administrativo, es_cocinero) VALUES
+('MESJ90010101', 'Juan', 'García', 'Pérez', 35, '1990-01-01', 12000.00, '06100', 'Cuauhtémoc', 'Río Lerma', 45, E'\\x', TRUE, FALSE, FALSE),
+('MESA85050502', 'Ana', 'Martínez', 'López', 40, '1985-05-05', 12500.00, '06700', 'Roma', 'Insurgentes', 230, E'\\x', TRUE, FALSE, FALSE),
+('MESB92030303', 'Carlos', 'Rodríguez', 'García', 33, '1992-03-03', 11800.00, '03020', 'Del Valle', 'Filadelfia', 12, E'\\x', TRUE, FALSE, FALSE),
+('COCJ88080804', 'Luis', 'Hernández', 'Martínez', 37, '1988-08-08', 25000.00, '07700', 'Lindavista', 'Montevideo', 321, E'\\x', FALSE, FALSE, TRUE),
+('COCM95060605', 'Martha', 'López', 'Hernández', 30, '1995-06-06', 24000.00, '04700', 'Mixcoac', 'Río Mixcoac', 120, E'\\x', FALSE, FALSE, TRUE),
+('COCR91010106', 'Roberto', 'Ramírez', 'Ramírez', 34, '1991-01-01', 30000.00, '07100', 'Tlalnepantla', 'Av. Central', 123, E'\\x', FALSE, FALSE, TRUE),
+('ADMJ77070707', 'Fernando', 'Sánchez', 'Sánchez', 48, '1977-07-07', 35000.00, '06000', 'Centro', 'Madero', 8, E'\\x', FALSE, TRUE, FALSE),
+('ADMF82020208', 'Gabriela', 'Flores', 'Flores', 43, '1982-02-02', 40000.00, '03000', 'Del Valle', 'Coyoacán', 456, E'\\x', FALSE, TRUE, FALSE),
+('ADMZ89090909', 'Jorge', 'Aguilar', 'Aguilar', 36, '1989-09-09', 32000.00, '07500', 'Coacalco', 'Hank González', 23, E'\\x', FALSE, TRUE, FALSE),
+('MESL91111110', 'Laura', 'Fernández', 'Fernández', 34, '1991-11-11', 12200.00, '01000', 'Centro', '5 de Mayo', 67, E'\\x', TRUE, FALSE, FALSE),
+('MESP93030311', 'Pedro', 'Rojas', 'Rojas', 32, '1993-03-03', 11900.00, '06400', 'San Rafael', 'Río Pánuco', 89, E'\\x', TRUE, FALSE, FALSE),
+('COCP96060612', 'Patricia', 'Cruz', 'Cruz', 29, '1996-06-06', 26000.00, '08300', 'Portales', 'División del Norte', 321, E'\\x', FALSE, FALSE, TRUE),
+('COCG94040413', 'Ricardo', 'Torres', 'Torres', 31, '1994-04-04', 27000.00, '08400', 'Iztacalco', 'Av. 8', 90, E'\\x', FALSE, FALSE, TRUE),
+('ADMK95050514', 'Mónica', 'Navarro', 'Navarro', 30, '1995-05-05', 34000.00, '06800', 'Obrera', 'Fray Servando', 12, E'\\x', FALSE, TRUE, FALSE),
+('MESD97070715', 'David', 'Reyes', 'Reyes', 28, '1997-07-07', 13000.00, '06100', 'Escandón', 'Gral. Lázaro Cárdenas', 345, E'\\x', TRUE, FALSE, FALSE),
+('MESE98121216', 'Elena', 'González', 'González', 27, '1998-12-12', 11500.00, '07500', 'Coacalco', 'Vía López Portillo', 101, E'\\x', TRUE, FALSE, FALSE),
+('COCA99010117', 'Alberto', 'Vázquez', 'Vázquez', 26, '1999-01-01', 28000.00, '03020', 'Del Valle', 'Filadelfia', 15, E'\\x', FALSE, FALSE, TRUE),
+('ADMA00020218', 'Andrea', 'Mendoza', 'Mendoza', 25, '2000-02-02', 31000.00, '01000', 'Centro', 'Madero', 10, E'\\x', FALSE, TRUE, FALSE),
+('MESF01030319', 'Fernanda', 'Silva', 'Silva', 24, '2001-03-03', 11000.00, '06700', 'Roma', 'Insurgentes', 231, E'\\x', TRUE, FALSE, FALSE),
+('COCH02040420', 'Hugo', 'Alvarado', 'Alvarado', 23, '2002-04-04', 23000.00, '07700', 'Lindavista', 'Monte Albán', 78, E'\\x', FALSE, FALSE, TRUE);
+
+
+INSERT INTO MESERO (num_empleado, hora_entrada, hora_salida) VALUES
+(1, '08:00:00', '16:00:00'),
+(2, '10:00:00', '18:00:00'),
+(3, '12:00:00', '20:00:00'),
+(10, '09:00:00', '17:00:00'),
+(11, '14:00:00', '22:00:00'),
+(15, '08:00:00', '16:00:00'),
+(16, '15:00:00', '23:00:00'),
+(19, '11:00:00', '19:00:00');
+
+INSERT INTO ADMINISTRATIVO (num_empleado, rol) VALUES
+(7, 'Administrador general'),
+(8, 'Gerente'),
+(9, 'Contador'),
+(14, 'Recursos Humanos'),
+(18, 'Soporte TI');
+
+INSERT INTO COCINERO (num_empleado, especialidad) VALUES
+(4, 'Carnes rojas'),
+(5, 'Pescados y mariscos'),
+(6, 'Chef ejecutivo'),
+(12, 'Repostería'),
+(13, 'Parrilla'),
+(17, 'Comida asiática'),
+(20, 'Cocina tradicional');
+
+
+INSERT INTO TELEFONO_EMPLEADO (num_empleado, telefono_empleado) VALUES
+(1, '5512345678'),
+(1, '5523456789'),
+(2, '5534567890'),
+(3, '5545678901'),
+(4, '5556789012'),
+(5, '5567890123'),
+(6, '5578901234'),
+(7, '5589012345'),
+(8, '5590123456'),
+(9, '5501234567'),
+(10, '5512345679'),
+(11, '5523456780'),
+(12, '5534567891'),
+(13, '5545678902'),
+(14, '5556789013'),
+(15, '5567890124'),
+(16, '5578901235'),
+(17, '5589012346'),
+(18, '5590123457'),
+(19, '5501234568');
+
+
+INSERT INTO DEPENDIENTE (curp_dependiente, num_empleado, nombre_dependiente, apellido_paterno_dependiente, apellido_materno_dependiente, parentesco) VALUES
+('MESJ900101HDFD1', 1, 'Sofía', 'Mesero', 'Pérez', 'Hija'),
+('MESJ900101HDFD2', 1, 'Luis', 'Mesero', 'Pérez', 'Hijo'),
+('MESA850505HDFD1', 2, 'Carlos', 'Mesera', 'López', 'Hijo'),
+('COCJ880808HDFD1', 4, 'Ana', 'Cocinero', 'Martínez', 'Hija'),
+('COCM950606HDFD1', 5, 'Miguel', 'Cocinera', 'Hernández', 'Hijo'),
+('ADMJ770707HDFD1', 7, 'Paula', 'Adm', 'Sánchez', 'Hija'),
+('ADMF820202HDFD1', 8, 'Andrés', 'Gerente', 'Flores', 'Hijo'),
+('MESL911111HDFD1', 10, 'Lucía', 'Mesera', 'Fernández', 'Hija'),
+('COCP960606HDFD1', 12, 'Mateo', 'Pastelera', 'Cruz', 'Hijo'),
+('ADMK950505HDFD1', 14, 'Valentina', 'RH', 'Navarro', 'Hija'),
+('MESD970707HDFD1', 15, 'Santiago', 'Capitán', 'Reyes', 'Hijo'),
+('COCA990101HDFD1', 17, 'Emilia', 'Sushiman', 'Vázquez', 'Hija'),
+('ADMA000202HDFD1', 18, 'Julián', 'Sistemas', 'Mendoza', 'Hijo'),
+('MESF010303HDFD1', 19, 'Camila', 'Hostess', 'Silva', 'Hija'),
+('COCH020404HDFD1', 20, 'Nicolás', 'Cocinero', 'Alvarado', 'Hijo'),
+('MESP930303HDFD1', 11, 'Renata', 'Mesero', 'Rojas', 'Hija'),
+('COCG940404HDFD1', 13, 'Daniel', 'Parrillero', 'Torres', 'Hijo'),
+('ADMZ890909HDFD1', 9, 'Alejandra', 'Contador', 'Aguilar', 'Hija'),
+('MESE981212HDFD1', 16, 'Diego', 'Mesera', 'González', 'Hijo'),
+('COCR910101HDFD1', 6, 'Mariana', 'Chef', 'Ramírez', 'Hija');
+
+
+INSERT INTO ORDEN (fecha_orden, total_pago, id_cliente, num_empleado_mesero) VALUES
+(CURRENT_TIMESTAMP, 0, 1, 1),
+(CURRENT_TIMESTAMP, 0, 2, 1),
+(CURRENT_TIMESTAMP, 0, 3, 2),
+(CURRENT_TIMESTAMP, 0, 4, 2),
+(CURRENT_TIMESTAMP, 0, 5, 3),
+(CURRENT_TIMESTAMP, 0, 6, 3),
+(CURRENT_TIMESTAMP, 0, 7, 10),
+(CURRENT_TIMESTAMP, 0, 8, 10),
+(CURRENT_TIMESTAMP, 0, 9, 11),
+(CURRENT_TIMESTAMP, 0, 10, 11),
+(CURRENT_TIMESTAMP, 0, 11, 15),
+(CURRENT_TIMESTAMP, 0, 12, 15),
+(CURRENT_TIMESTAMP, 0, 13, 16),
+(CURRENT_TIMESTAMP, 0, 14, 16),
+(CURRENT_TIMESTAMP, 0, 15, 19),
+(CURRENT_TIMESTAMP, 0, 16, 19),
+(CURRENT_TIMESTAMP, 0, 17, 1),
+(CURRENT_TIMESTAMP, 0, 18, 2),
+(CURRENT_TIMESTAMP, 0, 19, 3),
+(CURRENT_TIMESTAMP, 0, 20, 10);
+
+
+INSERT INTO ORDEN_POR_PRODUCTO (folio_orden, id_producto, cantidad_producto, total_producto) VALUES
+('ORD-001', 1, 2, 0),
+('ORD-001', 4, 1, 0),
+('ORD-002', 5, 2, 0),
+('ORD-003', 6, 1, 0),
+('ORD-003', 7, 3, 0),
+('ORD-004', 8, 2, 0),
+('ORD-005', 9, 1, 0),
+('ORD-006', 10, 2, 0),
+('ORD-007', 11, 3, 0),
+('ORD-008', 12, 1, 0),
+('ORD-009', 13, 1, 0),
+('ORD-010', 14, 2, 0),
+('ORD-011', 15, 4, 0),
+('ORD-012', 16, 1, 0),
+('ORD-013', 17, 2, 0),
+('ORD-014', 18, 1, 0),
+('ORD-015', 19, 1, 0),
+('ORD-016', 20, 2, 0),
+('ORD-017', 1, 1, 0),
+('ORD-018', 5, 1, 0);
+
+
