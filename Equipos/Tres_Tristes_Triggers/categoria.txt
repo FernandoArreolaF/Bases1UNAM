@@ -1,0 +1,6 @@
+categoria_id|nombre|descripcion
+1|Comida mexicana|Platillos tradicionales de la cocina mexicana
+2|Bebidas frias|Aguas frescas y bebidas sin alcohol
+3|Antojitos|Botanas y entradas tipicas mexicanas
+4|Sopas y caldos|Caldos y sopas tradicionales mexicanas
+5|Postres|Dulces y postres artesanales mexicanos
