@@ -1,9 +1,9 @@
 /* 
-    Inserción de datos de prueba (10 registros aproximados por tabla)
-    Fecha: 28/05/2026
+Inserción de datos de prueba 
+ Fecha: 28/05/2026
 */
 
--- Tabla Empleado
+--Tabla Empleado
 INSERT INTO EMPLEADO (numero_empleado, rfc_emp, nombre_emp, apellido_paterno_emp, apellido_materno_emp, fecha_nacimiento_emp, edad, sueldo, foto, estado_emp, codigo_postal_emp, colonia_emp, calle_emp, numero_emp, es_cocinero, es_administrativo, es_mesero) VALUES
 (1000000001, 'PAAF050802XYZ', 'Fernando', 'Palacio', 'Amandi', '2005-08-02', 20, 19000.00, 'fer_palacio.png', 'CDMX', 04360, 'Pedregal de Sto Domingo', 'Copilco', '123', true, false, false),
 (1000000002, 'VARE880410HJK', 'Eduardo', 'Vargas', 'Ríos', '1988-04-10', 38, 17500.00, 'eduardo_v.png', 'CDMX', 04510, 'Copilco Universidad', 'Cerro del Agua', '102', true, false, false),
@@ -21,33 +21,37 @@ INSERT INTO EMPLEADO (numero_empleado, rfc_emp, nombre_emp, apellido_paterno_emp
 (1000000014, 'MEJD870108MN9', 'Daniela', 'Mejía', 'Díaz', '1987-01-08', 39, 25000.00, 'daniela_m.png', 'CDMX', 01000, 'San Ángel', 'Avenida Paz', '5', false, true, false),
 (1000000015, 'CHIR910830KL4', 'Roberto', 'Chávez', 'Islas', '1991-08-30', 34, 16500.00, 'roberto_c.png', 'CDMX', 04000, 'Coyoacán Centro', 'Malintzin', '112', true, false, false),
 (1000000016, 'FUEM960214TR0', 'Mauricio', 'Fuentes', 'Mora', '1996-02-14', 30, 10500.00, 'mauri_f.png', 'CDMX', 03100, 'Del Valle', 'Amores', '915', false, false, true),
-(1000000017, 'NAVY891005AB1', 'Yolanda', 'Navarro', 'Vega', '1989-10-05', 36, 19000.00, 'yola_n.png', 'CDMX', 06000, 'Centro Histórico', '5 de Mayo', '40', false, true, false);
+(1000000017, 'NAVY891005AB1', 'Yolanda', 'Navarro', 'Vega', '1989-10-05', 36, 19000.00, 'yola_n.png', 'CDMX', 06000, 'Centro Histórico', '5 de Mayo', '40', false, true, false),
+(1000000018, 'AISE030415HDF', 'Elias', 'Avila', 'Sanchez', '2003-04-15', 23, 11000.00, 'elias_a.png', 'CDMX', 04360, 'Pedregal de Sto Domingo', 'Avenida Aztecas', '450', false, false, true),
+(1000000019, 'EIGS951120MDF', 'Sara Sofía', 'Espinosa', 'González', '1995-11-20', 30, 22000.00, 'sara_e.png', 'CDMX', 04510, 'Copilco Universidad', 'Filosofía', '88', false, true, false);
 
--- Tabla Empleado_Telefono
+--Tabla Empleado_Telefono
 INSERT INTO EMPLEADO_TELEFONO (id_telefono, telefono, numero_empleado) VALUES
 ('TEL-01', '5512345678', 1000000001),
 ('TEL-02', '5598765432', 1000000002),
 ('TEL-03', '5545678901', 1000000003),
 ('TEL-04', '5532109876', 1000000004),
-('TEL-18', '5511223344', 1000000004), 
 ('TEL-05', '5576543210', 1000000005),
 ('TEL-06', '5589012345', 1000000006),
 ('TEL-07', '5565432109', 1000000007),
 ('TEL-08', '5523456789', 1000000008),
-('TEL-19', '5555667788', 1000000008),
-('TEL-20', '5599887766', 1000000008),
 ('TEL-09', '5501234567', 1000000009),
 ('TEL-10', '5578901234', 1000000010),
 ('TEL-11', '5534567890', 1000000011),
 ('TEL-12', '5545678901', 1000000012),
-('TEL-21', '5544332211', 1000000012),
 ('TEL-13', '5556789012', 1000000013),
 ('TEL-14', '5567890123', 1000000014),
 ('TEL-15', '5578901234', 1000000015),
 ('TEL-16', '5589012345', 1000000016),
-('TEL-17', '5590123456', 1000000017);
+('TEL-17', '5590123456', 1000000017),
+('TEL-18', '5511223344', 1000000004), 
+('TEL-19', '5555667788', 1000000008),
+('TEL-20', '5599887766', 1000000008),
+('TEL-21', '5544332211', 1000000006),
+('TEL-22', '5511223399', 1000000018),
+('TEL-23', '5599887711', 1000000019);
 
--- Tabla Dependiente
+--Tabla Dependiente
 INSERT INTO DEPENDIENTE (curp, numero_empleado, nombre_dep, apellido_paterno_dep, apellido_materno_dep) VALUES
 ('PAAF750418HDFLLL', 1000000001, 'Alberto', 'Palacio', 'Gómez'),
 ('VARM150210HDFRR', 1000000002, 'Mateo', 'Vargas', 'Marín'),
@@ -62,7 +66,7 @@ INSERT INTO DEPENDIENTE (curp, numero_empleado, nombre_dep, apellido_paterno_dep
 ('SAMP210515HDFLLA', 1000000011, 'Kevin', 'Samperio', 'Lara'),
 ('CHIA191201MDFBBR', 1000000015, 'Alicia', 'Chávez', 'Bustos');
 
--- Tabla Cocinero
+--Tabla Cocinero
 INSERT INTO COCINERO (numero_empleado, especialidad) VALUES
 (1000000001, 'Gastronomía Japonesa'),
 (1000000002, 'Sushis y Teppanyaki'),
@@ -70,7 +74,7 @@ INSERT INTO COCINERO (numero_empleado, especialidad) VALUES
 (1000000011, 'Tempura y Frituras'),
 (1000000015, 'Cortes y Teppanyaki');
 
--- Tabla Mesero
+--Tabla Mesero
 INSERT INTO MESERO (numero_empleado, turno) VALUES
 (1000000004, 'Matutino'),
 (1000000005, 'Vespertino'),
@@ -78,7 +82,8 @@ INSERT INTO MESERO (numero_empleado, turno) VALUES
 (1000000007, 'Vespertino'),
 (1000000012, 'Vespertino'),
 (1000000013, 'Nocturno'),
-(1000000016, 'Nocturno');
+(1000000016, 'Nocturno'),
+(1000000018, 'Matutino');
 
 --Tabla Administrativo
 INSERT INTO ADMINISTRATIVO (numero_empleado, rol) VALUES
@@ -86,15 +91,16 @@ INSERT INTO ADMINISTRATIVO (numero_empleado, rol) VALUES
 (1000000009, 'Contador General'),
 (1000000010, 'Supervisor de Operaciones'),
 (1000000014, 'Recursos Humanos'),
-(1000000017, 'Auditor Interno');
+(1000000017, 'Auditor Interno'),
+(1000000019, 'Subgerente');
 
--- Tabla Categoria
+--Tabla Categoria
 INSERT INTO CATEGORIA (id_categoria, nombre_categoria, descripcion_categoria) VALUES
 ('CAT-01', 'Bebidas', 'Bebidas tradicionales japonesas'),
 ('CAT-02', 'Platillos Fuertes', 'Especialidades culinarias y platos fuertes'),
 ('CAT-03', 'Postres', 'Dulces, repostería y postres tradicionales');
 
--- Tabla Producto
+--Tabla Producto
 INSERT INTO PRODUCTO (id_producto, nombre_producto, disponibilidad, precio, receta, descripcion_producto, id_categoria) VALUES
 ('PROD-01', 'Té Verde Matcha', 'S', 45.00, 'Matcha ceremonial, agua caliente', 'Delicioso té verde japonés', 'CAT-01'),
 ('PROD-02', 'Ramen de Shoyu', 'S', 140.00, 'Caldo de pollo, fideos, cerdo chashu, huevo', 'Sopa de fideos tradicional', 'CAT-02'),
@@ -105,9 +111,15 @@ INSERT INTO PRODUCTO (id_producto, nombre_producto, disponibilidad, precio, rece
 ('PROD-07', 'Takoyaki', 'S', 85.00, 'Harina, pulpo, jengibre marinado, salsa takoyaki', 'Bolitas de masa rellenas de pulpo', 'CAT-02'),
 ('PROD-08', 'Dorayaki', 'S', 50.00, 'Panqueque tierno relleno de anko (alubia dulce)', 'Postre favorito de Doraemon', 'CAT-03'),
 ('PROD-09', 'Yakitori de Pollo', 'S', 75.00, 'Brochetas de pollo, salsa tare, cebollín', 'Brochetas a la parrilla (3 piezas)', 'CAT-02'),
-('PROD-10', 'Helado de Matcha', 'S', 48.00, 'Base de helado artesanal, matcha premium', 'Helado cremoso de té verde', 'CAT-03');
+('PROD-10', 'Helado de Matcha', 'S', 48.00, 'Base de helado artesanal, matcha premium', 'Helado cremoso de té verde', 'CAT-03'),
+('PROD-11', 'Yakimeshi Especial', 'N', 110.00, 'Arroz frito, verduras, carne de res, camarón', 'Arroz frito estilo japonés (Temporalmente agotado)', 'CAT-02'),
+('PROD-12', 'Ramune de Fresa', 'N', 65.00, 'Bebida carbonatada japonesa sabor fresa', 'Refresco tradicional con canica (Agotado por importación)', 'CAT-01'),
+('PROD-13', 'Gyoza de Cerdo', 'N', 90.00, 'Pasta delgada, cerdo molido, col, jengibre', 'Empanadillas japonesas al vapor y doradas (5 piezas)', 'CAT-02'),
+('PROD-14', 'Udon de Res', 'N', 155.00, 'Caldo dashi, fideos gruesos udon, láminas de res', 'Sopa tradicional de fideos gruesos calientes', 'CAT-02'),
+('PROD-15', 'Taiyaki de Anko', 'N', 45.00, 'Masa de waffle, pasta de frijol dulce azuki', 'Pastel tradicional con forma de pez', 'CAT-03'),
+('PROD-16', 'Calpis de Mango', 'N', 45.00, 'Agua, concentrado de Calpico, pulpa de mango, hielo', 'Bebida láctica refrescante sabor mango', 'CAT-01');
 
--- Tabla Cliente
+--Tabla Cliente
 INSERT INTO CLIENTE (rfc_cliente, email, nombre_cl, apellido_paterno_cl, apellido_materno_cl, razon_social, fecha_nacimiento_cl, estado_cl, codigo_postal_cl, colonia_cl, calle_cl, numero_cl) VALUES
 ('XAXX010101000', 'publico@general.com', 'Público', 'General', NULL, 'Público General', NULL, NULL, NULL, NULL, NULL, NULL),
 ('GOMA850315HJK', 'ana.gomez@mail.com', 'Ana', 'Gómez', 'Martínez', NULL, '1985-03-15', 'CDMX', 04360, 'Pedregal de Sto Domingo', 'Copilco', '45'),
@@ -123,30 +135,35 @@ INSERT INTO CLIENTE (rfc_cliente, email, nombre_cl, apellido_paterno_cl, apellid
 ('BAEP950125AA9', 'patricia.baez@mail.com', 'Patricia', 'Báez', 'Peña', 'Consultoría Báez SC', '1995-01-25', 'CDMX', 04510, 'Copilco Universidad', 'Edzná', '4'),
 ('Cajg020614XYZ', 'gabriel.castro@mail.com', 'Gabriel', 'Castro', 'Jiménez', NULL, '2002-06-14', 'EdoMex', 54000, 'Centro', 'Zaragoza', '404'),
 ('DIAM910909LL2', 'monica.diaz@mail.com', 'Mónica', 'Díaz', 'Vargas', NULL, '1991-09-09', 'CDMX', 01000, 'San Ángel', 'Frontera', '11'),
-('ESCO840520MN6', 'oscar.escalante@mail.com', 'Óscar', 'Escalante', 'Tello', 'Sistemas Escalante SA', '1984-05-20', 'CDMX', 03100, 'Del Valle', 'Gabriel Mancera', '512');
+('ESCO840520MN6', 'oscar.escalante@mail.com', 'Óscar', 'Escalante', 'Tello', 'Sistemas Escalante SA', '1984-05-20', 'CDMX', 03100, 'Del Valle', 'Gabriel Mancera', '512'),
+('HEFA010520XYZ', 'alan.hernandez@mail.com', 'Alan Uziel', 'Hernández', 'Flores', NULL, '2001-05-20', 'CDMX', 01000, 'San Ángel', 'La Paz', '14'),
+('BELV900812JK2', 'victor.brena@mail.com', 'Víctor Javier', 'Brena', 'de León', 'Brena Enterprise', '1990-08-12', 'EdoMex', 53000, 'Satélite', 'Circuito Pintores', '77');
 
--- Tabla Orden
-INSERT INTO ORDEN (folio, fecha_hora, total_pagar, rfc_cliente, numero_empleado) VALUES
-('ORD-001', '2026-05-01 12:30:00', 335.00, 'GOMA850315HJK', 1000000004),
-('ORD-002', '2026-05-03 15:45:00', 45.00,  'XAXX010101000', 1000000004),
-('ORD-003', '2026-05-06 19:20:00', 198.00, 'RODR921020XYZ', 1000000005),
-('ORD-004', '2026-05-10 14:10:00', 235.00, 'HELM990105ABC', 1000000005),
-('ORD-005', '2026-05-12 13:15:00', 135.00, 'PERF900712UVW', 1000000006),
-('ORD-006', '2026-05-15 21:00:00', 300.00, 'SANL960824TR1', 1000000006),
-('ORD-007', '2026-05-18 16:35:00', 170.00, 'TORJ881130MN4', 1000000007),
-('ORD-008', '2026-05-22 11:50:00', 200.00, 'RAME930514LL9', 1000000007),
-('ORD-009', '2026-05-25 18:25:00', 98.00,  'CAST820402KLO', 1000000004),
-('ORD-010', '2026-05-28 14:40:00', 225.00, 'VALS011218AA3', 1000000005),
-('ORD-011', '2026-05-05 14:20:00', 125.00, 'ALMM871102JK3', 1000000012),
-('ORD-012', '2026-05-08 20:15:00', 290.00, 'BAEP950125AA9', 1000000013),
-('ORD-013', '2026-05-11 13:40:00', 45.00,  'XAXX010101000', 1000000012),
-('ORD-014', '2026-05-14 19:10:00', 440.00, 'Cajg020614XYZ', 1000000013),
-('ORD-015', '2026-05-17 15:30:00', 135.00, 'DIAM910909LL2', 1000000016),
-('ORD-016', '2026-05-20 21:45:00', 190.00, 'ESCO840520MN6', 1000000016),
-('ORD-017', '2026-05-22 14:00:00', 280.00, 'GOMA850315HJK', 1000000004),
-('ORD-018', '2026-05-24 16:22:00', 96.00,  'RODR921020XYZ', 1000000012),
-('ORD-019', '2026-05-26 20:10:00', 225.00, 'XAXX010101000', 1000000013),
-('ORD-020', '2026-05-28 11:15:00', 375.00, 'HELM990105ABC', 1000000016);
+--Tabla Orden
+INSERT INTO ORDEN (fecha_hora, total_pagar, rfc_cliente, numero_empleado) VALUES
+('2026-05-01 12:30:00', 335.00, 'GOMA850315HJK', 1000000004),
+('2026-05-03 15:45:00', 45.00,  'XAXX010101000', 1000000004),
+('2026-05-06 19:20:00', 198.00, 'RODR921020XYZ', 1000000005),
+('2026-05-10 14:10:00', 235.00, 'HELM990105ABC', 1000000005),
+('2026-05-12 13:15:00', 135.00, 'PERF900712UVW', 1000000006),
+('2026-05-15 21:00:00', 300.00, 'SANL960824TR1', 1000000006),
+('2026-05-18 16:35:00', 170.00, 'TORJ881130MN4', 1000000007),
+('2026-05-22 11:50:00', 200.00, 'RAME930514LL9', 1000000007),
+('2026-05-25 18:25:00', 98.00,  'CAST820402KLO', 1000000004),
+('2026-05-28 14:40:00', 225.00, 'VALS011218AA3', 1000000005),
+('2026-05-05 14:20:00', 125.00, 'ALMM871102JK3', 1000000012),
+('2026-05-08 20:15:00', 290.00, 'BAEP950125AA9', 1000000013),
+('2026-05-11 13:40:00', 45.00,  'XAXX010101000', 1000000012),
+('2026-05-14 19:10:00', 440.00, 'Cajg020614XYZ', 1000000013),
+('2026-05-17 15:30:00', 135.00, 'DIAM910909LL2', 1000000016),
+('2026-05-20 21:45:00', 190.00, 'ESCO840520MN6', 1000000016),
+('2026-05-22 14:00:00', 280.00, 'GOMA850315HJK', 1000000004),
+('2026-05-24 16:22:00', 96.00,  'RODR921020XYZ', 1000000012),
+('2026-05-26 20:10:00', 225.00, 'XAXX010101000', 1000000013),
+('2026-05-28 11:15:00', 375.00, 'HELM990105ABC', 1000000016),
+('2026-05-29 09:15:00', 185.00, 'HEFA010520XYZ', 1000000018),
+('2026-05-29 11:30:00', 280.00, 'BELV900812JK2', 1000000018),
+('2026-04-15 14:00:00', 700.00, 'BELV900812JK2', 1000000004);
 
 --Tabla Orden_Producto
 INSERT INTO ORDEN_PRODUCTO (folio, id_producto, total_por_producto, cantidad_producto) VALUES
@@ -175,4 +192,8 @@ INSERT INTO ORDEN_PRODUCTO (folio, id_producto, total_por_producto, cantidad_pro
 ('ORD-019', 'PROD-05', 150.00, 1),
 ('ORD-019', 'PROD-09', 75.00,  1),
 ('ORD-020', 'PROD-02', 280.00, 2),
-('ORD-020', 'PROD-04', 95.00,  1);
+('ORD-020', 'PROD-04', 95.00,  1),
+('ORD-021', 'PROD-02', 140.00, 1),
+('ORD-021', 'PROD-01', 45.00,  1),
+('ORD-022', 'PROD-02', 280.00, 2),
+('ORD-023', 'PROD-02', 700.00, 5);

@@ -1,10 +1,12 @@
 /* 
-    Código de la creación de la base de datos y tablas
-    Fecha: 26/05/2026   
+Código de la creación de la base de datos y tablas
+Fecha: 26/05/2026   
 */
 
+--Creación de base de datos
+--CREATE DATABASE restauranteLosInsanos;
 
--- Tabla Empleado
+--Tabla Empleado
 CREATE TABLE EMPLEADO(
     numero_empleado         numeric(10, 0)    NOT NULL,
     rfc_emp                 varchar(13)       NOT NULL,
@@ -26,7 +28,7 @@ CREATE TABLE EMPLEADO(
     CONSTRAINT PK1 PRIMARY KEY (numero_empleado)
 );
 
--- Tabla Empleado_Telefono
+--Tabla Empleado_Telefono
 CREATE TABLE EMPLEADO_TELEFONO(
     id_telefono        varchar(10)       NOT NULL,
     telefono           varchar(12)       NOT NULL,
@@ -34,17 +36,18 @@ CREATE TABLE EMPLEADO_TELEFONO(
     CONSTRAINT PK2 PRIMARY KEY (id_telefono)
 );
 
--- Tabla Dependiente
+--Tabla Dependiente
 CREATE TABLE DEPENDIENTE(
+    id_dependiente          varchar(10)       NOT NULL,
     curp                    varchar(16)       NOT NULL,
     numero_empleado         numeric(10, 0)    NOT NULL,
     nombre_dep              varchar(30)       NOT NULL,
     apellido_paterno_dep    varchar(30)       NOT NULL,
     apellido_materno_dep    varchar(30)       NULL,
-    CONSTRAINT PK3 PRIMARY KEY (curp, numero_empleado)
+    CONSTRAINT PK3 PRIMARY KEY (id_dependiente, numero_empleado)
 );
 
--- Tabla Cocinero
+--Tabla Cocinero
 CREATE TABLE COCINERO(
     numero_empleado    numeric(10, 0)    NOT NULL,
     especialidad       varchar(30)       NOT NULL,
@@ -58,14 +61,14 @@ CREATE TABLE ADMINISTRATIVO(
     CONSTRAINT PK5 PRIMARY KEY (numero_empleado)
 );
 
--- Tabla Mesero
+--Tabla Mesero
 CREATE TABLE MESERO(
     numero_empleado    numeric(10, 0)    NOT NULL,
     turno              varchar(20)       NOT NULL,
     CONSTRAINT PK6 PRIMARY KEY (numero_empleado)
 );
 
--- Tabla Categoria
+--Tabla Categoria
 CREATE TABLE CATEGORIA(
     id_categoria             varchar(10)    NOT NULL,
     nombre_categoria         varchar(30)    NOT NULL,
@@ -73,7 +76,7 @@ CREATE TABLE CATEGORIA(
     CONSTRAINT PK7 PRIMARY KEY (id_categoria)
 );
 
--- Tabla Producto
+--Tabla Producto
 CREATE TABLE PRODUCTO(
     id_producto             varchar(10)      NOT NULL,
     nombre_producto         varchar(40)      NOT NULL,
@@ -85,7 +88,7 @@ CREATE TABLE PRODUCTO(
     CONSTRAINT PK8 PRIMARY KEY (id_producto)
 );
 
--- Tabla Cliente
+--Tabla Cliente
 CREATE TABLE CLIENTE(
     rfc_cliente            varchar(13)      NOT NULL,
     email                  varchar(100)     NOT NULL,
@@ -102,9 +105,9 @@ CREATE TABLE CLIENTE(
     CONSTRAINT PK9 PRIMARY KEY (rfc_cliente)
 );
 
--- Tabla Orden
+--Tabla Orden
 CREATE TABLE ORDEN(
-    folio              varchar(7)        NOT NULL,
+    folio              varchar(20)        NOT NULL,
     fecha_hora         timestamp         NOT NULL,
     total_pagar        numeric(8, 2)     NOT NULL,
     rfc_cliente        varchar(13)       NULL,
@@ -114,7 +117,7 @@ CREATE TABLE ORDEN(
 
 --Tabla Orden_Producto
 CREATE TABLE ORDEN_PRODUCTO(
-    folio                 varchar(7)       NOT NULL,
+    folio                 varchar(20)       NOT NULL,
     id_producto           varchar(10)      NOT NULL,
     total_por_producto    numeric(8, 2)    NOT NULL,
     cantidad_producto     numeric(2, 0)    NOT NULL,
@@ -122,25 +125,36 @@ CREATE TABLE ORDEN_PRODUCTO(
 );
 
 /*
-    Constraints FKs
+ Constraints
 */
 
--- Tabla Empleado Telefono
+--Tabla Empleado
+ALTER TABLE EMPLEADO
+ADD CONSTRAINT UQ_empleado_rfc UNIQUE (rfc_emp);
+
+--Tabla Empleado Telefono
 ALTER TABLE EMPLEADO_TELEFONO ADD CONSTRAINT FK_Empleado_Telefono 
     FOREIGN KEY (numero_empleado)
     REFERENCES EMPLEADO(numero_empleado);
 
--- Tabla Dependiente
+--Tabla Dependiente
 ALTER TABLE DEPENDIENTE ADD CONSTRAINT FK_Dependiente_Empleado 
     FOREIGN KEY (numero_empleado)
     REFERENCES EMPLEADO(numero_empleado);
 
--- Tabla Cocinero
+ALTER TABLE DEPENDIENTE
+ADD CONSTRAINT UQ_curp_dependiente UNIQUE (curp);
+
+CREATE SEQUENCE seq_id_dependiente START WITH 1;
+ALTER TABLE DEPENDIENTE 
+ALTER COLUMN id_dependiente SET DEFAULT ('DEP' || LPAD(NEXTVAL('seq_id_dependiente')::TEXT, 2, '0'));
+
+--Tabla Cocinero
 ALTER TABLE COCINERO ADD CONSTRAINT FK_Cocinero_Empleado 
     FOREIGN KEY (numero_empleado)
     REFERENCES EMPLEADO(numero_empleado);
 
--- Tabla Administrativo
+--Tabla Administrativo
 ALTER TABLE ADMINISTRATIVO ADD CONSTRAINT FK_Administrativo_Empleado 
     FOREIGN KEY (numero_empleado)
     REFERENCES EMPLEADO(numero_empleado);
@@ -150,10 +164,14 @@ ALTER TABLE MESERO ADD CONSTRAINT FK_Mesero_Empleado
     FOREIGN KEY (numero_empleado)
     REFERENCES EMPLEADO(numero_empleado);
 
--- Tabla Producto
+--Tabla Producto
 ALTER TABLE PRODUCTO ADD CONSTRAINT FK_Producto_Categoria 
     FOREIGN KEY (id_categoria)
     REFERENCES CATEGORIA(id_categoria);
+
+--Tabla Cliente
+ALTER TABLE CLIENTE
+ADD CONSTRAINT UQ_cliente_email UNIQUE (email);
 
 --Tabla Orden
 ALTER TABLE ORDEN ADD CONSTRAINT FK_Orden_Cliente 
@@ -164,7 +182,13 @@ ALTER TABLE ORDEN ADD CONSTRAINT FK_Orden_Mesero
     FOREIGN KEY (numero_empleado)
     REFERENCES MESERO(numero_empleado);
 
--- Tabla Orden_Producto
+ALTER TABLE ORDEN ALTER COLUMN total_pagar SET DEFAULT 0;
+
+CREATE SEQUENCE seq_folio_orden START WITH 1;
+ALTER TABLE ORDEN 
+ALTER COLUMN folio SET DEFAULT ('ORD-' || LPAD(NEXTVAL('seq_folio_orden')::TEXT, 3, '0'));
+
+--Tabla Orden_Producto
 ALTER TABLE ORDEN_PRODUCTO ADD CONSTRAINT FK_Orden_Producto__Orden 
     FOREIGN KEY (folio)
     REFERENCES ORDEN(folio);
@@ -172,3 +196,5 @@ ALTER TABLE ORDEN_PRODUCTO ADD CONSTRAINT FK_Orden_Producto__Orden
 ALTER TABLE ORDEN_PRODUCTO ADD CONSTRAINT FK_Orden_Producto__Producto 
     FOREIGN KEY (id_producto)
     REFERENCES PRODUCTO(id_producto);
+
+
