@@ -1,0 +1,5 @@
+num_empleado|horario
+EMP-001|Lunes a Viernes 08:00-16:00
+EMP-002|Lunes a Sabado 14:00-22:00
+EMP-006|Martes a Domingo 12:00-20:00
+EMP-010|Lunes a Viernes 10:00-18:00

@@ -1,0 +1,10 @@
+\i /tmp/proyecto_bd/s-02-ddl.sql
+\i /tmp/proyecto_bd/s-01-usuarios.sql
+\i /tmp/proyecto_bd/s-03-sql.sql
+\i /tmp/proyecto_bd/s-04-pgsql.sql
+\i /tmp/proyecto_bd/s-05-cargainicial.sql
+\i /tmp/proyecto_bd/s-09-trigger-actualizacion-fechas.sql
+\i /tmp/proyecto_bd/sbd2-01-usuario.sql
+\i /tmp/proyecto_bd/sbd2-02-ddl.sql
+\i /tmp/proyecto_bd/sbd2-03-sql.sql
+\i /tmp/proyecto_bd/sbd2-04-pgsql.sql

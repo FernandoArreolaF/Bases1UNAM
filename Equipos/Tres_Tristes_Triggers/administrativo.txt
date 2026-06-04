@@ -1,0 +1,3 @@
+num_empleado|rol
+EMP-004|Gerente General
+EMP-008|Contador

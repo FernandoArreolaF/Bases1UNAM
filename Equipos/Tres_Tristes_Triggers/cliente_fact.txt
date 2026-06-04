@@ -1,0 +1,6 @@
+rfc|nombre_cliente|apellido_paterno|apellido_materno|fecha_nacimiento|email|estado|codigo_postal|colonia|numero|calle|razon_social
+GOPE800101AAA|Jorge|Gonzalez|Perez|1980-01-01|jorge@empresa.com|CDMX|06600|Juarez|10|Reforma|Consultoria Gonzalez SA de CV
+GUMA920310EEE|Guadalupe|Martinez|Aguirre|1992-03-10|gupe@corp.mx|Jalisco|44200|Moderna|8|Federalismo|Grupo Martinez Aguirre SC
+MARM750615BBB|Mariana|Martinez|Rios|1975-06-15|mariana@corp.mx|Jalisco|44100|Centro|5|Independencia|Grupo Martinez SRL
+ROPE850101DDD|Roberto|Perez|Estrada|1985-01-01|roberto@biz.mx|CDMX|06600|Centro|55|Madero|Perez y Asociados SA de CV
+SALO900920CCC|Alejandro|Salinas|Ortega|1990-09-20|asalinas@negocio.mx|Nuevo Leon|64000|Obispado|88|Hidalgo|Inversiones Salinas SC

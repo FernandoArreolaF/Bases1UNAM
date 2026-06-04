@@ -1,0 +1,9 @@
+dependiente_id|num_empleado|nombre|ap_paterno|ap_materno|curp|parentesco
+7|EMP-001|Laura|Garcia|Lopez|GALL920301MDFRZR01|Conyuge
+8|EMP-001|Diego|Garcia|Lopez|GALD150610HDFRZG02|Hijo
+9|EMP-002|Pedro|Hernandez|Ruiz|HERP800520HDFRNR03|Conyuge
+10|EMP-003|Elena|Martinez|Soto|MASE010101MDFRTL04|Hija
+11|EMP-004|Ricardo|Ramirez|Flores|RAFR600715HDFMZC05|Padre
+12|EMP-007|Carmen|Vargas|Nunez|VANC650310MDFRGM06|Madre
+13|EMP-009|Rosa|Sanchez|Reyes|SARR900101MDFNYS07|Conyuge
+14|EMP-010|Marco|Flores|Mendez|FOMM180215HDFNRS08|Hijo

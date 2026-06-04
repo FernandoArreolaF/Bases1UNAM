@@ -1,0 +1,5 @@
+num_empleado|especialidad
+EMP-003|Cocina mexicana tradicional
+EMP-005|Reposteria y postres
+EMP-007|Parrilla y carnes
+EMP-009|Sopas y mariscos

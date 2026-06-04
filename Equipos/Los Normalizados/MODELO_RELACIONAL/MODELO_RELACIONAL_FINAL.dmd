@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="VModelo_relacionalVer2" id="B4EC368D-A109-049D-6BC8-4E7F8F92E03E" version="3.5">
+<createdBy>Kikaa</createdBy>
+<createdTime>2026-05-30 23:51:07 UTC</createdTime>
+<ownerDesignName>VModelo_relacionalVer2</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>B4EC368D-A109-049D-6BC8-4E7F8F92E03E</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="6F0AFF31-4483-18A5-F80F-941C93D0FA1E">
+<designStoragePath>C:\RestauranteVer1</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>
