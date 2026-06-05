@@ -1,0 +1,8 @@
+Equipo: ACIDitos
+Grupo: 1 Bases de Datos
+
+Integrantes:
+- Cruz Ortega Mauricio
+- Gomez Domingo José Antonio
+- Hernández Muciño Angel Gabriel
+- Mugartegui Vaca Ricardo

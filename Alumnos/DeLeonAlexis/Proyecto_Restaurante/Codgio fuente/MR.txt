@@ -1,0 +1,128 @@
+Diagrama MR 
+
+Creado en Dbdiagram.io
+
+// De Leon Lopez Alexis | Bases De Datos Gpo. 1
+// Base de Datos: Restaurante 
+
+// EMPLEADOS Y ESPECIALIZACIÓN PARA LOS PUESTOS
+
+Table empleado {
+  num_empleado integer [primary key]
+  rfc varchar(13) [unique, not null]
+  nombre_pila varchar(50) [not null]
+  apPat varchar(50) [not null]
+  apMat varchar(50) [not null]
+  fechaNac date [not null]
+  edad int [not null, note: 'Atributo calculado restando la fecha del sistema menos fechaNac']
+  sueldo numeric(10,2) [not null]
+  foto text
+  estado varchar(50) [not null]
+  codigoPostal varchar(5) [not null]
+  colonia varchar(50) [not null]
+  calle varchar(20) [not null]
+  numero int(5) [not null]
+}
+
+Table empleado_telefono{
+  num_empleado integer [primary key]
+  telefono varchar(10) [primary key, not null]
+}
+
+Table mesero {
+  num_empleado integer [primary key, note: 'PK y FK hacia empleado']
+  horario varchar(20) [not null, note: 'Matutino, Vespertino, Nocturno']
+}
+
+Table cocinero {
+  num_empleado integer [primary key, note: 'PK y FK hacia empleado']
+  especialidad varchar(50) [note: 'Salsas, Repostería, Parrilla']
+}
+
+Table administrativo {
+  num_empleado integer [primary key, note: 'PK y FK hacia empleado']
+  rol varchar(50)
+}
+
+Table dependiente {
+  curp varchar(18) [primary key]
+  num_empleado integer [primary key, note: 'PK combinada y FK hacia empleado']
+  nombre_pila varchar(50) [not null]
+  apPat varchar(50) [not null]
+  apMat varchar(50) [not null]
+  parentesco varchar(30) [not null]
+}
+
+
+// 2. MÓDULO DE CLIENTES Y PRODUCTOS
+
+Table factura {
+  rfc_cliente varchar(13) [primary key]
+  razon_social varchar(100) [not null]
+  email varchar(100) 
+  fechaNac date
+  nombre_pila varchar(50)
+  apPat varchar(50)
+  apMat varchar(50)
+  estado varchar(50) [not null]
+  codigoPostal varchar(5) [not null]
+  colonia varchar(50) [not null]
+  calle varchar(20) [not null]
+  numero int(5) [not null]
+}
+
+Table producto {
+  id_producto integer [primary key]
+  nombre varchar(100) [not null]
+  descripcion text [not null]
+  receta text [not null]
+  precio numeric(10,2) [not null]
+  disponibilidad boolean [default: true]
+  id_categoria integer [not null, note: 'FK de categoria']
+}
+
+Table categoria {
+  id_categoria integer [primary key]
+  nombre varchar(50) [not null]
+  descripcion varchar(100) [not null]
+}
+
+
+// 3. MÓDULO DE VENTAS (ÓRDENES Y DETALLES)
+
+Table orden {
+  folio varchar [primary key, note: 'Secuencia formato ORD-###']
+  fecha timestamp [default: `current_timestamp`]
+  montoTotal numeric(10,2) [default: 0.00, note: 'Atributo calculado mediante la suma del total de cada producto que tenga la orden']
+  num_empleado integer [not null, note: 'FK de mesero']
+  rfc_cliente varchar(13) [not null, note: 'FK de factura'] 
+}
+
+Table producto_orden {
+  folio varchar [primary key]
+  id_producto integer [primary key]
+  cantidad integer [not null]
+  precio_totalProducto numeric(10,2) [default: 0.00, note:'Atributo calculado mediante la cantidad del producto por su precio']
+}
+
+
+// 4. DEFINICIÓN DE RELACIONES E INTEGRIDAD (LLAVES FORÁNEAS)
+
+// Relaciones de Especialización (Jerarquía 1 a 1)
+Ref: empleado.num_empleado - mesero.num_empleado
+Ref: empleado.num_empleado - cocinero.num_empleado
+Ref: empleado.num_empleado - administrativo.num_empleado
+
+// Relación de Entidad Débil
+Ref: empleado.num_empleado < dependiente.num_empleado
+
+// Relaciones 1:N
+Ref: mesero.num_empleado < orden.num_empleado
+
+Ref: factura.rfc_cliente < orden.rfc_cliente
+Ref: orden.folio < producto_orden.folio
+Ref: producto.id_producto < producto_orden.id_producto
+Ref: categoria.id_categoria < producto.id_categoria
+
+//Atributo multivaluado
+Ref: empleado.num_empleado < empleado_telefono.num_empleado

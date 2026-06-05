@@ -1,0 +1,11 @@
+num_empleado|nombre_pila|apellido_paterno|apellido_materno|rfc|fecha_nacimiento|edad|sueldo|estado|codigo_postal|colonia|calle|numero
+EMP-001|Juan|Garcia|Lopez|GALJ900101ABC|1990-01-01|34|8000.00|CDMX|06600|Juarez|Reforma|100
+EMP-002|Maria|Hernandez|Ruiz|HERM850315XYZ|1985-03-15|39|9500.00|CDMX|06700|Roma Norte|Alvaro Obregon|45
+EMP-003|Carlos|Martinez|Soto|MASC920720DEF|1992-07-20|31|7500.00|CDMX|03100|Narvarte|Insurgentes Sur|200
+EMP-004|Ana|Ramirez|Flores|RAFA881210GHI|1988-12-10|35|11000.00|CDMX|11800|Polanco|Masaryk|12
+EMP-005|Luis|Torres|Mendoza|TOML950505JKL|1995-05-05|29|7200.00|CDMX|54000|Centro|Juarez|88
+EMP-006|Sofia|Jimenez|Castro|JICS980830MNO|1998-08-30|25|7200.00|CDMX|09000|Iztapalapa|Ermita|330
+EMP-007|Roberto|Vargas|Nunez|VANR870422PQR|1987-04-22|37|8800.00|CDMX|06400|Doctores|Ninos Heroes|56
+EMP-008|Patricia|Morales|Vega|MOVP910615STU|1991-06-15|32|10500.00|CDMX|11000|Santa Fe|Vasco de Quiroga|99
+EMP-009|Pedro|Sanchez|Reyes|SARP880312VWX|1988-03-12|36|8500.00|CDMX|06800|Tabacalera|Puente Alvarado|22
+EMP-010|Lucia|Flores|Mendez|FOML930725YZA|1993-07-25|31|7800.00|CDMX|06900|Santa Maria|Sullivan|15
